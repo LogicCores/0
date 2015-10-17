@@ -17,6 +17,7 @@ function init {
 	function Start {
 		BO_format "$VERBOSE" "HEADER" "Starting system"
 
+
 		export ENVIRONMENT_TYPE="production"
 
 		if [ -z "$PLATFORM_NAME" ]; then
@@ -35,6 +36,10 @@ function init {
 			echo "ERROR: 'PIO_PROFILE_SECRET' environment variable not set!"
 			exit 1
 		fi
+		if [ -z "$Z0_ROOT" ]; then
+			echo "ERROR: 'Z0_ROOT' environment variable not set!"
+			exit 1
+		fi
 
 		NODEJS_VERSION="4"
 		BO_log "$VERBOSE" "Activating NodeJS version '$NODEJS_VERSION' ..."
@@ -43,11 +48,11 @@ function init {
 	    	nvm install $NODEJS_VERSION
 		fi
 
-		pushd "$__BO_DIR__/.." > /dev/null
+		BO_log "$VERBOSE" "PWD: $PWD"
+		BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
 
-			node server.js
+		node "$Z0_ROOT/server.js"
 
-		popd > /dev/null
 
 		BO_format "$VERBOSE" "FOOTER"
 	}

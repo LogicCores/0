@@ -10,19 +10,19 @@ fi
 WORKSPACE_DIR="$PWD"
 
 
-pushd "$WORKSPACE_DIR" > /dev/null
-	if [ -f ".gitmodules" ]; then
-		if [ ! -f ".gitmodules.initialized" ]; then
-			echo "Init submodules ..."
-			git submodule update --init --recursive --rebase
-			touch ".gitmodules.initialized"
-		fi
+BO_log "$VERBOSE" "PWD: $PWD"
+
+if [ -f ".gitmodules" ]; then
+	if [ ! -f ".gitmodules.initialized" ]; then
+		echo "Init submodules ..."
+		git submodule update --init --recursive --rebase
+		touch ".gitmodules.initialized"
 	fi
+fi
 
+if [ -e "lib/bash.origin/bash.origin" ]; then
 	lib/bash.origin/bash.origin BO install
-
-popd > /dev/null
-
+fi
 
 # Source https://github.com/bash-origin/bash.origin
 . "$HOME/.bash.origin"
@@ -43,7 +43,10 @@ function init {
 
 		# TODO: Install declared and used dependencies by scanning source
 
-		pushd "$__BO_DIR__/../Library" > /dev/null
+		BO_log "$VERBOSE" "PWD: $PWD"
+
+
+		pushd "$Z0_ROOT/Library" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 				pushd "node_modules/node-forge" > /dev/null
@@ -56,229 +59,229 @@ function init {
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../Polyfills" > /dev/null
+		pushd "$Z0_ROOT/Polyfills" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/auth/for/passport" > /dev/null
+		pushd "$Z0_ROOT/cores/auth/for/passport" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/responder/for/express" > /dev/null
+		pushd "$Z0_ROOT/cores/responder/for/express" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/session/for/express.fs" > /dev/null
+		pushd "$Z0_ROOT/cores/session/for/express.fs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/invite/for/cookie" > /dev/null
+		pushd "$Z0_ROOT/cores/invite/for/cookie" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/edit/for/c9" > /dev/null
+		pushd "$Z0_ROOT/cores/edit/for/c9" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/static/for/send" > /dev/null
+		pushd "$Z0_ROOT/cores/static/for/send" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/proxy/for/smi.cache" > /dev/null
+		pushd "$Z0_ROOT/cores/proxy/for/smi.cache" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/skin/for/semantic-ui" > /dev/null
+		pushd "$Z0_ROOT/cores/skin/for/semantic-ui" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/skin/for/sm.hoist.VisualComponents" > /dev/null
+		pushd "$Z0_ROOT/cores/skin/for/sm.hoist.VisualComponents" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/data/for/knexjs" > /dev/null
+		pushd "$Z0_ROOT/cores/data/for/knexjs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/data/for/bookshelf" > /dev/null
+		pushd "$Z0_ROOT/cores/data/for/bookshelf" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/data/for/nedb" > /dev/null
+		pushd "$Z0_ROOT/cores/data/for/nedb" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/babel" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/babel" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/bower" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/bower" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/sm.hoist.VisualComponents" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/sm.hoist.VisualComponents" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/browserify" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/browserify" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/webpack" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/webpack" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/export/for/defs" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/defs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/export/for/webpack" > /dev/null
+		pushd "$Z0_ROOT/cores/export/for/webpack" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/boundary/for/github" > /dev/null
+		pushd "$Z0_ROOT/cores/boundary/for/github" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/template/for/virtual-dom" > /dev/null
+		pushd "$Z0_ROOT/cores/template/for/virtual-dom" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/test/for/intern" > /dev/null
+		pushd "$Z0_ROOT/cores/test/for/intern" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../cores/page/for/page" > /dev/null
+		pushd "$Z0_ROOT/cores/page/for/page" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/page/for/firewidgets" > /dev/null
+		pushd "$Z0_ROOT/cores/page/for/firewidgets" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/load/for/systemjs" > /dev/null
+		pushd "$Z0_ROOT/cores/load/for/systemjs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/load/for/requirejs" > /dev/null
+		pushd "$Z0_ROOT/cores/load/for/requirejs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../cores/transform/for/marked" > /dev/null
+		pushd "$Z0_ROOT/cores/transform/for/marked" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../lib/smi.cache" > /dev/null
+		pushd "$Z0_ROOT/lib/smi.cache" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../lib/sm.hoist.VisualComponents" > /dev/null
+		pushd "$Z0_ROOT/lib/sm.hoist.VisualComponents" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../lib/ccjson" > /dev/null
+		pushd "$Z0_ROOT/lib/ccjson" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../lib/cvdom" > /dev/null
+		pushd "$Z0_ROOT/lib/cvdom" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 	
-		pushd "$__BO_DIR__/../lib/pio.profile" > /dev/null
+		pushd "$Z0_ROOT/lib/pio.profile" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../lib/html2chscript" > /dev/null
+		pushd "$Z0_ROOT/lib/html2chscript" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../lib/marked" > /dev/null
+		pushd "$Z0_ROOT/lib/marked" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../lib/smi.0" > /dev/null
+		pushd "$Z0_ROOT/lib/smi.0" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		pushd "$__BO_DIR__/../lib/html2chscript-for-webpack" > /dev/null
+		pushd "$Z0_ROOT/lib/html2chscript-for-webpack" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
-		"$__BO_DIR__/../lib/pio.profile/bin/install-pre-commit-hook" \
+		"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
 			"$__BO_DIR__/pre-commit.sh"
 
 		BO_format "$VERBOSE" "FOOTER"
@@ -295,9 +298,9 @@ function init {
 	Install $@
 
 	# TODO: Run install scripts based on declared stacks instead of hardcoding here
-    BO_sourcePrototype "$__BO_DIR__/../0.FireWidgets/scripts/install.sh"
+    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
 	Install $@
-    BO_sourcePrototype "$__BO_DIR__/../0.stack.test/scripts/install.sh"
+    BO_sourcePrototype "$Z0_ROOT/0.stack.test/scripts/install.sh"
 	Install $@
 
 }

@@ -13,9 +13,12 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
+	BO_log "$VERBOSE" "PWD: $PWD"
+
+
 	# TODO: Use 'ccjson-for-bash' to get config variables.
 
-	GIT_CACHE_DIR="$__BO_DIR__/../.cache/git"
+	GIT_CACHE_DIR="$Z0_ROOT/.cache/git"
 	if [ ! -e "$GIT_CACHE_DIR" ]; then
 		mkdir "$GIT_CACHE_DIR"
 	fi
@@ -33,11 +36,11 @@ function init {
 
 
 	# TODO: Support other editors
-    BO_sourcePrototype "$__BO_DIR__/../cores/edit/for/c9/edit.proto.sh"
+    BO_sourcePrototype "$Z0_ROOT/cores/edit/for/c9/edit.proto.sh"
 
 
-	"$__BO_DIR__/../0.devcomp.genesis/Plugins/io.c9/0.devcomp-for-cloud9/build.sh"
-	ensurePlugin "0.devcomp-for-cloud9" "$__BO_DIR__/../0.devcomp.genesis/Plugins/io.c9/0.devcomp-for-cloud9"
+	"$Z0_ROOT/0.devcomp.genesis/Plugins/io.c9/0.devcomp-for-cloud9/build.sh"
+	ensurePlugin "0.devcomp-for-cloud9" "$Z0_ROOT/0.devcomp.genesis/Plugins/io.c9/0.devcomp-for-cloud9"
 	# TODO: Get URL and invite token from config.
 	ensurePluginSetting "0.devcomp-panel-left" "@url" "http://127.0.0.1:8090/0/dev-73EFF412-420F-4906-8BF5-EA0D842B86AC/Panels/IDE-Left?invite=E4AA8653-9AFD-41E3-A543-9D3B961E87EF"
 	ensurePluginSetting "0.devcomp-panel-right" "@url" "http://127.0.0.1:8090/0/dev-73EFF412-420F-4906-8BF5-EA0D842B86AC/Panels/IDE-Right?invite=E4AA8653-9AFD-41E3-A543-9D3B961E87EF"

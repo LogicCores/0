@@ -51,6 +51,8 @@ LIB.Promise.try(function () {
     var BOOT_CONFIG_PATH = process.env.BOOT_CONFIG_PATH || LIB.path.join(__dirname, "PINF.Genesis.ccjson");
     process.env.BOOT_CONFIG_PATH = BOOT_CONFIG_PATH;
 
+
+    LIB.assert.equal(typeof process.env.Z0_ROOT, "string", "'Z0_ROOT' environment variable not set!");
     LIB.assert.equal(typeof process.env.PLATFORM_NAME, "string", "'PLATFORM_NAME' environment variable not set!");
     LIB.assert.equal(typeof process.env.ENVIRONMENT_NAME, "string", "'ENVIRONMENT_NAME' environment variable not set!");
     LIB.assert.equal(typeof process.env.ENVIRONMENT_TYPE, "string", "'ENVIRONMENT_TYPE' environment variable not set!");

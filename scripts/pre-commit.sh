@@ -16,9 +16,11 @@ function init {
 	function PreCommit {
 		BO_format "$VERBOSE" "HEADER" "Running pre-commit ..."
 
-        "$__BO_DIR__/encrypt.sh"
+		BO_log "$VERBOSE" "PWD: $PWD"
 
-        "$__BO_DIR__/bundle.sh"
+        "encrypt.sh"
+
+        "bundle.sh"
 	    if [[ $(git diff --name-only smi.0.json 2> /dev/null | tail -n1) != "" ]]; then
 	        echo "ERROR: Aborting. 'smi.0.json' has uncommitted changes!"
 	        exit 1;

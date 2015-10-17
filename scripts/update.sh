@@ -16,22 +16,23 @@ function init {
 	function Update {
 		BO_format "$VERBOSE" "HEADER" "Updating system ..."
 
-		pushd "$__BO_DIR__/.." > /dev/null
 
-		    # Check if git dirty
-		    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
-		        echo "ERROR: Aborting. Your working directory contains uncommitted changes!"
-		        exit 1;
-	        fi
+		BO_log "$VERBOSE" "PWD: $PWD"
 
-		    # Pull from master
-		    git pull origin master
+	    # Check if git dirty
+	    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]]; then
+	        echo "ERROR: Aborting. Your working directory contains uncommitted changes!"
+	        exit 1;
+        fi
 
-		    # Update submodules
-			git submodule update --init --recursive --rebase
+	    # Pull from master
+	    git pull origin master
 
-		    # Remove all untracked files and directories.
-		    git clean -fd
+	    # Update submodules
+		git submodule update --init --recursive --rebase
+
+	    # Remove all untracked files and directories.
+	    git clean -fd
 
 # TODO: Enable checking out submodule branches based on user config
 #            # Checkout submodule branches
@@ -40,14 +41,13 @@ function init {
 #       We run it again to make sure the committs match.
 #			git submodule update --init --recursive --rebase
 
-		    # Install missing/changed dependencies
-            BO_sourcePrototype "$__BO_DIR__/install.sh"
-            ReInstall
+	    # Install missing/changed dependencies
+        BO_sourcePrototype "install.sh"
+        ReInstall
 
-            # TODO: Restart editor process if running
-            # TODO: Restart dev process if running
+        # TODO: Restart editor process if running
+        # TODO: Restart dev process if running
 
-		popd > /dev/null
 
 		BO_format "$VERBOSE" "FOOTER"
 	}

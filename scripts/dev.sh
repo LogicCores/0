@@ -16,9 +16,10 @@ function init {
 	function StartResponder {
 		BO_format "$VERBOSE" "HEADER" "Starting cores/responder"
 
-		pushd "$__BO_DIR__/.." > /dev/null
-			node .
-		popd > /dev/null
+		BO_log "$VERBOSE" "PWD: $PWD"
+		BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
+
+		node "$Z0_ROOT/server.js"
 
 		BO_format "$VERBOSE" "FOOTER"
 	}

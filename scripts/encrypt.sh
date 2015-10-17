@@ -16,7 +16,9 @@ function init {
     function Encrypt {
     	BO_format "$VERBOSE" "HEADER" "Encrypting System ..."
 
-        "$__BO_DIR__/../cores/profile/for/pio.profile/encrypt.sh"
+		BO_log "$VERBOSE" "PWD: $PWD"
+
+        "$Z0_ROOT/cores/profile/for/pio.profile/encrypt.sh"
 
     	BO_format "$VERBOSE" "FOOTER"
     }
