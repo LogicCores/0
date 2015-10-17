@@ -22,6 +22,11 @@ function init {
 		export PIO_PROFILE_SEED_PATH="$(dirname $WORKSPACE_DIR)/$(basename $WORKSPACE_DIR).profile.seed"
 		if [ -e "$PIO_PROFILE_SEED_PATH.sh" ]; then
 	        BO_sourcePrototype "$PIO_PROFILE_SEED_PATH.sh"
+	    else
+			export PIO_PROFILE_SEED_PATH="$(dirname $(dirname $WORKSPACE_DIR))/$(basename $(dirname $WORKSPACE_DIR)).profile.seed"
+			if [ -e "$PIO_PROFILE_SEED_PATH.sh" ]; then
+		        BO_sourcePrototype "$PIO_PROFILE_SEED_PATH.sh"
+			fi
 		fi
 	fi
 	# NOTE: We now have a sensitive 'PIO_PROFILE_SECRET' variable in the

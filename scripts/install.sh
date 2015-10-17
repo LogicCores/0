@@ -294,8 +294,9 @@ function init {
 
 	Install $@
 
-
 	# TODO: Run install scripts based on declared stacks instead of hardcoding here
+    BO_sourcePrototype "$__BO_DIR__/../0.FireWidgets/scripts/install.sh"
+	Install $@
     BO_sourcePrototype "$__BO_DIR__/../0.stack.test/scripts/install.sh"
 	Install $@
 
