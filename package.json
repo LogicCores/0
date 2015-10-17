@@ -1,0 +1,24 @@
+{
+  "name": "0",
+  "version": "0.0.0",
+  "main": "server.js",
+  "engines": {
+    "node": "^4.0.0"
+  },
+  "scripts": {
+    "install": "scripts/install.sh",
+    "test": "scripts/test.sh",
+    "edit": "scripts/edit.sh",
+    "dev": "scripts/dev.sh",
+    "update": "scripts/update.sh",
+    "encrypt": "scripts/encrypt.sh",
+    "bundle": "scripts/bundle.sh",
+    "publish": "scripts/publish.sh",
+    "deploy": "scripts/deploy.sh",
+    "start": "scripts/start.sh"
+  },
+  "dependencies": {
+    "sm.bump": "^0.1.2",
+    "sm.expand": "^0.1.17"
+  }
+}

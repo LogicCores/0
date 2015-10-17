@@ -1,0 +1,1431 @@
+{
+    "github.com~sourcemint~smi.0/config/0.1": {
+        "ignoreSubmodules": [
+            "/lib/zero.lib"
+        ],
+        "searchPaths": [
+            "/node_modules/*/package.json",
+            "/cores/*/package.json",
+            "/cores/*/node_modules/*/package.json",
+            "/cores/*/for/*/package.json",
+            "/cores/*/for/*/node_modules/*/package.json",
+            "/components/Library/*/package.json",
+            "/components/Library/*/node_modules/*/package.json",
+            "/components/Polyfills/*/package.json",
+            "/components/Polyfills/*/node_modules/*/package.json",
+            [
+                "/lib/*/package.json",
+                {
+                    "ignore": "/lib/zero.lib/*"
+                }
+            ],
+            [
+                "/lib/*/node_modules/*/package.json",
+                {
+                    "ignore": "/lib/zero.lib/*"
+                }
+            ]
+        ]
+    },
+    "github.com~sourcemint~smi.0/manifest/0.1": {
+        "packages": {
+            "/cores/auth": {
+                "latestVersion": "",
+                "name": "0-auth",
+                "version": "0.0.0"
+            },
+            "/cores/auth/for/passport": {
+                "latestVersion": "",
+                "name": "0-auth-for-passport",
+                "version": "0.0.0"
+            },
+            "/cores/auth/for/passport/node_modules/express": {
+                "latestVersion": "4.13.3",
+                "name": "express",
+                "version": "4.13.3"
+            },
+            "/cores/auth/for/passport/node_modules/express-session": {
+                "latestVersion": "1.11.3",
+                "name": "express-session",
+                "version": "1.11.3"
+            },
+            "/cores/auth/for/passport/node_modules/lodash": {
+                "latestVersion": "3.10.1",
+                "name": "lodash",
+                "version": "3.10.1"
+            },
+            "/cores/auth/for/passport/node_modules/passport": {
+                "latestVersion": "0.3.0",
+                "name": "passport",
+                "version": "0.3.0"
+            },
+            "/cores/auth/for/passport/node_modules/passport-github": {
+                "latestVersion": "1.0.0",
+                "name": "passport-github",
+                "version": "1.0.0"
+            },
+            "/cores/auth/for/passport/node_modules/session-file-store": {
+                "latestVersion": "0.0.21",
+                "name": "session-file-store",
+                "version": "0.0.18"
+            },
+            "/cores/auth/for/passport/node_modules/uuid": {
+                "latestVersion": "2.0.1",
+                "name": "uuid",
+                "version": "2.0.1"
+            },
+            "/cores/boundary": {
+                "latestVersion": "",
+                "name": "0-boundary",
+                "version": "0.0.0"
+            },
+            "/cores/boundary/for/github": {
+                "latestVersion": "",
+                "name": "0-boundary-for-github",
+                "version": "0.0.0"
+            },
+            "/cores/boundary/for/github/node_modules/request": {
+                "latestVersion": "2.64.0",
+                "name": "request",
+                "version": "2.61.0"
+            },
+            "/cores/boundary/for/github/node_modules/uuid": {
+                "latestVersion": "2.0.1",
+                "name": "uuid",
+                "version": "2.0.1"
+            },
+            "/cores/cache": {
+                "latestVersion": "",
+                "name": "0-cache",
+                "version": "0.0.0"
+            },
+            "/cores/cache/for/fs": {
+                "latestVersion": "",
+                "name": "0-cache-for-fs",
+                "version": "0.0.0"
+            },
+            "/cores/component": {
+                "latestVersion": "",
+                "name": "0-component",
+                "version": "0.0.0"
+            },
+            "/cores/component/for/firewidgets": {
+                "latestVersion": "",
+                "name": "0-component-for-firewidgets",
+                "version": "0.0.0"
+            },
+            "/cores/container": {
+                "latestVersion": "",
+                "name": "0-container",
+                "version": "0.0.0"
+            },
+            "/cores/container/for/firewidgets": {
+                "latestVersion": "",
+                "name": "0-container-for-firewidgets",
+                "version": "0.0.0"
+            },
+            "/cores/context": {
+                "latestVersion": "",
+                "name": "0-context",
+                "version": "0.0.0"
+            },
+            "/cores/context/for/logic.cores": {
+                "name": "logic.cores"
+            },
+            "/cores/data": {
+                "latestVersion": "",
+                "name": "0-data",
+                "version": "0.0.0"
+            },
+            "/cores/data/for/bookshelf": {
+                "latestVersion": "",
+                "name": "0-data-for-bookshelf",
+                "version": "0.0.0"
+            },
+            "/cores/data/for/bookshelf/node_modules/bookshelf": {
+                "latestVersion": "0.8.2",
+                "name": "bookshelf",
+                "version": "0.8.2"
+            },
+            "/cores/data/for/ccjson.record.mapper": {
+                "latestVersion": "",
+                "name": "0-data-for-ccjson.record.mapper",
+                "version": "0.0.0"
+            },
+            "/cores/data/for/knexjs": {
+                "latestVersion": "",
+                "name": "0-data-for-knexjs",
+                "version": "0.0.0"
+            },
+            "/cores/data/for/knexjs/node_modules/knex": {
+                "latestVersion": "0.8.6",
+                "name": "knex",
+                "version": "0.8.6"
+            },
+            "/cores/data/for/knexjs/node_modules/pg": {
+                "latestVersion": "4.4.2",
+                "name": "pg",
+                "version": "4.4.1"
+            },
+            "/cores/data/for/knexjs/node_modules/q": {
+                "latestVersion": "1.4.1",
+                "name": "q",
+                "version": "1.4.1"
+            },
+            "/cores/data/for/nedb": {
+                "latestVersion": "",
+                "name": "0-data-for-nedb",
+                "version": "0.0.0"
+            },
+            "/cores/data/for/nedb/node_modules/nedb": {
+                "latestVersion": "1.2.1",
+                "name": "nedb",
+                "version": "1.1.3"
+            },
+            "/cores/data/for/postgresql": {
+                "latestVersion": "",
+                "name": "0-data-for-postgresql",
+                "version": "0.0.0"
+            },
+            "/cores/edit/for/c9": {},
+            "/cores/edit/for/c9/node_modules/fs-extra": {
+                "latestVersion": "0.24.0",
+                "name": "fs-extra",
+                "version": "0.24.0"
+            },
+            "/cores/export": {
+                "latestVersion": "",
+                "name": "0-export",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/babel": {
+                "latestVersion": "",
+                "name": "0-export-for-babel",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/babel/node_modules/babel": {
+                "latestVersion": "5.8.23",
+                "name": "babel",
+                "version": "5.8.23"
+            },
+            "/cores/export/for/bower": {
+                "latestVersion": "",
+                "name": "0-export-for-bower",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/bower/node_modules/bower": {
+                "latestVersion": "1.5.3",
+                "name": "bower",
+                "version": "1.5.2"
+            },
+            "/cores/export/for/bower/node_modules/grunt": {
+                "latestVersion": "0.4.5",
+                "name": "grunt",
+                "version": "0.4.5"
+            },
+            "/cores/export/for/bower/node_modules/grunt-bower-concat": {
+                "latestVersion": "0.5.0",
+                "name": "grunt-bower-concat",
+                "version": "0.5.0"
+            },
+            "/cores/export/for/browserify": {
+                "latestVersion": "",
+                "name": "0-export-for-browserify",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/browserify/node_modules/browserify": {
+                "latestVersion": "11.2.0",
+                "name": "browserify",
+                "version": "11.0.1"
+            },
+            "/cores/export/for/browserify/node_modules/browserify-shim": {
+                "latestVersion": "3.8.10",
+                "name": "browserify-shim",
+                "version": "3.8.10"
+            },
+            "/cores/export/for/browserify/node_modules/fs-extra": {
+                "latestVersion": "0.24.0",
+                "name": "fs-extra",
+                "version": "0.24.0"
+            },
+            "/cores/export/for/browserify/node_modules/stringify": {
+                "latestVersion": "3.1.0",
+                "name": "stringify",
+                "version": "3.1.0"
+            },
+            "/cores/export/for/defs": {
+                "latestVersion": "",
+                "name": "0-export-for-defs",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/defs/node_modules/defs": {
+                "latestVersion": "1.1.0",
+                "name": "defs",
+                "version": "1.1.0"
+            },
+            "/cores/export/for/sm.hoist.VisualComponents": {
+                "latestVersion": "",
+                "name": "0-export-for-sm.hoist.VisualComponents",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/sm.hoist.VisualComponents/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/cores/export/for/webpack": {
+                "latestVersion": "",
+                "name": "0-export-for-webpack",
+                "version": "0.0.0"
+            },
+            "/cores/export/for/webpack/node_modules/raw-loader": {
+                "latestVersion": "0.5.1",
+                "name": "raw-loader",
+                "version": "0.5.1"
+            },
+            "/cores/export/for/webpack/node_modules/send": {
+                "latestVersion": "0.13.0",
+                "name": "send",
+                "version": "0.13.0"
+            },
+            "/cores/export/for/webpack/node_modules/webpack": {
+                "latestVersion": "1.12.2",
+                "name": "webpack",
+                "version": "1.12.2"
+            },
+            "/cores/export/for/webpack/node_modules/webpack-dev-middleware": {
+                "latestVersion": "1.2.0",
+                "name": "webpack-dev-middleware",
+                "version": "1.2.0"
+            },
+            "/cores/fetch": {
+                "latestVersion": "",
+                "name": "0-fetch",
+                "version": "0.0.0"
+            },
+            "/cores/fetch/for/window": {
+                "latestVersion": "",
+                "name": "0-fetch-for-window",
+                "version": "0.0.0"
+            },
+            "/cores/host": {
+                "latestVersion": "",
+                "name": "0-host",
+                "version": "0.0.0"
+            },
+            "/cores/invite": {
+                "latestVersion": "",
+                "name": "0-invite",
+                "version": "0.0.0"
+            },
+            "/cores/invite/for/cookie": {
+                "latestVersion": "",
+                "name": "0-invite-for-cookie",
+                "version": "0.0.0"
+            },
+            "/cores/invite/for/cookie/node_modules/cookies": {
+                "latestVersion": "0.5.1",
+                "name": "cookies",
+                "version": "0.5.0"
+            },
+            "/cores/layout": {
+                "latestVersion": "",
+                "name": "0-layout",
+                "version": "0.0.0"
+            },
+            "/cores/layout/for/firewidgets": {
+                "latestVersion": "",
+                "name": "0-layout-for-firewidgets",
+                "version": "0.0.0"
+            },
+            "/cores/load": {
+                "latestVersion": "",
+                "name": "0-load",
+                "version": "0.0.0"
+            },
+            "/cores/load/for/pinf-loader-js": {
+                "latestVersion": "",
+                "name": "0-load-for-pinf-loader-js",
+                "version": "0.0.0"
+            },
+            "/cores/load/for/requirejs": {
+                "latestVersion": "",
+                "name": "0-load-for-requirejs",
+                "version": "0.0.0"
+            },
+            "/cores/load/for/requirejs/node_modules/requirejs": {
+                "latestVersion": "2.1.20",
+                "name": "requirejs",
+                "version": "2.1.20"
+            },
+            "/cores/load/for/systemjs": {
+                "latestVersion": "",
+                "name": "0-load-for-systemjs",
+                "version": "0.0.0"
+            },
+            "/cores/load/for/systemjs/node_modules/systemjs": {
+                "latestVersion": "0.19.3",
+                "name": "systemjs",
+                "version": "0.18.17"
+            },
+            "/cores/model": {
+                "latestVersion": "",
+                "name": "0-model",
+                "version": "0.0.0"
+            },
+            "/cores/namespace": {
+                "latestVersion": "",
+                "name": "0-namespace",
+                "version": "0.0.0"
+            },
+            "/cores/page": {
+                "latestVersion": "",
+                "name": "0-page",
+                "version": "0.0.0"
+            },
+            "/cores/page/for/express": {
+                "latestVersion": "",
+                "name": "0-page-for-express",
+                "version": "0.0.0"
+            },
+            "/cores/page/for/firewidgets": {
+                "latestVersion": "",
+                "name": "0-page-for-firewidgets",
+                "version": "0.0.0"
+            },
+            "/cores/page/for/firewidgets/node_modules/dom-delegator": {
+                "latestVersion": "13.1.0",
+                "name": "dom-delegator",
+                "version": "13.1.0"
+            },
+            "/cores/page/for/page": {
+                "latestVersion": "",
+                "name": "0-page-for-page",
+                "version": "0.0.0"
+            },
+            "/cores/page/for/page/node_modules/page": {
+                "latestVersion": "1.6.3",
+                "name": "page",
+                "version": "1.6.3"
+            },
+            "/cores/proxy": {
+                "latestVersion": "",
+                "name": "0-proxy",
+                "version": "0.0.0"
+            },
+            "/cores/proxy/for/smi.cache": {
+                "latestVersion": "",
+                "name": "0-proxy-for-smi.cache",
+                "version": "0.0.0"
+            },
+            "/cores/request": {
+                "latestVersion": "",
+                "name": "0-request",
+                "version": "0.0.0"
+            },
+            "/cores/request/for/window": {
+                "latestVersion": "",
+                "name": "0-request-for-window",
+                "version": "0.0.0"
+            },
+            "/cores/responder": {
+                "latestVersion": "",
+                "name": "0-responder",
+                "version": "0.0.0"
+            },
+            "/cores/responder/for/express": {
+                "latestVersion": "",
+                "name": "0-responder-for-express",
+                "version": "0.0.0"
+            },
+            "/cores/responder/for/express/node_modules/body-parser": {
+                "latestVersion": "1.14.1",
+                "name": "body-parser",
+                "version": "1.13.3"
+            },
+            "/cores/responder/for/express/node_modules/compression": {
+                "latestVersion": "1.6.0",
+                "name": "compression",
+                "version": "1.5.2"
+            },
+            "/cores/responder/for/express/node_modules/cookies": {
+                "latestVersion": "0.5.1",
+                "name": "cookies",
+                "version": "0.5.0"
+            },
+            "/cores/responder/for/express/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/cores/responder/for/express/node_modules/express": {
+                "latestVersion": "4.13.3",
+                "name": "express",
+                "version": "4.13.3"
+            },
+            "/cores/responder/for/express/node_modules/morgan": {
+                "latestVersion": "1.6.1",
+                "name": "morgan",
+                "version": "1.6.1"
+            },
+            "/cores/responder/for/express/node_modules/send": {
+                "latestVersion": "0.13.0",
+                "name": "send",
+                "version": "0.13.0"
+            },
+            "/cores/responder/for/express/node_modules/stack": {
+                "latestVersion": "0.1.0",
+                "name": "stack",
+                "version": "0.1.0"
+            },
+            "/cores/session": {
+                "latestVersion": "",
+                "name": "0-session",
+                "version": "0.0.0"
+            },
+            "/cores/session/for/express.fs": {
+                "latestVersion": "",
+                "name": "0-session-for-express.fs",
+                "version": "0.0.0"
+            },
+            "/cores/session/for/express.fs/node_modules/express-session": {
+                "latestVersion": "1.11.3",
+                "name": "express-session",
+                "version": "1.11.3"
+            },
+            "/cores/session/for/express.fs/node_modules/session-file-store": {
+                "latestVersion": "0.0.20",
+                "name": "session-file-store",
+                "version": "0.0.19"
+            },
+            "/cores/skin": {
+                "latestVersion": "",
+                "name": "0-skin",
+                "version": "0.0.0"
+            },
+            "/cores/skin/for/semantic-ui": {
+                "latestVersion": "",
+                "name": "0-skin-for-semantic-ui",
+                "version": "0.0.0"
+            },
+            "/cores/skin/for/semantic-ui/node_modules/css-queryless": {
+                "latestVersion": "0.1.0",
+                "name": "css-queryless",
+                "version": "0.1.0"
+            },
+            "/cores/skin/for/semantic-ui/node_modules/rework": {
+                "latestVersion": "1.0.1",
+                "name": "rework",
+                "version": "1.0.1"
+            },
+            "/cores/skin/for/semantic-ui/node_modules/semantic-ui-css": {
+                "latestVersion": "2.1.4",
+                "name": "semantic-ui-css",
+                "version": "2.1.4"
+            },
+            "/cores/skin/for/semantic-ui/node_modules/send": {
+                "latestVersion": "0.13.0",
+                "name": "send",
+                "version": "0.13.0"
+            },
+            "/cores/skin/for/sm.hoist.VisualComponents": {
+                "latestVersion": "",
+                "name": "0-skin-for-sm.hoist.VisualComponents",
+                "version": "0.0.0"
+            },
+            "/cores/skin/for/sm.hoist.VisualComponents/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/cores/static": {
+                "latestVersion": "",
+                "name": "0-static",
+                "version": "0.0.0"
+            },
+            "/cores/static/for/fs": {
+                "latestVersion": "",
+                "name": "0-static-for-fs",
+                "version": "0.0.0"
+            },
+            "/cores/static/for/send": {
+                "latestVersion": "",
+                "name": "0-static-for-send",
+                "version": "0.0.0"
+            },
+            "/cores/static/for/send/node_modules/send": {
+                "latestVersion": "0.13.0",
+                "name": "send",
+                "version": "0.13.0"
+            },
+            "/cores/template": {
+                "latestVersion": "",
+                "name": "0-template",
+                "version": "0.0.0"
+            },
+            "/cores/template/for/firewidgets": {
+                "latestVersion": "",
+                "name": "0-template-for-firewidgets",
+                "version": "0.0.0"
+            },
+            "/cores/template/for/virtual-dom": {
+                "latestVersion": "",
+                "name": "0-template-for-virtual-dom",
+                "version": "0.0.0"
+            },
+            "/cores/template/for/virtual-dom/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/cores/template/for/virtual-dom/node_modules/html2hscript": {
+                "latestVersion": "1.2.1",
+                "name": "html2hscript",
+                "version": "1.2.0"
+            },
+            "/cores/template/for/virtual-dom/node_modules/virtual-dom": {
+                "latestVersion": "2.1.1",
+                "name": "virtual-dom",
+                "version": "2.1.1"
+            },
+            "/cores/test": {
+                "latestVersion": "",
+                "name": "0-test",
+                "version": "0.0.0"
+            },
+            "/cores/test/for/intern": {
+                "latestVersion": "",
+                "name": "0-test-for-intern",
+                "version": "0.0.0"
+            },
+            "/cores/test/for/intern/node_modules/intern": {
+                "latestVersion": "3.0.6",
+                "name": "intern",
+                "version": "3.0.6"
+            },
+            "/cores/time": {
+                "latestVersion": "",
+                "name": "0-time",
+                "version": "0.0.0"
+            },
+            "/cores/time/for/moment": {
+                "latestVersion": "",
+                "name": "0-time-for-moment",
+                "version": "0.0.0"
+            },
+            "/cores/transform/for/marked": {
+                "latestVersion": "",
+                "name": "0-transform-for-marked",
+                "version": "0.0.0"
+            },
+            "/cores/transform/for/marked/node_modules/highlight.js": {
+                "latestVersion": "8.8.0",
+                "name": "highlight.js",
+                "version": "8.7.0"
+            },
+            "/cores/transform/for/marked/node_modules/marked": {
+                "latestVersion": "0.3.5",
+                "name": "marked",
+                "version": "0.3.5"
+            },
+            "/lib/bash.origin": {
+                "latestVersion": "0.1.26",
+                "name": "bash.origin",
+                "version": "0.1.26"
+            },
+            "/lib/ccjson": {
+                "latestVersion": "0.0.1",
+                "name": "ccjson",
+                "version": "0.0.1"
+            },
+            "/lib/ccjson.record.mapper": {
+                "latestVersion": "",
+                "name": "ccjson.record.mapper",
+                "version": "0.0.0"
+            },
+            "/lib/ccjson/node_modules/JSONPath": {
+                "latestVersion": "0.10.0",
+                "name": "JSONPath",
+                "version": "0.11.0"
+            },
+            "/lib/ccjson/node_modules/bluebird": {
+                "latestVersion": "2.10.2",
+                "name": "bluebird",
+                "version": "2.9.34"
+            },
+            "/lib/ccjson/node_modules/canonical-json": {
+                "latestVersion": "0.0.4",
+                "name": "canonical-json",
+                "version": "0.0.4"
+            },
+            "/lib/ccjson/node_modules/clarinet": {
+                "latestVersion": "0.11.0",
+                "name": "clarinet",
+                "version": "0.11.0"
+            },
+            "/lib/ccjson/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/lib/ccjson/node_modules/jsondiffpatch": {
+                "latestVersion": "0.1.37",
+                "name": "jsondiffpatch",
+                "version": "0.1.36"
+            },
+            "/lib/ccjson/node_modules/lodash": {
+                "latestVersion": "3.10.1",
+                "name": "lodash",
+                "version": "3.10.1"
+            },
+            "/lib/ccjson/node_modules/mocha": {
+                "latestVersion": "2.3.3",
+                "name": "mocha",
+                "version": "2.3.0"
+            },
+            "/lib/ccjson/node_modules/require.async": {
+                "latestVersion": "0.1.1",
+                "name": "require.async",
+                "version": "0.1.1"
+            },
+            "/lib/ccjson/node_modules/traverse": {
+                "latestVersion": "0.6.6",
+                "name": "traverse",
+                "version": "0.6.6"
+            },
+            "/lib/cvdom": {
+                "latestVersion": "0.0.2",
+                "name": "cvdom",
+                "version": "0.0.2"
+            },
+            "/lib/cvdom/node_modules/lodash": {
+                "latestVersion": "3.10.1",
+                "name": "lodash",
+                "version": "3.10.1"
+            },
+            "/lib/cvdom/node_modules/mocha": {
+                "latestVersion": "2.3.3",
+                "name": "mocha",
+                "version": "2.3.2"
+            },
+            "/lib/cvdom/node_modules/vdom-to-html": {
+                "latestVersion": "2.1.1",
+                "name": "vdom-to-html",
+                "version": "2.1.1"
+            },
+            "/lib/cvdom/node_modules/virtual-dom": {
+                "latestVersion": "2.1.1",
+                "name": "virtual-dom",
+                "version": "2.1.1"
+            },
+            "/lib/html2chscript": {
+                "latestVersion": "1.2.0",
+                "name": "html2hscript",
+                "version": "1.2.0"
+            },
+            "/lib/html2chscript-for-webpack": {
+                "latestVersion": "",
+                "name": "html2chscript-for-webpack",
+                "version": "0.0.1"
+            },
+            "/lib/html2chscript-for-webpack/node_modules/loader-utils": {
+                "latestVersion": "0.2.11",
+                "name": "loader-utils",
+                "version": "0.2.11"
+            },
+            "/lib/html2chscript/node_modules/htmlparser2": {
+                "latestVersion": "3.8.3",
+                "name": "htmlparser2",
+                "version": "3.8.3"
+            },
+            "/lib/html2chscript/node_modules/is-empty": {
+                "latestVersion": "0.0.1",
+                "name": "is-empty",
+                "version": "0.0.1"
+            },
+            "/lib/html2chscript/node_modules/tap": {
+                "latestVersion": "2.0.0",
+                "name": "tap",
+                "version": "1.4.1"
+            },
+            "/lib/html2chscript/node_modules/to-camel-case": {
+                "latestVersion": "0.2.1",
+                "name": "to-camel-case",
+                "version": "0.2.1"
+            },
+            "/lib/html2hscript": {
+                "latestVersion": "1.2.0",
+                "name": "html2hscript",
+                "version": "1.2.0"
+            },
+            "/lib/logic.cores": {
+                "latestVersion": "0.0.1",
+                "name": "logic.cores",
+                "version": "0.0.1"
+            },
+            "/lib/marked": {
+                "latestVersion": "0.3.5",
+                "name": "marked",
+                "version": "0.3.5"
+            },
+            "/lib/marked/node_modules/gulp": {
+                "latestVersion": "3.9.0",
+                "name": "gulp",
+                "version": "3.9.0"
+            },
+            "/lib/marked/node_modules/gulp-concat": {
+                "latestVersion": "2.6.0",
+                "name": "gulp-concat",
+                "version": "2.6.0"
+            },
+            "/lib/marked/node_modules/gulp-uglify": {
+                "latestVersion": "1.4.1",
+                "name": "gulp-uglify",
+                "version": "1.4.1"
+            },
+            "/lib/marked/node_modules/markdown": {
+                "latestVersion": "0.5.0",
+                "name": "markdown",
+                "version": "0.5.0"
+            },
+            "/lib/marked/node_modules/showdown": {
+                "latestVersion": "1.2.3",
+                "name": "showdown",
+                "version": "1.2.3"
+            },
+            "/lib/pinf-loader-js": {
+                "latestVersion": "0.4.12",
+                "name": "pinf-loader-js",
+                "version": "0.4.12"
+            },
+            "/lib/pio.profile": {
+                "latestVersion": "",
+                "name": "pio.profile",
+                "version": "0.0.0"
+            },
+            "/lib/pio.profile/node_modules/aws-sdk": {
+                "latestVersion": "2.2.6",
+                "name": "aws-sdk",
+                "version": "2.0.31"
+            },
+            "/lib/pio.profile/node_modules/commander": {
+                "latestVersion": "2.8.1",
+                "name": "commander",
+                "version": "2.8.1"
+            },
+            "/lib/pio.profile/node_modules/dbox": {
+                "latestVersion": "0.6.4",
+                "name": "dbox",
+                "version": "0.6.4"
+            },
+            "/lib/pio.profile/node_modules/deepmerge": {
+                "latestVersion": "0.2.10",
+                "name": "deepmerge",
+                "version": "0.2.10"
+            },
+            "/lib/pio.profile/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/lib/pio.profile/node_modules/fs-extra": {
+                "latestVersion": "0.24.0",
+                "name": "fs-extra",
+                "version": "0.8.1"
+            },
+            "/lib/pio.profile/node_modules/q": {
+                "latestVersion": "1.4.1",
+                "name": "q",
+                "version": "0.9.7"
+            },
+            "/lib/pio.profile/node_modules/waitfor": {
+                "latestVersion": "0.1.3",
+                "name": "waitfor",
+                "version": "0.1.3"
+            },
+            "/lib/sm.hoist.VisualComponents": {
+                "latestVersion": "0.1.5",
+                "name": "sm.hoist.visualcomponents",
+                "version": "0.1.5"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/bash.origin": {
+                "latestVersion": "0.1.26",
+                "name": "bash.origin",
+                "version": "0.1.26"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/canonical-json": {
+                "latestVersion": "0.0.4",
+                "name": "canonical-json",
+                "version": "0.0.4"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/colors": {
+                "latestVersion": "1.1.2",
+                "name": "colors",
+                "version": "1.1.2"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/escape-regexp-component": {
+                "latestVersion": "1.0.2",
+                "name": "escape-regexp-component",
+                "version": "1.0.2"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/express": {
+                "latestVersion": "4.13.3",
+                "name": "express",
+                "version": "4.13.3"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/jquery": {
+                "latestVersion": "2.1.4",
+                "name": "jquery",
+                "version": "2.1.4"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/jsdom": {
+                "latestVersion": "6.5.1",
+                "name": "jsdom",
+                "version": "5.6.1"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/nvm": {
+                "latestVersion": "0.0.3",
+                "name": "nvm",
+                "version": "0.28.0"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/optimist": {
+                "latestVersion": "0.6.1",
+                "name": "optimist",
+                "version": "0.6.1"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/org.pinf.genesis.lib": {
+                "latestVersion": "0.1.5",
+                "name": "org.pinf.genesis.lib",
+                "version": "0.1.5"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/pm2": {
+                "latestVersion": "0.15.7",
+                "name": "pm2",
+                "version": "0.14.7"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/q": {
+                "latestVersion": "1.4.1",
+                "name": "q",
+                "version": "1.4.1"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/q-io": {
+                "latestVersion": "1.13.1",
+                "name": "q-io",
+                "version": "1.13.1"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/request": {
+                "latestVersion": "2.64.0",
+                "name": "request",
+                "version": "2.61.0"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/rework": {
+                "latestVersion": "1.0.1",
+                "name": "rework",
+                "version": "1.0.1"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/rework-plugin-url": {
+                "latestVersion": "1.1.0",
+                "name": "rework-plugin-url",
+                "version": "1.1.0"
+            },
+            "/lib/sm.hoist.VisualComponents/node_modules/send": {
+                "latestVersion": "0.13.0",
+                "name": "send",
+                "version": "0.13.0"
+            },
+            "/lib/smi.0": {
+                "latestVersion": "",
+                "name": "smi.0",
+                "version": "0.0.1"
+            },
+            "/lib/smi.0/node_modules/bluebird": {
+                "latestVersion": "2.10.2",
+                "name": "bluebird",
+                "version": "2.10.1"
+            },
+            "/lib/smi.0/node_modules/canonical-json": {
+                "latestVersion": "0.0.4",
+                "name": "canonical-json",
+                "version": "0.0.4"
+            },
+            "/lib/smi.0/node_modules/fs-extra": {
+                "latestVersion": "0.24.0",
+                "name": "fs-extra",
+                "version": "0.24.0"
+            },
+            "/lib/smi.0/node_modules/glob": {
+                "latestVersion": "5.0.15",
+                "name": "glob",
+                "version": "5.0.15"
+            },
+            "/lib/smi.0/node_modules/jsonlint": {
+                "latestVersion": "1.6.2",
+                "name": "jsonlint",
+                "version": "1.6.2"
+            },
+            "/lib/smi.0/node_modules/lodash": {
+                "latestVersion": "3.10.1",
+                "name": "lodash",
+                "version": "3.10.1"
+            },
+            "/lib/smi.0/node_modules/request": {
+                "latestVersion": "2.64.0",
+                "name": "request",
+                "version": "2.64.0"
+            },
+            "/lib/smi.0/node_modules/semver": {
+                "latestVersion": "5.0.3",
+                "name": "semver",
+                "version": "5.0.3"
+            },
+            "/lib/smi.0/node_modules/throat": {
+                "latestVersion": "2.0.2",
+                "name": "throat",
+                "version": "2.0.2"
+            },
+            "/lib/smi.0/node_modules/yargs": {
+                "latestVersion": "3.26.0",
+                "name": "yargs",
+                "version": "3.26.0"
+            },
+            "/lib/smi.cache": {
+                "latestVersion": "0.3.1",
+                "name": "smi.cache",
+                "version": "0.3.1"
+            },
+            "/lib/smi.cache/node_modules/deepcopy": {
+                "latestVersion": "0.5.0",
+                "name": "deepcopy",
+                "version": "0.3.3"
+            },
+            "/lib/smi.cache/node_modules/fs-extra": {
+                "latestVersion": "0.24.0",
+                "name": "fs-extra",
+                "version": "0.8.1"
+            },
+            "/lib/smi.cache/node_modules/moment": {
+                "latestVersion": "2.10.6",
+                "name": "moment",
+                "version": "2.10.6"
+            },
+            "/lib/smi.cache/node_modules/q": {
+                "latestVersion": "1.4.1",
+                "name": "q",
+                "version": "1.4.1"
+            },
+            "/lib/smi.cache/node_modules/tunnel": {
+                "latestVersion": "0.0.3",
+                "name": "tunnel",
+                "version": "0.0.3"
+            },
+            "/node_modules/sm.bump": {
+                "latestVersion": "0.1.2",
+                "name": "sm.bump",
+                "version": "0.1.2"
+            },
+            "/node_modules/sm.expand": {
+                "latestVersion": "0.1.17",
+                "name": "sm.expand",
+                "version": "0.1.17"
+            }
+        },
+        "submodules": {
+            "/0.CloudIDE.Genesis": {
+                "branch": "master",
+                "date": 1444975432000,
+                "ref": "ee3e797b999ded1dda557382d601d1d93d4f1cef",
+                "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
+            },
+            "/0.FireWidgets": {
+                "branch": "master",
+                "date": 1445050382000,
+                "ref": "4acaae8adccd8321951846c3fc9871fadad9d55a",
+                "url": "git://github.com/firewidgets/0.FireWidgets.git"
+            },
+            "/0.PINF.Genesis": {
+                "branch": "master",
+                "date": 1444975776000,
+                "ref": "1e8071786e59fd4ee75239eabfd88568fe27458b",
+                "url": "git://github.com/pinf/0.PINF.Genesis.git"
+            },
+            "/0.PINF.Genesis.to": {
+                "branch": "master",
+                "date": 1444975808000,
+                "ref": "f11c98de35b02050bcf03c29ebbe79312fdf5544",
+                "url": "git://github.com/pinf-to/0.PINF.Genesis.to.git"
+            },
+            "/0.VirtualCloud.Genesis": {
+                "branch": "master",
+                "date": 1444976041000,
+                "ref": "85042124193f16a678cf1ab26bdd0c9baad86847",
+                "url": "git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git"
+            },
+            "/0.devcomp.genesis": {
+                "branch": "master",
+                "date": 1444975544000,
+                "ref": "c4975792adaa1e61ddf45991bc373ee29ec84960",
+                "url": "git://github.com/devcomp/0.devcomp.genesis.git"
+            },
+            "/0.stack": {
+                "branch": "master",
+                "date": 1445050468000,
+                "ref": "3f09b2f9ac9e4beca0a904d425b0d722a6e60ec0",
+                "url": "git://github.com/LogicCores/0.stack.git"
+            },
+            "/0.stack.admin": {
+                "branch": "master",
+                "date": 1444975865000,
+                "ref": "1c9b67442cdfe40e5fde2bc46a4aa684470cdac2",
+                "url": "git://github.com/LogicCores/0.stack.admin.git"
+            },
+            "/0.stack.app": {
+                "branch": "master",
+                "date": 1444968668000,
+                "ref": "a640e5ee879974478a17bf9d169adcde05c0e5ae",
+                "url": "git://github.com/LogicCores/0.stack.app.git"
+            },
+            "/0.stack.dev": {
+                "branch": "master",
+                "date": 1445050496000,
+                "ref": "db5f7bc7648a697a5729235044cdc37f90f2a3c8",
+                "url": "git://github.com/LogicCores/0.stack.dev.git"
+            },
+            "/0.stack.test": {
+                "branch": "master",
+                "date": 1445050519000,
+                "ref": "bf614d977a392a50a4a8619bbc97241b8f332e36",
+                "url": "git://github.com/LogicCores/0.stack.test.git"
+            },
+            "/0.stack.web": {
+                "branch": "master",
+                "date": 1444976013000,
+                "ref": "aea737aa9909fb5621a1a7d0ad889371b784168e",
+                "url": "git://github.com/LogicCores/0.stack.web.git"
+            },
+            "/cores/auth": {
+                "branch": "master",
+                "date": 1444175709000,
+                "ref": "04678f1bd8bbde8689af31a50b1b10550b58dbd4",
+                "url": "git://github.com/LogicCores/0-auth.git"
+            },
+            "/cores/boundary": {
+                "branch": "master",
+                "date": 1443214426000,
+                "ref": "52f4b4209884760033066b15c3cb4d6d4d27b9c2",
+                "url": "git://github.com/LogicCores/0-boundary.git"
+            },
+            "/cores/cache": {
+                "branch": "master",
+                "date": 1442557007000,
+                "ref": "f8b513439cd36d74fcb294b10f996487c6a683d4",
+                "url": "git://github.com/LogicCores/0-cache.git"
+            },
+            "/cores/component": {
+                "branch": "master",
+                "date": 1444894643000,
+                "ref": "7c1a3b477af3a49ea77ed72d235902ee9ffb65f8",
+                "url": "git://github.com/LogicCores/0-component.git"
+            },
+            "/cores/config": {
+                "branch": "master",
+                "date": 1444264470000,
+                "ref": "8128f886aa4ca43608f309364fc805dbf20978e3",
+                "url": "git://github.com/LogicCores/0-config.git"
+            },
+            "/cores/console": {
+                "branch": false,
+                "date": 1441063232000,
+                "ref": "0cb26a8a83300aa69b3741297884ab22f34b80c3",
+                "url": "git://github.com/LogicCores/0-console.git"
+            },
+            "/cores/container": {
+                "branch": "master",
+                "date": 1442303128000,
+                "ref": "338a996852bf55f7724973c101f7865bc06ed85b",
+                "url": "git://github.com/LogicCores/0-container.git"
+            },
+            "/cores/context": {
+                "branch": "master",
+                "date": 1444258262000,
+                "ref": "697c07d22509a7bfb41be4cfbb694fa06284f8aa",
+                "url": "git://github.com/LogicCores/0-context.git"
+            },
+            "/cores/data": {
+                "branch": "master",
+                "date": 1444803984000,
+                "ref": "25236c9ec5029ff85fff756f4c5c5ac3aa696e60",
+                "url": "git://github.com/LogicCores/0-data.git"
+            },
+            "/cores/edit": {
+                "branch": "master",
+                "date": 1444429021000,
+                "ref": "88f497b1f0aea3f8583adfcba4b61720e3f110e3",
+                "url": "git://github.com/LogicCores/0-edit.git"
+            },
+            "/cores/email": {
+                "branch": false,
+                "date": 1441062858000,
+                "ref": "d7701079672ba3905cc5d316d19a4ab7d09bb986",
+                "url": "git://github.com/LogicCores/0-email.git"
+            },
+            "/cores/export": {
+                "branch": "master",
+                "date": 1445050541000,
+                "ref": "784434aef346b5cd5e353c26be7a59cf33dc0ece",
+                "url": "git://github.com/LogicCores/0-export.git"
+            },
+            "/cores/fetch": {
+                "branch": "master",
+                "date": 1442302020000,
+                "ref": "a2b170173ff6cdb22ea24c873a360f33a3580b36",
+                "url": "git://github.com/LogicCores/0-fetch.git"
+            },
+            "/cores/host": {
+                "branch": "master",
+                "date": 1441941446000,
+                "ref": "7a00dae5472e04d82641ccf0d4d187353160f62b",
+                "url": "git://github.com/LogicCores/0-host.git"
+            },
+            "/cores/invite": {
+                "branch": "master",
+                "date": 1444624603000,
+                "ref": "6bbc46e13005b0161ae7238ad6ccce6779198ff3",
+                "url": "git://github.com/LogicCores/0-invite.git"
+            },
+            "/cores/layout": {
+                "branch": "master",
+                "date": 1442302038000,
+                "ref": "8faa17a304c7a9da9778c304f5e1daadf4aa7802",
+                "url": "git://github.com/LogicCores/0-layout.git"
+            },
+            "/cores/load": {
+                "branch": "master",
+                "date": 1442302063000,
+                "ref": "839198a5c0cf5048db66f4e75b7dee93e4d5078a",
+                "url": "git://github.com/LogicCores/0-load.git"
+            },
+            "/cores/loop": {
+                "branch": false,
+                "date": 1440741284000,
+                "ref": "b47c2af7a7dd4d4bde58a672eabdfeda20b10cbe",
+                "url": "git://github.com/LogicCores/0-loop.git"
+            },
+            "/cores/model": {
+                "branch": "master",
+                "date": 1445050564000,
+                "ref": "84d01246bd6acbeee7aa64c8400cc7e52a3532a8",
+                "url": "git://github.com/LogicCores/0-model.git"
+            },
+            "/cores/namespace": {
+                "branch": "master",
+                "date": 1442556375000,
+                "ref": "dae44a8f5fcbff5a69ca8bd5dae075b77fbd7966",
+                "url": "git://github.com/LogicCores/0-namespace.git"
+            },
+            "/cores/page": {
+                "branch": "master",
+                "date": 1443082593000,
+                "ref": "603fedbc33e4958b0a7413dc7b67bb7d4f33a2cf",
+                "url": "git://github.com/LogicCores/0-page.git"
+            },
+            "/cores/process": {
+                "branch": "master",
+                "date": 1440709977000,
+                "ref": "4c3daad1379031d7bfc014c4319a12b2d62d9c79",
+                "url": "git://github.com/LogicCores/0-process.git"
+            },
+            "/cores/profile": {
+                "branch": "master",
+                "date": 1444976370000,
+                "ref": "c2f212a13cb54826051b611828bd1daef7c09cd6",
+                "url": "git://github.com/LogicCores/0-profile.git"
+            },
+            "/cores/protocol": {
+                "branch": false,
+                "date": 1440709997000,
+                "ref": "00f816468a052bc2c06eb7854d1635a4874fdd65",
+                "url": "git://github.com/LogicCores/0-protocol.git"
+            },
+            "/cores/proxy": {
+                "branch": "master",
+                "date": 1441834979000,
+                "ref": "bc88aecebd02dd10a196dbb18e43553690ddfd35",
+                "url": "git://github.com/LogicCores/0-proxy.git"
+            },
+            "/cores/render": {
+                "branch": false,
+                "date": 1441062907000,
+                "ref": "d7909526bd1c60f965e5e7bf6db70410d1be4625",
+                "url": "git://github.com/LogicCores/0-render.git"
+            },
+            "/cores/request": {
+                "branch": "master",
+                "date": 1443083035000,
+                "ref": "dabee8cc0561174d04ad4b60afce83f27bedb829",
+                "url": "git://github.com/LogicCores/0-request.git"
+            },
+            "/cores/responder": {
+                "branch": "master",
+                "date": 1444804012000,
+                "ref": "946609b2a1cb7533dae1c4b318e4415d55ab3f84",
+                "url": "git://github.com/LogicCores/0-responder.git"
+            },
+            "/cores/route": {
+                "branch": "master",
+                "date": 1444232485000,
+                "ref": "af66e1629044c454212a7b6d334c136f9a9514dc",
+                "url": "git://github.com/LogicCores/0-route.git"
+            },
+            "/cores/session": {
+                "branch": "master",
+                "date": 1442041157000,
+                "ref": "46037860d6473e2b4d9159eda8f96eaf82883a24",
+                "url": "git://github.com/LogicCores/0-session.git"
+            },
+            "/cores/skin": {
+                "branch": "master",
+                "date": 1444175860000,
+                "ref": "5c55665005ba1d5e1f087b629827113cecbc4b4c",
+                "url": "git://github.com/LogicCores/0-skin.git"
+            },
+            "/cores/sms": {
+                "branch": false,
+                "date": 1441063097000,
+                "ref": "062a700ecded58d957530cfa004cd0b7f8d3985c",
+                "url": "git://github.com/LogicCores/0-sms.git"
+            },
+            "/cores/static": {
+                "branch": "master",
+                "date": 1444258140000,
+                "ref": "7df13a86d8b528196f78ca782561c4ec0568a9a6",
+                "url": "git://github.com/LogicCores/0-static.git"
+            },
+            "/cores/template": {
+                "branch": "master",
+                "date": 1444804038000,
+                "ref": "39c55596a2fe20774c4ae764d5f956e081166151",
+                "url": "git://github.com/LogicCores/0-template.git"
+            },
+            "/cores/test": {
+                "branch": "master",
+                "date": 1442041561000,
+                "ref": "38239eef589097d2f0780cbba6faf426178b09de",
+                "url": "git://github.com/LogicCores/0-test.git"
+            },
+            "/cores/time": {
+                "branch": "master",
+                "date": 1442556426000,
+                "ref": "c70213c127a0b80be1b67f2858a0444820b5717f",
+                "url": "git://github.com/LogicCores/0-time.git"
+            },
+            "/cores/transform": {
+                "branch": "master",
+                "date": 1443409194000,
+                "ref": "a4f81b9907aab227f9d82bd44dd950c61b132122",
+                "url": "git://github.com/LogicCores/0-transform.git"
+            },
+            "/cores/watch": {
+                "branch": false,
+                "date": 1440982966000,
+                "ref": "3ab3abe4031699acffc157ba9dba6fae31c47d15",
+                "url": "git://github.com/LogicCores/0-watch.git"
+            },
+            "/lib/bash.origin": {
+                "branch": "master",
+                "date": 1445050610000,
+                "ref": "dda5a3455d4f6289a82d870b046e22ed446f1fc5",
+                "url": "git://github.com/bash-origin/bash.origin.git"
+            },
+            "/lib/ccjson": {
+                "branch": "master",
+                "date": 1445030955000,
+                "ref": "cec591fba846550602293a460bfd779d16046a91",
+                "url": "git://github.com/LogicCores/ccjson.git"
+            },
+            "/lib/ccjson.function.tree": {
+                "branch": "master",
+                "date": 1443817384000,
+                "ref": "9f50f55ab6f326f7915fac165fa082ea2cf5aa11",
+                "url": "git://github.com/ccjson/ccjson.function.tree.git"
+            },
+            "/lib/ccjson.record.mapper": {
+                "branch": "master",
+                "date": 1444451249000,
+                "ref": "0bcef936fd4a84f09d2e09178349c0bb4ad1e5fc",
+                "url": "git://github.com/ccjson/ccjson.record.mapper.git"
+            },
+            "/lib/ccjson.structures": {
+                "branch": "master",
+                "date": 1443817409000,
+                "ref": "6fb0392986afec50f4ba31b60d8d674f23d725c8",
+                "url": "git://github.com/ccjson/ccjson.structures.git"
+            },
+            "/lib/cvdom": {
+                "branch": "master",
+                "date": 1443171512000,
+                "ref": "4eb4d3c299d38aba3dbe1f5367a302c700a7ecd6",
+                "url": "git://github.com/firewidgets/cvdom.git"
+            },
+            "/lib/firewidgets-for-zerosystem": {
+                "branch": "master",
+                "date": 1442302215000,
+                "ref": "36d84298f7f4796db9aad8155bbe86a9a643f37c",
+                "url": "git://github.com/firewidgets/firewidgets-for-zerosystem.git"
+            },
+            "/lib/html2chscript": {
+                "branch": "wip",
+                "date": 1444761376000,
+                "ref": "d2284625412aff9e99c1424195ad6a65a46cb293",
+                "url": "git://github.com/firewidgets/html2chscript.git"
+            },
+            "/lib/html2chscript-for-webpack": {
+                "branch": "master",
+                "date": 1442983699000,
+                "ref": "cc99933f4a2dfb99552e48009fb8abe1784cddfb",
+                "url": "git://github.com/firewidgets/html2chscript-for-webpack.git"
+            },
+            "/lib/logic.cores": {
+                "branch": "master",
+                "date": 1443082910000,
+                "ref": "d4c1c6d4d68d4f149fce2878633a66ce1bfa1ba6",
+                "url": "git://github.com/LogicCores/logic.cores.git"
+            },
+            "/lib/marked": {
+                "branch": "master",
+                "date": 1438335528000,
+                "ref": "88ce4df47c4d994dc1b1df1477a21fb893e11ddc",
+                "url": "git://github.com/cadorn/marked.git"
+            },
+            "/lib/pinf-loader-js": {
+                "branch": false,
+                "date": 1440983334000,
+                "ref": "1b646be5a57d7a849c62e1ce964eaa63a5f33de5",
+                "url": "git://github.com/pinf/pinf-loader-js.git"
+            },
+            "/lib/pio.profile": {
+                "branch": "master",
+                "date": 1442302763000,
+                "ref": "3ddcbb5dbe136f3817d3a624a2c2f909bb7a6aab",
+                "url": "git://github.com/pinf-io/pio.profile.git"
+            },
+            "/lib/sm.hoist.VisualComponents": {
+                "branch": "0",
+                "date": 1442041098000,
+                "ref": "3656105593c8ca2538901300035a91b4a28b0654",
+                "url": "git://github.com/sourcemint/sm.hoist.VisualComponents.git"
+            },
+            "/lib/smi.0": {
+                "branch": "master",
+                "date": 1444273284000,
+                "ref": "e8661737420609a6ed6fe1ce815767af7c256898",
+                "url": "git://github.com/sourcemint/smi.0.git"
+            },
+            "/lib/smi.cache": {
+                "branch": false,
+                "date": 1440985542000,
+                "ref": "21fd47179108c584f65c48c49566fc62d8929195",
+                "url": "git://github.com/sourcemint/smi.cache.git"
+            }
+        }
+    }
+}

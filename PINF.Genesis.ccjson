@@ -1,0 +1,15 @@
+{
+    "@": {
+        "$": [
+            "./PINF.Genesis.{{ENV.ENVIRONMENT_TYPE}}.ccjson",
+            "!./_Deployments/{{ENV.ENVIRONMENT_NAME}}.profile.ccjson"
+        ]
+    },
+    "@0.pinf.genesis.Developer": {
+        "$0.pinf.genesis.Developer.Christoph": {
+            "email": "christoph@christophdorn.com",
+            "name": "Christoph Alexander Dorn",
+            "responsibility": "Zero System Lead"
+        }
+    }
+}

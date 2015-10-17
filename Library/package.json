@@ -1,0 +1,25 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "backbone": "^1.2.3",
+    "canonical-json": "0.0.4",
+    "escape-regexp-component": "^1.0.2",
+    "eventemitter2": "^0.4.14",
+    "fs-extra": "^0.24.0",
+    "glob": "^5.0.14",
+    "jquery": "^1.11.3",
+    "lodash": "^3.10.1",
+    "lodash-deep": "^1.6.0",
+    "moment": "^2.10.6",
+    "moment-timezone": "^0.4.0",
+    "node-forge": "^0.6.34",
+    "numeral": "^1.5.3",
+    "send": "^0.13.0",
+    "traverse": "^0.6.6",
+    "urijs": "^1.16.1",
+    "uuid": "^2.0.1",
+    "virtual-dom": "^2.1.1",
+    "waitfor": "^0.1.3"
+  }
+}

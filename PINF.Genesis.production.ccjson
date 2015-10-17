@@ -1,0 +1,16 @@
+{
+    "@": {
+        "export.browserify": {
+            "alwaysRebuild": false
+        },
+        "export.bower": {
+            "alwaysRebuild": false
+        },
+        "export.webpack": {
+            "alwaysRebuild": false
+        },
+        "responder.firewidgets": {
+            "alwaysRebuild": false
+        }
+    }
+}

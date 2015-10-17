@@ -1,0 +1,96 @@
+{
+    "@": {
+        "host": {
+            "$": "./cores/host/0-server.impl.ccjson"
+        },
+        "context": {
+            "$": "./cores/context/for/logic.cores/0-server.impl.ccjson"
+        },
+        "responder.server": {
+            "$": "./cores/responder/for/express/0-server.impl.ccjson"
+        },
+        "invite.cookie": {
+            "$": "./cores/invite/for/cookie/0-server.impl.ccjson"
+        },
+        "cache.fs": {
+            "$": "./cores/cache/for/fs/0-server.impl.ccjson"
+        },
+        "profile.pio": {
+            "$": "./cores/profile/for/pio.profile/0-server.impl.ccjson"
+        },
+        "data.nedb": {
+            "$": "./cores/data/for/nedb/0-server.impl.ccjson"
+        },
+        "data.ccjson.record.mapper": {
+            "$": "./cores/data/for/ccjson.record.mapper/0-server.impl.ccjson"
+        },
+        "page.express": {
+            "$": "./cores/page/for/express/0-server.impl.ccjson"
+        },
+        "data.postgresql": {
+            "$": "./cores/data/for/postgresql/0-server.impl.ccjson"
+        },
+        "data.knexjs": {
+            "$": "./cores/data/for/knexjs/0-server.impl.ccjson"
+        },
+        "data.bookshelf": {
+            "$": "./cores/data/for/bookshelf/0-server.impl.ccjson"
+        },
+        "session.express.fs": {
+            "$": "./cores/session/for/express.fs/0-server.impl.ccjson"
+        },
+        "route.express": {
+            "$": "./cores/route/for/express/0-server.impl.ccjson"
+        },
+        "auth.passport": {
+            "$": "./cores/auth/for/passport/0-server.impl.ccjson"
+        },
+        "boundary.github": {
+            "$": "./cores/boundary/for/github/0-server.impl.ccjson"
+        },
+        "transform.marked": {
+            "$": "./cores/transform/for/marked/0-server.impl.ccjson"
+        },
+        "template.virtual-dom": {
+            "$": "./cores/template/for/virtual-dom/0-server.impl.ccjson"
+        },
+        "export.browserify": {
+            "$": "./cores/export/for/browserify/0-server.impl.ccjson"
+        },
+        "export.webpack": {
+            "$": "./cores/export/for/webpack/0-server.impl.ccjson"
+        },
+        "export.babel": {
+            "$": "./cores/export/for/babel/0-server.impl.ccjson"
+        },
+        "export.bower": {
+            "$": "./cores/export/for/bower/0-server.impl.ccjson"
+        },
+        "proxy.smi.cache": {
+            "$": "./cores/proxy/for/smi.cache/0-server.impl.ccjson"
+        },
+        "static.fs": {
+            "$": "./cores/static/for/fs/0-server.impl.ccjson"
+        },
+        "static.send": {
+            "$": "./cores/static/for/send/0-server.impl.ccjson"
+        },
+        "skin.semantic-ui": {
+            "$": "./cores/skin/for/semantic-ui/0-server.impl.ccjson"
+        },
+        "skin.sm.hoist.VisualComponents": {
+            "$": "./cores/skin/for/sm.hoist.VisualComponents/0-server.impl.ccjson"
+        },
+        "export.sm.hoist.VisualComponents": {
+            "$": "./cores/export/for/sm.hoist.VisualComponents/0-server.impl.ccjson"
+        }
+    },
+    "@profile.pio": {
+        "$0.profiles.pio": {
+            "env": {
+                "PIO_PROFILE_KEY": "{{ENV.PIO_PROFILE_KEY}}",
+                "PIO_PROFILE_SECRET": "{{ENV.PIO_PROFILE_SECRET}}"
+            }
+        }
+    }
+}
