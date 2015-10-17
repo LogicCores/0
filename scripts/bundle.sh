@@ -23,7 +23,8 @@ function init {
 # TODO: Enable updating of zero.lib based on user config
 #			"lib/smi.0/bin/smi.0" freeze-latest --library-package "lib/zero.lib"
 
-			"lib/smi.0/bin/smi.0" freeze-latest
+# TODO: Use 'sm.expand' to manage submodules and checked out branches.
+#			"lib/smi.0/bin/smi.0" freeze-latest
 
 		popd > /dev/null
 
