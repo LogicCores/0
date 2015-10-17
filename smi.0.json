@@ -1224,10 +1224,6 @@
                 "branch": null,
                 "url": "git://github.com/cadorn/marked.git"
             },
-            "/lib/sm.hoist.VisualComponents": {
-                "branch": null,
-                "url": "git://github.com/sourcemint/sm.hoist.VisualComponents.git"
-            },
             "/lib/smi.0": {
                 "branch": null,
                 "url": "git://github.com/sourcemint/smi.0.git"
