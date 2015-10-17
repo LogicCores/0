@@ -35,6 +35,7 @@ function init {
 
 	export PATH="$__BO_DIR__/../node_modules/.bin:$PATH"
 	export PATH="$__BO_DIR__:$PATH"
+	export PATH="$PATH_OVERRIDES:$PATH"
 
 	export PORT=8090
 	export ENVIRONMENT_NAME="127.0.0.1:$PORT"
