@@ -2,7 +2,7 @@
     "@": {
         "$": [
             "./PINF.Genesis.{{ENV.ENVIRONMENT_TYPE}}.ccjson",
-            "!./_Deployments/{{ENV.ENVIRONMENT_NAME}}.profile.ccjson"
+            "!./Deployments/{{ENV.ENVIRONMENT_NAME}}.profile.ccjson"
         ]
     },
     "@0.pinf.genesis.Developer": {
