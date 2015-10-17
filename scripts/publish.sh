@@ -87,14 +87,20 @@ function init {
 	            git archive HEAD | tar -x -C "$DEV_REPOSITORY_PATH/\$dir"
 	        "
 
-	        # Add and commit all files and tag
     		pushd "$DEV_REPOSITORY_PATH" > /dev/null
+    
         		BO_log "$VERBOSE" "Add new/changed/removed files to '0.dev' repo"
     	        git add -A
+    
         		BO_log "$VERBOSE" "Commit changes to '0.dev' repo"
     	        git commit -m "Changes for branch '$BRANCH' to reach tag: $TAG"
+    
         		BO_log "$VERBOSE" "Tag '0.dev' repo"
     	        git tag "$TAG"
+
+        		BO_log "$VERBOSE" "Push to origin"
+    	        git push origin "$BRANCH" --tags
+
     	    pushd
 
 		popd > /dev/null
