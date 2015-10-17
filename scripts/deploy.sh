@@ -43,8 +43,8 @@ function init {
 			PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" > /dev/null
 
 
+	    git push heroku master
 
-#		    git push heroku master
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
