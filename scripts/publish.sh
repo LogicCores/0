@@ -44,6 +44,11 @@ function init {
 		BO_log "$VERBOSE" "Exporting sources for branch: $BRANCH"
 
 		# Get tag to publish
+		if [[ $(git describe --tags 2>&1 | grep fatal | tail -n1) != "" ]]; then
+	        echo "ERROR: Aborting. Your repository must have at least one tag!"
+	        echo "Action: Tag your repository. You can use 'git tag v0.0.0' if you don'e have releases yet."
+	        exit 1;
+		fi
 		TAG=$(git describe --tags)
 		BO_log "$VERBOSE" "Exporting sources for tag: $TAG"
 
