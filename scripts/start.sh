@@ -1,10 +1,10 @@
 #!/bin/bash
-if [ -z "$HOME" ]; then
-	echo "ERROR: 'HOME' environment variable is not set!"
+if [ -z "$Z0_ROOT" ]; then
+	echo "ERROR: 'Z0_ROOT' environment variable not set!"
 	exit 1
 fi
 # Source https://github.com/bash-origin/bash.origin
-. "$HOME/.bash.origin"
+. "$Z0_ROOT/lib/bash.origin/bash.origin"
 function init {
 	eval BO_SELF_BASH_SOURCE="$BO_READ_SELF_BASH_SOURCE"
 	BO_deriveSelfDir ___TMP___ "$BO_SELF_BASH_SOURCE"
@@ -34,10 +34,6 @@ function init {
 		fi
 		if [ -z "$PIO_PROFILE_SECRET" ]; then
 			echo "ERROR: 'PIO_PROFILE_SECRET' environment variable not set!"
-			exit 1
-		fi
-		if [ -z "$Z0_ROOT" ]; then
-			echo "ERROR: 'Z0_ROOT' environment variable not set!"
 			exit 1
 		fi
 
