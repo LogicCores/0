@@ -27,6 +27,10 @@ var api = module.exports = {
 api._.mixin(require("lodash-deep"));
 
 
+api["cores/data/for/ccjson.record.mapper/0-common.api"] = require("../cores/data/for/ccjson.record.mapper/0-common.api").forLib(api);
+
+
+
 api.waitForWindowProperty = function (property, whenLoaded) {
 	var waitInterval = setInterval(function () {
 		if (typeof window[property] === "undefined") return;

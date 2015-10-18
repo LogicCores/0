@@ -16,14 +16,11 @@ function init {
 	fi
 
 	if [ -z "$Z0_ROOT" ]; then
-		export Z0_ROOT="$WORKSPACE_DIR/0"
-		if [ ! -f "$Z0_ROOT/.0" ]; then
-			# Assuming we are running on the zero system repo itself.
-			export Z0_ROOT="$WORKSPACE_DIR"
-		fi
+		BO_followPointer "Z0_ROOT" "$PWD" ".0"
+		export Z0_ROOT
 	fi
-	if [ ! -f "$Z0_ROOT/.0" ]; then
-		echo "ERROR: '.0' not found at '\$Z0_ROOT/.0' ($Z0_ROOT/.0)!"
+	if [ ! -e "$Z0_ROOT/.0" ] || [ "$(cat $Z0_ROOT/.0)" != "." ]; then
+		echo "ERROR: '.0' pointing to '.' not found at '\$Z0_ROOT/.0' ($Z0_ROOT/.0)!"
 		exit 1
 	fi
 
@@ -72,6 +69,10 @@ function init {
 		# @see https://github.com/pinf-to/0.PINF.Genesis.to/tree/master/Model/Inception.0/Deployment
 		export PLATFORM_NAME="os.osx"
 	fi
+	if [ -z "$BOOT_CONFIG_PATH" ]; then
+		export BOOT_CONFIG_PATH="$WORKSPACE_DIR/PINF.Genesis.ccjson"
+	fi
+
 
 	NODEJS_VERSION="4"
 	BO_log "$VERBOSE" "Activating NodeJS version '$NODEJS_VERSION' ..."

@@ -44,5 +44,7 @@ exports.forPoly = function (POLYFILLS) {
 
     exports.ccjson = require("../lib/ccjson");
 
+    exports["cores/data/for/ccjson.record.mapper/0-common.api"] = require("../cores/data/for/ccjson.record.mapper/0-common.api").forLib(exports);
+
     return exports;
 }
