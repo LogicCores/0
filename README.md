@@ -54,7 +54,7 @@ Clone and use as Template
 
 Zero System is based on *namespaces* where all components have their own namespace. Components are assembled into larger namespaces that form applications and systems. There are two primary categories of namespaces relevant to discuss here:
 
-  * **External Namespaces** are namespaces that are exposed to external users of your system. These namespaces must be globally unique so anyone may consume your assets. Globally unique namespaces are derived from a **Reverse Hostname** that **you control**.
+  * **External Namespaces** are namespaces that are exposed to external users of your system. These namespaces must be globally unique so anyone may consume your assets. Globally unique namespaces are derived from a **Hostname** that **you control**.
   * **Internal Namespaces** are namespaces used internally for directories and component prefixes among other uses and mapped to external namespaces. You can use one namespace to do a bunch of work internally and then serve it via another namespace. This is how features can be *subclassed across clones* and this is how you can get your system up and running fast by simply modifying the Zero System template.
 
 ### Constructing your own namespaces
