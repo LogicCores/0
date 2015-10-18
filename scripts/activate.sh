@@ -41,6 +41,8 @@ function init {
 				export PIO_PROFILE_SEED_PATH="$(dirname $(dirname $WORKSPACE_DIR))/$(basename $(dirname $WORKSPACE_DIR)).profile.seed"
 				if [ -e "$PIO_PROFILE_SEED_PATH.sh" ]; then
 			        BO_sourcePrototype "$PIO_PROFILE_SEED_PATH.sh"
+			    else
+			    	export PIO_PROFILE_SEED_PATH=""
 				fi
 			fi
 		fi
