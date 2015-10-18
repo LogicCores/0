@@ -277,6 +277,28 @@ function init {
 	       	fi
 		popd > /dev/null
 
+
+		pushd "$Z0_ROOT/lib/smi-for-git" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+		pushd "$Z0_ROOT/lib/smi-for-npm" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+		pushd "$Z0_ROOT/lib/sm.expand" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	mkdir node_modules
+	        	ln -s ../../smi-for-git node_modules
+	        	ln -s ../../smi-for-npm node_modules
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+
+
 		"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
 			"$__BO_DIR__/pre-commit.sh"
 

@@ -17,7 +17,6 @@
         "start": "scripts/start.sh"
     },
     "dependencies": {
-        "sm.bump": "^0.1.2",
-        "sm.expand": "^0.1.17"
+        "sm.bump": "^0.1.2"
     }
 }
