@@ -91,9 +91,9 @@ function init {
     		BO_log "$VERBOSE" "Ensure platform environment is in deploy branch"
        		cp -Rf "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl/"* .
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
-	        git add -A
+	        git add -A || true
     		BO_log "$VERBOSE" "Commit changes to '$DEPLOY_REPOSITORY_PATH' repo"
-	        git commit -m "Latest platform tooling for: $PLATFORM_NAME"
+	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
 
 
     		BO_log "$VERBOSE" "Push to origin"
