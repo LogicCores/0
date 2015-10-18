@@ -14,7 +14,7 @@ function init {
 
 
 	DEPLOY_REPOSITORY_URL=`git config --get remote.origin.url`
-	DEPLOY_REPOSITORY_PATH="$WORKSPACE_DIR/_exports/deploy/$PLATFORM_NAME"
+	DEPLOY_REPOSITORY_PATH="$PWD/_exports/deploy/$PLATFORM_NAME"
 
 
 	function Deploy {
@@ -57,46 +57,44 @@ function init {
 	        echo "Action: Tag your repository. You can use 'git tag v0.0.0' if you don'e have releases yet."
 	        exit 1;
 		fi
-		TAG=$(git describe --tags)
-		BO_log "$VERBOSE" "Deploying sources for tag: $TAG"
+		DEPLOY_TAG="$(git describe --tags)"
+		BO_log "$VERBOSE" "Deploying sources for tag: $DEPLOY_TAG"
 
 
 		DEPLOY_BRANCH="$BRANCH.to.$PLATFORM_NAME"
 		BO_log "$VERBOSE" "Deploying to branch: $DEPLOY_BRANCH"
 
-	    # Ensure deploy repo/branch is clean and up to date
-		pushd "$DEPLOY_REPOSITORY_PATH" > /dev/null
-    		BO_log "$VERBOSE" "Reset and update '$DEPLOY_REPOSITORY_PATH' repo"
-		    git reset --hard
-		    git checkout -b "$DEPLOY_BRANCH" || git checkout "$DEPLOY_BRANCH"
-		    git reset --hard
-		    git fetch origin "$DEPLOY_BRANCH" || true
-		    git pull origin "$DEPLOY_BRANCH" || true
-		popd > /dev/null
 
-
-
-		BO_log "$VERBOSE" "Export '$PWD' repo"
-		
-		mv "$DEPLOY_REPOSITORY_PATH/.git" "$DEPLOY_REPOSITORY_PATH.git"
-		rm -Rf "$DEPLOY_REPOSITORY_PATH"
-		mkdir "$DEPLOY_REPOSITORY_PATH"
-		mv "$DEPLOY_REPOSITORY_PATH.git" "$DEPLOY_REPOSITORY_PATH/.git"
-
-		git archive "$BRANCH" | tar -x -C "$DEPLOY_REPOSITORY_PATH"
-
-
-
+        SOURCE_REPOSITORY_PATH="$PWD/.git"
         PLATFORM_DEPLOY_URL=`git config --get remote.heroku.url`
 
 
 		pushd "$DEPLOY_REPOSITORY_PATH" > /dev/null
 
+		    # Ensure deploy repo/branch is clean and up to date
+
+    		BO_log "$VERBOSE" "Reset and update '$DEPLOY_REPOSITORY_PATH' repo"
+		    git reset --hard
+		    git checkout -b "$DEPLOY_BRANCH" 2> /dev/null || git checkout "$DEPLOY_BRANCH"
+		    git fetch origin "$DEPLOY_BRANCH" || true
+		    git pull origin "$DEPLOY_BRANCH" || true
+		    git clean -df
+
+			# Merge source changes
+
+    		BO_log "$VERBOSE" "Merge changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH' from '$SOURCE_REPOSITORY_PATH'"
+			git remote add source "$SOURCE_REPOSITORY_PATH" 2> /dev/null || true
+			git fetch source
+			git merge "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+			
+
+    		BO_log "$VERBOSE" "Ensure platform environment is in deploy branch"
+       		cp -Rf "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl/"* .
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
 	        git add -A
-
     		BO_log "$VERBOSE" "Commit changes to '$DEPLOY_REPOSITORY_PATH' repo"
-	        git commit -m "Changes for branch '$BRANCH' resulting in commit '$TAG' on stream '$DEPLOY_BRANCH'"
+	        git commit -m "Latest platform tooling for: $PLATFORM_NAME"
+
 
     		BO_log "$VERBOSE" "Push to origin"
 	        git push origin "$DEPLOY_BRANCH" --tags
@@ -105,7 +103,7 @@ function init {
 	        # Deploy to platform (heroku for now)
 
     		BO_log "$VERBOSE" "Add 'heroku' remote url '$PLATFORM_DEPLOY_URL'"
-	        git remote add heroku "$PLATFORM_DEPLOY_URL" || true
+	        git remote add heroku "$PLATFORM_DEPLOY_URL" 2> /dev/null || true
 
 
 			BO_log "$VERBOSE" "Setting heroku config variables ..."
@@ -116,7 +114,8 @@ function init {
 				PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
 				PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" > /dev/null
 
-		    git push heroku master
+			# @see http://stackoverflow.com/a/2980050/330439
+		    git push -f heroku HEAD:master
 
 	    pushd
 

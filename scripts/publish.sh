@@ -58,9 +58,9 @@ function init {
     		BO_log "$VERBOSE" "Reset and update '0.dev' repo"
 		    git reset --hard
 		    git checkout -b "$BRANCH" || git checkout "$BRANCH"
-		    git reset --hard
 		    git fetch origin "$BRANCH" || true
 		    git pull origin "$BRANCH" || true
+		    git clean -df
 
     		BO_log "$VERBOSE" "Ensure tag '$TAG' is not already exported"
             if git rev-parse $TAG >/dev/null 2>&1 ; then
