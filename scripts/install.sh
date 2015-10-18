@@ -7,15 +7,11 @@ if [ -z "$HOME" ]; then
 	echo "ERROR: 'HOME' environment variable is not set!"
 	exit 1
 fi
-WORKSPACE_DIR="$PWD"
-
-
-BO_log "$VERBOSE" "PWD: $PWD"
 
 if [ -f ".gitmodules" ]; then
 	if [ ! -f ".gitmodules.initialized" ]; then
 		echo "Init submodules ..."
-		git submodule update --init --recursive --rebase
+		git submodule update --init --recursive --rebase || true
 		touch ".gitmodules.initialized"
 	fi
 fi
