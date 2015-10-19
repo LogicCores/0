@@ -17,6 +17,7 @@ function init {
 		BO_format "$VERBOSE" "HEADER" "Updating system ..."
 
 
+		BO_log "$VERBOSE" "WORKSPACE_DIR: $WORKSPACE_DIR"
 		BO_log "$VERBOSE" "PWD: $PWD"
 
 	    # Check if git dirty
@@ -42,7 +43,7 @@ function init {
 #			git submodule update --init --recursive --rebase
 
 	    # Install missing/changed dependencies
-        BO_sourcePrototype "install.sh"
+        BO_sourcePrototype "$WORKSPACE_DIR/scripts/install.sh"
         ReInstall
 
         # TODO: Restart editor process if running
