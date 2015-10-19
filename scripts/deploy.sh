@@ -22,8 +22,6 @@ function init {
 
 		BO_log "$VERBOSE" "PWD: $PWD"
 
-	    # TODO: Use heroku bash.origin prototype to import deploy function
-
 	    # Check if git dirty
 	    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] || [[ $(git status -s 2> /dev/null | tail -n1) != "" ]]; then
 	        echo "ERROR: Aborting. Your working directory contains uncommitted changes!"
@@ -31,10 +29,10 @@ function init {
 #		        exit 1;
         fi
 
-	    if [[ $(git remote show heroku 2>&1 | grep fatal) != "" ]]; then
-	        echo "ERROR: Aborting. 'heroku' git remote not configured!"
-	        echo "Action: Configure 'heroku' git remote using url from the 'Settings' of your app at: https://dashboard.heroku.com/apps"
-	        echo "Action: Run 'git remote add heroku <GitURL>"
+	    if [[ $(git remote show "$PLATFORM_NAME" 2>&1 | grep fatal) != "" ]]; then
+	        echo "ERROR: Aborting. '$PLATFORM_NAME' git remote not configured!"
+	        echo "Action: Configure '$PLATFORM_NAME' git remote using url from the 'Settings' of your app at: https://dashboard.heroku.com/apps"
+	        echo "Action: Run 'git remote add $PLATFORM_NAME <GitURL>"
 	        exit 1;
         fi
 
@@ -66,7 +64,7 @@ function init {
 
 
         SOURCE_REPOSITORY_PATH="$PWD/.git"
-        PLATFORM_DEPLOY_URL=`git config --get remote.heroku.url`
+        PLATFORM_DEPLOY_URL=`git config --get remote.$PLATFORM_NAME.url`
 
 
 		pushd "$DEPLOY_REPOSITORY_PATH" > /dev/null
@@ -93,7 +91,7 @@ function init {
     		# NOTE: This will copy file only if it does not exist which it will after it has been copied once.
     		#       i.e. it will not UPDATE an existing template file.
     		# TODO: Check git for master branch to see if file is there and if not copy tpl file.
-			pushd "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl" > /dev/null
+			pushd "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/$PLATFORM_NAME/tpl" > /dev/null
 		        for file in $(find *); do
 #					if [ ! -e "$DEPLOY_REPOSITORY_PATH/$file" ]; then
 			    		BO_log "$VERBOSE" "Writing file to: '$DEPLOY_REPOSITORY_PATH/$file'"
@@ -144,24 +142,33 @@ function init {
 	        git push origin "$DEPLOY_BRANCH" --tags
 
 
-	        # Deploy to platform (heroku for now)
+	        # Deploy to platform
 
-    		BO_log "$VERBOSE" "Add 'heroku' remote url '$PLATFORM_DEPLOY_URL'"
-	        git remote add heroku "$PLATFORM_DEPLOY_URL" 2> /dev/null || true
+    		BO_log "$VERBOSE" "Add '$PLATFORM_NAME' remote url '$PLATFORM_DEPLOY_URL'"
+	        git remote add "$PLATFORM_NAME" "$PLATFORM_DEPLOY_URL" 2> /dev/null || true
 
 
-			BO_log "$VERBOSE" "Setting heroku config variables ..."
-			heroku config:set \
-				VERBOSE="$VERBOSE" \
-				PLATFORM_NAME="$PLATFORM_NAME" \
-				ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
-				ENVIRONMENT_TYPE="production" \
-				PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
-				PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" \
-				NODE_MODULES_CACHE=false > /dev/null
+			BO_log "$VERBOSE" "Setting $PLATFORM_NAME config variables ..."
+
+			if [ "$PLATFORM_NAME" == "com.heroku" ]; then
+
+			    # TODO: Use heroku bash.origin prototype to import deploy function
+
+				heroku config:set \
+					VERBOSE="$VERBOSE" \
+					PLATFORM_NAME="$PLATFORM_NAME" \
+					ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
+					ENVIRONMENT_TYPE="production" \
+					PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
+					PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" \
+					NODE_MODULES_CACHE=false > /dev/null
+			else
+				echo "ERROR: Only the 'com.heroku' platform is supported at this time!"
+				exit 1;
+			fi
 
 			# @see http://stackoverflow.com/a/2980050/330439
-		    git push -f heroku HEAD:master
+		    git push -f "$PLATFORM_NAME" HEAD:master
 
 	    pushd > /dev/null
 
