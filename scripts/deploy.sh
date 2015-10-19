@@ -94,14 +94,20 @@ function init {
     		# TODO: Check git for master branch to see if file is there and if not copy tpl file.
 			pushd "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl" > /dev/null
 		        for file in $(find *); do
-					if [ ! -e "$DEPLOY_REPOSITORY_PATH/$file" ]; then
+#					if [ ! -e "$DEPLOY_REPOSITORY_PATH/$file" ]; then
+			    		BO_log "$VERBOSE" "Writing file to: '$DEPLOY_REPOSITORY_PATH/$file'"
 			       		cp -Rf "$file" "$DEPLOY_REPOSITORY_PATH/$file"
-			       	fi
+#			       	fi
 	  	        done
 		    pushd > /dev/null
 
 
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
+
+			# Remove git ignore file
+			rm .gitignore || true
+			git .gitignore || true
+
 	        git add -A || true
     		BO_log "$VERBOSE" "Commit changes to '$DEPLOY_REPOSITORY_PATH' repo"
 	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
@@ -113,19 +119,19 @@ function init {
 					Z0_REPOSITORY_URL=`git config --get remote.origin.url`
 			    pushd > /dev/null
 
-	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT'"
+	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_COMMIT'"
 
 				# TODO: Swap out repository URL if changed but issue warning?
-				if [[ $(git submodule | awk '{ print $2 }' | grep -e '^\.0\.lock$' | tail -n1) == "" ]]; then
-		    		git submodule add "$Z0_REPOSITORY_URL" ".0.lock"
+				if [[ $(git submodule | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
+		    		git submodule add "$Z0_REPOSITORY_URL" ".0"
 		    	fi
 
-				pushd ".0.lock" > /dev/null
+				pushd ".0" > /dev/null
 					git fetch origin
 	    			git checkout "$Z0_COMMIT"
 			    pushd > /dev/null
 		        git add -A || true
-		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
+		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
 			fi
 
 
