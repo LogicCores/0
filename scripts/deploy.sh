@@ -105,8 +105,8 @@ function init {
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
 
 			# Remove git ignore file
-			rm .gitignore || true
-			git .gitignore || true
+			rm .gitignore > /dev/null || true
+			git .gitignore > /dev/null || true
 
 	        git add -A || true
     		BO_log "$VERBOSE" "Commit changes to '$DEPLOY_REPOSITORY_PATH' repo"
@@ -127,7 +127,9 @@ function init {
 		    	fi
 
 				pushd ".0" > /dev/null
+		    		BO_log "$VERBOSE" "Fetch submodule for '.0' from '$Z0_REPOSITORY_URL'"
 					git fetch origin
+		    		BO_log "$VERBOSE" "Checkout submodule '.0' to commit '$Z0_COMMIT'"
 	    			git checkout "$Z0_COMMIT"
 			    pushd > /dev/null
 		        git add -A || true
