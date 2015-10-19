@@ -89,7 +89,18 @@ function init {
 			
 
     		BO_log "$VERBOSE" "Ensure platform environment is in deploy branch"
-       		cp -Rf "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl/"* .
+    		# NOTE: This will copy file only if it does not exist which it will after it has been copied once.
+    		#       i.e. it will not UPDATE an existing template file.
+    		# TODO: Check git for master branch to see if file is there and if not copy tpl file.
+			pushd "$Z0_ROOT/0.PINF.Genesis.to/Meta/Inception.0/Deployment/com.heroku/tpl" > /dev/null
+		        for file in $(find *); do
+					if [ ! -e "$DEPLOY_REPOSITORY_PATH/$file" ]; then
+			       		cp -Rf "$file" "$DEPLOY_REPOSITORY_PATH/$file"
+			       	fi
+	  	        done
+		    pushd > /dev/null
+
+
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
 	        git add -A || true
     		BO_log "$VERBOSE" "Commit changes to '$DEPLOY_REPOSITORY_PATH' repo"
@@ -117,7 +128,7 @@ function init {
 			# @see http://stackoverflow.com/a/2980050/330439
 		    git push -f heroku HEAD:master
 
-	    pushd
+	    pushd > /dev/null
 
 
 		BO_format "$VERBOSE" "FOOTER"

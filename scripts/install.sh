@@ -299,8 +299,10 @@ function init {
 
 
 
-		"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
-			"$__BO_DIR__/pre-commit.sh"
+		if [ -e ".git" ]; then
+			"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
+				"$__BO_DIR__/pre-commit.sh"
+		fi
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
