@@ -115,15 +115,17 @@ function init {
 
 	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT'"
 
-	    		git submodule add "$Z0_REPOSITORY_URL" ".0.lock"
+				# TODO: Swap out repository URL if changed but issue warning?
+				if [[ $(git submodule | awk '{ print $2 }' | grep -e '^\.0\.lock$' | tail -n1) == "" ]]; then
+		    		git submodule add "$Z0_REPOSITORY_URL" ".0.lock"
+		    	fi
+
 				pushd ".0.lock" > /dev/null
 	    			git checkout "$Z0_COMMIT"
 			    pushd > /dev/null
 		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
 			fi
 
-
-exit 1
 
     		BO_log "$VERBOSE" "Push to origin"
 	        git push origin "$DEPLOY_BRANCH" --tags
@@ -141,7 +143,8 @@ exit 1
 				ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
 				ENVIRONMENT_TYPE="production" \
 				PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
-				PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" > /dev/null
+				PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" \
+				NODE_MODULES_CACHE=false > /dev/null
 
 			# @see http://stackoverflow.com/a/2980050/330439
 		    git push -f heroku HEAD:master
