@@ -113,7 +113,7 @@ function init {
 	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
 
 
-			if [ ! -e ".0" ] && [ ! -e "0" ]; then
+			if [ ! -e "0" ]; then
 				pushd "$Z0_ROOT" > /dev/null
 					Z0_COMMIT=`git rev-parse HEAD`
 					Z0_REPOSITORY_URL=`git config --get remote.origin.url`
