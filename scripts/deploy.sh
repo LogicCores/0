@@ -121,8 +121,10 @@ function init {
 		    	fi
 
 				pushd ".0.lock" > /dev/null
+					git fetch origin
 	    			git checkout "$Z0_COMMIT"
 			    pushd > /dev/null
+		        git add -A || true
 		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
 			fi
 
@@ -139,6 +141,7 @@ function init {
 
 			BO_log "$VERBOSE" "Setting heroku config variables ..."
 			heroku config:set \
+				VERBOSE="$VERBOSE" \
 				PLATFORM_NAME="$PLATFORM_NAME" \
 				ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
 				ENVIRONMENT_TYPE="production" \
