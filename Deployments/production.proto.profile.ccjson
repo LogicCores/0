@@ -1,0 +1,24 @@
+{
+    "@host": {
+        "$0.host": {
+            "host": "{{ENV.ENVIRONMENT_NAME}}"
+        }
+    },
+    "@invite.cookie": {
+        "$0.invite.cookie": {
+    		"$0.profile.virtualcloud.hashForAspect()->token": {
+    		    "stream": "production"
+    		}
+        }
+    },
+    "@session.express.fs": {
+        "${{ARG.namespace}}.session.express.fs": {
+    		"$0.profile.virtualcloud.hashForAspect()->secret": {
+    		    "stream": "production"
+    		},
+    		"$0.profile.virtualcloud.hashForAspect()->store/secret": {
+    		    "stream": "production"
+    		}
+        }
+    }
+}
