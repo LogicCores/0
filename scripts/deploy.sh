@@ -76,7 +76,7 @@ function init {
 		    git checkout -b "$DEPLOY_BRANCH" 2> /dev/null || git checkout "$DEPLOY_BRANCH"
 		    git clean -df
 		    git fetch origin "$DEPLOY_BRANCH" || true
-			git merge "origin/$DEPLOY_BRANCH" -m "Merge upstream changes"
+			git merge "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
 		    git clean -df
 
 			# Merge source changes
