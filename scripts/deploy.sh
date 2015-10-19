@@ -107,6 +107,24 @@ function init {
 	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
 
 
+			if [ ! -e ".0" ] && [ ! -e "0" ]; then
+				pushd "$Z0_ROOT" > /dev/null
+					Z0_COMMIT=`git rev-parse HEAD`
+					Z0_REPOSITORY_URL=`git config --get remote.origin.url`
+			    pushd > /dev/null
+
+	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT'"
+
+	    		git submodule add "$Z0_REPOSITORY_URL" ".0.lock"
+				pushd ".0.lock" > /dev/null
+	    			git checkout "$Z0_COMMIT"
+			    pushd > /dev/null
+		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0.lock' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
+			fi
+
+
+exit 1
+
     		BO_log "$VERBOSE" "Push to origin"
 	        git push origin "$DEPLOY_BRANCH" --tags
 
