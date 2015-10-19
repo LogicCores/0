@@ -18,13 +18,18 @@ function init {
 
 		BO_log "$VERBOSE" "PWD: $PWD"
 
-        "encrypt.sh"
+    	if [ -z "$PIO_PROFILE_KEY" ] || [ -z "$PIO_PROFILE_SECRET" ]; then
+    		echo "Skip encrypt as PIO_PROFILE_KEY or PIO_PROFILE_SECRET not set!"
+    	else
+	        "encrypt.sh"
+    	fi
 
-        "bundle.sh"
-	    if [[ $(git diff --name-only smi.0.json 2> /dev/null | tail -n1) != "" ]]; then
-	        echo "ERROR: Aborting. 'smi.0.json' has uncommitted changes!"
-	        exit 1;
-        fi
+# TODO: Only bundle under certain conditions
+#        "bundle.sh"
+#	    if [[ $(git diff --name-only smi.0.json 2> /dev/null | tail -n1) != "" ]]; then
+#	        echo "ERROR: Aborting. 'smi.0.json' has uncommitted changes!"
+#	        exit 1;
+#        fi
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
