@@ -76,8 +76,9 @@ function init {
     		BO_log "$VERBOSE" "Reset and update '$DEPLOY_REPOSITORY_PATH' repo"
 		    git reset --hard
 		    git checkout -b "$DEPLOY_BRANCH" 2> /dev/null || git checkout "$DEPLOY_BRANCH"
+		    git clean -df
 		    git fetch origin "$DEPLOY_BRANCH" || true
-		    git pull origin "$DEPLOY_BRANCH" || true
+			git merge "origin/$DEPLOY_BRANCH" -m "Merge upstream changes"
 		    git clean -df
 
 			# Merge source changes
