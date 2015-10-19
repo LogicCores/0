@@ -125,6 +125,8 @@ function init {
 				if [[ $(git submodule | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
 		    		git submodule add "$Z0_REPOSITORY_URL" ".0"
 		    	fi
+	    		BO_log "$VERBOSE" "Update submodule for '.0' from '$Z0_REPOSITORY_URL'"
+		    	git submodule update --init --rebase ".0"
 
 				pushd ".0" > /dev/null
 		    		BO_log "$VERBOSE" "Fetch submodule for '.0' from '$Z0_REPOSITORY_URL'"
