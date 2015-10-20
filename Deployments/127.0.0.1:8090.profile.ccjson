@@ -1,7 +1,7 @@
 {
-    "@host": {
-        "$0.host": {
-            "host": "127.0.0.1:{{ENV.PORT}}"
-        }
+    "@": {
+        "$": [
+            "./development.proto.profile.ccjson"
+        ]
     }
 }

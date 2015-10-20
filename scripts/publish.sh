@@ -14,6 +14,7 @@ function init {
 
 
 	DEV_REPOSITORY_URL="git@github.com:LogicCores/0.dev.git"
+	# TODO: Make exported name configurable
 	DEV_REPOSITORY_PATH="$WORKSPACE_DIR/_exports/0.dev"
 
 

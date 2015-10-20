@@ -61,7 +61,7 @@ LIB.Promise.try(function () {
     LIB.assert.equal(typeof process.env.BOOT_CONFIG_PATH, "string", "'BOOT_CONFIG_PATH' environment variable not set!");
 
 
-    console.log("Boot config path:", BOOT_CONFIG_PATH);
+    console.log("Boot config path:", BOOT_CONFIG_PATH, "(ENVIRONMENT_TYPE: " + process.env.ENVIRONMENT_TYPE + ")");
 
 
     // TODO: Move into memory manager.
