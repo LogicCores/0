@@ -78,6 +78,7 @@ function init {
 		    git fetch origin "$DEPLOY_BRANCH" || true
 			git merge -X theirs "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
 		    git clean -df
+#ls -al
 
 			# Merge source changes
 
@@ -86,10 +87,27 @@ function init {
 			git fetch source
 
 			# @source http://stackoverflow.com/a/27338013/330439
-			git merge -s ours "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
-			git reset --soft "$DEPLOY_BRANCH"
+#ls -al
+echo "1"
+			git checkout -b "source-$BRANCH" "source/$BRANCH" || git checkout "source-$BRANCH"
+echo "2"
+			git pull source "$BRANCH"
+echo "3"
 			git checkout "$DEPLOY_BRANCH"
-			git commit --amend -C HEAD
+echo "3.1"
+		    git clean -df
+echo "4"
+			git merge -s ours "source-$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+echo "5"
+			git checkout --detach "source-$BRANCH"
+echo "6"
+			git reset --soft "$DEPLOY_BRANCH"
+echo "7"
+			git checkout "$DEPLOY_BRANCH"
+echo "8"
+			git commit --allow-empty --amend -C HEAD
+echo "9"
+#ls -al
 
 #			git merge "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
 
@@ -146,8 +164,8 @@ function init {
 
 
     		BO_log "$VERBOSE" "Push to origin"
-		    git fetch origin "$DEPLOY_BRANCH" || true
-			git merge -X theirs "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
+#		    git fetch origin "$DEPLOY_BRANCH" || true
+#			git merge -X theirs "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
 	        git push origin "$DEPLOY_BRANCH" --tags
 
 

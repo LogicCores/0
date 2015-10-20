@@ -76,11 +76,11 @@ LIB.Promise.try(function () {
             heapUsed: Math.round(usage.heapUsed / 1048576) + "MB"
         });
         if (ORIGINAL_ENVIRONMENT_TYPE === "production") {
-            // Print every 5 sec for first minute, then once every 15 sec.
+            // Print every 5 sec for first minute, then once every 1 minute.
             if (Date.now() < (startTime + 60 * 1000)) {
                 setTimeout(printUsage, 5 * 1000);
             } else {
-                setTimeout(printUsage, 5 * 60 * 1000);
+                setTimeout(printUsage, 60 * 1000);
             }
         } else
         if (ORIGINAL_ENVIRONMENT_TYPE === "development") {
