@@ -37,6 +37,8 @@ LIB.Promise.try(function () {
     // Boot configuration
 
     var ENVIRONMENT_TYPE = process.env.ENVIRONMENT_TYPE || "production";
+    var ORIGINAL_ENVIRONMENT_TYPE = ENVIRONMENT_TYPE;
+
     // 'npm run dev --production'
     var npm_config_argv = (process.env.npm_config_argv && JSON.parse(process.env.npm_config_argv)) || null;
     if (
@@ -73,11 +75,21 @@ LIB.Promise.try(function () {
             heapTotal: Math.round(usage.heapTotal / 1048576) + "MB",
             heapUsed: Math.round(usage.heapUsed / 1048576) + "MB"
         });
-        // Print every 5 sec for first minute, then once per minute.
-        if (Date.now() < (startTime + 60 * 1000)) {
-            setTimeout(printUsage, 5 * 1000);
-        } else {
-            setTimeout(printUsage, 60 * 1000);
+        if (ORIGINAL_ENVIRONMENT_TYPE === "production") {
+            // Print every 5 sec for first minute, then once every 15 sec.
+            if (Date.now() < (startTime + 60 * 1000)) {
+                setTimeout(printUsage, 5 * 1000);
+            } else {
+                setTimeout(printUsage, 5 * 60 * 1000);
+            }
+        } else
+        if (ORIGINAL_ENVIRONMENT_TYPE === "development") {
+            // Print every 5 sec for first minute, then once every 15 sec.
+            if (Date.now() < (startTime + 60 * 1000)) {
+                setTimeout(printUsage, 5 * 1000);
+            } else {
+                setTimeout(printUsage, 15 * 1000);
+            }
         }
     }
     printUsage();

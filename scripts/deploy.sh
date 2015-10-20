@@ -76,7 +76,7 @@ function init {
 		    git checkout -b "$DEPLOY_BRANCH" 2> /dev/null || git checkout "$DEPLOY_BRANCH"
 		    git clean -df
 		    git fetch origin "$DEPLOY_BRANCH" || true
-			git merge "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
+			git merge -X theirs "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
 		    git clean -df
 
 			# Merge source changes
@@ -84,8 +84,15 @@ function init {
     		BO_log "$VERBOSE" "Merge changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH' from '$SOURCE_REPOSITORY_PATH'"
 			git remote add source "$SOURCE_REPOSITORY_PATH" 2> /dev/null || true
 			git fetch source
-			git merge "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
-			
+
+			# @source http://stackoverflow.com/a/27338013/330439
+			git merge -s ours "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+			git reset --soft "$DEPLOY_BRANCH"
+			git checkout "$DEPLOY_BRANCH"
+			git commit --amend -C HEAD
+
+#			git merge "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+
 
     		BO_log "$VERBOSE" "Ensure platform environment is in deploy branch"
     		# NOTE: This will copy file only if it does not exist which it will after it has been copied once.
@@ -139,6 +146,8 @@ function init {
 
 
     		BO_log "$VERBOSE" "Push to origin"
+		    git fetch origin "$DEPLOY_BRANCH" || true
+			git merge -X theirs "origin/$DEPLOY_BRANCH" -m "Merge upstream changes" || true
 	        git push origin "$DEPLOY_BRANCH" --tags
 
 
