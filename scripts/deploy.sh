@@ -86,30 +86,22 @@ function init {
 			git remote add source "$SOURCE_REPOSITORY_PATH" 2> /dev/null || true
 			git fetch source
 
-			# @source http://stackoverflow.com/a/27338013/330439
-#ls -al
-echo "1"
-			git checkout -b "source-$BRANCH" "source/$BRANCH" || git checkout "source-$BRANCH"
-echo "2"
-			git pull source "$BRANCH"
-echo "3"
-			git checkout "$DEPLOY_BRANCH"
-echo "3.1"
-		    git clean -df
-echo "4"
-			git merge -s ours "source-$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
-echo "5"
-			git checkout --detach "source-$BRANCH"
-echo "6"
-			git reset --soft "$DEPLOY_BRANCH"
-echo "7"
-			git checkout "$DEPLOY_BRANCH"
-echo "8"
-			git commit --allow-empty --amend -C HEAD
-echo "9"
-#ls -al
+			git merge -X theirs "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
 
-#			git merge "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+#ls -al
+function disabled {
+			# @source http://stackoverflow.com/a/27338013/330439
+			git checkout -b "source-$BRANCH" "source/$BRANCH" || git checkout "source-$BRANCH"
+			git pull source "$BRANCH"
+			git checkout "$DEPLOY_BRANCH"
+			git merge -s ours "source-$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
+			git checkout --detach "source-$BRANCH"
+			git reset --soft "$DEPLOY_BRANCH"
+			git checkout "$DEPLOY_BRANCH"
+			git commit --allow-empty --amend -C HEAD
+		    git clean -df
+}
+#ls -al
 
 
     		BO_log "$VERBOSE" "Ensure platform environment is in deploy branch"
@@ -145,9 +137,11 @@ echo "9"
 
 	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_COMMIT'"
 
+				# Remove submodule as the submodule state is messed up after merging.
+				git rm ".0" || true
 				# TODO: Swap out repository URL if changed but issue warning?
-				if [[ $(git submodule | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
-		    		git submodule add "$Z0_REPOSITORY_URL" ".0"
+				if [[ $(git submodule 2>&1 | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
+		    		git submodule add --force "$Z0_REPOSITORY_URL" ".0"
 		    	fi
 	    		BO_log "$VERBOSE" "Update submodule for '.0' from '$Z0_REPOSITORY_URL'"
 		    	git submodule update --init --rebase ".0"
@@ -194,6 +188,7 @@ echo "9"
 				exit 1;
 			fi
 
+			git pull origin "$DEPLOY_BRANCH" || true
 			# @see http://stackoverflow.com/a/2980050/330439
 		    git push -f "$PLATFORM_NAME" HEAD:master
 
