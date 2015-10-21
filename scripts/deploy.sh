@@ -20,13 +20,14 @@ function init {
 	function Deploy {
 		BO_format "$VERBOSE" "HEADER" "Deploy system ..."
 
+		BO_log "$VERBOSE" "ENVIRONMENT_NAME: $ENVIRONMENT_NAME"
 		BO_log "$VERBOSE" "PWD: $PWD"
 
 	    # Check if git dirty
 	    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] || [[ $(git status -s 2> /dev/null | tail -n1) != "" ]]; then
 	        echo "ERROR: Aborting. Your working directory contains uncommitted changes!"
 	        echo "Action: Commit changes"
-#		        exit 1;
+	        exit 1;
         fi
 
 	    if [[ $(git remote show "$PLATFORM_NAME" 2>&1 | grep fatal) != "" ]]; then
