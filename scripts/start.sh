@@ -18,7 +18,9 @@ function init {
 		BO_format "$VERBOSE" "HEADER" "Starting system"
 
 
-		export ENVIRONMENT_TYPE="production"
+		if [ -z "$ENVIRONMENT_TYPE" ]; then
+			export ENVIRONMENT_TYPE="production"
+		fi
 
 		if [ -z "$PLATFORM_NAME" ]; then
 			echo "ERROR: 'PLATFORM_NAME' environment variable not set!"

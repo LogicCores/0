@@ -361,6 +361,9 @@ window.animateSkin();
 	}).then(function () {
 		// Spin up the page.
 		LIB.Cores.page.adapters.page.spin(contexts.page);
+
+		// TODO: Namespace this variable so each stack can export its own or modified version of a common one?
+		window.contexts = contexts;
 	});
 }
 

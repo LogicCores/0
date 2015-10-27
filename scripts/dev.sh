@@ -22,6 +22,23 @@ function init {
 		BO_log "$VERBOSE" "ENVIRONMENT_NAME: $ENVIRONMENT_NAME"
 		BO_log "$VERBOSE" "ENVIRONMENT_TYPE: $ENVIRONMENT_TYPE"
 
+		if [ -z "$PLATFORM_NAME" ]; then
+			echo "ERROR: 'PLATFORM_NAME' environment variable not set!"
+			exit 1
+		fi
+		if [ -z "$ENVIRONMENT_NAME" ]; then
+			echo "ERROR: 'ENVIRONMENT_NAME' environment variable not set!"
+			exit 1
+		fi
+		if [ -z "$PIO_PROFILE_KEY" ]; then
+			echo "ERROR: 'PIO_PROFILE_KEY' environment variable not set!"
+			exit 1
+		fi
+		if [ -z "$PIO_PROFILE_SECRET" ]; then
+			echo "ERROR: 'PIO_PROFILE_SECRET' environment variable not set!"
+			exit 1
+		fi
+
 		node "$Z0_ROOT/server.js"
 
 		BO_format "$VERBOSE" "FOOTER"

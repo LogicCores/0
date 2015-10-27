@@ -114,5 +114,5 @@ We already use the *PINF.Genesis.ccjson* file to get ready for when *PINF.Genesi
 Provenance
 ==========
 
-Original source logic [UNLICENSED](http://unlicense.org/) by [Christoph Dorn](http://christophdorn.com)
+Original source logic under [Free Public License](https://lists.opensource.org/pipermail/license-review/2015-October/001254.html) by [Christoph Dorn](http://christophdorn.com)
 
