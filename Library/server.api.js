@@ -33,6 +33,8 @@ exports.forPoly = function (POLYFILLS) {
         });
     }
 
+    exports.request = require("request");
+
     exports.urijs = require("urijs");
 
     exports.waitfor = require("waitfor");
