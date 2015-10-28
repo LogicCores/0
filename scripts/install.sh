@@ -127,6 +127,12 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "$Z0_ROOT/cores/data/for/io.orchestrate" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "$Z0_ROOT/cores/data/for/nedb" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install

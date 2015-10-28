@@ -21,6 +21,9 @@
         "data.nedb": {
             "$": "./cores/data/for/nedb/0-server.impl.ccjson"
         },
+        "data.io.orchestrate": {
+            "$": "./cores/data/for/io.orchestrate/0-server.impl.ccjson"
+        },
         "data.ccjson.record.mapper": {
             "$": "./cores/data/for/ccjson.record.mapper/0-server.impl.ccjson"
         },
