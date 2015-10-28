@@ -64,7 +64,7 @@ function init {
 		BO_log "$VERBOSE" "Deploying to branch: $DEPLOY_BRANCH"
 
 
-        SOURCE_REPOSITORY_PATH="$PWD/.git"
+        SOURCE_REPOSITORY_PATH="$PWD"
         PLATFORM_DEPLOY_URL=`git config --get remote.$PLATFORM_NAME.url`
 
 
@@ -84,7 +84,7 @@ function init {
 			# Merge source changes
 
     		BO_log "$VERBOSE" "Merge changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH' from '$SOURCE_REPOSITORY_PATH'"
-			git remote add source "$SOURCE_REPOSITORY_PATH" 2> /dev/null || true
+			git remote add source "$SOURCE_REPOSITORY_PATH/.git" 2> /dev/null || true
 			git fetch source
 
 			git merge -X theirs "source/$BRANCH" -m "Changes for branch '$BRANCH' resulting in commit '$DEPLOY_TAG' on stream '$DEPLOY_BRANCH'"
@@ -117,7 +117,17 @@ function disabled {
 #			       	fi
 	  	        done
 		    pushd > /dev/null
-
+		    # Copy dependency declarations
+			node --eval '
+			const PATH = require("path");
+			const FS = require("fs");
+			var sourceDescriptor = JSON.parse(FS.readFileSync("'$SOURCE_REPOSITORY_PATH'/package.json"));
+			var targetDescriptor = JSON.parse(FS.readFileSync("'$DEPLOY_REPOSITORY_PATH'/package.json"));
+			if (sourceDescriptor.dependencies) {
+				targetDescriptor.dependencies = sourceDescriptor.dependencies;
+				FS.writeFileSync("'$DEPLOY_REPOSITORY_PATH'/package.json", JSON.stringify(targetDescriptor, null, 4));
+			}
+			'
 
     		BO_log "$VERBOSE" "Add new/changed/removed files to '$DEPLOY_REPOSITORY_PATH' repo"
 
