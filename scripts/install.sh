@@ -42,6 +42,12 @@ function init {
 		BO_log "$VERBOSE" "PWD: $PWD"
 
 
+		pushd "$Z0_ROOT/cores/export/for/bower" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "$Z0_ROOT/Library" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
@@ -143,12 +149,6 @@ function init {
 		popd > /dev/null
 
 		pushd "$Z0_ROOT/cores/export/for/babel" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-
-		pushd "$Z0_ROOT/cores/export/for/bower" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
