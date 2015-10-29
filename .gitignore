@@ -8,3 +8,4 @@ npm-debug.log
 /_exports/0.dev/
 /.bash.origin.cache/
 /.done
+bower_components

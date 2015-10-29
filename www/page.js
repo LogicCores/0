@@ -126,19 +126,24 @@ window.animateSkin();
 	function initPageManagement () {
 		return LIB.Promise.try(function () {
 
-//			var cachedPageContent = {};
+
+			var cachedPageContent = {};
 
 			var firewidgets = LIB.Cores.page.adapters.firewidgets.spin(LIB._.extend(contexts.page, {
 				anchors: {
 					"page-content": function (context) {
 
 						var uri = contexts.page.getBaseUrl() + context.getPath() + ".md.htm";
-						
+
 						function fetchPageContent () {
-//							if (cachedPageContent[uri]) {
-//								// TODO: Initiate fetch and update page if changed.
-//								return LIB.Promise.resolve(cachedPageContent[uri]);
-//							}
+
+							if (
+								contexts.page.config.alwaysReload === false &&
+								cachedPageContent[uri]
+							) {
+								// TODO: Optionally initiate fetch or HEAD and update page if changed.
+								return LIB.Promise.resolve(cachedPageContent[uri]);
+							}
 							return contexts.adapters.fetch.window.fetch(uri).then(function(response) {
 								if (response.status !== 200) {
 									var err = new Error("Error fetching page content");
@@ -147,11 +152,13 @@ window.animateSkin();
 								}
 								return response.text();
 							}).then(function (html) {
-//								cachedPageContent[uri] = html;
+								cachedPageContent[uri] = html;
 								return html;
 							});
 						}
 
+						// TODO: Cache page objects including new context from initContainerContext() below and just
+						//       detach/re-attach when navigating in cached mode.
 						return fetchPageContent().then(function (html) {
 
 							// TODO: Remove this once scripts are cached more intelligently in nested contexts.
@@ -160,20 +167,37 @@ window.animateSkin();
  							return contexts.adapters.component.firewidgets.liftComponentsForPageFragment(
 								contexts.page,
 								html
-							).then(function (html) {
-								if (typeof html === "string") {
-									return {
-										html: html || ""
-									};
-								} else
-								if (typeof html === "function") {
-									return {
-										html: html() || ""
-									};
-								} else {
-									console.error("html", html);
-									throw new Error("Unknown factory for html!");
+							).then(function (htmlish) {
+								
+								function getHTML (htmlish) {
+									if (typeof htmlish === "string") {
+										return htmlish || "";
+									} else
+									if (typeof htmlish === "function") {
+										return htmlish() || "";
+									} else {
+										console.error("htmlish", htmlish);
+										throw new Error("Unknown factory for htmlish!");
+									}
 								}
+								
+								// Disable all page scripts thare are still left.
+								// TODO: Enable running of page scripts for script tags that have a contract for a runtime declared.
+								// @source http://stackoverflow.com/a/9899441/330439
+								function removeScripts (text) {
+									var SCRIPT_REGEX = /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi;
+									while (SCRIPT_REGEX.test(text)) {
+									    text = text.replace(SCRIPT_REGEX, "");
+									}
+									return text;
+								}
+
+								var html = getHTML(htmlish);
+								html = removeScripts(html);
+
+								return {
+									html: html
+								};
 							});
 						}).catch(function (err) {
 							console.error("Error fetching page content", err);
@@ -213,6 +237,8 @@ window.animateSkin();
 
 
 						contexts.container = new (LIB.Cores.container.forContexts(contexts)).Context(config.container || {});
+						
+						contexts.container.setPageContext(event);
 
 						contexts.adapters.container = {
 							firewidgets: LIB.Cores.container.adapters.firewidgets.spin(contexts.container)

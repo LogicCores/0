@@ -53,6 +53,9 @@ function init {
 		        	npm run minify
 				popd > /dev/null
 	       	fi
+	        if [ ! -e "bower_components" ] || [ "$1" == "reinstall" ]; then
+				"$Z0_ROOT/cores/export/for/bower/node_modules/.bin/bower" install --allow-root --config.interactive=false
+	       	fi
 		popd > /dev/null
 
 		pushd "$Z0_ROOT/Polyfills" > /dev/null

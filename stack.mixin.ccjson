@@ -95,5 +95,25 @@
                 "PIO_PROFILE_SECRET": "{{ENV.PIO_PROFILE_SECRET}}"
             }
         }
+    },
+    "@export.bower": {
+        "${{ARG.namespace}}.export.bower.library": {
+            "packagePath": "{{__DIRNAME__}}/Library",
+            "${{ARG.namespace}}.static.fs.components.dist.path()->distPath": {
+                "namespace": "bower.library"
+            },
+            "config": {
+                "exclude": [
+                    "jquery"
+                ]
+            }
+        }
+    },
+    "@route.express": {
+        "${{ARG.namespace}}.routes.export.bower": {
+            "${{ARG.namespace}}.export.bower.library.app()->impls/library": {
+                "match": "^/library(\\.dist)?\\.(js|css)$"
+            }
+        }
     }
 }
