@@ -125,6 +125,8 @@ function disabled {
 			var targetDescriptor = JSON.parse(FS.readFileSync("'$DEPLOY_REPOSITORY_PATH'/package.json"));
 			if (sourceDescriptor.dependencies) {
 				targetDescriptor.dependencies = sourceDescriptor.dependencies;
+				// Remove 0.workspace
+				delete targetDescriptor.dependencies["0.workspace"];
 				FS.writeFileSync("'$DEPLOY_REPOSITORY_PATH'/package.json", JSON.stringify(targetDescriptor, null, 4));
 			}
 			'
