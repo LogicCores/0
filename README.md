@@ -34,7 +34,7 @@ Setup
 	npm run update              # Pull changes, checkout submodules and re-install
 	npm run edit                # Launch an editor
 	npm run dev                 # Run system in development mode using development profile
-	npm run dev --production    # Run system in development mode using production profile
+	npm run dev --production    # Run system in production mode using production profile
 	npm run encrypt             # Encrypt raw profile data using workspace secret
 	npm test                    # Test system
 

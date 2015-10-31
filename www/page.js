@@ -76,7 +76,9 @@ function bootForLib (LIB) {
 						offset : 0
 					});
 
-window.animateSkin();
+if (typeof window.animateSkin === "function") {
+	window.animateSkin();
+}
 
 				} else {
 					contexts.page.setViews([
@@ -277,18 +279,25 @@ window.animateSkin();
 			var mainMenuPinned = null;
 
 			contexts.page.on("changed:path", function (path) {
-				// TODO: Optionally remember scoll positions of pages and re-apply on nav.
-				var menuHeight = $(".main.menu").height();
-				var pageContentElm = $("#page-content");
-				var pageContentY = pageContentElm.offset().top;
-				if (
-					mainMenuPinned ||
-					/\/Community\//.test(path)
-				) {
-					$(document).scrollTop(pageContentY - menuHeight * 2);
+
+// TODO: Move this into the admin skin.
+
+				try {
+					// TODO: Optionally remember scoll positions of pages and re-apply on nav.
+					var menuHeight = $(".main.menu").height();
+					var pageContentElm = $("#page-content");
+					var pageContentY = pageContentElm.offset().top;
+					if (
+						mainMenuPinned ||
+						/\/Community\//.test(path)
+					) {
+						$(document).scrollTop(pageContentY - menuHeight * 2);
+					}
+					$('.main.menu .item').removeClass("active");
+					$('.main.menu .item[href="' + path + '"]').addClass("active");
+				} catch (err) {
+					console.error("suppressed error", err);
 				}
-				$('.main.menu .item').removeClass("active");
-				$('.main.menu .item[href="' + path + '"]').addClass("active");
 			});
 	
 			var onScroll = LIB._.debounce(function () {
