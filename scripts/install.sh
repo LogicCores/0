@@ -286,6 +286,11 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "$Z0_ROOT/lib/node.pack" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
 
 		pushd "$Z0_ROOT/lib/smi-for-git" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then

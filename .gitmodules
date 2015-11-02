@@ -211,3 +211,6 @@ url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
 [submodule "0.FireConsole"]
 	path = 0.FireConsole
 	url = git://github.com/fireconsole/0.FireConsole.git
+[submodule "lib/node.pack"]
+	path = lib/node.pack
+	url = git://github.com/NodePACK/node.pack.git
