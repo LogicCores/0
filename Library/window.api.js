@@ -31,6 +31,33 @@ api["cores/data/for/ccjson.record.mapper/0-common.api"] = require("../cores/data
 
 
 
+/*
+.onow(eventName, eventHandler);
+
+Will register `eventHandler` to be invoked on `eventName` using `.on(eventName, eventHandler)`
+AND will invoke `eventHandler` once with last event data if already fired prior to registration.
+*/
+var proto_emit = api.EventEmitter.prototype.emit;
+api.EventEmitter.prototype.emit = function (name) {
+	var self = this;
+	if (!self._onow_history) {
+		self._onow_history = {};
+	}
+	self._onow_history[name] = Array.prototype.slice.call(arguments);
+	self._onow_history[name].shift();
+	proto_emit.apply(this, arguments);
+}
+api.EventEmitter.prototype.onow = function (name, handler) {
+	var self = this;
+	self.on(name, handler);
+	if (self._onow_history[name]) {
+		handler.apply(null, self._onow_history[name]);
+	}
+}
+
+
+
+
 api.waitForWindowProperty = function (property, whenLoaded) {
 	var waitInterval = setInterval(function () {
 		if (typeof window[property] === "undefined") return;
