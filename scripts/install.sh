@@ -48,8 +48,16 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "$Z0_ROOT/lib/virtual-dom" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "$Z0_ROOT/Library" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	mkdir node_modules
+	        	ln -s ../../virtual-dom node_modules/virtual-dom
 	        	npm install
 				pushd "node_modules/node-forge" > /dev/null
 					# This will install dev dependencies for the whole dep tree!
@@ -237,32 +245,37 @@ function init {
 	        	npm install
 	       	fi
 		popd > /dev/null
-	
-		pushd "$Z0_ROOT/lib/sm.hoist.VisualComponents" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-	
+
 		pushd "$Z0_ROOT/lib/ccjson" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-	
-		pushd "$Z0_ROOT/lib/cvdom" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-	
-		pushd "$Z0_ROOT/lib/pio.profile" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi
 		popd > /dev/null
 
 		pushd "$Z0_ROOT/lib/html2chscript" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "$Z0_ROOT/lib/cvdom" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	mkdir node_modules
+	        	ln -s ../../html2chscript node_modules/html2chscript
+	        	ln -s ../../virtual-dom node_modules/virtual-dom
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "$Z0_ROOT/lib/sm.hoist.VisualComponents" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	mkdir node_modules
+	        	ln -s ../../cvdom node_modules/cvdom
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "$Z0_ROOT/lib/pio.profile" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi

@@ -47,11 +47,19 @@ api.EventEmitter.prototype.emit = function (name) {
 	self._onow_history[name].shift();
 	proto_emit.apply(this, arguments);
 }
-api.EventEmitter.prototype.onow = function (name, handler) {
+api.EventEmitter.prototype.onnow = api.EventEmitter.prototype.onow = function (name, handler) {
 	var self = this;
 	self.on(name, handler);
 	if (self._onow_history[name]) {
 		handler.apply(null, self._onow_history[name]);
+	}
+}
+api.EventEmitter.prototype.oncenow = function (name, handler) {
+	var self = this;
+	if (self._onow_history[name]) {
+		handler.apply(null, self._onow_history[name]);
+	} else {
+		self.once(name, handler);
 	}
 }
 
