@@ -57,7 +57,7 @@ function init {
 		pushd "$Z0_ROOT/Library" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	mkdir node_modules
-	        	ln -s ../../virtual-dom node_modules/virtual-dom
+	        	ln -s ../../lib/virtual-dom node_modules/virtual-dom
 	        	npm install
 				pushd "node_modules/node-forge" > /dev/null
 					# This will install dev dependencies for the whole dep tree!
