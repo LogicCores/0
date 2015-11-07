@@ -50,7 +50,8 @@ function bootForLib (LIB) {
 				localStorage: LIB.Cores.cache.adapters.localStorage.spin(contexts.cache)
 			};
 			contexts.adapters.data = {
-				"ccjson.record.mapper": LIB.Cores.data.adapters["ccjson.record.mapper"].spin(contexts.data)
+				"ccjson.record.mapper": LIB.Cores.data.adapters["ccjson.record.mapper"].spin(contexts.data),
+				"localStorage": LIB.Cores.data.adapters["localStorage"].spin(contexts.data)
 			};
 
 			return config;
