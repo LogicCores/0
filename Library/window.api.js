@@ -1,6 +1,8 @@
 
-window.jQuery = require("jquery");
-window.$ = window.jQuery;
+if (!window.$) {
+	window.jQuery = require("jquery");
+	window.$ = window.jQuery;
+}
 
 require("../cores/skin/for/semantic-ui/node_modules/semantic-ui-css/semantic.js");
 
