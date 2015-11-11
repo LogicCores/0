@@ -24,6 +24,12 @@ function bootForLib (LIB) {
 			contexts.data = new (LIB.Cores.data.forContexts(contexts)).Context(config.data || {});
 			contexts.cache = new (LIB.Cores.cache.forContexts(contexts)).Context(config.cache || {});
 
+			// NOTE: This is the new structure!
+			contexts.aspects = {
+				env: new (LIB.Cores.env.forContexts(contexts)).Context(config.env || {}),
+				service: new (LIB.Cores.service.forContexts(contexts)).Context(config.service || {})
+			};
+
 			// TODO: Make 'adapters' into a core as well.
 			contexts.adapters = {
 				LIB: LIB

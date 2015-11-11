@@ -16,6 +16,7 @@
     "node-forge": "^0.6.34",
     "numeral": "^1.5.3",
     "request": "^2.65.0",
+    "require.async": "^0.1.1",
     "send": "^0.13.0",
     "traverse": "^0.6.6",
     "urijs": "^1.16.1",

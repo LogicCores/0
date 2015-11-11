@@ -34,6 +34,7 @@ exports.forPoly = function (POLYFILLS) {
     }
 
     exports.request = require("request");
+    exports["require.async"] = require("require.async");
 
     exports.urijs = require("urijs");
 

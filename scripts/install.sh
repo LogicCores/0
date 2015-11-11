@@ -83,8 +83,20 @@ function init {
 	        	npm install
 	       	fi
 		popd > /dev/null
-	
+
 		pushd "$Z0_ROOT/cores/responder/for/express" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "$Z0_ROOT/cores/email/for/mandrill" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "$Z0_ROOT/cores/sms/for/twilio" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi

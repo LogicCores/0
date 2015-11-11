@@ -217,3 +217,15 @@ url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
 [submodule "lib/virtual-dom"]
 	path = lib/virtual-dom
 url=git://github.com/firewidgets/virtual-dom.git
+[submodule "cores/env"]
+	path = cores/env
+	url = git://github.com/LogicCores/0-env.git
+[submodule "cores/service"]
+	path = cores/service
+	url = git://github.com/LogicCores/0-service.git
+[submodule "cores/library"]
+	path = cores/library
+	url = git://github.com/LogicCores/0-library.git
+[submodule "cores/job"]
+	path = cores/job
+	url = git://github.com/LogicCores/0-job.git

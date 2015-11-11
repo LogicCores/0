@@ -3,8 +3,20 @@
         "host": {
             "$": "./cores/host/0-server.impl.ccjson"
         },
+        "env": {
+            "$": "./cores/env/0-server.impl.ccjson"
+        },
+        "service": {
+            "$": "./cores/service/0-server.impl.ccjson"
+        },
+        "library": {
+            "$": "./cores/library/0-server.impl.ccjson"
+        },
         "context": {
             "$": "./cores/context/for/logic.cores/0-server.impl.ccjson"
+        },
+        "job.cli": {
+            "$": "./cores/job/for/cli/0-server.impl.ccjson"
         },
         "responder.server": {
             "$": "./cores/responder/for/express/0-server.impl.ccjson"
@@ -17,6 +29,12 @@
         },
         "profile.pio": {
             "$": "./cores/profile/for/pio.profile/0-server.impl.ccjson"
+        },
+        "email.mandrill": {
+            "$": "./cores/email/for/mandrill/0-server.impl.ccjson"
+        },
+        "sms.twilio": {
+            "$": "./cores/sms/for/twilio/0-server.impl.ccjson"
         },
         "data.nedb": {
             "$": "./cores/data/for/nedb/0-server.impl.ccjson"

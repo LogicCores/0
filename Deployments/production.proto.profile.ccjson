@@ -4,6 +4,11 @@
             "host": "{{ENV.ENVIRONMENT_NAME}}"
         }
     },
+    "@env": {
+        "$0.env": {
+            "mode": "production"
+        }
+    },
     "@invite.cookie": {
         "$0.invite.cookie": {
     		"$0.profile.virtualcloud.hashForAspect()->token": {

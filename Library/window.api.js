@@ -15,6 +15,7 @@ var api = module.exports = {
 	numeral: require("numeral"),
 	moment: require("moment"),
     urijs: require("urijs"),
+    uuid: require("uuid"),
     traverse: require("traverse"),
     CJSON: {
         stringify: require("canonical-json")
