@@ -38,6 +38,8 @@ exports.forPoly = function (POLYFILLS) {
 
     exports.urijs = require("urijs");
 
+    exports.dot = require("dot");
+
     exports.waitfor = require("waitfor");
 
     exports.traverse = require("traverse");

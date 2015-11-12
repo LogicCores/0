@@ -4,6 +4,7 @@
   "dependencies": {
     "backbone": "^1.2.3",
     "canonical-json": "0.0.4",
+    "dot": "^1.0.3",
     "escape-regexp-component": "^1.0.2",
     "eventemitter2": "^0.4.14",
     "fs-extra": "^0.24.0",

@@ -27,7 +27,8 @@ function bootForLib (LIB) {
 			// NOTE: This is the new structure!
 			contexts.aspects = {
 				env: new (LIB.Cores.env.forContexts(contexts)).Context(config.env || {}),
-				service: new (LIB.Cores.service.forContexts(contexts)).Context(config.service || {})
+				service: new (LIB.Cores.service.forContexts(contexts)).Context(config.service || {}),
+				page: contexts.page
 			};
 
 			// TODO: Make 'adapters' into a core as well.

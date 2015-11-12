@@ -45,6 +45,9 @@
         "data.ccjson.record.mapper": {
             "$": "./cores/data/for/ccjson.record.mapper/0-server.impl.ccjson"
         },
+        "data.wildfire": {
+            "$": "./cores/data/for/wildfire/0-server.impl.ccjson"
+        },
         "page.express": {
             "$": "./cores/page/for/express/0-server.impl.ccjson"
         },
