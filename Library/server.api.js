@@ -20,6 +20,7 @@ exports.forPoly = function (POLYFILLS) {
     exports.backbone = require("backbone");
 	exports.numeral = require("numeral");
 	exports.moment = require("moment");
+	exports["moment-timezone"] = require("moment-timezone");
 
 	exports.assert = require("assert");
     exports.glob = require("glob");

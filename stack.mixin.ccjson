@@ -24,6 +24,9 @@
         "invite.cookie": {
             "$": "./cores/invite/for/cookie/0-server.impl.ccjson"
         },
+        "time.moment": {
+            "$": "./cores/time/for/moment/0-server.impl.ccjson"
+        },
         "cache.fs": {
             "$": "./cores/cache/for/fs/0-server.impl.ccjson"
         },
