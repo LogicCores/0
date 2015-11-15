@@ -231,7 +231,7 @@ url=git://github.com/firewidgets/virtual-dom.git
 	url = git://github.com/LogicCores/0-job.git
 [submodule "cores/report"]
 	path = cores/report
-	url = git@github.com:LogicCores/0-report.git
+url=git://github.com/LogicCores/0-report.git
 [submodule "cores/message"]
 	path = cores/message
 	url = git://github.com/LogicCores/0-message.git
