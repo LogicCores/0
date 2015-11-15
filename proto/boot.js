@@ -98,6 +98,16 @@ exports.boot = function (instanceAlias) {
         }).then(function (configContext) {
     
             return configContext.adapters["pinf.genesis.config"].spin(configContext);
+        }).then(function () {
+
+/*
+// TODO: Enable by config
+            const MODULE_REPORTER = require("../cores/report/for/nodejs.loaded.modules/0-server.api").forLib(LIB);
+            return MODULE_REPORTER.generateForModule(module).then(function (report) {
+                console.log("modules", report.modules);
+                console.log("summary", report.summary);
+            });
+*/
         });
 
     });

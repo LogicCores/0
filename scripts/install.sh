@@ -137,13 +137,7 @@ function init {
 	        	npm install
 	       	fi
 		popd > /dev/null
-	
-		pushd "$Z0_ROOT/cores/skin/for/sm.hoist.VisualComponents" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-	
+
 		pushd "$Z0_ROOT/cores/data/for/knexjs" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
@@ -199,12 +193,6 @@ function init {
 		popd > /dev/null
 	
 		pushd "$Z0_ROOT/cores/export/for/webpack" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-	
-		pushd "$Z0_ROOT/cores/boundary/for/github" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
 	       	fi

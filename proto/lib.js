@@ -2,8 +2,22 @@
 const POLYFILLS = require("../Polyfills/server.api");
 const LIBRARY = require("../Library/server.api").forPoly(POLYFILLS);
 var lib = {};
-LIBRARY._.assign(lib, POLYFILLS);
-LIBRARY._.assign(lib, LIBRARY);
+function assignGetters (target, source) {
+    Object.keys(source).forEach(function (name) {
+        Object.defineProperty(target, name, {
+            get: function () {
+                
+                if (name === "ccjson") {
+                    return source[name].forLib(lib);
+                }
+
+                return source[name];
+            }
+        });
+    });
+}
+assignGetters(lib, POLYFILLS);
+assignGetters(lib, LIBRARY);
 
 // TODO: Move to 'logic.cores' package which should load all cores for us
 lib.Cores = {};
