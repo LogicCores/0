@@ -11,6 +11,7 @@ exports.forPoly = function (POLYFILLS) {
 
     exports.EventEmitter = require("eventemitter2").EventEmitter2;
     exports.forge = require("node-forge");
+    exports.jsonwebtoken = require("jsonwebtoken");
     exports.uuid = require("uuid");
 
 	exports.RegExp_Escape = require("escape-regexp-component");
