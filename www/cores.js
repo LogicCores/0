@@ -1,6 +1,7 @@
 
 window.waitForLibrary(function (LIB) {
     LIB.Cores = {
+        application: require("../cores/application/0-window.api").forLib(LIB),
         time: require("../cores/time/0-window.api").forLib(LIB),
         env: require("../cores/env/0-window.api").forLib(LIB),
         service: require("../cores/service/0-window.api").forLib(LIB),
