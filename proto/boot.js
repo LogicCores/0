@@ -35,6 +35,20 @@ exports.boot = function (instanceAlias) {
 
         var BOOT_CONFIG_PATH = process.env.BOOT_CONFIG_PATH || LIB.path.join(__dirname, "../PINF.Genesis.ccjson");
         process.env.BOOT_CONFIG_PATH = BOOT_CONFIG_PATH;
+        
+        
+        // 'npm run dev --production'
+        if (
+            npm_config_argv &&
+            npm_config_argv.original &&
+            npm_config_argv.original.indexOf("--profile") !== -1
+        ) {
+            process.env.BOOT_PROFILE_OVERLAY_PATH = npm_config_argv.original[
+                npm_config_argv.original.indexOf("--profile") + 1
+            ];
+        } else {
+            process.env.BOOT_PROFILE_OVERLAY_PATH = "";
+        }
 
 
         LIB.assert.equal(typeof process.env.Z0_ROOT, "string", "'Z0_ROOT' environment variable not set!");
@@ -46,7 +60,7 @@ exports.boot = function (instanceAlias) {
         LIB.assert.equal(typeof process.env.BOOT_CONFIG_PATH, "string", "'BOOT_CONFIG_PATH' environment variable not set!");
 
 
-        console.log("Boot instance alias '" + instanceAlias + "' for config:", BOOT_CONFIG_PATH, "(ENVIRONMENT_TYPE: " + process.env.ENVIRONMENT_TYPE + ")");
+        console.log("Boot instance alias '" + instanceAlias + "' for config:", BOOT_CONFIG_PATH, "(ENVIRONMENT_TYPE: " + process.env.ENVIRONMENT_TYPE + ", BOOT_PROFILE_OVERLAY_PATH: " + process.env.BOOT_PROFILE_OVERLAY_PATH + ")");
 
 
         // TODO: Move into memory manager.
