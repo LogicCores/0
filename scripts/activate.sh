@@ -46,6 +46,7 @@ function init {
 	else
         BO_sourcePrototype "$PIO_PROFILE_SEED_PATH.sh"
 	fi
+	BO_log "$VERBOSE" "PIO_PROFILE_SEED_PATH: $PIO_PROFILE_SEED_PATH"
 	# NOTE: We now have a sensitive 'PIO_PROFILE_SECRET' variable in the
 	#       environment that should be removed as soon as it is no longer needed
 	#       and before any non-tooling related runtime processes start!
