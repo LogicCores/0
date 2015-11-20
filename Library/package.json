@@ -16,6 +16,7 @@
     "lodash-deep": "^1.6.0",
     "moment": "^2.10.6",
     "moment-timezone": "^0.4.0",
+    "ms": "^0.7.1",
     "node-forge": "^0.6.34",
     "numeral": "^1.5.3",
     "q": "^1.4.1",

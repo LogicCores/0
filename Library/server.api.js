@@ -126,6 +126,10 @@ exports.forPoly = function (POLYFILLS) {
             if (exportCache["waitfor"]) return exportCache["waitfor"];
             return (exportCache["waitfor"] = require("waitfor"));
         },
+        get ms () {
+            if (exportCache["ms"]) return exportCache["ms"];
+            return (exportCache["ms"] = require("ms"));
+        },
         get traverse () {
             if (exportCache["traverse"]) return exportCache["traverse"];
             return (exportCache["traverse"] = require("traverse"));
