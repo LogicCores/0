@@ -62,6 +62,8 @@ exports.boot = function (instanceAlias) {
 
         console.log("Boot instance alias '" + instanceAlias + "' for config:", BOOT_CONFIG_PATH, "(ENVIRONMENT_TYPE: " + process.env.ENVIRONMENT_TYPE + ", BOOT_PROFILE_OVERLAY_PATH: " + process.env.BOOT_PROFILE_OVERLAY_PATH + ")");
 
+        console.log("VERBOSE:", process.env.VERBOSE);
+
 
         // TODO: Move into memory manager.
         var startTime = Date.now();

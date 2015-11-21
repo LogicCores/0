@@ -23,6 +23,8 @@ var api = module.exports = {
 	vdom: {
 		h: require("../lib/cvdom/h"),
     	ch: require("../lib/cvdom/ch"),
+		diff: require("virtual-dom/diff"),
+		patch: require("virtual-dom/patch"),
     	createElement: require('virtual-dom/create-element')
 	}
 };
