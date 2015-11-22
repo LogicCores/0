@@ -43,6 +43,11 @@ exports.forPoly = function (POLYFILLS) {
             if (exportCache["jsonwebtoken"]) return exportCache["jsonwebtoken"];
             return (exportCache["jsonwebtoken"] = require("jsonwebtoken"));
         },
+        get "console-trace" () {
+            if (exportCache["console-trace"]) return exportCache["console-trace"];
+            // TODO: This module should come from an installed module like the rest or be dynamically loaded later.
+            return (exportCache["console-trace"] = require("../lib/console-trace"));
+        },
         get uuid () {
             if (exportCache["uuid"]) return exportCache["uuid"];
             return (exportCache["uuid"] = require("uuid"));

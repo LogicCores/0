@@ -17,6 +17,11 @@ exports.boot = function (instanceAlias) {
         }
         LIB.VERBOSE = !!process.env.VERBOSE;
 
+        LIB["console-trace"]({
+            cwd: LIB.path.dirname(__dirname),
+            always: true
+        });
+
 
         // Boot configuration
 

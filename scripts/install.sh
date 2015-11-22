@@ -246,6 +246,12 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "$Z0_ROOT/lib/console-trace" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "$Z0_ROOT/lib/ccjson" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install

@@ -238,3 +238,6 @@ url=git://github.com/LogicCores/0-report.git
 [submodule "cores/application"]
 	path = cores/application
 url=git://github.com/LogicCores/0-application.git
+[submodule "lib/console-trace"]
+	path = lib/console-trace
+url=git://github.com/cadorn/console-trace.git
