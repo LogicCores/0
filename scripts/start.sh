@@ -49,6 +49,15 @@ function init {
 		BO_log "$VERBOSE" "PWD: $PWD"
 		BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
 
+
+		if [ ! -e ".git.commit.rev" ]; then
+			echo "ERROR: '.git.commit.rev' file not found!"
+			exit 1
+		fi
+		export GIT_COMMIT_REV=`cat .git.commit.rev`
+		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
+
+
 		node "$Z0_ROOT/server.js"
 
 

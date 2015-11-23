@@ -42,6 +42,8 @@ function init {
         getRemoteUrl "PLATFORM_DEPLOY_URL" "$PLATFORM_NAME"
 		BO_log "$VERBOSE" "Deploying to url: $PLATFORM_DEPLOY_URL"
 
+		GIT_COMMIT_REV=`git rev-parse --short HEAD`
+		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
 
 		pushd "$STREAM_REPOSITORY_PATH" > /dev/null
 
@@ -84,6 +86,10 @@ function init {
     		BO_log "$VERBOSE" "Commit changes for latest platform tooling for: $PLATFORM_NAME"
 	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
 
+			printf "%s" "$GIT_COMMIT_REV" > .git.commit.rev
+	        git add .git.commit.rev || true
+    		BO_log "$VERBOSE" "Freeze commit rev for source: $GIT_COMMIT_REV"
+	        git commit -m "Freeze commit rev for source: $GIT_COMMIT_REV" || true
 
 			# TODO: Move this up to befor the merge so that if the merge comes
 			#       with a submodule at .0 it will be used instead.
