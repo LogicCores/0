@@ -39,6 +39,12 @@ function init {
 			exit 1
 		fi
 
+
+		export GIT_COMMIT_REV=`git rev-parse --short HEAD`
+
+		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
+
+
 		node "$Z0_ROOT/server.js"
 
 		BO_format "$VERBOSE" "FOOTER"

@@ -5,6 +5,7 @@ window.waitForLibrary(function (LIB) {
         time: require("../cores/time/0-window.api").forLib(LIB),
         env: require("../cores/env/0-window.api").forLib(LIB),
         service: require("../cores/service/0-window.api").forLib(LIB),
+        skin: require("../cores/skin/0-window.api").forLib(LIB),
         cache: require("../cores/cache/0-window.api").forLib(LIB),
         page: require("../cores/page/0-window.api").forLib(LIB),
         data: require("../cores/data/0-window.api").forLib(LIB),
