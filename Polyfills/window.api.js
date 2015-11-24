@@ -1,7 +1,9 @@
 
 // TODO: Only load if needed
+require("html5-history-api");
 // NOTE: This breaks `page` in IE9 where `window.history.location.pathname` will not be set properly.
-//req_uire("html5-history-api");
+delete window.history.location;
+
 
 require("html5shiv");
 
