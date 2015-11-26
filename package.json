@@ -5,6 +5,43 @@
     "engines": {
         "node": "^4.0.0"
     },
+    "node.pack": {
+        "packs": {
+            "dependencies": {
+                "packer": {
+                    "module": "node.pack/packers/asis",
+                    "config": {
+                        "aspect": "installed",
+                        "sourcePaths": [
+                            "/node_modules",
+                            "/cores/*/node_modules",
+                            "/cores/*/for/*/node_modules",
+                            "/Library/node_modules",
+                            "/Polyfills/node_modules",
+                            "/lib/*/node_modules"
+                        ]
+                    }
+                },
+                "syncer": {
+                    "module": "node.pack/syncers/aws.s3",
+                    "config": {
+                        "aspect": "installed",
+                        "aws": {
+                            "iamUserName": "{{ENV.Z0_NODEPACK_AWS_IAM_USER_NAME}}",
+                            "accessKeyId": "{{ENV.Z0_NODEPACK_AWS_ACCESS_KEY_ID}}",
+                            "secretAccessKey": "{{ENV.Z0_NODEPACK_AWS_SECRET_ACCESS_KEY}}",
+                            "s3": {
+                                "bucket": "nw.s3.assets.zerosystem.io",
+                                "publicHost": "s3-us-west-1.amazonaws.com",
+                                "path": "node.pack",
+                                "region": "us-west-1"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },    
     "scripts": {
         "install": "scripts/install.sh",
         "test": "scripts/test.sh",
