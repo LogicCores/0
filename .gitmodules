@@ -1,6 +1,3 @@
-[submodule "lib/cvdom"]
-	path = lib/cvdom
-	url = git://github.com/firewidgets/cvdom.git
 [submodule "lib/html2chscript"]
 	path = lib/html2chscript
 	url = git://github.com/firewidgets/html2chscript.git
