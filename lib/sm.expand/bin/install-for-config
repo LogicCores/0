@@ -1,0 +1,124 @@
+#!/usr/bin/env node
+
+const PATH = require("path");
+const FS = require("fs");
+const SPAWN = require("child_process").spawn;
+const WAITFOR = require("../lib/waitfor");
+
+// NOTE: This module needs to stay pure NodeJS without any external dependencies
+//       so we can always install `sm.expand` in a new environment while still
+//       linking to any 'sm.expand' dependencies that the environment may
+//       provide in source.
+
+// TODO: All logic contained here should be expressable using PINF.Logic for JSON
+//       and this needs to be refactored to take advantage of that once we have a
+//       minimal stable runtime release.
+
+function install (callback) {
+
+	var environmentDescriptor = require(process.argv[2]);
+
+	if (
+		!environmentDescriptor["@github.com~sourcemint~sm.expand~0/map"] ||
+		!environmentDescriptor["@github.com~sourcemint~sm.expand~0/map"].mappings
+	) {
+		return;
+	}
+
+	var mappings = environmentDescriptor["@github.com~sourcemint~sm.expand~0/map"].mappings;
+	var locations = environmentDescriptor["@github.com~sourcemint~sm.expand~0/map"]["@github.com~sourcemint~sm.expand~0/locations"];
+
+	// Derive base path of environment based on our path and specified config.
+	var environmentBasePath = locations.sources
+		.replace(/\{uid\}/g, PATH.basename(PATH.join(__dirname, "../../../..")))
+		.replace(/\{rev\}/g, PATH.basename(PATH.dirname(__dirname)));
+	var ownBasePath = PATH.dirname(__dirname);
+	if (ownBasePath.substring(ownBasePath.length - environmentBasePath.length) !== environmentBasePath) {
+		return callback(new Error("Could not determine 'environmentBasePath' based on our own path the the passed in config. It appears the config is not for the environment our source is cloned in!"));
+	}
+	environmentBasePath = ownBasePath.substring(0, ownBasePath.length - environmentBasePath.length - 1);
+
+	function linkAndInstallPackage (basePath, callback) {
+
+		// Only once.
+		if (!linkAndInstallPackage._basePaths) linkAndInstallPackage._basePaths = {};
+		if (linkAndInstallPackage._basePaths[basePath]) return callback(null);
+		linkAndInstallPackage._basePaths[basePath] = true;
+
+		var dependencies = require(PATH.join(basePath, "package.json")).dependencies;
+		if (!dependencies) {
+			return callback(null);
+		}
+
+		var targetBasePath = PATH.join(basePath, "node_modules");
+		if (!FS.existsSync(targetBasePath)) {
+			FS.mkdirSync(targetBasePath);
+		}
+
+		// Link mapped dependencies.
+		var waitfor = WAITFOR.parallel(function (err) {
+			if (err) return callback(err);
+			if (process.env.VERBOSE) {
+				console.log("Installing package with 'npm':", basePath);
+			}
+			var proc = SPAWN("npm", [
+				"install",
+				"--production"
+			], {
+				cwd: basePath,
+				stdio: "inherit"
+			});
+			proc.on("error", callback);
+			return proc.on("close", function () {
+				return callback(null);
+			});
+		});
+
+		Object.keys(dependencies).forEach(function (alias) {
+			if (!mappings[alias]) return;
+
+			var pointer = mappings[alias].split("/");
+
+			var sourcePath = PATH.join(
+				environmentBasePath,
+				locations.sources
+					.replace(/\{uid\}/g, pointer[0])
+					.replace(/\{rev\}/g, pointer[1])
+			);
+
+			var targetPath = PATH.join(targetBasePath, alias);
+
+			// We don't touch existig modules.
+			if (FS.existsSync(targetPath)) {
+				return;
+			}
+
+			// First we do the same for the mapped dependencies.
+
+			waitfor(function (callback) {
+				return linkAndInstallPackage(sourcePath, function (err) {
+					if (err) return callback(err);
+
+					try {
+						FS.unlinkSync(targetPath);
+					} catch (err) {}
+
+					if (process.env.VERBOSE) {
+						console.log("Linking", sourcePath, "to", targetPath);
+					}
+
+					return FS.symlink(sourcePath, targetPath, callback);
+				});
+			});
+		});
+		waitfor();
+	}
+
+	return linkAndInstallPackage(ownBasePath, callback);
+}
+
+install(function (err) {
+	if (err) {
+		console.error(err.stack);
+	}
+});

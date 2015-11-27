@@ -1,0 +1,16 @@
+{
+    "@": {
+        "$": [
+            [
+                "./stack.proto.ccjson",
+                {
+                    "namespace": "0.FireWidgets",
+                    "name": "0.FireWidgets",
+                    "label": "0.FireWidgets",
+                    "stackBasePath": "{{__DIRNAME__}}",
+                    "subUri": "/0.FireWidgets"
+                }
+            ]
+        ]
+    }
+}

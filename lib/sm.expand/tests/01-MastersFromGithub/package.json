@@ -1,0 +1,26 @@
+{
+	"@github.com~sourcemint~sm.expand~0/map": {
+		"sources": {
+			"github.com~kriskowal~q-io~0": {
+				"master": {
+					"uri": "git://git@github.com:kriskowal/q-io.git",
+					"installer": "npm"
+				}
+			},
+			"github.com~kriskowal~q~0": {
+				"master": {
+					"uri": "git://git@github.com:kriskowal/q.git",
+					"installer": "npm"
+				}
+			}
+		},
+		"mappings": {
+			"q-io": "github.com~kriskowal~q-io~0/master",
+			"q": "github.com~kriskowal~q~0/master"
+		},
+		"@github.com~sourcemint~sm.expand~0/locations": {
+			"sources": ".deps/{uid}/source/installed/{rev}",
+			"mappings": "node_modules/{alias}"
+		}
+	}
+}

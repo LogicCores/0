@@ -1,0 +1,8 @@
+{
+  "name": "0-sms-for-twilio",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "twilio": "^2.5.2"
+  }
+}

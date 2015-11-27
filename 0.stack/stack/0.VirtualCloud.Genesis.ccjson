@@ -1,0 +1,12 @@
+{
+    "@": {
+        "$": [
+            "../../0.VirtualCloud.Genesis/stack.mixin.ccjson"
+        ]
+    },
+    "@profile.virtualcloud": {
+        "$0.profile.virtualcloud": {
+            "secretKey": "{{ENV.PIO_PROFILE_KEY}}"
+        }
+    }
+}

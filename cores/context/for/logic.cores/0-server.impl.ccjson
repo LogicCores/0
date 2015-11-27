@@ -1,0 +1,7 @@
+{
+    "@": {
+        "$": [
+            "../../../../lib/logic.cores/0-server.api.ccjson"
+        ]
+    }
+}

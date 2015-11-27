@@ -1,0 +1,30 @@
+{
+    "@": {
+        "profile.impl": {
+            "$": "./profile.ccjson"
+        },
+        "auth.impl": {
+            "$": "./auth.ccjson"
+        }
+    },
+    "@profile.impl": {
+        "$profile": {
+            "secret": "SecretValue"
+        }
+    },
+    "@auth.impl": {
+        "$auth": {
+            "key1": "val1",
+            "$profile.decrypt()->.": {
+                "someVariable1": "(EncryptedUsing:SecretValue)Value1"
+        	},            
+            "key2": "val2",
+            "$profile.decrypt()->set1": {
+                "someVariable2": "(EncryptedUsing:SecretValue)Value2"
+        	},
+            "$profile.decrypt()->set2/sub": {
+                "someVariable3": "(EncryptedUsing:SecretValue)Value3"
+        	}
+        }
+    }
+}

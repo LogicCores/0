@@ -1,0 +1,9 @@
+{
+  "name": "0-static-for-send",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "rework": "^1.0.1",
+    "rework-plugin-url": "^1.1.0"
+  }
+}

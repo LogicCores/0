@@ -1,0 +1,19 @@
+{
+    "@": {
+        "$": [
+            "../../0.FireWidgets/stack.mixin.ccjson"
+        ]
+    },
+    "@export.0.FireWidgets": {
+        "${{ARG.namespace}}.export.0.FireWidgets": {
+            "${{ARG.namespace}}.static.fs.components.path()->basePaths/Components": {
+            }
+        }
+    },
+    "@responder.0.FireWidgets": {
+        "${{ARG.namespace}}.responder.0.FireWidgets": {
+            "${{ARG.namespace}}.static.fs.components.path()->basePaths/Components": {
+            }
+        }
+    }
+}

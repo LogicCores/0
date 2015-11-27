@@ -1,0 +1,8 @@
+{
+  "name": "0-email-for-mandrill",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "mandrill-api": "^1.0.45"
+  }
+}

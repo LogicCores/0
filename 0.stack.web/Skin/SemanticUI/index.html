@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html component:id="html">
+<head>
+  <!-- Standard Meta -->
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+
+  <title>Zero System</title>
+
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+
+  <link rel="stylesheet" type="text/css" href="/cores/skin/for/semantic-ui/semantic.css">
+  <link rel="stylesheet" type="text/css" href="/style.css">
+
+  <meta name="page.context" value="{{PAGE.context}}">
+</head>
+<body>
+
+
+
+  <div id="community-menu" class="ui borderless menu" component:view="loggedin">
+    <div class="ui text container">
+      <div href="#" class="header item">
+        <img class="logo" src="/img/0-community.png"/> &nbsp; Zero Community
+      </div>
+      <div class="item">
+        <a href="/Community/Clones" component:action:target="anchor:page-content" component:action:active:class="active" class="ui inverted green button">There are <strong>11</strong> Clones</a>
+      </div>
+      <div class="right menu">
+        <a href="/Community/About" class="item" component:action:target="anchor:page-content" component:action:active:class="active">About</a>
+        <a href="/Community/Settings" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Settings</a>
+        <a href="#" class="item" component:action:target="action:logout">Logout</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="ui main text container">
+
+    <a class="ui red right ribbon label">
+      ALPHA: Under Heavy Development
+    </a>
+    <h1 class="ui main header">
+      <img class="ui image" src="/img/0.png"/>
+      <div class="content">
+        Zero System
+        <div class="sub header">
+          <a href="http://zerosystem.io">zerosystem.io</a>
+          &nbsp;
+          &nbsp;
+          <a href="https://github.com/LogicCores/0">
+            <i class="github icon"></i>github.com/LogicCores/0
+          </a>
+          &nbsp;
+          &nbsp;
+          <a href="https://twitter.com/OpenZeroSystem" class="item">
+            <i class="twitter icon"></i>@OpenZeroSystem
+          </a>
+        </div>
+        <div class="sub header">
+            <code>git clone https://github.com/LogicCores/0.git</code>
+        </div>
+      </div>
+    </h1>
+    <h3 class="ui header">a Declarative System Composition Template</h3>
+
+    <p>Systems rot because they cannot be refactored and developers waste time because they cannot easily upgrade nor swap out components. We aim to <b>put an end to this waste!</b></p>
+
+    <p><b>Zero System</b> is made for <b>NodeJS</b> and used to build <b>Distributed JavaScript Applications</b>
+
+    <div class="ui center aligned basic segment" component:view="login">
+      <button class="ui secondary button" component:action:target="action:login"><i class="github icon"></i> Login to Zero System Community</button>
+    </div>
+
+    <p>
+      <a href="https://travis-ci.org/LogicCores/0"><img src="/cores/proxy/for/smi.cache/travis-ci.org/LogicCores/0.svg"/></a>
+      <a href="https://gitter.im/LogicCores/0"><img src="/cores/proxy/for/smi.cache/badges.gitter.im/Join%20Chat.svg"/></a>
+    </p>
+  </div>
+
+  <div class="ui borderless main menu" component:id="navbar">
+    <div class="ui text container">
+      <div href="#" class="header item">
+        <img class="logo" src="/img/0.png"/>
+      </div>
+      <a href="/Introduction" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Introduction</a>
+      <a href="/Examples" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Examples</a>
+      <a href="/Install" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Install</a>
+      <div class="right menu">
+        <a href="/Learn" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Learn</a>
+        <a href="/Cores" class="item" component:action:target="anchor:page-content" component:action:active:class="active">Cores</a>
+        <a href="/APIs" class="item" component:action:target="anchor:page-content" component:action:active:class="active">APIs</a>
+      </div>
+    </div>
+  </div>
+
+  <div id="page-content" class="ui text container page" component:anchor:id="page-content">
+  </div>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted grid">
+        <div class="eight wide column">
+          <div class="ui inverted link list">
+            <a href="https://twitter.com/OpenZeroSystem" class="item">
+              <i class="twitter icon"></i> &nbsp;
+              @OpenZeroSystem
+            </a>
+            <a href="http://ZeroSystem.io" class="item">
+              <i class="home icon"></i> &nbsp;
+              ZeroSystem.io
+            </a>
+            <a href="https://github.com/LogicCores/0" class="item">
+              <i class="github icon"></i> &nbsp;
+              github.com/LogicCores/0
+            </a>
+            <a href="http://ChristophDorn.com" class="item">
+              <i class="anchor icon"></i> &nbsp;
+              ChristophDorn.com
+            </a>
+          </div>
+          
+          <br/>
+          <br/>
+          <p>Logic &nbsp; + &nbsp; Love &nbsp; + &nbsp; Creative Energy &nbsp; ~> &nbsp; Brighter Future</p>
+          
+        </div>
+        <div class="eight wide column">
+          <h4 class="ui inverted header">Why the Zero System project?</h4>
+          <p class="justify text">I <a href="http://christophdorn.com">Christoph Dorn</a> have been continuously searching for the ultimate development environment and system. <b>Zero System</b> is my attempt to bring <i>declarative based system composition</i> to </i>NodeJS and JavaScript</i> application development. I believe we must start <i>declaring</i> how we wish to compose our applications (which are really wholistic systems) rather than <i>instruct</i> them. Declarative composition seems to be an underpinning of component-based development and demands more attention.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <div class="ui horizontal inverted small divided link list">
+          Original <span class="definition popup" data-content="Source Logic encompasses all the original logic in substance or arrangement in the form of encoded decisions that are recorded in system and human readable languages unique to a specific work from a specific context. It is recognized that new discoveries occur in all contexts a person may find themselves in and that diverse contexts are paramount in driving usefulness that leads to insights for new solutions. Thus Source Logic is a function of context diversity and usefulness implementation focus and can be used to describe all work an individual uniquely contribues to a global body of work. You define usefulness for yourself based on your imagination." data-variation="basic">Source Logic</span> by <a href="http://christophdorn.com">Christoph Dorn</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="ui vertical footer segment">
+    <div class="ui center aligned container license">
+
+<p>Permission to use, copy, modify, and/or distribute this software for
+any purpose with or without fee is hereby granted.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS" AND THE AUTHOR DISCLAIMS ALL
+WARRANTIES WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES
+OF MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE
+FOR ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY
+DAMAGES WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN
+AN ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT
+OF OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.</p>
+
+<p>For more information, please refer to <a href="https://lists.opensource.org/pipermail/license-review/2015-October/001254.html">Free Public License</a></p>
+    
+    </div>
+    
+    <br/>
+    <br/>
+
+    <div class="ui center aligned container">
+      <a class="positive ui button" href="https://github.com/LogicCores/0">Clone Zero System and use it as a Template for your next Application</a>
+      
+      <br/>
+      <br/>
+      <p><b>Nothing is set in stone</b> &nbsp; That's the beauty of <a href="https://git-scm.com/">git</a> and <a href="http://opensource.org/">Open Source</a>! &nbsp; <a href="https://github.com/LogicCores/0/pulls">Send your contributions</a></p>
+    </div>
+
+  </div>
+
+  <script src="/cores/export/0.FireWidgets/loader.js"></script>
+  <script src="/cores/export/for/browserify/polyfills.dist.js"></script>
+  <script src="/cores/export/for/browserify/lib.dist.js"></script>
+  <script src="/cores/export/for/webpack.skin/skin.js" async></script>
+  <script src="/cores/export/for/browserify/cores.js" async></script>
+  <script src="/cores/export/for/browserify/page.js" async></script>
+  <script src="/cores/data/for/record.collections/api.js" async></script>
+  <script src="/cores/export/for/webpack.skin/components.js" async></script>
+
+</body>
+</html>

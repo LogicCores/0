@@ -1,0 +1,20 @@
+
+<div class="ui dropdown labeled button">
+  <span class="text">Select</span>
+  <div class="menu">
+    <div class="ui icon search input">
+      <i class="search icon"></i>
+      <input type="text" placeholder="Search ..."/>
+    </div>
+    <div class="scrolling menu" component:section="options">
+        <div
+            component:section="options"
+            component:view="default"
+            class="item"
+            data-value="{{id}}"
+            component:prop="label">
+          Option
+        </div>
+    </div>
+  </div>
+</div>
