@@ -30,6 +30,45 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
+	function Unpack {
+		BO_format "$VERBOSE" "HEADER" "Unpacking 0 ..."
+
+		BO_log "$VERBOSE" "PWD: $PWD"
+
+		pushd "$Z0_ROOT/lib/node.pack" > /dev/null
+	        if [ ! -e "node_modules" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.unpack.proto.sh"
+
+		node.unpack.dependencies.exists "PACK_EXISTS"
+
+		if [ "$PACK_EXISTS" == "1" ]; then
+
+			BO_log "$VERBOSE" "Packed dependencies found remotely. Downloading and extracting ..."
+
+			# Remove any packages already installed by now.
+			# NOTE: We do NOT remove our `node.pack` dependencies and ignore extracting them
+			#       from the archive if there is overlap.
+			# TODO: Instead of using `node.pack` to unpack archives, use `node.unpack` which
+			#       should be a minimal package used to download and provision packed archives
+			#       and should be comitted to source or downloaded separately and not be part of the pack.
+			rm -Rf node_modules || true
+
+			# Unpack the dependencies from a downloaded archive
+			node.unpack "dependencies"
+
+			BO_setResult "$1" "1"
+		else
+			BO_log "$VERBOSE" "No packed dependencies found remotely. Installing from source."
+			BO_setResult "$1" "0"
+		fi
+
+		BO_format "$VERBOSE" "FOOTER"
+	}
+
 	function ReInstall {
 		Install "reinstall"
 	}
@@ -337,6 +376,14 @@ function init {
 				"$__BO_DIR__/pre-commit.sh"
 		fi
 
+
+		# TODO: Run install scripts based on declared stacks instead of hardcoding here
+	    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
+		Install $@
+	    BO_sourcePrototype "$Z0_ROOT/0.stack.test/scripts/install.sh"
+		Install $@
+
+
 		BO_format "$VERBOSE" "FOOTER"
 	}
 
@@ -348,13 +395,19 @@ function init {
 	# This variable must not be used from now on
 	export PIO_PROFILE_SECRET=""
 
-	Install $@
 
-	# TODO: Run install scripts based on declared stacks instead of hardcoding here
-    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
-	Install $@
-    BO_sourcePrototype "$Z0_ROOT/0.stack.test/scripts/install.sh"
-	Install $@
+	Unpack "UNPACKED" $@
 
+	if [ "$UNPACKED" == "0" ]; then
+		# We did not unpack dependencies so we need to install from source.
+		Install $@
+
+		# Now that we installed from source we try and bundle the dependencies
+		# so that other installations can use the bundled dependencies.
+		# If the bundling fails (because there are no sync credentials or there is an error)
+		# we simply ignore the error and assume another install elsewhere will do the work instead.
+
+		"$__BO_DIR__/bundle.sh" || true
+	fi
 }
 init $@
