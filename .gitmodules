@@ -1,6 +1,3 @@
-[submodule "cores/transform"]
-	path = cores/transform
-	url = git://github.com/LogicCores/0-transform.git
 [submodule "cores/config"]
 	path = cores/config
 url=git://github.com/LogicCores/0-config.git
