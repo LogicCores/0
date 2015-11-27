@@ -1,3 +1,0 @@
-[submodule "lib/node.unpack"]
-	path = lib/node.unpack
-url=git://github.com/NodePACK/node.unpack.git
