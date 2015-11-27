@@ -1,6 +1,3 @@
-[submodule "cores/report"]
-	path = cores/report
-url=git://github.com/LogicCores/0-report.git
 [submodule "cores/message"]
 	path = cores/message
 	url = git://github.com/LogicCores/0-message.git
