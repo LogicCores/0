@@ -1,6 +1,3 @@
-[submodule "cores/edit"]
-	path = cores/edit
-	url = git://github.com/LogicCores/0-edit.git
 [submodule "cores/test"]
 	path = cores/test
 	url = git://github.com/LogicCores/0-test.git
