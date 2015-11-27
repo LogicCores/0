@@ -1,6 +1,3 @@
-[submodule "cores/model"]
-	path = cores/model
-url=git://github.com/LogicCores/0-model.git
 [submodule "0.FireWidgets"]
 	path = 0.FireWidgets
 	url = git://github.com/firewidgets/0.FireWidgets.git
