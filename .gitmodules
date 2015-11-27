@@ -1,6 +1,3 @@
-[submodule "lib/console-trace"]
-	path = lib/console-trace
-url=git://github.com/cadorn/console-trace.git
 [submodule "lib/node.unpack"]
 	path = lib/node.unpack
 url=git://github.com/NodePACK/node.unpack.git
