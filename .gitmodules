@@ -1,6 +1,3 @@
-[submodule "cores/watch"]
-	path = cores/watch
-url=git://github.com/LogicCores/0-watch.git
 [submodule "cores/edit"]
 	path = cores/edit
 	url = git://github.com/LogicCores/0-edit.git
