@@ -1,6 +1,3 @@
-[submodule "cores/session"]
-	path = cores/session
-url=git://github.com/LogicCores/0-session.git
 [submodule "lib/firewidgets-for-zerosystem"]
 	path = lib/firewidgets-for-zerosystem
 url=git://github.com/firewidgets/firewidgets-for-zerosystem.git
