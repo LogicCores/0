@@ -1,6 +1,3 @@
-[submodule "cores/email"]
-	path = cores/email
-url=git://github.com/LogicCores/0-email.git
 [submodule "cores/sms"]
 	path = cores/sms
 	url = git://github.com/LogicCores/0-sms.git
