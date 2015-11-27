@@ -1,6 +1,3 @@
-[submodule "0.CloudIDE.Genesis"]
-	path = 0.CloudIDE.Genesis
-	url = git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git
 [submodule "lib/sm.expand"]
 	path = lib/sm.expand
 	url = git://github.com/sourcemint/sm.expand.git
