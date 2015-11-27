@@ -156,6 +156,8 @@ function init {
 				exit 1;
 			fi
 
+			BO_log "$VERBOSE" "Pushing to '$PLATFORM_NAME' ..."
+
 			# @see http://stackoverflow.com/a/2980050/330439
 		    git push -f "$PLATFORM_NAME" HEAD:master
 

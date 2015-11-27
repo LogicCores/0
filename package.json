@@ -7,6 +7,13 @@
     },
     "node.pack": {
         "packs": {
+            "inline": {
+                "packer": {
+                    "module": "node.pack/packers/git",
+                    "config": {
+                    }
+                }
+            },
             "dependencies": {
                 "aspect": "installed",
                 "packer": {

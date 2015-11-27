@@ -13,12 +13,35 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
-	DEV_REPOSITORY_URL="git@github.com:LogicCores/0.dev.git"
-	# TODO: Make exported name configurable
-	DEV_REPOSITORY_PATH="$WORKSPACE_DIR/_exports/0.dev"
-
-
 	function Publish {
+		BO_format "$VERBOSE" "HEADER" "Publishing system"
+
+		BO_log "$VERBOSE" "PWD: $PWD"
+
+	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
+	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
+
+		# Pack the source logic into a distribution branch by inlining all submodules
+		node.pack "inline"
+
+		node.pack.inline.source.stream.dirpath "STREAM_REPOSITORY_PATH"
+
+echo "STREAM_REPOSITORY_PATH: $STREAM_REPOSITORY_PATH"
+
+
+		BO_format "$VERBOSE" "FOOTER"
+	}
+
+
+
+
+
+#	DEV_REPOSITORY_URL="git@github.com:LogicCores/0.dev.git"
+	# TODO: Make exported name configurable
+#	DEV_REPOSITORY_PATH="$WORKSPACE_DIR/_exports/0.dev"
+
+
+	function Publish_OLD {
 		BO_format "$VERBOSE" "HEADER" "Publishing system"
 
 
