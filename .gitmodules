@@ -1,6 +1,3 @@
-[submodule "cores/cache"]
-	path = cores/cache
-url=git://github.com/LogicCores/0-cache.git
 [submodule "cores/boundary"]
 	path = cores/boundary
 	url = git://github.com/LogicCores/0-boundary.git
