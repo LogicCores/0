@@ -1,6 +1,3 @@
-[submodule "cores/profile"]
-	path = cores/profile
-	url = git://github.com/LogicCores/0-profile.git
 [submodule "lib/pio.profile"]
 	path = lib/pio.profile
 	url = git://github.com/pinf-io/pio.profile.git
