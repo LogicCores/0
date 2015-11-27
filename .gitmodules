@@ -1,6 +1,3 @@
-[submodule "lib/smi-for-git"]
-	path = lib/smi-for-git
-	url = git://github.com/sourcemint/smi-for-git.git
 [submodule "lib/smi-for-npm"]
 	path = lib/smi-for-npm
 	url = git://github.com/sourcemint/smi-for-npm.git
