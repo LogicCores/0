@@ -1,6 +1,3 @@
-[submodule "lib/html2chscript"]
-	path = lib/html2chscript
-	url = git://github.com/firewidgets/html2chscript.git
 [submodule "lib/html2chscript-for-webpack"]
 	path = lib/html2chscript-for-webpack
 	url = git://github.com/firewidgets/html2chscript-for-webpack.git
