@@ -1,6 +1,3 @@
-[submodule "lib/node.pack"]
-	path = lib/node.pack
-	url = git://github.com/NodePACK/node.pack.git
 [submodule "lib/virtual-dom"]
 	path = lib/virtual-dom
 url=git://github.com/firewidgets/virtual-dom.git
