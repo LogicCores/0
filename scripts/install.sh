@@ -29,6 +29,7 @@ function init {
 
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
+
 	function Unpack {
 		BO_format "$VERBOSE" "HEADER" "Unpacking 0 ..."
 
@@ -58,9 +59,11 @@ function init {
 
 			# Unpack the dependencies from a downloaded archive
 			node.unpack "dependencies"
+
+			BO_setResult "$1" "1"
 		else
 			BO_log "$VERBOSE" "No packed dependencies found remotely. Installing from source."
-			# TODO: If credentials for packer found, keep flag to upload when install is done.
+			BO_setResult "$1" "0"
 		fi
 
 		BO_format "$VERBOSE" "FOOTER"
@@ -373,6 +376,14 @@ function init {
 				"$__BO_DIR__/pre-commit.sh"
 		fi
 
+
+		# TODO: Run install scripts based on declared stacks instead of hardcoding here
+	    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
+		Install $@
+	    BO_sourcePrototype "$Z0_ROOT/0.stack.test/scripts/install.sh"
+		Install $@
+
+
 		BO_format "$VERBOSE" "FOOTER"
 	}
 
@@ -384,13 +395,19 @@ function init {
 	# This variable must not be used from now on
 	export PIO_PROFILE_SECRET=""
 
-	Install $@
 
-	# TODO: Run install scripts based on declared stacks instead of hardcoding here
-    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
-	Install $@
-    BO_sourcePrototype "$Z0_ROOT/0.stack.test/scripts/install.sh"
-	Install $@
+	Unpack "UNPACKED" $@
 
+	if [ "$UNPACKED" == "0" ]; then
+		# We did not unpack dependencies so we need to install from source.
+		Install $@
+
+		# Now that we installed from source we try and bundle the dependencies
+		# so that other installations can use the bundled dependencies.
+		# If the bundling fails (because there are no sync credentials or there is an error)
+		# we simply ignore the error and assume another install elsewhere will do the work instead.
+
+		"$__BO_DIR__/bundle.sh" || true
+	fi
 }
 init $@
