@@ -35,12 +35,9 @@ function init {
 		pushd "$STREAM_REPOSITORY_PATH" > /dev/null
 
 			git_ensureRemote "publish" "$GIT_PUBLISH_URL"
-			git_ensureSyncedRemote "publish" "master"
-
+			git_ensureSyncedRemoteBranch "publish" "master"
 
 		popd > /dev/null
-
-
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
