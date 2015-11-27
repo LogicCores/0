@@ -1,6 +1,3 @@
-[submodule "cores/boundary"]
-	path = cores/boundary
-	url = git://github.com/LogicCores/0-boundary.git
 [submodule "cores/host"]
 	path = cores/host
 	url = git://github.com/LogicCores/0-host.git
