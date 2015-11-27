@@ -1,6 +1,3 @@
-[submodule "cores/context"]
-	path = cores/context
-	url = git://github.com/LogicCores/0-context.git
 [submodule "lib/ccjson.record.mapper"]
 	path = lib/ccjson.record.mapper
 	url = git://github.com/ccjson/ccjson.record.mapper.git
