@@ -1,6 +1,3 @@
-[submodule "cores/request"]
-	path = cores/request
-	url = git://github.com/LogicCores/0-request.git
 [submodule "lib/ccjson.function.tree"]
 	path = lib/ccjson.function.tree
 url=git://github.com/ccjson/ccjson.function.tree.git
