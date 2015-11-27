@@ -1,6 +1,3 @@
-[submodule "lib/smi-for-npm"]
-	path = lib/smi-for-npm
-	url = git://github.com/sourcemint/smi-for-npm.git
 [submodule "0.FireConsole"]
 	path = 0.FireConsole
 	url = git://github.com/fireconsole/0.FireConsole.git
