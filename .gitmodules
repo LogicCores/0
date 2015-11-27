@@ -1,6 +1,3 @@
-[submodule "cores/sms"]
-	path = cores/sms
-	url = git://github.com/LogicCores/0-sms.git
 [submodule "cores/console"]
 	path = cores/console
 url=git://github.com/LogicCores/0-console.git
