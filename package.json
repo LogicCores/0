@@ -8,10 +8,10 @@
     "node.pack": {
         "packs": {
             "dependencies": {
+                "aspect": "installed",
                 "packer": {
                     "module": "node.pack/packers/asis",
                     "config": {
-                        "aspect": "installed",
                         "sourcePaths": [
                             "/node_modules",
                             "/cores/*/node_modules",
@@ -25,7 +25,6 @@
                 "syncer": {
                     "module": "node.pack/syncers/aws.s3",
                     "config": {
-                        "aspect": "installed",
                         "aws": {
                             "iamUserName": "{{ENV.Z0_NODEPACK_AWS_IAM_USER_NAME}}",
                             "accessKeyId": "{{ENV.Z0_NODEPACK_AWS_ACCESS_KEY_ID}}",
