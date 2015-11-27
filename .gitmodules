@@ -1,6 +1,3 @@
-[submodule "cores/export"]
-	path = cores/export
-url=git://github.com/LogicCores/0-export.git
 [submodule "cores/container"]
 	path = cores/container
 url=git://github.com/LogicCores/0-container.git
