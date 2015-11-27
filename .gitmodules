@@ -1,6 +1,3 @@
-[submodule "cores/invite"]
-	path = cores/invite
-	url = git://github.com/LogicCores/0-invite.git
 [submodule "cores/cache"]
 	path = cores/cache
 url=git://github.com/LogicCores/0-cache.git
