@@ -422,8 +422,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1448656992000,
-            "ref": "25627822f715fe543da65f939dc258362b40d882",
+            "date": 1448657264000,
+            "ref": "fe6c117f880fa76653ebeaf477de033436411860",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
