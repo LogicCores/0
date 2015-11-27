@@ -1,6 +1,3 @@
-[submodule "cores/config"]
-	path = cores/config
-url=git://github.com/LogicCores/0-config.git
 [submodule "cores/render"]
 	path = cores/render
 url=git://github.com/LogicCores/0-render.git
