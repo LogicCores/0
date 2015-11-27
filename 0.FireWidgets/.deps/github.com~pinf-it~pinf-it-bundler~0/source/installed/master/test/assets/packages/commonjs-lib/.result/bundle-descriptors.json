@@ -1,0 +1,288 @@
+{
+    "test/assets/packages/commonjs-lib": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/commonjs-lib/app.js",
+                            "mtime": 0,
+                            "code": "\nvar GREETING = require(\"greeting/greeting\");\n\nfunction main() {\n\tconsole.log(GREETING.getGreeting());\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "GREETING": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {
+                                    "greeting/greeting": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/commonjs-lib';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/commonjs-lib';\n\nvar GREETING = require(\"greeting/greeting\");\n\nfunction main() {\n\tconsole.log(GREETING.getGreeting());\n}\n\nif (require.main === module) {\n\tmain();\n}\n\nreturn {\n    GREETING: (typeof GREETING !== \"undefined\") ? GREETING : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}",
+                            "bottom": "return {\n    GREETING: (typeof GREETING !== \"undefined\") ? GREETING : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "greeting/greeting": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/lib-dir/greeting.js": {
+                        "requireId": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/lib-dir/greeting",
+                        "memoizeId": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/lib-dir/greeting.js",
+                        "descriptor": {
+                            "filename": "greeting.js",
+                            "filepath": "test/assets/packages/commonjs-lib/node_modules/greeting/lib-dir/greeting.js",
+                            "mtime": 0,
+                            "code": "\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/commonjs-lib/node_modules/greeting/lib-dir';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/commonjs-lib/node_modules/greeting/lib-dir';\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/commonjs-lib",
+                            "dirrealpath": "test/assets/packages/commonjs-lib",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/commonjs-lib/package.json",
+                                "test/assets/packages/commonjs-lib/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/commonjs-lib/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "greeting": {
+                                                "location": "./node_modules/greeting"
+                                            }
+                                        }
+                                    },
+                                    "mappings": {
+                                        "greeting": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting"
+                                    }
+                                },
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    },
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "greeting": {
+                                                "location": "./node_modules/greeting"
+                                            }
+                                        }
+                                    },
+                                    "mappings": {
+                                        "greeting": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                },
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "dependencies": {
+                                    "bundled": {
+                                        "greeting": {
+                                            "location": "./node_modules/greeting"
+                                        }
+                                    }
+                                },
+                                "mappings": {
+                                    "greeting": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "mappings": {
+                                    "greeting": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting"
+                                },
+                                "dirpath": "test/assets/packages/commonjs-lib"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    },
+                    "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/package.json": {
+                        "requireId": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/package.json",
+                        "memoizeId": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/commonjs-lib/node_modules/greeting",
+                            "dirrealpath": "test/assets/packages/commonjs-lib/node_modules/greeting",
+                            "id": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting",
+                            "lookupPaths": [
+                                "test/assets/packages/commonjs-lib/node_modules/greeting/package.json",
+                                "test/assets/packages/commonjs-lib/node_modules/greeting/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/commonjs-lib/node_modules/greeting/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "directories": {
+                                        "lib": "lib-dir/"
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    }
+                                },
+                                "package.json": {
+                                    "layout": {
+                                        "directories": {
+                                            "lib": "./lib-dir",
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "pm": {
+                                        "install": "npm"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "layout": {
+                                    "directories": {
+                                        "lib": "./lib-dir",
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "pm": {
+                                    "install": "npm"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "directories": {
+                                    "lib": "lib-dir"
+                                },
+                                "dirpath": "test/assets/packages/commonjs-lib/node_modules/greeting"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/commonjs-lib/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/commonjs-lib/.dist/app.js"
+        }
+    }
+}

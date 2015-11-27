@@ -1,0 +1,62 @@
+{
+    "filename": "shim-array.js",
+    "filepath": "various/shim-array.js",
+    "mtime": 0,
+    "code": "// @see https://github.com/kriskowal/collections/blob/d1420a5ed0cc1a9d1ba3bb0d8122414141828424/shim-array.js\n\n\"use strict\";\n\n/*\n    Based in part on extras from Motorola Mobility’s Montage\n    Copyright (c) 2012, Motorola Mobility LLC. All Rights Reserved.\n    3-Clause BSD License\n    https://github.com/motorola-mobility/montage/blob/master/LICENSE.md\n*/\n\nvar Function = require(\"./shim-function\");\nvar GenericCollection = require(\"./generic-collection\");\nvar GenericOrder = require(\"./generic-order\");\nvar WeakMap = require(\"weak-map\");\n\nmodule.exports = Array;\n\nArray.empty = [];\n\nif (Object.freeze) {\n    Object.freeze(Array.empty);\n}\n\nArray.from = function (values) {\n    var array = [];\n    array.addEach(values);\n    return array;\n};\n\nArray.unzip = function (table) {\n    var transpose = [];\n    var length = Infinity;\n    // compute shortest row\n    for (var i = 0; i < table.length; i++) {\n        var row = table[i];\n        table[i] = row.toArray();\n        if (row.length < length) {\n            length = row.length;\n        }\n    }\n    for (var i = 0; i < table.length; i++) {\n        var row = table[i];\n        for (var j = 0; j < row.length; j++) {\n            if (j < length && j in row) {\n                transpose[j] = transpose[j] || [];\n                transpose[j][i] = row[j];\n            }\n        }\n    }\n    return transpose;\n};\n\nfunction define(key, value) {\n    Object.defineProperty(Array.prototype, key, {\n        value: value,\n        writable: true,\n        configurable: true,\n        enumerable: false\n    });\n}\n\n// ...\n\nfunction ArrayIterator(array, start, end) {\n    this.array = array;\n    this.start = start == null ? 0 : start;\n    this.end = end;\n};\n\nArrayIterator.prototype.next = function () {\n    if (this.start === (this.end == null ? this.array.length : this.end)) {\n        throw StopIteration;\n    } else {\n        return this.array[this.start++];\n    }\n};\n\n",
+    "globals": {
+        "Function": {
+            "type": "assign"
+        },
+        "require": {
+            "type": "call"
+        },
+        "GenericCollection": {
+            "type": "assign"
+        },
+        "GenericOrder": {
+            "type": "assign"
+        },
+        "WeakMap": {
+            "type": "assign"
+        },
+        "module": {
+            "type": "reference"
+        },
+        "Array": {
+            "type": "reference"
+        },
+        "Object": {
+            "type": "reference"
+        },
+        "define": {
+            "type": "assign"
+        },
+        "ArrayIterator": {
+            "type": "assign"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "./shim-function": {
+                "where": "inline"
+            },
+            "./generic-collection": {
+                "where": "inline"
+            },
+            "./generic-order": {
+                "where": "inline"
+            },
+            "weak-map": {
+                "where": "inline"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

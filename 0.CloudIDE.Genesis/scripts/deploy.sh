@@ -22,11 +22,6 @@ function init {
 		    BO_log "$VERBOSE" "WORKSPACE_DIR: $WORKSPACE_DIR"
 			BO_log "$VERBOSE" "PWD: $PWD"
 
-	        # TODO: Switch to deploy branch, add template files and zero system submodule and then deploy.
-	
-	        # TODO: Use config to determine if to use '0' or '0.dev' for deployment.
-	
-	
 	
 			# TODO: Get platform names from declarations and deploy to each environment or only some
 			#       based on what we are being asked to do.

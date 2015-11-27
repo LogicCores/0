@@ -1,0 +1,18 @@
+{
+    "filename": "icon-bmp.bmp",
+    "filepath": "resources/icon-bmp.bmp",
+    "mtime": 0,
+    "code": null,
+    "globals": {},
+    "syntax": null,
+    "format": "binary",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

@@ -1,0 +1,18 @@
+{
+    "filename": "icon-png.png",
+    "filepath": "resources/icon-png.png",
+    "mtime": 0,
+    "code": null,
+    "globals": {},
+    "syntax": null,
+    "format": "binary",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

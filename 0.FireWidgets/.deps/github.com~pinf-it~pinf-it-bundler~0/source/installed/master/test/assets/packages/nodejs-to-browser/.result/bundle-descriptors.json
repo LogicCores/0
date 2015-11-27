@@ -1,0 +1,175 @@
+{
+    "test/assets/packages/nodejs-to-browser": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/nodejs-to-browser/app.js",
+                            "mtime": 0,
+                            "code": "\nvar OS = require(\"os\");\n\nfunction main() {\n\tif (OS.type() === \"Browser\") {\n\t\tconsole.log(\"Hello World\");\n\t} else {\n\t\tthrow new Error(\"FAIL\");\n\t}\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "OS": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {
+                                    "os": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-to-browser';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-to-browser';\n\nvar OS = require(\"__SYSTEM__/os\");\n\nfunction main() {\n\tif (OS.type() === \"Browser\") {\n\t\tconsole.log(\"Hello World\");\n\t} else {\n\t\tthrow new Error(\"FAIL\");\n\t}\n}\n\nif (require.main === module) {\n\tmain();\n}\n\nreturn {\n    OS: (typeof OS !== \"undefined\") ? OS : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}",
+                            "bottom": "return {\n    OS: (typeof OS !== \"undefined\") ? OS : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "os": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/__SYSTEM__/os.js": {
+                        "requireId": "/__SYSTEM__/os",
+                        "memoizeId": "/__SYSTEM__/os.js",
+                        "descriptor": {
+                            "filename": "browser.js",
+                            "filepath": "/freedom/0.workspace/0/0.FireWidgets/.deps/github.com~pinf-it~pinf-it-bundler~0/source/installed/master/node_modules/browser-builtins/node_modules/os-browserify/browser.js",
+                            "mtime": 0,
+                            "code": "exports.endianness = function () { return 'LE' };\n\nexports.hostname = function () {\n    if (typeof location !== 'undefined') {\n        return location.hostname\n    }\n    else return '';\n};\n\nexports.loadavg = function () { return [] };\n\nexports.uptime = function () { return 0 };\n\nexports.freemem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.totalmem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.cpus = function () { return [] };\n\nexports.type = function () { return 'Browser' };\n\nexports.release = function () {\n    if (typeof navigator !== 'undefined') {\n        return navigator.appVersion;\n    }\n    return '';\n};\n\nexports.networkInterfaces\n= exports.getNetworkInterfaces\n= function () { return {} };\n\nexports.arch = function () { return 'javascript' };\n\nexports.platform = function () { return 'browser' };\n\nexports.tmpdir = exports.tmpDir = function () {\n    return '/tmp';\n};\n\nexports.EOL = '\\n';\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "location": {
+                                    "type": "typeof"
+                                },
+                                "Number": {
+                                    "type": "reference"
+                                },
+                                "navigator": {
+                                    "type": "typeof"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'freedom/0.workspace/0/0.FireWidgets/.deps/github.com~pinf-it~pinf-it-bundler~0/source/installed/master/node_modules/browser-builtins/node_modules/os-browserify';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'freedom/0.workspace/0/0.FireWidgets/.deps/github.com~pinf-it~pinf-it-bundler~0/source/installed/master/node_modules/browser-builtins/node_modules/os-browserify';\nexports.endianness = function () { return 'LE' };\n\nexports.hostname = function () {\n    if (typeof location !== 'undefined') {\n        return location.hostname\n    }\n    else return '';\n};\n\nexports.loadavg = function () { return [] };\n\nexports.uptime = function () { return 0 };\n\nexports.freemem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.totalmem = function () {\n    return Number.MAX_VALUE;\n};\n\nexports.cpus = function () { return [] };\n\nexports.type = function () { return 'Browser' };\n\nexports.release = function () {\n    if (typeof navigator !== 'undefined') {\n        return navigator.appVersion;\n    }\n    return '';\n};\n\nexports.networkInterfaces\n= exports.getNetworkInterfaces\n= function () { return {} };\n\nexports.arch = function () { return 'javascript' };\n\nexports.platform = function () { return 'browser' };\n\nexports.tmpdir = exports.tmpDir = function () {\n    return '/tmp';\n};\n\nexports.EOL = '\\n';\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/nodejs-to-browser",
+                            "dirrealpath": "test/assets/packages/nodejs-to-browser",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/nodejs-to-browser/package.json",
+                                "test/assets/packages/nodejs-to-browser/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/nodejs-to-browser/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "uid": "app",
+                                    "main": "./app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "uid": "app",
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "uid": "app",
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/nodejs-to-browser"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/nodejs-to-browser/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/nodejs-to-browser/.dist/app.js"
+        }
+    }
+}

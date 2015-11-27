@@ -1,0 +1,25 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-declared/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-dynamic-require-declared/.dist/app.js": "",
+            "test/assets/packages/nodejs-dynamic-require-declared/.dist/app/greeting.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 2
+            },
+            "/package.json": {},
+            "/greeting.js": {
+                "exports": 1
+            }
+        }
+    }
+}

@@ -1,0 +1,1 @@
+../../../../../../node_modules/pinf-it-module-insight/test/assets/requirejs/circular-a.js

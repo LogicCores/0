@@ -1,0 +1,35 @@
+{
+    "test/assets/packages/commonjs-lib/.dist/app": {
+        "bundles": {
+            "test/assets/packages/commonjs-lib/.dist/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "greeting": "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting": {
+                "main": "/main.js",
+                "mappings": {},
+                "directories": {
+                    "lib": "lib-dir"
+                },
+                "libPath": "lib-dir/"
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 3
+            },
+            "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/lib-dir/greeting.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "aba74007c1f9fd6ec9506effc13a53b236bc9e52-greeting/package.json": {}
+        }
+    }
+}

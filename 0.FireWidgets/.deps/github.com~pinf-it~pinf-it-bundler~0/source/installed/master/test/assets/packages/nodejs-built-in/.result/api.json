@@ -1,0 +1,15 @@
+{
+    "PATH": {
+        "sep": "/",
+        "delimiter": ":"
+    },
+    "FS": {
+        "jsonfile": {
+            "spaces": 2
+        }
+    },
+    "console": {},
+    "ASSERT": {},
+    "require": {},
+    "REQUEST": {}
+}

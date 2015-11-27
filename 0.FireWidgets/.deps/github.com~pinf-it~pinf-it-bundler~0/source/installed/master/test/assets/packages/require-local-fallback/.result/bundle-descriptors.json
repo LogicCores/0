@@ -1,0 +1,164 @@
+{
+    "test/assets/packages/require-local-fallback": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/require-local-fallback/app.js",
+                            "mtime": 0,
+                            "code": "\nvar OS = require(\"_os\");\n\nfunction main() {\n\tconsole.log(\"Hello \" + OS.getPlatform());\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "OS": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {
+                                    "_os": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-local-fallback';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-local-fallback';\n\nvar OS = require(\"./_os\");\n\nfunction main() {\n\tconsole.log(\"Hello \" + OS.getPlatform());\n}\n\nif (require.main === module) {\n\tmain();\n}\n\nreturn {\n    OS: (typeof OS !== \"undefined\") ? OS : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}",
+                            "bottom": "return {\n    OS: (typeof OS !== \"undefined\") ? OS : null,\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "_os": {
+                                    "where": "inline",
+                                    "id": "./_os"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/_os.js": {
+                        "requireId": "/_os.js",
+                        "memoizeId": "/_os.js",
+                        "descriptor": {
+                            "filename": "_os.js",
+                            "filepath": "test/assets/packages/require-local-fallback/_os.js",
+                            "mtime": 0,
+                            "code": "\n\nexports.getPlatform = function() {\n\treturn \"World\";\n}\n\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-local-fallback';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-local-fallback';\n\n\nexports.getPlatform = function() {\n\treturn \"World\";\n}\n\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-local-fallback",
+                            "dirrealpath": "test/assets/packages/require-local-fallback",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-local-fallback/package.json",
+                                "test/assets/packages/require-local-fallback/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-local-fallback/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-local-fallback"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/require-local-fallback/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/require-local-fallback/.dist/app.js"
+        }
+    }
+}

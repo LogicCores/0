@@ -1,0 +1,5 @@
+[
+    "Hello from worker",
+    "Worker runner uri: test/assets/packages/multiple-declared-exports-bundles/.dist/app/d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker-runner.js",
+    "Hello from worker runner!"
+]

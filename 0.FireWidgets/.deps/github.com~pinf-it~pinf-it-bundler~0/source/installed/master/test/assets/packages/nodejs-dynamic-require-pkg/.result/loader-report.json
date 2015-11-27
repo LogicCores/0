@@ -1,0 +1,34 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-pkg/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-dynamic-require-pkg/.dist/app.js": "",
+            "test/assets/packages/nodejs-dynamic-require-pkg/.dist/app/5a760ab35d3f7b067635df668f0a516e020147a6-greeting": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "greeting": "5a760ab35d3f7b067635df668f0a516e020147a6-greeting"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "5a760ab35d3f7b067635df668f0a516e020147a6-greeting": {
+                "main": "5a760ab35d3f7b067635df668f0a516e020147a6-greeting/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 2
+            },
+            "/package.json": {},
+            "5a760ab35d3f7b067635df668f0a516e020147a6-greeting/index.js": {
+                "exports": 1
+            },
+            "5a760ab35d3f7b067635df668f0a516e020147a6-greeting/package.json": {}
+        }
+    }
+}

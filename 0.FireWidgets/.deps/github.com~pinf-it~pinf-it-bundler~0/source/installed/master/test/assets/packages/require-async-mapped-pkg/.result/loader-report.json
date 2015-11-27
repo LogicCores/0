@@ -1,0 +1,37 @@
+{
+    "test/assets/packages/require-async-mapped-pkg/.dist/app": {
+        "bundles": {
+            "test/assets/packages/require-async-mapped-pkg/.dist/app.js": "",
+            "test/assets/packages/require-async-mapped-pkg/.dist/app/20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "pkg": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg": {
+                "main": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json": {},
+            "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js": {
+                "exports": 1
+            }
+        }
+    }
+}

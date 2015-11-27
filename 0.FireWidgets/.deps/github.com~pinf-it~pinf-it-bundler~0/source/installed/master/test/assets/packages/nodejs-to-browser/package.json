@@ -1,0 +1,4 @@
+{
+	"uid": "app",
+	"main": "./app.js"
+}

@@ -1,0 +1,42 @@
+{
+    "uid": null,
+    "ns": "package-b",
+    "debug": false,
+    "verbose": false,
+    "test": false,
+    "now": 0,
+    "ttl": 0,
+    "env": {
+        "PINF_PROGRAM": "programs/program-b/program.json",
+        "PINF_PACKAGE": "packages/package-b/package.json",
+        "PINF_PACKAGES": "",
+        "PINF_PROGRAM_PARENT": "",
+        "PINF_RUNTIME": "programs/program-b/.rt/program.rt.json",
+        "PINF_MODE": "production"
+    },
+    "paths": {
+        "program": "programs/program-b",
+        "package": "packages/package-b",
+        "run": "programs/program-b/.rt/run/package-b",
+        "data": "programs/program-b/.rt/data/package-b",
+        "etc": "programs/program-b/.rt/etc/package-b",
+        "log": "programs/program-b/.rt/log/package-b",
+        "cache": "programs/program-b/.rt/cache/package-b",
+        "tmp": "programs/program-b/.rt/tmp/package-b",
+        "dependency": "packages/package-b/node_modules"
+    },
+    "binPaths": [],
+    "config": {},
+    "descriptorPaths": [
+        "programs/program-b/program.json",
+        "packages/package-b/package.json"
+    ],
+    "lookupPaths": [
+        "programs/program-b/program.production.json",
+        "programs/program-b/.rt/program.rt.json",
+        "programs/program-b/.program.json",
+        "programs/program-b/program.json",
+        "packages/package-b/.package.json",
+        "packages/package-b/package.json"
+    ]
+}

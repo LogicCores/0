@@ -1,0 +1,49 @@
+{
+    "test/assets/packages/require-async-sub-via-mapped-pkg-twice/.dist/app": {
+        "bundles": {
+            "test/assets/packages/require-async-sub-via-mapped-pkg-twice/.dist/app.js": "",
+            "test/assets/packages/require-async-sub-via-mapped-pkg-twice/.dist/app/26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub/sub/extra.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "pkg": "1b0b9fe19954bb3b53142c3edeaf5c562d47c9d5-require-async-sub-via-mapped-pkg"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "1b0b9fe19954bb3b53142c3edeaf5c562d47c9d5-require-async-sub-via-mapped-pkg": {
+                "main": "1b0b9fe19954bb3b53142c3edeaf5c562d47c9d5-require-async-sub-via-mapped-pkg/app.js",
+                "mappings": {
+                    "pkg": "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub": {
+                "main": "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "1b0b9fe19954bb3b53142c3edeaf5c562d47c9d5-require-async-sub-via-mapped-pkg/app.js": {
+                "exports": 1
+            },
+            "1b0b9fe19954bb3b53142c3edeaf5c562d47c9d5-require-async-sub-via-mapped-pkg/package.json": {},
+            "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub/app.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub/package.json": {},
+            "26b6128d60871cd25769a056b906b4c7e1aa8767-require-async-sub/sub/extra.js": {
+                "exports": 1
+            }
+        }
+    }
+}

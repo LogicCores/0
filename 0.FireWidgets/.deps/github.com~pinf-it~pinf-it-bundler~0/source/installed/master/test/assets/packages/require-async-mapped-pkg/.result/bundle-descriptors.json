@@ -1,0 +1,365 @@
+{
+    "test/assets/packages/require-async-mapped-pkg": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/require-async-mapped-pkg/app.js",
+                            "mtime": 0,
+                            "code": "\nexports.main = function (callback) {\n\trequire(\"pkg\").main(callback);\n\treturn null;\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "require": {
+                                    "type": "call"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {
+                                    "pkg": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-mapped-pkg';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-mapped-pkg';\n\nexports.main = function (callback) {\n\trequire(\"pkg\").main(callback);\n\treturn null;\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "pkg": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js": {
+                        "requireId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                        "memoizeId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                        "descriptor": {
+                            "filename": "sub.js",
+                            "filepath": "test/assets/packages_externals/require-async-mapped-pkg/pkg/sub.js",
+                            "mtime": 0,
+                            "code": "\nexports.main = function (callback) {\n\trequire.async(\"./extra\", function(EXTRA) {\n\t\tconsole.log(EXTRA.getGreeting());\n\t\treturn callback(null, {\n\t\t\tloaded: true\n\t\t});\n\t}, callback);\n\treturn null;\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "require": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages_externals/require-async-mapped-pkg/pkg';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages_externals/require-async-mapped-pkg/pkg';\n\nexports.main = function (callback) {\n\trequire.async(\"./extra\", function(EXTRA) {\n\t\tconsole.log(EXTRA.getGreeting());\n\t\treturn callback(null, {\n\t\t\tloaded: true\n\t\t});\n\t}, callback);\n\treturn null;\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-mapped-pkg",
+                            "dirrealpath": "test/assets/packages/require-async-mapped-pkg",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-mapped-pkg/package.json",
+                                "test/assets/packages/require-async-mapped-pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-mapped-pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app",
+                                    "mappings": {
+                                        "pkg": "../../packages_externals/require-async-mapped-pkg/pkg"
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "dependencies": {
+                                        "required": {
+                                            "pkg": {
+                                                "location": "../../packages_externals/require-async-mapped-pkg/pkg"
+                                            }
+                                        }
+                                    },
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "dependencies": {
+                                    "required": {
+                                        "pkg": {
+                                            "location": "../../packages_externals/require-async-mapped-pkg/pkg"
+                                        }
+                                    }
+                                },
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "mappings": {
+                                    "pkg": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg"
+                                },
+                                "dirpath": "test/assets/packages/require-async-mapped-pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    },
+                    "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json": {
+                        "requireId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "memoizeId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "dirrealpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "id": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg",
+                            "lookupPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json",
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "sub.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./sub.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./sub.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                                "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/require-async-mapped-pkg/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "test/assets/packages/require-async-mapped-pkg/.dist/app/20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js": {
+        "bundles": {
+            "/extra.js": {
+                "modules": {
+                    "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js": {
+                        "requireId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra",
+                        "memoizeId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js",
+                        "descriptor": {
+                            "filename": "extra.js",
+                            "filepath": "test/assets/packages_externals/require-async-mapped-pkg/pkg/extra.js",
+                            "mtime": 0,
+                            "code": "\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages_externals/require-async-mapped-pkg/pkg';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages_externals/require-async-mapped-pkg/pkg';\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json": {
+                        "requireId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "memoizeId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "dirrealpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json",
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "sub.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./sub.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./sub.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                                "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {
+                    "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json": {
+                        "requireId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "memoizeId": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "dirrealpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg",
+                            "id": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg",
+                            "lookupPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json",
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages_externals/require-async-mapped-pkg/pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "sub.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./sub.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./sub.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/sub.js",
+                                "dirpath": "test/assets/packages_externals/require-async-mapped-pkg/pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "bundle": {
+                    "path": "test/assets/packages/require-async-mapped-pkg/.dist/app/20131cd4dcb08aef4189b75430afe17b5da812f8-pkg/extra.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/extra.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/extra.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/require-async-mapped-pkg/.dist/app.js"
+        }
+    }
+}

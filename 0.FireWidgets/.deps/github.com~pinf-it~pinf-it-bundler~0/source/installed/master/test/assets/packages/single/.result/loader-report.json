@@ -1,0 +1,21 @@
+{
+    "test/assets/packages/single/.dist/app": {
+        "bundles": {
+            "test/assets/packages/single/.dist/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "/package.json": {}
+        }
+    }
+}

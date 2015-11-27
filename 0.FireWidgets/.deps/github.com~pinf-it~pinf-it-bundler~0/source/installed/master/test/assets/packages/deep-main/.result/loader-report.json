@@ -1,0 +1,21 @@
+{
+    "test/assets/packages/deep-main/.dist/lib/app": {
+        "bundles": {
+            "test/assets/packages/deep-main/.dist/lib/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/lib/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/lib/app.js": {
+                "exports": 1
+            },
+            "/package.json": {}
+        }
+    }
+}

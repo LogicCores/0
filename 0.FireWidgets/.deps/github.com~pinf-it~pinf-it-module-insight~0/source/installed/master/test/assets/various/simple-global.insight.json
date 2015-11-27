@@ -1,0 +1,25 @@
+{
+    "filename": "simple-global.js",
+    "filepath": "various/simple-global.js",
+    "mtime": 0,
+    "code": "\nSTRING = \"string-value\";\n\nOBJECT = {\n\tid: \"object-value\"\n};\n",
+    "globals": {
+        "STRING": {
+            "type": "assign"
+        },
+        "OBJECT": {
+            "type": "assign"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

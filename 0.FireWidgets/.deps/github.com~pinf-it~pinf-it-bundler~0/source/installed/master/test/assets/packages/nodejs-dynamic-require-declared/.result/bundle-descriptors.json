@@ -1,0 +1,222 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-declared/greeting.js": {
+        "modules": {
+            "/greeting.js": {
+                "requireId": "/greeting",
+                "memoizeId": "/greeting.js",
+                "descriptor": {
+                    "filename": "greeting.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-declared/greeting.js",
+                    "mtime": 0,
+                    "code": "\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n",
+                    "globals": {
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {},
+                    "dependencies": {
+                        "static": {},
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-declared';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-declared';\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {},
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            },
+            "/package.json": {
+                "requireId": "/package.json",
+                "memoizeId": "/package.json",
+                "descriptor": {
+                    "dirpath": "test/assets/packages/nodejs-dynamic-require-declared",
+                    "dirrealpath": "test/assets/packages/nodejs-dynamic-require-declared",
+                    "id": "",
+                    "lookupPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-declared/package.json",
+                        "test/assets/packages/nodejs-dynamic-require-declared/.package.json"
+                    ],
+                    "descriptorPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-declared/package.json"
+                    ],
+                    "raw": {
+                        "package.json": {
+                            "main": "app",
+                            "require.async": {
+                                "app.js": "./greeting"
+                            }
+                        }
+                    },
+                    "normalized": {
+                        ".package.json": {},
+                        "package.json": {
+                            "require.async": {
+                                "./app.js": "./greeting"
+                            },
+                            "exports": {
+                                "main": "./app.js"
+                            }
+                        }
+                    },
+                    "combined": {
+                        "require.async": {
+                            "./app.js": "./greeting"
+                        },
+                        "exports": {
+                            "main": "./app.js"
+                        }
+                    },
+                    "warnings": [],
+                    "errors": [],
+                    "memoized": {
+                        "main": "/app.js",
+                        "dirpath": "test/assets/packages/nodejs-dynamic-require-declared"
+                    },
+                    "mtime": "0"
+                },
+                "wrapper": "json"
+            }
+        },
+        "expectExistingModules": {},
+        "bundle": {
+            "path": "test/assets/packages/nodejs-dynamic-require-declared/.dist/app/greeting.js"
+        },
+        "warnings": [],
+        "errors": []
+    },
+    "test/assets/packages/nodejs-dynamic-require-declared": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/nodejs-dynamic-require-declared/app.js",
+                            "mtime": 0,
+                            "code": "\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\ttry {\n\t\tvar GREETING = require(moduleId);\n\n\t\tconsole.log(GREETING.getGreeting());\n\t} catch(err) {\n\t\tthrow new Error(\"Sould not have thrown!\");\n\t}\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-declared';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-declared';\n\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\ttry {\n\t\tvar GREETING = require(moduleId);\n\n\t\tconsole.log(GREETING.getGreeting());\n\t} catch(err) {\n\t\tthrow new Error(\"Sould not have thrown!\");\n\t}\n}\n\nif (require.main === module) {\n\tmain();\n}\n\nreturn {\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}",
+                            "bottom": "return {\n    require: (typeof require !== \"undefined\") ? require : null,\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/nodejs-dynamic-require-declared",
+                            "dirrealpath": "test/assets/packages/nodejs-dynamic-require-declared",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/nodejs-dynamic-require-declared/package.json",
+                                "test/assets/packages/nodejs-dynamic-require-declared/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/nodejs-dynamic-require-declared/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app",
+                                    "require.async": {
+                                        "app.js": "./greeting"
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "require.async": {
+                                        "./app.js": "./greeting"
+                                    },
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "require.async": {
+                                    "./app.js": "./greeting"
+                                },
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/nodejs-dynamic-require-declared"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/nodejs-dynamic-require-declared/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/nodejs-dynamic-require-declared/.dist/app.js"
+        }
+    }
+}

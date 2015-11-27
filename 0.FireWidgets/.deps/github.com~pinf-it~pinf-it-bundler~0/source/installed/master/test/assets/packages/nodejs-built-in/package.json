@@ -1,0 +1,45 @@
+{
+	"main": "app",
+	"engines": {
+		"node": "~0.10.15"
+	},
+	"pm": "npm",
+	"dependencies": {
+		"request": "~2.27.0",
+		"fs-extra": "~0.6.3"
+	},
+	"config": {
+		"pinf/0/bundler/options/0": {
+			"mapParentSiblingPackages": 4
+		}
+	},
+    "overrides": {
+        "../../../../node_modules/request/node_modules/hawk/node_modules/boom": {
+            "descriptor": {
+                "config": {
+                    "pinf/0/bundler/options/0": {
+                        "mapParentSiblingPackages": 2
+                    }
+                }
+            }
+        },
+        "../../../../node_modules/request/node_modules/hawk/node_modules/sntp": {
+            "descriptor": {
+                "config": {
+                    "pinf/0/bundler/options/0": {
+                        "mapParentSiblingPackages": 2
+                    }
+                }
+            }
+        },
+        "../../../../node_modules/request/node_modules/hawk/node_modules/cryptiles": {
+            "descriptor": {
+                "config": {
+                    "pinf/0/bundler/options/0": {
+                        "mapParentSiblingPackages": 2
+                    }
+                }
+            }
+        }
+    }
+}

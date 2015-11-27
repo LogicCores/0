@@ -1,0 +1,34 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "Stack",
+        "keyProperty": "namespace",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"label": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"namespace": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"subUri": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"invitePage": {
+				"constraints": {
+					"required": true
+				}
+			}
+        }
+    }
+}

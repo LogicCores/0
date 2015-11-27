@@ -1,0 +1,7 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "Environment",
+        "keyProperty": "name"
+    }
+}

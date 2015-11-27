@@ -1,0 +1,28 @@
+{
+	"uid": "github.com/pinf/pinf-for-nodejs/test/assets/packages/pinf-cli",
+	"dependencies": {
+		"required": {
+			"sub": "0.x"
+		}
+	},
+	"on": {
+		"pinf-start": "on pinf-start: $__DIRNAME",
+		"pinf-stop": "on pinf-start: $__DIRNAME"
+	},
+	"config": {
+		"key1": "value1: $__DIRNAME",
+		"key2": "value2: $__DIRNAME",
+		"key3": "value2: \\$__DIRNAME"		
+	},
+	"overrides": {
+		"./node_modules/sub": {
+			"descriptor": {
+				"config": {
+					"key3": "value2: $__DIRNAME",
+					"key4": "value2: \\$__DIRNAME",
+					"key5": "value2: \\\\$__DIRNAME"
+				}
+			}
+		}
+	}
+}

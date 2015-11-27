@@ -1,0 +1,24 @@
+{
+    "test/assets/packages/nodejs-to-browser/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-to-browser/.dist/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 3
+            },
+            "/__SYSTEM__/os.js": {
+                "exports": 16
+            },
+            "/package.json": {}
+        }
+    }
+}

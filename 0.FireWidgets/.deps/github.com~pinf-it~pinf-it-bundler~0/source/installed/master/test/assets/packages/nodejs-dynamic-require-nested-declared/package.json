@@ -1,0 +1,13 @@
+{
+	"main": "app",
+	"exports": {
+		"bundles": {
+			"app.js": "./app.js"
+		}
+	},
+	"require.async": {
+		"./app.js": "./greeting",
+		"./greeting.js": "./hello",
+		"./hello.js": "./o"
+	}
+}
