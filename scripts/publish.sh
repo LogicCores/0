@@ -26,15 +26,19 @@ function init {
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
 
+		git_getTag "TAG"
+		BO_log "$VERBOSE" "TAG: $TAG"
+
 		# Pack the source logic into a distribution branch by inlining all submodules
 		node.pack "inline"
 
 		node.pack.inline.source.stream.dirpath "STREAM_REPOSITORY_PATH"
 
-	    # Ensure dev repo is clean and up to date
 		pushd "$STREAM_REPOSITORY_PATH" > /dev/null
 
+			# TODO: Use the node.pack git syncer to do this
 			git_ensureRemote "publish" "$GIT_PUBLISH_URL"
+			git tag "$TAG"
 			git_ensureSyncedRemoteBranch "publish" "master"
 
 		popd > /dev/null
