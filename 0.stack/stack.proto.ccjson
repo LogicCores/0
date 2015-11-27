@@ -1,0 +1,148 @@
+{
+    "@": {
+        "$": [
+            "../stack.mixin.ccjson",
+            "./stack/0.VirtualCloud.Genesis.ccjson",
+            [
+                "./stack/0.ccjson",
+                {
+                    "skin": ""
+                }
+            ],
+            "./stack/0.PINF.Genesis.ccjson",
+            "./stack/0.PINF.Genesis.to.ccjson",
+            "./stack/0.FireWidgets.ccjson"
+        ],
+        "invite.cookie": {
+            "forceInvited": true
+        },
+        "export.sm.hoist.VisualComponents": {
+            "clientCacheTTL": "0"
+        }
+    },
+    "@0.pinf.genesis.Stack": {
+        "${{ARG.namespace}}.0.pinf.genesis.Stack": {
+            "label": "{{ARG.label}}",
+            "invitePage": "/"
+        }
+    },
+    "@context": {
+        "${{ARG.namespace}}.context.server": {
+            "aspects": {
+                "data": {
+                    "config": {
+                        "assetBasePath": "{{ARG.stackBasePath}}/Data"
+                    }
+                }
+            }
+        }
+    },
+    "@responder.server": {
+        "$server": {
+            "${{ARG.namespace}}.routes.routes()->routes{{ARG.stackIndex}}/{{ARG.namespace}}": {
+                "match": "^{{ARG.subUri}}(/.*)"
+            }
+        }
+    },
+    "@static.fs": {
+        "${{ARG.namespace}}.static.fs.cache": {
+            "basePath": "{{ARG.stackBasePath}}/.cache"
+        },
+        "${{ARG.namespace}}.static.fs.www": {
+            "basePath": "{{__DIRNAME__}}/../www"
+        },
+        "${{ARG.namespace}}.static.fs.www.dist": {
+            "basePath": "{{ARG.stackBasePath}}/_exports/www/dist"
+        },
+        "${{ARG.namespace}}.static.fs.components": {
+            "basePath": "{{ARG.stackBasePath}}/Components"
+        },
+        "${{ARG.namespace}}.static.fs.components.dist": {
+            "basePath": "{{ARG.stackBasePath}}/_exports/www/dist"
+        },
+        "${{ARG.namespace}}.static.fs.skin": {
+            "basePath": "{{ARG.stackBasePath}}/Skin"
+        },
+        "${{ARG.namespace}}.static.fs.skin.dist": {
+            "basePath": "{{ARG.stackBasePath}}/_exports/www/dist"
+        },
+        "${{ARG.namespace}}.static.fs.data.pages": {
+            "basePath": "{{ARG.stackBasePath}}/Pages"
+        },
+        "${{ARG.namespace}}.static.fs.data.pages.dist": {
+            "basePath": "{{ARG.stackBasePath}}/_exports/www/dist/pages"
+        },
+        "${{ARG.namespace}}.static.fs.data.collections": {
+            "basePath": "{{ARG.stackBasePath}}/Collections"
+        },
+        "${{ARG.namespace}}.static.fs.data.collections.dist": {
+            "basePath": "{{ARG.stackBasePath}}/_exports/www/dist"
+        }
+    },
+    "@invite.cookie": {
+        "${{ARG.namespace}}.invite.cookie": {
+    		"$0.profile.virtualcloud.hashForAspect()->token": {
+    		    "aspect": "invite"
+    		}
+        }
+    },
+    "@session.express.fs": {
+        "${{ARG.namespace}}.session.express.fs": {
+    		"$0.profile.virtualcloud.hashForAspect()->secret": {
+    		    "aspect": "dev.session"
+    		},
+    		"$0.profile.virtualcloud.hashForAspect()->store/secret": {
+    		    "aspect": "dev.session.store"
+    		}
+        }
+    },    
+    "@session.express.fs": {
+        "${{ARG.namespace}}.session.express.fs": {
+    		"$0.profile.virtualcloud.hashForAspect()->secret": {
+    		    "aspect": "{{ARG.namespace}}.session"
+    		},
+    		"$0.profile.virtualcloud.hashForAspect()->store/secret": {
+    		    "aspect": "{{ARG.namespace}}.session.store"
+    		},
+            "${{ARG.namespace}}.cache.fs.path()->store/basePath": {
+                "namespace": "sessions"
+            },
+		    "name": "{{ARG.namespace}}"
+        }
+    },
+    "@auth.passport": {
+        "${{ARG.namespace}}.auth": {
+            "forceAuthenticated": true
+        }
+    },
+    "@boundary.github": {
+        "${{ARG.namespace}}.boundary.github": {
+            "forceAuthorized": true
+        }
+    },
+    "@page.express": {
+        "${{ARG.namespace}}.page.server": {
+            "pages": {
+                "defaultPath": "/"
+            },
+            "client": {
+                "context": {
+                    "application": {
+                        "enableAuthentication": false,
+                        "waitForComponents": false
+                    },
+                    "page": {
+                        "path": "/",
+                        "loadBaseUrl": "{{ARG.subUri}}/{{ENV.GIT_COMMIT_REV}}"
+                    },
+                    "skin": {
+                        "assetBuildRevision": "{{ENV.GIT_COMMIT_REV}}"
+                    },
+                    "component": {
+                        "loadBaseUri": "/{{ENV.GIT_COMMIT_REV}}/cores/export/0.FireWidgets"
+                    }
+                }
+            }
+        }
+    }
+}

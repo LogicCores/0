@@ -1,0 +1,17 @@
+{
+    "@": {
+        "$": [
+            [
+                "./stack.proto.ccjson",
+                {
+                    "namespace": "0.stack.test",
+                    "name": "0.stack.test",
+                    "label": "0.stack.test",
+                    "stackBasePath": "{{__DIRNAME__}}",
+                    "subUri": "/0.stack.test",
+                    "skin": "SemanticUI"
+                }
+            ]
+        ]
+    }
+}

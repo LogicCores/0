@@ -1,0 +1,3 @@
+[submodule "Plugins/io.c9/0.devcomp-for-cloud9"]
+	path = Plugins/io.c9/0.devcomp-for-cloud9
+	url = git://github.com/devcomp/0.devcomp-for-cloud9.git

@@ -1,0 +1,19 @@
+{
+    "@": {
+        "$": [
+            [
+                "../0.stack/stack.proto.ccjson",
+                {
+                    "stackIndex": 5
+                }
+            ]
+        ]
+    },
+    "@export.0.FireWidgets": {
+        "${{ARG.namespace}}.export.0.FireWidgets": {
+            "basePaths": {
+                "Features": "{{__DIRNAME__}}/Features"
+            }
+        }
+    }
+}

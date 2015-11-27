@@ -1,0 +1,27 @@
+{
+    "@": {
+        "$": [
+            [
+                "./stackA.ccjson",
+                {
+                    "namespace": "stackA"
+                }
+            ],
+            [
+                "./stackB.ccjson",
+                {
+                    "namespace": "stackB"
+                }
+            ],
+            "./overlay.ccjson"
+        ]
+    },
+    "@entity": {
+        "$stackA.entity": {
+            "our1": "override1"
+        },
+        "$stackB.entity": {
+            "our2": "override2"
+        }
+    }
+}

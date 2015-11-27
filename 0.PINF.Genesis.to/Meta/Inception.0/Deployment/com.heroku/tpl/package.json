@@ -1,0 +1,9 @@
+{
+  "engines": {
+    "node": "^4.0.0"
+  },
+  "scripts": {
+    "install": ".0/0.CloudIDE.Genesis/scripts/install.sh",
+    "start": ".0/0.CloudIDE.Genesis/scripts/start.sh"
+  }
+}
