@@ -19,16 +19,24 @@ function init {
 
 		BO_log "$VERBOSE" "PWD: $PWD"
 
-	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
-
-		# Pack the dependencies into an archive and upload if not already uploaded.
-		node.pack "dependencies"
-
 # TODO: Enable this again to bundle deps in a flat way with Node 5 & npm 3.
 # TODO: Enable updating of zero.lib based on user config
 #			"lib/smi.0/bin/smi.0" freeze-latest --library-package "lib/zero.lib"
 # TODO: Use 'sm.expand' to manage submodules and checked out branches.
 #			"lib/smi.0/bin/smi.0" freeze-latest
+
+	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
+
+		node.pack.dependencies.canUpload "CAN_UPLOAD"
+
+		if [ "$CAN_UPLOAD" == "1" ]; then
+
+			# Pack the dependencies into an archive and upload if not already uploaded.
+			node.pack "dependencies"
+
+		else
+			BO_log "$VERBOSE" "Skip bundling dependencies as we are not configured to upload them!"
+		fi
 
 		BO_format "$VERBOSE" "FOOTER"
 	}

@@ -404,10 +404,7 @@ function init {
 
 		# Now that we installed from source we try and bundle the dependencies
 		# so that other installations can use the bundled dependencies.
-		# If the bundling fails (because there are no sync credentials or there is an error)
-		# we simply ignore the error and assume another install elsewhere will do the work instead.
-
-		"$__BO_DIR__/bundle.sh" || true
+		"$__BO_DIR__/bundle.sh"
 	fi
 }
 init $@
