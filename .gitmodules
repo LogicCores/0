@@ -1,6 +1,3 @@
-[submodule "cores/template"]
-	path = cores/template
-	url = git://github.com/LogicCores/0-template.git
 [submodule "cores/layout"]
 	path = cores/layout
 	url = git://github.com/LogicCores/0-layout.git
