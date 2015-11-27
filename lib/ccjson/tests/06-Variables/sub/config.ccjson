@@ -1,0 +1,23 @@
+{
+    "@": {
+        "entity": {
+            "$": "../../01-EntityImplementation/entity.ccjson",
+            "ourBasePathInSubMappings": "{{__DIRNAME__}}"
+        }
+    },
+    "@entity": {
+        "$inst1": {
+            "ourBasePathInSubInstances": "{{__DIRNAME__}}",
+            "ourBasePathInInstances": "{{__DIRNAME__}}",
+            "myvar": "sub:inst1:{{env.MY_ENV_VAR}}",
+            "myobj": {
+                "mysubvar": "myobj:{{$../myvar}}"
+            },
+            "myobjDuplicate": "{{$./myobj}}"
+        },
+        "$inst2": {
+            "ourBasePathInSubInstances": "{{__DIRNAME__}}",
+            "ourBasePathInInstances": "{{__DIRNAME__}}"
+        }
+    }
+}
