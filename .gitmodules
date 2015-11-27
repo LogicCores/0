@@ -1,6 +1,3 @@
-[submodule "cores/env"]
-	path = cores/env
-	url = git://github.com/LogicCores/0-env.git
 [submodule "cores/service"]
 	path = cores/service
 	url = git://github.com/LogicCores/0-service.git
