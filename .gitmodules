@@ -1,6 +1,3 @@
-[submodule "0.stack.dev"]
-	path = 0.stack.dev
-	url = git://github.com/LogicCores/0.stack.dev.git
 [submodule "0.stack.test"]
 	path = 0.stack.test
 	url = git://github.com/LogicCores/0.stack.test.git
