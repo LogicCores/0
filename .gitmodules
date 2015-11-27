@@ -1,6 +1,3 @@
-[submodule "lib/ccjson.structures"]
-	path = lib/ccjson.structures
-url=git://github.com/ccjson/ccjson.structures.git
 [submodule "lib/marked"]
 	path = lib/marked
 url=git://github.com/cadorn/marked.git
