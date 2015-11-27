@@ -1,6 +1,3 @@
-[submodule "lib/marked"]
-	path = lib/marked
-url=git://github.com/cadorn/marked.git
 [submodule "lib/smi.0"]
 	path = lib/smi.0
 	url = git://github.com/sourcemint/smi.0.git
