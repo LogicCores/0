@@ -1,6 +1,3 @@
-[submodule "lib/html2chscript-for-webpack"]
-	path = lib/html2chscript-for-webpack
-	url = git://github.com/firewidgets/html2chscript-for-webpack.git
 [submodule "cores/request"]
 	path = cores/request
 	url = git://github.com/LogicCores/0-request.git
