@@ -1,6 +1,3 @@
-[submodule "cores/loop"]
-	path = cores/loop
-url=git://github.com/LogicCores/0-loop.git
 [submodule "cores/skin"]
 	path = cores/skin
 url=git://github.com/LogicCores/0-skin.git
