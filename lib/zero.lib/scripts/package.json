@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "bash.origin": "0.1.26",
+    "smi.cli": "0.35.14"
+  }
+}

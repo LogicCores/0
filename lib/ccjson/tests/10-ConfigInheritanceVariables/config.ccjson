@@ -1,0 +1,23 @@
+{
+    "@": {
+        "$": [
+            [
+                "./config.proto.ccjson",
+                {
+                    "namespace": "0",
+                    "customKey": "CustomValue"
+                }
+            ]
+        ]
+    },
+    "@entity": {
+        "$0.inst1": {
+            "entityInstance1Key": "entityInstance1Value",
+            "protoEntityInstance1Key": "entityInstance1Value",
+            "protoSuperEntityInstance1Key": "entityInstance1Value"
+        },
+        "$0.inst2": {
+            "entityInstance2Key": "entityInstance2Value"
+        }
+    }
+}

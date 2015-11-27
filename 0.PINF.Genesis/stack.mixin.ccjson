@@ -1,0 +1,7 @@
+{
+    "@": {
+        "$": [
+            "./Model/Inception.0.proto.ccjson"
+        ]
+    }
+}

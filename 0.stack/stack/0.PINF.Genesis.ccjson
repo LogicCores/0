@@ -1,0 +1,32 @@
+{
+    "@": {
+        "$": [
+            "../../0.PINF.Genesis/stack.mixin.ccjson"
+        ]
+    },
+    "@0.pinf.genesis.DeploymentPointer": {
+        "$0.pinf.genesis.DeploymentPointer": {
+            "name": "{{ENV.ENVIRONMENT_NAME}}",
+            "baseUrl": "http://{{ENV.ENVIRONMENT_NAME}}"
+        }
+    },
+    "@0.pinf.genesis.Deployment": {
+        "${{ARG.namespace}}.0.pinf.genesis.Deployment": {
+            "name": "{{ENV.ENVIRONMENT_NAME}}",
+            "type": "{{ENV.ENVIRONMENT_TYPE}}",
+            "baseUrl": "http://{{ENV.ENVIRONMENT_NAME}}",
+            "${{ARG.namespace}}.invite.cookie.getInfo()->inviteInfo": {}
+        }
+    },
+    "@0.pinf.genesis.Profile": {
+        "${{ARG.namespace}}.0.pinf.genesis.Profile": {
+            "name": "{{ENV.ENVIRONMENT_NAME}}"
+        }
+    },
+    "@0.pinf.genesis.Stack": {
+        "${{ARG.namespace}}.0.pinf.genesis.Stack": {
+            "namespace": "{{ARG.namespace}}",
+            "subUri": "{{ARG.subUri}}"
+        }
+    }
+}

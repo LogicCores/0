@@ -1,0 +1,8 @@
+{
+  "name": "0-export-for-defs",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "defs": "^1.1.0"
+  }
+}

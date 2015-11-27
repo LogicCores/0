@@ -1,0 +1,52 @@
+{
+    "tagName": "DIV",
+    "properties": {},
+    "children": [
+        {
+            "text": "\n    "
+        },
+        {
+            "tagName": "DIV",
+            "properties": {
+                "attributes": {}
+            },
+            "children": [
+                {
+                    "text": "\n        Default\n    "
+                }
+            ],
+            "namespace": null,
+            "count": 1,
+            "hasWidgets": false,
+            "hasThunks": false,
+            "descendantHooks": false
+        },
+        {
+            "text": "\n    \n    "
+        },
+        {
+            "tagName": "DIV",
+            "properties": {
+                "attributes": {}
+            },
+            "children": [
+                {
+                    "text": "\n        Alternative\n    "
+                }
+            ],
+            "namespace": null,
+            "count": 1,
+            "hasWidgets": false,
+            "hasThunks": false,
+            "descendantHooks": false
+        },
+        {
+            "text": "\n"
+        }
+    ],
+    "namespace": null,
+    "count": 7,
+    "hasWidgets": false,
+    "hasThunks": false,
+    "descendantHooks": false
+}

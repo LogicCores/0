@@ -1,0 +1,433 @@
+{
+    "@env": {
+        "$0.env": {
+            "mode": "development"
+        }
+    },
+    "@service": {
+        "$0.services": {
+        }
+    },
+    "@context": {
+        "${{ARG.namespace}}.context.server": {
+            "namespace": "${{ARG.namespace}}",
+            "aspects": {
+                "time": {
+                    "config": {},
+                    "adapters": {
+                        "time.moment": "moment"
+                    }
+                },
+                "data": {
+                    "config": {},
+                    "adapters": {
+                        "data.mapper": "ccjson.record.mapper"
+                    }
+                }
+            },
+            "$0.env.getConfig()->aspects/env/config": {},
+            "$0.services.getServerConfig()->aspects/service/config": {},
+            "${{ARG.namespace}}.time.moment.getConfig()->aspects/time/config": {}
+        }
+    },
+    "@time.moment": {
+        "${{ARG.namespace}}.time.moment": {
+        }
+    },
+    "@cache.fs": {
+        "${{ARG.namespace}}.cache.fs": {
+            "${{ARG.namespace}}.static.fs.cache.path()->basePath": {}
+        }
+    },
+    "@boundary.github": {
+        "${{ARG.namespace}}.boundary.github": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "boundary"
+            },
+            "request": {
+                "stateAlias": "boundary"
+            }
+        }
+    },
+    "@auth.passport": {
+        "${{ARG.namespace}}.auth": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "auth"
+            },
+            "request": {
+                "stateAlias": "auth"
+            },
+            "urls": {
+                "loginFail": "{{ARG.subUri}}/Login/Failed",
+                "afterLogin": "{{ARG.subUri}}/",
+                "afterLogout": "{{ARG.subUri}}/"
+            },
+    		"passport": {
+    		    "github": {
+    		        "callbackURL": "http://{{$0.host/host}}{{ARG.subUri}}/cores/auth/for/passport/callback/github",
+    		        "scope": ""
+    		    }
+    		}
+        }
+    },
+    "@data.ccjson.record.mapper": {
+        "${{ARG.namespace}}.data.record.mapper": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.knexjs.mapper"
+            },
+            "${{ARG.namespace}}.static.fs.data.collections.paths()->collectionsPaths": {},
+            "${{ARG.namespace}}.static.fs.data.collections.dist.path()->collectionsDistPath": {}
+        }
+    },
+    "@data.postgresql": {
+        "${{ARG.namespace}}.data.postgresql": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.postgresql"
+            }
+        }
+    },
+    "@data.knexjs": {
+        "${{ARG.namespace}}.data.knexjs": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.knexjs"
+            },
+            "knex": {
+                "connection": {
+                    "ssl": true
+                },
+                "debug": "{{ENV.VERBOSE}}",
+                "client": "pg"
+            },
+            "ensureSchema": true,
+            "seedCollections": true,
+            "${{ARG.namespace}}.data.record.mapper.collections()->collections": {
+                "#contract": "knexjs"
+            },
+            "${{ARG.namespace}}.data.record.mapper.seeds()->seeds": {
+                "#contract": "json-id-records"
+            }
+       }
+    },
+    "@data.io.orchestrate": {
+        "${{ARG.namespace}}.data.io.orchestrate": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.io.orchestrate"
+            }
+       }
+    },
+    "@data.bookshelf": {
+        "${{ARG.namespace}}.data.bookshelf": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.bookshelf"
+            },
+            "${{ARG.namespace}}.data.knexjs.connection()->knex": {},
+            "${{ARG.namespace}}.data.record.mapper.collections()->collections": {
+                "#contract": "bookshelf"
+            }
+       }
+    },
+    "@data.nedb": {
+        "${{ARG.namespace}}.data.nedb": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "data.nedb"
+            },
+            "${{ARG.namespace}}.cache.fs.path()->nedb/filename": {
+                "namespace": "datastores/nedb"
+            },
+            "${{ARG.namespace}}.data.record.mapper.collections()->collections": {
+                "#contract": "nedb"
+            },
+            "${{ARG.namespace}}.data.record.mapper.seeds()->seeds": {
+                "#contract": "json-id-records"
+            }
+        }
+    },
+    "@skin.semantic-ui": {
+        "${{ARG.namespace}}.skin.semantic-ui": {
+            "${{ARG.namespace}}.static.fs.skin.dist.path()->distPath": {
+                "namespace": "{{ARG.skin}}"
+            }
+        }
+    },
+    "@template.virtual-dom": {
+        "${{ARG.namespace}}.template.virtual-dom": {
+        }
+    },
+    "@skin.sm.hoist.VisualComponents": {
+        "${{ARG.namespace}}.skin.sm.hoist.VisualComponents": {
+            "${{ARG.namespace}}.context.server.api()->context": {},
+            "${{ARG.namespace}}.static.fs.skin.path()->basePath": {
+                "namespace": "{{ARG.skin}}"
+            }
+        }
+    },
+    "@static.send": {
+        "${{ARG.namespace}}.static.send.semantic-ui": {
+            "${{ARG.namespace}}.static.fs.cache.path()->cachePath": {
+                "namespace": "send.semantic-u"
+            },
+            "${{ARG.namespace}}.static.fs.www.path()->paths/www": {},
+            "${{ARG.namespace}}.static.fs.skin.path()->paths/skin": {
+                "namespace": "{{ARG.skin}}"
+            }
+        }
+    },
+    "@proxy.smi.cache": {
+        "${{ARG.namespace}}.proxy.smi.cache": {
+            "${{ARG.namespace}}.cache.fs.path()->cacheBasePath": {
+                "namespace": "www"
+            },
+            "routes": {
+                "travis-ci.org": "https://travis-ci.org",
+                "badges.gitter.im": "https://badges.gitter.im"
+            }
+        }
+    },
+    "@transform.marked": {
+        "${{ARG.namespace}}.transform.marked": {
+            "${{ARG.namespace}}.context.server.api()->context": {},
+            "${{ARG.namespace}}.static.fs.data.pages.path()->basePath": {},
+            "${{ARG.namespace}}.static.fs.data.pages.dist.path()->distPath": {},
+            "${{ARG.namespace}}.skin.sm.hoist.VisualComponents.transformer()->postprocess/htm/components": {},
+            "${{ARG.namespace}}.template.virtual-dom.transformer()->postprocess/htm/vdom-compile": {
+                "compile": {
+                    "components": true
+                }
+            }
+        }
+    },
+    "@export.browserify": {
+        "${{ARG.namespace}}.export.browserify": {
+            "${{ARG.namespace}}.static.fs.www.path()->basePath": {},
+            "${{ARG.namespace}}.static.fs.www.dist.path()->distPath": {}
+        }
+    },
+    "@export.webpack": {
+        "${{ARG.namespace}}.export.webpack.skin": {
+            "subUri": "{{ARG.subUri}}",
+            "publicPath": "/{{ENV.GIT_COMMIT_REV}}/",
+            "${{ARG.namespace}}.static.fs.skin.path()->basePath": {
+                "namespace": "{{ARG.skin}}"
+            },
+            "${{ARG.namespace}}.static.fs.skin.dist.path()->distPath": {
+                "namespace": "{{ARG.skin}}"
+            }
+        }
+    },
+    "@export.babel": {
+        "${{ARG.namespace}}.export.babel": {
+            "${{ARG.namespace}}.static.fs.www.path()->basePath": {}
+        }
+    },
+    "@export.sm.hoist.VisualComponents": {
+        "${{ARG.namespace}}.export.sm.hoist.VisualComponents.semantic-ui": {
+            "${{ARG.namespace}}.context.server.api()->context": {},
+            "sourceBaseSubUrl": "/cores/skin/for/sm.hoist.VisualComponents",
+            "${{ARG.namespace}}.static.fs.skin.dist.path()->config/target/path": {
+                "namespace": "skin"
+            },
+            "${{ARG.namespace}}.static.fs.data.pages.dist.path()->distPath": {}
+        }
+    },
+    "@page.express": {
+        "${{ARG.namespace}}.page.server": {
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "page",
+                "aspect": "page"
+            },
+            "${{ARG.namespace}}.static.fs.data.pages.path()->pages/basePath": {
+            },
+            "${{ARG.namespace}}.static.fs.skin.path()->skin/basePath": {
+                "namespace": "{{ARG.skin}}"
+            },
+            "pages": {
+                "baseUrl": "http://{{$0.host/host}}{{ARG.subUri}}"
+            },
+            "client": {
+                "context": {
+                    "page": {
+                        "baseUrl": "http://{{$0.host/host}}{{ARG.subUri}}",
+                        "subUri": "{{ARG.subUri}}"
+                    },
+                    "auth": {
+                        "serverContext": {
+                            "services": {
+                                "github": {
+                                    "urls": {
+                                        "context": "/cores/auth/for/passport/context.json"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "env": {
+                        "VERBOSE": "{{ENV.VERBOSE}}"
+                    },
+                    "service": {}
+                }
+            },
+            "$0.env.getConfig()->client/context/env": {},
+            "$0.services.getClientConfig()->client/context/service": {}
+        }
+    },
+    "@session.express.fs": {
+        "${{ARG.namespace}}.session.express.fs": {
+		    "cookie": {
+		    	"maxAge": 31536000000
+		    },
+		    "store": {
+			    "ttl": 31536000000
+		    }
+        }
+    },
+    "@route.express": {
+        "${{ARG.namespace}}.routes": {
+            "#": "get",
+            "routes": {
+                "namespace": "{{ARG.namespace}}"
+            }
+        },
+        "${{ARG.namespace}}.routes.proxy.smi.cache": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/proxy/for/smi.cache(/.+)$",
+            "${{ARG.namespace}}.proxy.smi.cache.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.export": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/export(/.+)$"
+        },
+        "${{ARG.namespace}}.routes.export.babel": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/export/for/babel(/.+)$",
+            "${{ARG.namespace}}.export.babel.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.export.webpack.skin": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/export/for/webpack\\.skin(/.+)$",
+            "${{ARG.namespace}}.export.webpack.skin.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.export.bower": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/export/for/bower(/.+)$"
+        },
+        "${{ARG.namespace}}.routes.export.browserify": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/export/for/browserify(/.+)$",
+            "${{ARG.namespace}}.export.browserify.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.skin.semantic-ui": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/skin/for/semantic-ui(/.*)$",
+            "${{ARG.namespace}}.skin.semantic-ui.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.static": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^(/.+)$"
+        },
+        "${{ARG.namespace}}.routes.static.send.semantic-ui": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}(/.+\\.(?:css|png|jpg|jpeg|ico|font|svg|woff|woff2|ttf))$",
+            "${{ARG.namespace}}.static.send.semantic-ui.app()->impl": {
+            }
+        },
+
+        "${{ARG.namespace}}.routes.session.express.fs": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/",
+            "methods": "*",
+            "${{ARG.namespace}}.session.express.fs.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.data.record.collections": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/data/for/record.collections/api.js$",
+            "${{ARG.namespace}}.data.record.mapper.collectionsApiBundleApp()->impl": {}
+        },
+        "${{ARG.namespace}}.routes.auth.passport.routes": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/cores/auth/for/passport(/.+)$",
+            "${{ARG.namespace}}.auth.routesApp()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.auth.passport.context": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/",
+            "methods": "*",
+            "${{ARG.namespace}}.auth.contextApp()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.boundary.github": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/",
+            "methods": "*",
+            "${{ARG.namespace}}.boundary.github.app()->impl": {}
+        },
+        "${{ARG.namespace}}.routes.invite.cookie": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/",
+            "methods": "*",
+            "${{ARG.namespace}}.invite.cookie.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.apis": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^(/.*)$",
+            "methods": "*"
+        },
+        "${{ARG.namespace}}.routes.responder": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/cores/responder(/.+)$",
+            "methods": "*"
+        },
+        "${{ARG.namespace}}.routes.skin.sm.hoist.VisualComponents": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/cores/skin/for/sm.hoist.VisualComponents(/.+\\.html?)$",
+            "${{ARG.namespace}}.skin.sm.hoist.VisualComponents.app()->impl": {
+            }
+        },
+        "${{ARG.namespace}}.routes.pages": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^(/.*)$",
+            "methods": "*"
+        },
+        "${{ARG.namespace}}.routes.transform.marked": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}(/.*\\.md(:?\\.htm|\\.chscript\\.bundle\\.js))$",
+            "${{ARG.namespace}}.transform.marked.app()->impl": {
+                "usePageContext": true
+            }
+        },
+        "${{ARG.namespace}}.routes.export.sm.hoist.VisualComponents.semantic-ui": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^(.*)$",
+            "${{ARG.namespace}}.export.sm.hoist.VisualComponents.semantic-ui.app()->impl": {
+            }
+        }
+    }
+}

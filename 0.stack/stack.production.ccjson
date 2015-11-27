@@ -1,0 +1,62 @@
+{
+    "@": {
+        "export.browserify": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "export.bower": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "export.webpack": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "data.ccjson.record.mapper": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "skin.semantic-ui": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "export.sm.hoist.VisualComponents": {
+            "alwaysRebuild": false
+        },
+        "responder.firewidgets": {
+            "alwaysRebuild": false
+        },
+        "export.0.FireWidgets": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "page.0.FireWidgets": {
+            "alwaysRebuild": false
+        },
+        "responder.0.FireWidgets": {
+            "alwaysRebuild": false
+        },
+        "static.send": {
+            "clientCacheTTL": "30 days"
+        },
+        "transform.marked": {
+            "alwaysRebuild": false,
+            "clientCacheTTL": "30 days"
+        },
+        "invite.cookie": {
+            "forceInvited": false
+        },
+        "page.express": {
+            "client": {
+                "context": {
+                    "component": {
+                        "alwaysReload": false
+                    },
+                    "page": {
+                        "alwaysReload": false
+                    }
+                }
+            }
+        }
+    }
+}
