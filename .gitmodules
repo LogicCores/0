@@ -1,6 +1,3 @@
-[submodule "cores/proxy"]
-	path = cores/proxy
-	url = git://github.com/LogicCores/0-proxy.git
 [submodule "lib/smi.cache"]
 	path = lib/smi.cache
 	url = git://github.com/sourcemint/smi.cache.git
