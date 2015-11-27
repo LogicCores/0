@@ -1,6 +1,3 @@
-[submodule "0.PINF.Genesis.to"]
-	path = 0.PINF.Genesis.to
-url=git://github.com/pinf-to/0.PINF.Genesis.to.git
 [submodule "0.VirtualCloud.Genesis"]
 	path = 0.VirtualCloud.Genesis
 url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
