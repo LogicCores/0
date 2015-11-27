@@ -1,6 +1,3 @@
-[submodule "0.VirtualCloud.Genesis"]
-	path = 0.VirtualCloud.Genesis
-url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
 [submodule "0.devcomp.genesis"]
 	path = 0.devcomp.genesis
 	url = git://github.com/devcomp/0.devcomp.genesis.git
