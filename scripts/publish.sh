@@ -16,7 +16,12 @@ function init {
 	function Publish {
 		BO_format "$VERBOSE" "HEADER" "Publishing system"
 
+		if [ -z "GIT_PUBLISH_URL" ]; then
+			export GIT_PUBLISH_URL="git@github.com:0system/0system.0.git"
+		fi
+
 		BO_log "$VERBOSE" "PWD: $PWD"
+		BO_log "$VERBOSE" "GIT_PUBLISH_URL: $GIT_PUBLISH_URL"
 
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
@@ -26,7 +31,15 @@ function init {
 
 		node.pack.inline.source.stream.dirpath "STREAM_REPOSITORY_PATH"
 
-echo "STREAM_REPOSITORY_PATH: $STREAM_REPOSITORY_PATH"
+	    # Ensure dev repo is clean and up to date
+		pushd "$STREAM_REPOSITORY_PATH" > /dev/null
+
+			git_ensureRemote "publish" "$GIT_PUBLISH_URL"
+			git_ensureSyncedRemote "publish" "master"
+
+
+		popd > /dev/null
+
 
 
 		BO_format "$VERBOSE" "FOOTER"
