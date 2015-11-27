@@ -1,6 +1,3 @@
-[submodule "cores/time"]
-	path = cores/time
-url=git://github.com/LogicCores/0-time.git
 [submodule "cores/export"]
 	path = cores/export
 url=git://github.com/LogicCores/0-export.git
