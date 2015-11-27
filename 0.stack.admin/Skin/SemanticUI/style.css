@@ -1,0 +1,18 @@
+
+.hidden {
+	display: none !important;
+}
+
+.page-header {
+    padding-top: 10px;
+}
+.page-content {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+TR.order {
+    background-color: #e0e0e0;
+}
+.ui.text.container {
+    max-width: 90% !important;
+}

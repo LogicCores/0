@@ -1,0 +1,9 @@
+{
+  "name": "0-session-for-express.fs",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "express-session": "^1.12.1",
+    "session-file-store": "0.0.19"
+  }
+}

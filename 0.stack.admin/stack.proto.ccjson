@@ -1,0 +1,58 @@
+{
+    "@": {
+        "$": [
+            [
+                "../0.stack/stack.proto.ccjson",
+                {
+                    "stackIndex": 5
+                }
+            ]
+        ]
+    },
+    "@auth.passport": {
+        "${{ARG.namespace}}.auth": {
+            "urls": {
+                "afterLogin": "{{ARG.subUri}}/Dashboard",
+                "afterLogout": "{{ARG.subUri}}/Login/"
+            },
+    		"passport": {
+    		    "github": {
+    		        "scope": "read:org"
+    		    }
+    		},
+            "${{ARG.namespace}}.boundary.github.restrictToTeam()->restrict": {
+                "teamUrl": "https://github.com/orgs/LogicCores/teams/admin-owner"
+            }
+        }
+    },
+    "@page.express": {
+        "${{ARG.namespace}}.page.server": {
+            "pages": {
+                "defaultPath": "/Dashboard"
+            },
+            "client": {
+                "context": {
+                    "application": {
+                        "enableAuthentication": true
+                    },
+                    "page": {
+                        "path": "/Dashboard"
+                    }
+                }
+            }
+        }
+    },
+    "@boundary.github": {
+        "${{ARG.namespace}}.boundary.github": {
+            "public": {
+                "urls": {
+                    "unauthorizedRedirect": "/Login/"
+                },
+                "paths": [
+                    "/Login/",
+                    "/Login/Failed"
+                ]
+            }
+        }
+   }    
+}

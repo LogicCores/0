@@ -1,0 +1,26 @@
+{
+    "@": {
+        "$": [
+            [
+                "../0.stack/stack.proto.ccjson",
+                {
+                    "stackIndex": 5
+                }
+            ]
+        ]
+    },
+    "@page.express": {
+        "${{ARG.namespace}}.page.server": {
+            "pages": {
+                "defaultPath": "/Tests/"
+            },
+            "client": {
+                "context": {
+                    "page": {
+                        "path": "/Tests/"
+                    }
+                }
+            }
+        }
+    }
+}

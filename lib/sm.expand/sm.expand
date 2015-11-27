@@ -1,0 +1,962 @@
+#!/usr/bin/env node
+
+exports.for = function (API) {
+
+	var exports = {};
+
+	function formatLogArgs (args) {
+		var allStrings = true;
+		args.forEach(function (arg) {
+			if (!allStrings) return;
+			if (typeof arg !== "string") {
+				allStrings = false;
+			}
+		});
+		if (allStrings) {
+			return args.join(" ");
+		}
+		return (args.length > 1 ? args : args[0]);
+	}
+
+	function log () {
+		if (!API.env.VERBOSE) return;
+		var args = Array.prototype.slice.call(arguments);
+		console.log.call(console, "[sm.expand]", formatLogArgs(args));
+	}
+
+	function findPackageRoot (path) {
+		path = path.replace(/\/package\.json$/, "");
+		return API.QFS.exists(
+			API.PATH.join(path, "package.json")
+		).then(function (exists) {
+			if (exists) {
+				return path;
+			}
+			var newPath = API.PATH.dirname(path);
+			if (newPath === path) {
+				throw new Error("No package.json found in parent tree!");
+			}
+			return findPackageRoot(newPath);
+		});
+	}
+
+	function archiveFailed (targetPath) {
+		return API.QFS.exists(targetPath).then(function (exists) {
+			if (!exists) return;
+			return API.Q.denodeify(function (callback) {
+				return API.EXEC(
+					"mv " + API.PATH.basename(targetPath) + " " + API.PATH.basename(targetPath) + ".failed." + Date.now(),
+					{
+						cwd: API.PATH.dirname(targetPath)
+					},
+					function (err) {
+						if (err) return callback(err);
+						return callback(null);
+					}
+				);
+			})();
+		});
+	}
+
+	function resolveSourcesInRegistries (sources, registryPathPatterns) {
+		var shared = {};
+		if (!registryPathPatterns) {
+			return API.Q.resolve(shared);
+		}
+		return API.Q.all(Object.keys(sources).map(function (uid) {
+
+			shared[uid] = {};
+
+			return API.Q.all(Object.keys(sources[uid]).map(function (rev) {
+
+				var path = registryPathPatterns
+					.replace(/\{uid\}/g, uid)
+					.replace(/\{rev\}/g, rev);
+
+				return API.QFS.exists(path).then(function (exists) {
+					if (exists) {
+						return API.QFS.canonical(path).then(function (realpath) {
+							shared[uid][rev] = {
+								path: path,
+								realpath: realpath
+							}
+						});
+					}
+				});
+			}));
+		})).then(function () {
+			return shared;
+		});
+	}
+
+	function ensureSources (sources, targetPathPattern, sharedSources, mappings) {
+
+		function aliasesForSource (uid, rev) {
+			var aliases = [];
+			for (var mappingAlias in mappings) {
+				if (mappings[mappingAlias] === uid + "/" + rev) {
+					aliases.push(mappingAlias);
+				}
+			}
+			return aliases;
+		}
+
+		var paths = {};
+		return API.Q.all(Object.keys(sources).map(function (uid) {
+			return API.Q.all(Object.keys(sources[uid]).map(function (rev) {
+
+				var targetPath = targetPathPattern
+					.replace(/\{uid\}/g, uid)
+					.replace(/\{rev\}/g, rev);
+
+				if (/\{alias\}/.test(targetPath)) {
+					var aliases = aliasesForSource(uid, rev);
+					if (aliases.length > 1) {
+						throw new Error("Cannot install source by alias. Found more than one alias '" + aliases.join(",") + "' for source id '" + uid + "/" + rev + "'.");
+					}
+					if (aliases.length === 1) {
+						targetPath = targetPath.replace(/\{alias\}/g, aliases[0]);
+					}
+				}
+
+				paths[uid + "/" + rev] = targetPath;
+
+				function isSourceInRegistry () {
+					return API.Q.fcall(function () {
+						if (
+							sharedSources[uid] &&
+							sharedSources[uid][rev] &&
+							sharedSources[uid][rev].realpath !== targetPath
+						) {
+							return sharedSources[uid][rev].path;
+						}
+						return false;
+					});
+				}
+
+				function markSourceEnsured () {
+					return API.QFS.write(
+						API.PATH.join(targetPath, ".sm.expand.ensured"),
+						""
+					);
+				}
+
+				function isSourceEnsured (registryPath) {
+
+					function isLinkedToRegistry () {
+
+						return API.QFS.exists(targetPath).then(function (exists) {
+							if (!exists) return false;
+							return API.QFS.isSymbolicLink(targetPath).then(function (isLink) {
+								if (!isLink) return false;
+								return API.QFS.readLink(targetPath).then(function (sourcePath) {
+									return (sourcePath === registryPath);
+								});
+							});
+						});
+					}
+
+					function linkFromRegistry () {
+
+						try {
+							API.FS.removeSync(targetPath);
+						} catch (err) {}
+
+						if (!API.FS.existsSync(API.PATH.dirname(targetPath))) {
+							API.FS.mkdirsSync(API.PATH.dirname(targetPath));
+						}
+
+						log("Linking from registry", registryPath, "to", targetPath);
+						return API.QFS.symbolicLink(targetPath, registryPath, "directory");
+					}
+
+					if (registryPath) {
+						return isLinkedToRegistry().then(function (isLinked) {
+							if (isLinked) return;
+							return linkFromRegistry();
+						}).then(function () {
+							return true;
+						});
+					}
+
+					return API.QFS.exists(API.PATH.join(targetPath, ".git")).then(function (exists) {
+
+						if (!exists) {
+							return API.QFS.exists(API.PATH.join(targetPath, ".sm.expand.ensured"));
+						}
+
+						// Ensure the commit that is requested is in the history of our current branch.
+						// TODO: Move this into 'smi-for-git' plugin.
+						function getCommitFromUri (uri) {
+							return API.Q.fcall(function () {
+								var m = uri.match(/^git:\/\/(git@github\.com:[^\/]+\/.+?\.git)(#([^\()]*))?(\(([^\)]+)\))?$/);
+								if (!m) {
+									throw new Error("Cloud not parse uri '" + uri + "'");
+								}
+								if (!m[3]) {
+									// TODO: Optionally throw if we require a commit.
+									// throw new Error("Uri '" + uri + "' must specify a commit!");
+									return null;
+								}
+								return m[3];
+							});
+						}
+						function isCommitInAncestors (basePath, commit) {
+							return API.Q.denodeify(function (callback) {
+								return API.EXEC(
+									"git rev-list --boundary HEAD --not " + commit,
+									{
+										cwd: basePath
+									},
+									function (err) {
+										if (err) return callback(null, false);
+										return callback(null, true);
+									}
+								);
+							})();
+						}
+
+						function ensured () {
+							// NOTE: To force a rev-check next time remove this file before calling sm.expand
+							return markSourceEnsured().then(function () {
+								return true;
+							});								
+						}
+
+						return getCommitFromUri(sources[uid][rev].uri).then(function (commit) {
+
+							if (!commit) {
+								return ensured();
+							}
+
+							return isCommitInAncestors(targetPath, commit).then(function (found) {
+
+								if (!found) {
+									throw new Error("Requested commit '" + commit + "' not found in ancestors. You need to switch to the right branch or delete the reporitory to have it download needed commits.");
+								}
+
+								return ensured();
+							});
+						});
+					});
+				}
+
+				function ensureEmpty () {
+					return API.QFS.exists(API.PATH.dirname(targetPath)).then(function (exists) {
+						if (!exists) return;
+						return API.Q.denodeify(function (callback) {
+							return API.EXEC("rm -Rf " + API.PATH.basename(targetPath) + "/", {
+								cwd: API.PATH.dirname(targetPath)
+							}, function (err) {
+								if (err) return callback(err);
+								return callback(null);
+							});
+						})();
+					});
+				}
+
+				function ensureBase () {
+					return API.QFS.exists(API.PATH.dirname(targetPath)).then(function (exists) {
+						if (exists) return;
+						return API.Q.nbind(API.FS.mkdirs, API.FS)(API.PATH.dirname(targetPath));
+					});
+				}
+
+				return isSourceInRegistry().then(function (registryPath) {
+
+					return isSourceEnsured(registryPath).then(function (ensured) {
+						if (ensured) {
+							log(uid, rev, "already sourced");
+							return;
+						}
+						log("Ensuring source for", uid, rev);
+						return ensureEmpty().then(function () {
+							return ensureBase().then(function () {
+
+								return API.GIT_CLONE(
+									sources[uid][rev].uri,
+									targetPath
+								).then(function () {
+
+									return markSourceEnsured().then(function () {
+
+										log("Source ensured for", uid, rev);
+
+									});
+
+								}, function (err) {
+									return archiveFailed(targetPath).then(function () {
+										throw err;
+									}, function (e) {
+										console.error("Error archiving failed but ignoring", e.stack);
+										throw err;
+									});
+								});
+							});
+						});
+					});
+				});
+			}));
+		})).then(function () {
+			return paths;
+		});
+	}
+
+	function ensureMappings (mappings, sourcePaths, targetPathPattern, settings) {
+		var paths = {};
+		var aliases = {};
+		return API.Q.all(Object.keys(mappings).map(function (alias) {
+
+			var pointer = mappings[alias].split("/");
+			var uid = pointer[0];
+			var rev = pointer[1];
+
+			if (!sourcePaths[mappings[alias]]) {
+				console.error("sources", sources);
+				throw new Error("No source found for uid '" + uid + "' and rev '" + rev + "'");
+			}
+
+			var targetPath = targetPathPattern.replace(/\{alias\}/g, alias);
+			var sourcePath = sourcePaths[mappings[alias]];
+
+			paths[alias] = targetPath;
+			aliases[mappings[alias]] = alias;
+
+			function alreadyExists() {
+				return API.QFS.exists(targetPath).then(function (exists) {				
+					return exists;
+				}); 
+			}
+
+			function isLinked () {
+				return API.QFS.exists(API.PATH.join(targetPath, ".sm.expand.ensured")).then(function (exists) {				
+					if (!exists) {
+						return false;
+					}
+					return API.QFS.isSymbolicLink(targetPath).then(function (isLink) {
+						if (!isLink) {
+							//throw new Error("Path '" + targetPath + "' is not a symlink! Remove first!");
+							// This will remove whatever is there.
+							return false;
+						}
+						return API.QFS.readLink(targetPath).then(function (linkSource) {
+							if (linkSource !== sourcePath) {
+								throw new Error("Symlink at path '" + targetPath + "' is not pointing to '" + sourcePath + "'! Remove first!");
+							}
+
+							return true;
+						});
+					});
+				});
+			}
+
+			function ensureBase () {
+				return API.QFS.exists(API.PATH.dirname(targetPath)).then(function (exists) {
+					if (exists) return;
+					return API.Q.nbind(API.FS.mkdirs, API.FS)(API.PATH.dirname(targetPath));
+				});
+			}
+
+			function ensureLinked () {
+
+				if (sourcePath.substring(0, targetPath.length) === targetPath) {
+					// If this link went ahead we would remove the source paths
+					// and create a dead link!
+					return API.Q.resolve();
+				}
+
+				// Remove dead symlinks
+				// TODO: Only do this if symlink creation fails.
+				try {
+					API.FS.removeSync(targetPath);
+				} catch (err) {}
+
+				if (!API.FS.existsSync(API.PATH.dirname(targetPath))) {
+					API.FS.mkdirsSync(API.PATH.dirname(targetPath));
+				}
+
+				// @schema settings "@github.com~sourcemint~sm.expand~0/settings"
+				if (settings.useRelativeMappings) {
+					return API.QFS.symbolicLink(targetPath, API.PATH.relative(API.PATH.dirname(targetPath), sourcePath), "directory");
+				} else {
+					return API.QFS.symbolicLink(targetPath, sourcePath, "directory");
+				}
+			}
+
+			return alreadyExists().then(function (exists) {
+				if (exists) {
+					log(alias, "already exists");
+					return;
+				}
+
+//				return isLinked().then(function (linked) {
+//					if (linked) {
+//						log(alias, "already linked");
+//						return;
+//					}
+
+					return ensureBase().then(function () {
+
+						return ensureLinked();
+					});
+//				});
+			});
+		})).then(function () {
+			return {
+				paths: paths,
+				aliases: aliases
+			};
+		});
+	}
+
+	function linkSourceDependencies (sourcePaths, mappingsPaths, binaryPathPatterns) {
+		return API.Q.all(Object.keys(sourcePaths).map(function (uid) {
+
+			return API.NPM_LINK_DEPS(sourcePaths[uid], mappingsPaths).then(function () {
+
+				return API.NPM_GET_BINS(sourcePaths[uid]).then(function (binaries) {
+
+					if (!binaries) return;
+
+					return API.Q.all(binaryPathPatterns.map(function (binaryPathPattern) {
+
+						return API.Q.all(Object.keys(binaries).map(function (bin) {
+
+							var targetPath = binaryPathPattern
+								.replace(/\{bin\}/g, bin);
+
+							var sourcePath = API.PATH.join(sourcePaths[uid], binaries[bin]);
+
+							function ensureLinked () {
+								// Remove dead symlinks
+								// TODO: Only do this if symlink creation fails.
+								try {
+									API.FS.removeSync(targetPath);
+								} catch (err) {}
+
+								if (!API.FS.existsSync(API.PATH.dirname(targetPath))) {
+									API.FS.mkdirsSync(API.PATH.dirname(targetPath));
+								}
+
+								log("Linking", sourcePath, "to", targetPath);
+								return API.QFS.symbolicLink(targetPath, sourcePath, "directory");
+							}
+
+							return API.QFS.exists(targetPath).then(function (exists) {
+								if (!exists) {
+									return ensureLinked();
+								}
+								return API.QFS.isSymbolicLink(targetPath).then(function (isLink) {
+									if (!isLink) {
+										throw new Error("Path '" + targetPath + "' is not a symlink! Remove first!");
+									}
+									return API.QFS.readLink(targetPath).then(function (linkSource) {
+										if (/^\..\/[^\.]/.test(linkSource)) {
+											return ensureLinked();
+										}
+										if (linkSource !== sourcePath) {
+											throw new Error("Symlink at path '" + targetPath + "' is not pointing to '" + sourcePath + "'! Remove first!");
+										}
+									});
+								});
+							});
+						}));
+					}));
+				});
+			});
+		}));
+	}
+
+	function ensureInstalled (sources, sourcePaths, mappings, mappingsAliases) {
+
+		function discoverOrder () {
+
+			function getPackages () {
+				var packages = {};
+				var installedPackages = {};
+
+				function isSourceInstalled (targetPath) {
+					return API.QFS.exists(API.PATH.join(targetPath, ".sm.expand.installed"));
+				}
+
+				return API.Q.all(Object.keys(sourcePaths).map(function (id) {
+
+					return isSourceInstalled(sourcePaths[id]).then(function (installed) {
+						if (installed) {
+							// Package is already installed so we don't need to check its dependencies.
+							packages[id] = {
+					            id: id,
+					            provides: [
+					            	mappingsAliases[id]
+					            ],
+					            consumes: []
+					        };
+					        installedPackages[id] = true;
+						} else {
+							return API.NPM_GET_DEPS(sourcePaths[id]).then(function (dependencies) {
+								packages[id] = {
+						            id: id,
+						            provides: [
+						            	mappingsAliases[id]
+						            ],
+						            consumes: (
+					            		(
+					            			dependencies &&
+					            			dependencies.required &&
+					            			Object.keys(dependencies.required)
+					            		) ||
+					            		[]
+						            	).filter(function (alias) {
+										// We only care about packages we have mappings for.
+										// The rest we don't link and they will get installed.
+						            	return !!mappings[alias];
+						            })
+						        };
+							});		
+						}
+					});
+				})).then(function () {
+					return {
+						all: packages,
+						installed: installedPackages
+					};
+				});
+			}
+
+			return getPackages().then(function (packagesInfo) {
+
+				// @source https://github.com/c9/architect/blob/567b7c034d7644a2cc0405817493b451b01975fa/architect.js#L332
+				// TODO: Find a nicer implementation or clean this one up.
+				function orderPackages (packages) {
+				    var plugins = [];
+				    var pluginsById = {};
+				    for (var id in packages) {
+				        pluginsById[id] = packages[id];
+				        plugins.push(JSON.parse(JSON.stringify(pluginsById[id])));
+				    }
+				    var resolved = {};
+				    var changed = true;
+				    var sorted = [];
+
+				    while(plugins.length && changed) {
+				        changed = false;
+
+				        plugins.concat().forEach(function(plugin) {
+				            var consumes = plugin.consumes.concat();
+
+				            var resolvedAll = true;
+				            for (var i=0; i<consumes.length; i++) {
+				                var service = consumes[i];
+				                if (!resolved[service]) {
+				                    resolvedAll = false;
+				                } else {
+				                    plugin.consumes.splice(plugin.consumes.indexOf(service), 1);
+				                }
+				            }
+
+				            if (!resolvedAll)
+				                return;
+
+				            plugins.splice(plugins.indexOf(plugin), 1);
+				            plugin.provides.forEach(function(service) {
+				                resolved[service] = true;
+				            });
+				            sorted.push(plugin.id);
+				            changed = true;
+				        });
+				    }
+
+				    if (plugins.length) {
+				        var unresolved = {};
+				        plugins.forEach(function(plugin) {
+				            delete plugin.config;
+				            plugin.consumes.forEach(function(name) {
+				                if (unresolved[name] == false) {
+				                    return;
+				                }
+				                if (!unresolved[name]) {
+console.log("unresolved", name, "for", plugin);
+				                    unresolved[name] = [];
+				                }
+				                unresolved[name].push(plugin.id);
+				            });
+				            plugin.provides.forEach(function(name) {
+				                unresolved[name] = false;
+				            });
+				        });
+
+				        Object.keys(unresolved).forEach(function(name) {
+				            if (unresolved[name] == false)
+				                delete unresolved[name];
+				        });
+
+				        console.error("packages", Object.keys(packages).length, packages);
+				        console.error("Could not resolve dependencies of these plugins:", plugins);
+				        console.error("Resolved services:", Object.keys(resolved));
+				        console.error("Missing services:", unresolved);
+				        console.log("NOTICE: Did you declare '" + Object.keys(unresolved) + "' in 'services' config?");
+
+				        function showChildHierarchy (pkgId, pkg, level) {
+				            if (!level) level = 0;
+				            if (!pkg) {
+				                console.log("Package '" + pkgId + "' not found!");
+				                return;
+				            }
+				            var prefix = [];
+				            for (var i=0 ; i<level ; i++) {
+				                prefix.push("  ");
+				            }
+				            console.log(prefix.join("") + pkg.id);
+				            if (!pkg.consumes) return;
+				            pkg.consumes.forEach(function (pkgId) {
+				                return showChildHierarchy(pkgId, pluginsById[pkgId], level + 1);
+				            });
+				        }
+				        console.log("Service hierarchy:");
+				        Object.keys(unresolved).forEach(function (pkgId) {
+				            showChildHierarchy(pkgId, pluginsById[pkgId]);
+				        });
+
+				        throw new Error("Could not resolve dependencies");
+				    }
+				    return sorted;
+				}
+
+				return {
+					order: orderPackages(packagesInfo.all),
+					installed: packagesInfo.installed
+				};
+			});
+		}
+
+		function installUsing (basePath, adapter) {
+			return API.Q.fcall(function () {
+				// ASSUMPTION: We assume that the installer will leave existing linked packages alone.
+				if (adapter === "npm") {
+					return API.NPM_INSTALL_PKG(basePath);
+				} else {
+					throw new Error("Adapter of type '" + adapter + "' not supported!");
+				}
+			}).fail(function (err) {
+				return archiveFailed(basePath).then(function () {
+					throw err;
+				}, function (e) {
+					console.error("Error archiving failed but ignoring", e.stack);
+					throw err;
+				});
+			});
+		}
+
+		function markSourceInstalled (basePath) {
+			return API.QFS.write(
+				API.PATH.join(basePath, ".sm.expand.installed"),
+				""
+			);
+		}
+
+		return discoverOrder().then(function (packageInfo) {
+			var done = API.Q.resolve();
+			packageInfo.order.forEach(function (id) {
+				done = API.Q.when(done, function () {
+
+					if (packageInfo.installed[id]) {
+						log("Skip ensure source installed for", id, "as already installed!");
+						return;
+					}
+
+					log("Ensure source installed for", id);
+
+					var idParts = id.split("/");
+					var installer = sources[idParts[0]][idParts[1]].installer;
+					if (installer) {
+						return installUsing(
+							sourcePaths[id],
+							installer
+						);
+					} else {
+						// No installer declared so we don't do anything here.
+						log("WARNING: Skip install. No installer set for:", id);						
+					}
+				}).then(function () {
+
+					return markSourceInstalled(sourcePaths[id]).then(function () {
+
+						log("Source install ensured for", id);
+
+					});
+				});
+			});
+			return done;
+		});
+	}
+
+	function linkForRegistries (sourcePaths, registryPathPatterns) {
+		return API.Q.fcall(function () {
+			if (!registryPathPatterns) return;
+
+			return API.Q.all(Object.keys(sourcePaths).map(function (pointer) {
+				var pointerParts = pointer.split("/");
+
+				var targetPath = registryPathPatterns
+					.replace(/\{uid\}/g, pointerParts[0])
+					.replace(/\{rev\}/g, pointerParts[1]);
+
+				var sourcePath = sourcePaths[pointer];
+
+				function ensureLinked () {
+					// Remove dead symlinks
+					// TODO: Only do this if symlink creation fails.
+					try {
+						API.FS.removeSync(targetPath);
+					} catch (err) {}
+
+					if (!API.FS.existsSync(API.PATH.dirname(targetPath))) {
+						API.FS.mkdirsSync(API.PATH.dirname(targetPath));
+					}
+
+					log("Linking", sourcePath, "to", targetPath);
+					return API.QFS.symbolicLink(targetPath, sourcePath, "directory");
+				}
+				
+				return API.QFS.exists(targetPath).then(function (exists) {
+					if (exists) {
+						return;
+					}
+					return ensureLinked();
+				});
+			}));
+		});
+	}
+
+	function ensureIgnoreRules (sourcePaths, ignoreConfig) {
+		return API.Q.fcall(function () {
+			if (
+				!ignoreConfig ||
+				!ignoreConfig.rules
+			) return;
+			return API.Q.all(Object.keys(sourcePaths).map(function (pointer) {
+				return API.GIT_IGNORE(
+					sourcePaths[pointer],
+					ignoreConfig.rules
+				);
+			}));
+		});
+	}
+
+	exports.for = function (module) {
+
+		log("CODEBASE", __dirname, require("./package.json").version);
+		log("Using BO_GLOBAL_SYSTEM_CACHE_DIR:", API.env.BO_GLOBAL_SYSTEM_CACHE_DIR);
+
+		var origin = API.env.CWD;
+
+		var expand = function (overrideConfig) {
+
+			function expandIteration (previousMissingExtendsPaths) {
+
+				function getPackageRoot (path) {
+					if (/\.json$/.test(path)) {
+						return API.Q.resolve(path);
+					}
+					return findPackageRoot(module.filename).then(function (basePath) {
+						return (basePath + "/package.json");
+					});
+				}
+
+				return getPackageRoot(module.filename).then(function (descriptorPath) {
+
+					var missingExtendsPaths = {};
+
+					return API.CONFIG("file://" + descriptorPath, {
+						ignoreMissingExtends: function (path) {
+							missingExtendsPaths[path] = true;
+						}
+					}).then(function (config) {
+
+						var map = null;
+
+						if (
+							overrideConfig &&
+							overrideConfig["github.com~sourcemint~sm.expand~0/map"]
+						) {
+							map = overrideConfig["github.com~sourcemint~sm.expand~0/map"];
+						} else {
+							map = config.descriptor.at("github.com~sourcemint~sm.expand~0/map");
+						}
+
+						if (!map) {
+							console.log("Skip file '" + descriptorPath +  "' as no sm map config present.");
+							return;
+						}
+
+						var settings = map.at("github.com~sourcemint~sm.expand~0/settings") || {};
+
+						var locations = map.at("github.com~sourcemint~sm.expand~0/locations");
+
+						if (locations.binaries) {
+							if (!Array.isArray(locations.binaries)) {
+								locations.binaries = [
+									locations.binaries
+								];
+							}
+						}
+
+						return resolveSourcesInRegistries(
+							map.sources,
+							locations.registries
+						).then(function (sharedSources) {
+
+							return ensureSources(
+								map.sources,
+								API.PATH.join(origin, locations.sources),
+								sharedSources,
+								map.mappings
+							).then(function (sourcePaths) {
+
+								function onlyIfMappingsDeclared () {
+									if (!locations.mappings) {
+										return API.Q.resolve({
+											paths: {},
+											aliases: {}
+										});
+									}
+									return ensureMappings(
+										map.mappings,
+										sourcePaths,
+										API.PATH.join(origin, locations.mappings),
+										settings
+									);
+								}
+
+								return onlyIfMappingsDeclared().then(function (mappingsInfo) {
+
+									function onlyIfBinariesDeclared () {
+										if (!locations.binaries) return API.Q.resolve();
+
+										return linkSourceDependencies(
+											sourcePaths,
+											mappingsInfo.paths,
+											locations.binaries.map(function (path) {
+												return API.PATH.join(origin, path);
+											})
+										);
+									}
+
+									return onlyIfBinariesDeclared().then(function () {
+
+										return ensureInstalled(
+											map.sources,
+											sourcePaths,
+											map.mappings,
+											mappingsInfo.aliases
+										);
+									});
+								}).then(function () {
+
+									return linkForRegistries(
+										sourcePaths,
+										locations.registries
+									);
+
+								}).then(function () {
+
+									return ensureIgnoreRules(
+										sourcePaths,
+										config.descriptor.at("github.com~sourcemint~smi-for-git~0/ignore")
+									);
+
+								}).then(function () {
+									return {
+										sourcePaths: sourcePaths
+									}
+								});
+							});
+						});
+
+					}).then(function (info) {
+
+						// Re-run if there are any missing files.
+						if (Object.keys(missingExtendsPaths).length > 0) {
+
+							if (
+								API.CJSON(previousMissingExtendsPaths)
+								===
+								API.CJSON(missingExtendsPaths)
+							) {
+								console.error("missingExtendsPaths", missingExtendsPaths);
+								throw Error("The missing extends descriptors did not change after second run!");
+							}
+
+							return expandIteration(missingExtendsPaths);
+						}
+
+						info.expanded = true;
+						return info;
+					});
+				});
+
+			}
+
+			return expandIteration();
+			
+		}
+		return expand;
+	}
+	return exports;
+}
+
+exports.api = function (options) {
+
+	// Establish container environment for the module.
+
+	const API = {
+		EXTEND: require("extend"),
+		DEEPMERGE: require("deepmerge"),
+		PATH: require("path"),
+		FS: require("fs"),
+		EXEC: require("child_process").exec,
+		SPAWN: require("child_process").spawn,
+		REGEXP_ESCAPE: require("escape-regexp-component"),
+		Q: require("q"),
+		QFS: require("q-io/fs"),
+		CJSON: require("canonical-json"),
+		env: {
+			VERBOSE: process.env.VERBOSE,
+			BO_GLOBAL_SYSTEM_CACHE_DIR: process.env.BO_GLOBAL_SYSTEM_CACHE_DIR,
+			CWD: process.cwd()
+		}
+	};
+
+	API.EXTEND(false, API, {
+		CONFIG: require("pinf.logic-for-json").for(API),
+		GIT_CLONE: require("smi-for-git/api/clone-to").for(API).PLFunction,
+		GIT_IGNORE: require("smi-for-git/api/ensure-ignore").for(API).PLFunction,
+		NPM_LINK_DEPS: require("smi-for-npm/api/link-dependencies").for(API).PLFunction,
+		NPM_GET_DEPS: require("smi-for-npm/api/get-dependencies").for(API).PLFunction,
+		NPM_GET_BINS: require("smi-for-npm/api/get-binaries").for(API).PLFunction,
+		NPM_INSTALL_PKG: require("smi-for-npm/api/install-package").for(API).PLFunction
+	});
+
+	var api = exports.for(API);
+
+	return api.for(options);
+}
+
+if (require.main === module) {
+
+	require("q").when(
+		exports.api({
+			filename: process.argv[2]
+		})()
+	).then(function (info) {
+		if (info.expanded) {
+			process.exit(0);
+		} else {
+			process.exit(1);
+		}
+	}).fail(function (err) {
+		console.error("ERROR:", err.stack || err);
+		process.exit(1);
+	});
+}
+

@@ -1,0 +1,9 @@
+{
+  "name": "0-load-for-systemjs",
+  "version": "0.0.0",
+  "private": true,
+  "main": "load.js",
+  "dependencies": {
+    "systemjs": "^0.18.17"
+  }
+}
