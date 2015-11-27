@@ -1,6 +1,3 @@
-[submodule "lib/zero.lib"]
-	path = lib/zero.lib
-	url = git://github.com/LogicCores/zero.lib.git
 [submodule "lib/cvdom"]
 	path = lib/cvdom
 	url = git://github.com/firewidgets/cvdom.git
