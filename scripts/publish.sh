@@ -16,7 +16,7 @@ function init {
 	function Publish {
 		BO_format "$VERBOSE" "HEADER" "Publishing system"
 
-		if [ -z "GIT_PUBLISH_URL" ]; then
+		if [ -z "$GIT_PUBLISH_URL" ]; then
 			export GIT_PUBLISH_URL="git@github.com:0system/0system.0.git"
 		fi
 
