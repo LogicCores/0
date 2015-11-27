@@ -1,6 +1,3 @@
-[submodule "0.FireWidgets"]
-	path = 0.FireWidgets
-	url = git://github.com/firewidgets/0.FireWidgets.git
 [submodule "0.PINF.Genesis"]
 	path = 0.PINF.Genesis
 url=git://github.com/pinf/0.PINF.Genesis.git
