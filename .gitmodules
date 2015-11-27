@@ -1,6 +1,3 @@
-[submodule "cores/responder"]
-	path = cores/responder
-url=git://github.com/LogicCores/0-responder.git
 [submodule "cores/time"]
 	path = cores/time
 url=git://github.com/LogicCores/0-time.git
