@@ -1,6 +1,3 @@
-[submodule "cores/fetch"]
-	path = cores/fetch
-url=git://github.com/LogicCores/0-fetch.git
 [submodule "cores/session"]
 	path = cores/session
 url=git://github.com/LogicCores/0-session.git
