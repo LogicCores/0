@@ -23,7 +23,7 @@ In most cases you will be using Zero System via the [0.workspace](https://github
 
 We **strongly encourage** you to **NOT put your code into this repository directly** and instead use [0.workspace](https://github.com/LogicCores/0.workspace). Only when you outgrow `0.workspace` will you need to locate bigger chunks of code into this repository.
 
-If you do need to make changes to this repository or any of its submodules we encourage you to work against [github.com/0system/0system.0](https://github.com/0system/0system.0) (which is automatically derived from this codebase) **instead** of this repository as `0system.0` inlines all submodules and is intended to facilitate contributions via a large clone network.
+If you do need to make changes to this repository or any of its submodules we encourage you to work against [github.com/0system/0system.0](https://github.com/0system/0system.0) (which is automatically derived from this codebase) **instead** of this repository as `0system.0` inlines all submodules and is intended to facilitate contributions via a large single-layer clone network.
 
 All information below still applies when using Zero System via `0.workspace` as `0.workspace` simply installs Zero System into a project at which point you interact with this Zero System codebase or a derivative thereof directly.
 
@@ -31,6 +31,9 @@ All information below still applies when using Zero System via `0.workspace` as 
 Commands
 ========
 
+	git clone https://github.com/0system/0system.0
+	cd 0system.0
+	# or
 	git clone https://github.com/LogicCores/0.git
 	cd 0
 
