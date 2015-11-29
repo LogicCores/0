@@ -36,7 +36,7 @@ Commands
 	npm install
 
 	# Options
-  npm run <script> --verbose   # Run in verbose mode
+	npm run <script> --verbose   # Run in verbose mode
 
 	# Development
 	npm run update               # Pull changes, checkout submodules and re-install
