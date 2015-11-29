@@ -1,0 +1,246 @@
+[submodule "cores/protocol"]
+	path = cores/protocol
+url=git://github.com/LogicCores/0-protocol.git
+[submodule "cores/responder"]
+	path = cores/responder
+url=git://github.com/LogicCores/0-responder.git
+[submodule "cores/time"]
+	path = cores/time
+url=git://github.com/LogicCores/0-time.git
+[submodule "cores/export"]
+	path = cores/export
+url=git://github.com/LogicCores/0-export.git
+[submodule "cores/container"]
+	path = cores/container
+url=git://github.com/LogicCores/0-container.git
+[submodule "cores/route"]
+	path = cores/route
+url=git://github.com/LogicCores/0-route.git
+[submodule "cores/data"]
+	path = cores/data
+	url = git://github.com/LogicCores/0-data.git
+[submodule "cores/process"]
+	path = cores/process
+url=git://github.com/LogicCores/0-process.git
+[submodule "cores/loop"]
+	path = cores/loop
+url=git://github.com/LogicCores/0-loop.git
+[submodule "cores/skin"]
+	path = cores/skin
+url=git://github.com/LogicCores/0-skin.git
+[submodule "lib/bash.origin"]
+	path = lib/bash.origin
+url=git://github.com/bash-origin/bash.origin.git
+[submodule "cores/page"]
+	path = cores/page
+	url = git://github.com/LogicCores/0-page.git
+[submodule "lib/sm.hoist.VisualComponents"]
+	path = lib/sm.hoist.VisualComponents
+	url = git://github.com/sourcemint/sm.hoist.VisualComponents.git
+[submodule "cores/proxy"]
+	path = cores/proxy
+	url = git://github.com/LogicCores/0-proxy.git
+[submodule "lib/smi.cache"]
+	path = lib/smi.cache
+	url = git://github.com/sourcemint/smi.cache.git
+[submodule "lib/pinf-loader-js"]
+	path = lib/pinf-loader-js
+	url = git://github.com/pinf/pinf-loader-js.git
+[submodule "cores/load"]
+	path = cores/load
+	url = git://github.com/LogicCores/0-load.git
+[submodule "cores/watch"]
+	path = cores/watch
+url=git://github.com/LogicCores/0-watch.git
+[submodule "cores/edit"]
+	path = cores/edit
+	url = git://github.com/LogicCores/0-edit.git
+[submodule "cores/test"]
+	path = cores/test
+	url = git://github.com/LogicCores/0-test.git
+[submodule "cores/component"]
+	path = cores/component
+	url = git://github.com/LogicCores/0-component.git
+[submodule "cores/template"]
+	path = cores/template
+	url = git://github.com/LogicCores/0-template.git
+[submodule "cores/layout"]
+	path = cores/layout
+	url = git://github.com/LogicCores/0-layout.git
+[submodule "cores/namespace"]
+	path = cores/namespace
+url=git://github.com/LogicCores/0-namespace.git
+[submodule "cores/transform"]
+	path = cores/transform
+	url = git://github.com/LogicCores/0-transform.git
+[submodule "cores/config"]
+	path = cores/config
+url=git://github.com/LogicCores/0-config.git
+[submodule "cores/render"]
+	path = cores/render
+url=git://github.com/LogicCores/0-render.git
+[submodule "cores/email"]
+	path = cores/email
+url=git://github.com/LogicCores/0-email.git
+[submodule "cores/sms"]
+	path = cores/sms
+	url = git://github.com/LogicCores/0-sms.git
+[submodule "cores/console"]
+	path = cores/console
+url=git://github.com/LogicCores/0-console.git
+[submodule "cores/auth"]
+	path = cores/auth
+url=git://github.com/LogicCores/0-auth.git
+[submodule "lib/ccjson"]
+	path = lib/ccjson
+	url = git://github.com/LogicCores/ccjson.git
+[submodule "cores/profile"]
+	path = cores/profile
+	url = git://github.com/LogicCores/0-profile.git
+[submodule "lib/pio.profile"]
+	path = lib/pio.profile
+	url = git://github.com/pinf-io/pio.profile.git
+[submodule "cores/static"]
+	path = cores/static
+	url = git://github.com/LogicCores/0-static.git
+[submodule "cores/invite"]
+	path = cores/invite
+	url = git://github.com/LogicCores/0-invite.git
+[submodule "cores/cache"]
+	path = cores/cache
+url=git://github.com/LogicCores/0-cache.git
+[submodule "cores/boundary"]
+	path = cores/boundary
+	url = git://github.com/LogicCores/0-boundary.git
+[submodule "cores/host"]
+	path = cores/host
+	url = git://github.com/LogicCores/0-host.git
+[submodule "cores/fetch"]
+	path = cores/fetch
+url=git://github.com/LogicCores/0-fetch.git
+[submodule "cores/session"]
+	path = cores/session
+url=git://github.com/LogicCores/0-session.git
+[submodule "lib/firewidgets-for-zerosystem"]
+	path = lib/firewidgets-for-zerosystem
+url=git://github.com/firewidgets/firewidgets-for-zerosystem.git
+[submodule "cores/context"]
+	path = cores/context
+	url = git://github.com/LogicCores/0-context.git
+[submodule "lib/ccjson.record.mapper"]
+	path = lib/ccjson.record.mapper
+	url = git://github.com/ccjson/ccjson.record.mapper.git
+[submodule "lib/logic.cores"]
+	path = lib/logic.cores
+	url = git://github.com/LogicCores/logic.cores.git
+[submodule "lib/zero.lib"]
+	path = lib/zero.lib
+	url = git://github.com/LogicCores/zero.lib.git
+[submodule "lib/cvdom"]
+	path = lib/cvdom
+	url = git://github.com/firewidgets/cvdom.git
+[submodule "lib/html2chscript"]
+	path = lib/html2chscript
+	url = git://github.com/firewidgets/html2chscript.git
+[submodule "lib/html2chscript-for-webpack"]
+	path = lib/html2chscript-for-webpack
+	url = git://github.com/firewidgets/html2chscript-for-webpack.git
+[submodule "cores/request"]
+	path = cores/request
+	url = git://github.com/LogicCores/0-request.git
+[submodule "lib/ccjson.function.tree"]
+	path = lib/ccjson.function.tree
+url=git://github.com/ccjson/ccjson.function.tree.git
+[submodule "lib/ccjson.structures"]
+	path = lib/ccjson.structures
+url=git://github.com/ccjson/ccjson.structures.git
+[submodule "lib/marked"]
+	path = lib/marked
+url=git://github.com/cadorn/marked.git
+[submodule "lib/smi.0"]
+	path = lib/smi.0
+	url = git://github.com/sourcemint/smi.0.git
+[submodule "cores/model"]
+	path = cores/model
+url=git://github.com/LogicCores/0-model.git
+[submodule "0.FireWidgets"]
+	path = 0.FireWidgets
+	url = git://github.com/firewidgets/0.FireWidgets.git
+[submodule "0.PINF.Genesis"]
+	path = 0.PINF.Genesis
+url=git://github.com/pinf/0.PINF.Genesis.git
+[submodule "0.stack"]
+	path = 0.stack
+	url = git://github.com/LogicCores/0.stack.git
+[submodule "0.stack.dev"]
+	path = 0.stack.dev
+	url = git://github.com/LogicCores/0.stack.dev.git
+[submodule "0.stack.test"]
+	path = 0.stack.test
+	url = git://github.com/LogicCores/0.stack.test.git
+[submodule "0.stack.admin"]
+	path = 0.stack.admin
+	url = git://github.com/LogicCores/0.stack.admin.git
+[submodule "0.stack.app"]
+	path = 0.stack.app
+	url = git://github.com/LogicCores/0.stack.app.git
+[submodule "0.stack.web"]
+	path = 0.stack.web
+	url = git://github.com/LogicCores/0.stack.web.git
+[submodule "0.PINF.Genesis.to"]
+	path = 0.PINF.Genesis.to
+url=git://github.com/pinf-to/0.PINF.Genesis.to.git
+[submodule "0.VirtualCloud.Genesis"]
+	path = 0.VirtualCloud.Genesis
+url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
+[submodule "0.devcomp.genesis"]
+	path = 0.devcomp.genesis
+	url = git://github.com/devcomp/0.devcomp.genesis.git
+[submodule "0.CloudIDE.Genesis"]
+	path = 0.CloudIDE.Genesis
+	url = git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git
+[submodule "lib/sm.expand"]
+	path = lib/sm.expand
+	url = git://github.com/sourcemint/sm.expand.git
+[submodule "lib/smi-for-git"]
+	path = lib/smi-for-git
+	url = git://github.com/sourcemint/smi-for-git.git
+[submodule "lib/smi-for-npm"]
+	path = lib/smi-for-npm
+	url = git://github.com/sourcemint/smi-for-npm.git
+[submodule "0.FireConsole"]
+	path = 0.FireConsole
+	url = git://github.com/fireconsole/0.FireConsole.git
+[submodule "lib/node.pack"]
+	path = lib/node.pack
+	url = git://github.com/NodePACK/node.pack.git
+[submodule "lib/virtual-dom"]
+	path = lib/virtual-dom
+url=git://github.com/firewidgets/virtual-dom.git
+[submodule "cores/env"]
+	path = cores/env
+	url = git://github.com/LogicCores/0-env.git
+[submodule "cores/service"]
+	path = cores/service
+	url = git://github.com/LogicCores/0-service.git
+[submodule "cores/library"]
+	path = cores/library
+	url = git://github.com/LogicCores/0-library.git
+[submodule "cores/job"]
+	path = cores/job
+	url = git://github.com/LogicCores/0-job.git
+[submodule "cores/report"]
+	path = cores/report
+url=git://github.com/LogicCores/0-report.git
+[submodule "cores/message"]
+	path = cores/message
+	url = git://github.com/LogicCores/0-message.git
+[submodule "cores/application"]
+	path = cores/application
+url=git://github.com/LogicCores/0-application.git
+[submodule "lib/console-trace"]
+	path = lib/console-trace
+url=git://github.com/cadorn/console-trace.git
+[submodule "lib/node.unpack"]
+	path = lib/node.unpack
+url=git://github.com/NodePACK/node.unpack.git

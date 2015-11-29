@@ -2,8 +2,8 @@
     "submodules": {
         "/0.CloudIDE.Genesis": {
             "branch": "master",
-            "date": 1448655761000,
-            "ref": "087c2c59ac2dcf16ba89605507eb996036a26c05",
+            "date": 1448772572000,
+            "ref": "e660470a83fc42e1ed992410268341e330fc21ca",
             "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
         },
         "/0.FireConsole": {
@@ -354,6 +354,12 @@
             "ref": "5c3c2154012c4010baf64040956d7c606cede574",
             "url": "git://github.com/bash-origin/bash.origin.git"
         },
+        "/lib/bash.origin.prompt": {
+            "branch": "master",
+            "date": 1430344334000,
+            "ref": "138ae6abd6e5ccdc8c5e01c790c9f314a935b812",
+            "url": "git@github.com:bash-origin/bash.origin.prompt.git"
+        },
         "/lib/ccjson": {
             "branch": "master",
             "date": 1448245737000,
@@ -422,8 +428,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1448657906000,
-            "ref": "e118b0d23cb49570be403a2c527f63c522b293e4",
+            "date": 1448772955000,
+            "ref": "2572a15c516c42f3dca5ff8fa092d0626f243f57",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
