@@ -56,7 +56,7 @@ function init {
 
 	export PATH="$Z0_ROOT/node_modules/.bin:$PATH"
 	export PATH="$__BO_DIR__:$PATH"
-	if [ ! -e "$PATH_OVERRIDES" ]; then
+	if [ ! -z "$PATH_OVERRIDES" ]; then
 		export PATH="$PATH_OVERRIDES:$PATH"
 	fi
 
@@ -84,5 +84,16 @@ function init {
 	if ! nvm use $NODEJS_VERSION; then
     	nvm install $NODEJS_VERSION
 	fi
+
+
+
+	function customizePrompt {
+		if [ -z "$PGS_PS1_BEFORE" ]; then
+			export PGS_PS1_BEFORE="$PS1"
+		fi
+		BO_callPlugin "$Z0_ROOT/lib/bash.origin.prompt/bash.origin.prompt" setPrompt "workspace" "$WORKSPACE_DIR"
+	}
+
+    customizePrompt
 }
 init $@

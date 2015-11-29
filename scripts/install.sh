@@ -278,7 +278,13 @@ function init {
 	        	npm install
 	       	fi
 		popd > /dev/null
-	
+
+		pushd "$Z0_ROOT/lib/bash.origin.prompt" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "$Z0_ROOT/lib/smi.cache" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install

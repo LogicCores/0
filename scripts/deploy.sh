@@ -26,8 +26,26 @@ function init {
 		git_assertRemote "$PLATFORM_NAME"
 
 
+		if [ -z "$Z0_REPOSITORY_URL" ]; then
+			# TODO: Let '0.workspace' get the value from the package config
+			if [ -z "$npm_package_config_Z0_REPOSITORY_URL" ]; then
+				echo "Error: 'config.Z0_REPOSITORY_URL' must be set in package.json!"
+				exit 1
+			fi
+			Z0_REPOSITORY_URL="$npm_package_config_Z0_REPOSITORY_URL"
+		fi
+		if [ -z "$Z0_REPOSITORY_COMMIT_ISH" ]; then
+			# TODO: Let '0.workspace' get the value from the package config
+			if [ -z "$npm_package_config_Z0_REPOSITORY_COMMIT_ISH" ]; then
+				echo "Error: 'config.Z0_REPOSITORY_COMMIT_ISH' must be set in package.json!"
+				exit 1
+			fi
+			Z0_REPOSITORY_COMMIT_ISH="$npm_package_config_Z0_REPOSITORY_COMMIT_ISH"
+		fi
+
+
 		# Pack the source logic into a distribution branch by inlining all submodules
-		node.pack
+		node.pack "inline"
 
 		node.pack.inline.source.stream.dirpath "STREAM_REPOSITORY_PATH"
 
@@ -91,33 +109,34 @@ function init {
     		BO_log "$VERBOSE" "Freeze commit rev for source: $GIT_COMMIT_REV"
 	        git commit -m "Freeze commit rev for source: $GIT_COMMIT_REV" || true
 
-			# TODO: Move this up to befor the merge so that if the merge comes
-			#       with a submodule at .0 it will be used instead.
 			if [ ! -e "0" ]; then
-				pushd "$Z0_ROOT" > /dev/null
-					Z0_COMMIT=`git rev-parse HEAD`
-					Z0_REPOSITORY_URL=`git config --get remote.origin.url`
-			    pushd > /dev/null
 
-	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_COMMIT'"
+#				pushd "$Z0_ROOT" > /dev/null
+#					Z0_REPOSITORY_COMMIT_ISH=`git rev-parse HEAD`
+#					Z0_REPOSITORY_URL=`git config --get remote.origin.url`
+#			    pushd > /dev/null
+
+	    		BO_log "$VERBOSE" "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_REPOSITORY_COMMIT_ISH'"
 
 				# Remove submodule as the submodule state is messed up after merging.
-				git rm ".0" || true
+				git_removeSubmodule ".0"
+
+#				git rm ".0" || true
 				# TODO: Swap out repository URL if changed but issue warning?
-				if [[ $(git submodule 2>&1 | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
+#				if [[ $(git submodule 2>&1 | awk '{ print $2 }' | grep -e '^\.0$' | tail -n1) == "" ]]; then
 		    		git submodule add --force "$Z0_REPOSITORY_URL" ".0"
-		    	fi
+#		    	fi
 	    		BO_log "$VERBOSE" "Update submodule for '.0' from '$Z0_REPOSITORY_URL'"
-		    	git submodule update --init --rebase ".0"
+		    	git submodule update --init ".0"
 
 				pushd ".0" > /dev/null
 		    		BO_log "$VERBOSE" "Fetch submodule for '.0' from '$Z0_REPOSITORY_URL'"
 					git fetch origin
-		    		BO_log "$VERBOSE" "Checkout submodule '.0' to commit '$Z0_COMMIT'"
-	    			git checkout "$Z0_COMMIT"
+		    		BO_log "$VERBOSE" "Checkout submodule '.0' to commit '$Z0_REPOSITORY_COMMIT_ISH'"
+	    			git checkout "$Z0_REPOSITORY_COMMIT_ISH"
 			    pushd > /dev/null
 		        git add -A || true
-		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_COMMIT' for platform: $PLATFORM_NAME" || true
+		        git commit -m "Lock ZeroSystem submodule from '$Z0_REPOSITORY_URL' at '.0' to '$Z0_REPOSITORY_COMMIT_ISH' for platform: $PLATFORM_NAME" || true
 			fi
 
 
