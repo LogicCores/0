@@ -27,7 +27,32 @@ function init {
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
 
 		git_getTag "TAG"
-		TAG=`echo $TAG | sed 's/-/-pre./'`
+		TAG=`echo $TAG | node --eval '
+			process.stdin.on("data", function (data) {
+				data = data.toString();
+				var m = data.match(/^v(\d+)\.(\d+)\.(\d+)(-\d+-[^-]+)?$/);
+				if (!m) throw new Error("Error parsing tag: " + data);
+				var segments = {
+					major: parseInt(m[1]) || 0,
+					minor: parseInt(m[2]) || 0,
+					patch: parseInt(m[3]) || 0
+				};
+				if (m[4]) {
+					// TODO: Optionally increment a different version segment if the new
+					//       release will have breaking changes or feature enhancements.
+					segments.patch += 1;
+				}
+				var tag = "v" + segments.major + "." + segments.minor + "." + segments.patch + "-";
+				if (m[4]) {
+					// If we HAVE commits after the latest tag we prepare a build for the next version.
+					tag += "build." + m[4].replace(/^-/, "").replace(/-/g, ".");
+				} else {
+					// If we have NO commits after the latest tag we prepare a tag for the inlined format of the release.
+					tag += "inline";
+				}
+				process.stdout.write(tag + "\n");
+			});
+		'`
 		BO_log "$VERBOSE" "TAG: $TAG"
 
 		# Pack the source logic into a distribution branch by inlining all submodules
