@@ -29,7 +29,7 @@ function init {
 		git_getTag "TAG"
 		TAG=`echo $TAG | node --eval '
 			process.stdin.on("data", function (data) {
-				data = data.toString();
+				data = data.toString().replace(/\n$/, "");
 				var m = data.match(/^v(\d+)\.(\d+)\.(\d+)(-\d+-[^-]+)?$/);
 				if (!m) throw new Error("Error parsing tag: " + data);
 				var segments = {
