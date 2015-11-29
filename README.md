@@ -7,11 +7,13 @@ An opinionated [ccjson](https://github.com/LogicCores/ccjson) based minimal prim
 
 > Create stable static assets for deployment from your dynamic source logic.
 
-[http://zerosystem.io/](http://zerosystem.io/)
+[http://ZeroSystem.io/](http://zerosystem.io/)
 
-[![Build Status](https://travis-ci.org/LogicCores/0.svg)](https://travis-ci.org/LogicCores/0)
+[![Build Status](https://travis-ci.org/LogicCores/0.svg)](https://travis-ci.org/LogicCores/0) 
 
-[![Chat](http://zerosystem.io/img/gitter.svg)](https://gitter.im/LogicCores/0)
+User support/patches chat: [![Chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/0system/0system.0)
+
+Internal development chat: [![Chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/LogicCores/0)
 
 
 Typical Setup
