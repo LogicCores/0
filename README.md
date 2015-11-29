@@ -123,6 +123,12 @@ We already use the *PINF.Genesis.ccjson* file to get ready for when *PINF.Genesi
 `ccjson` is the config orchestration solution for Zero System and can be found here: [github.com/LogicCores/ccjson](https://github.com/LogicCores/ccjson)
 
 
+Governance
+==========
+
+This project is governed by [Christoph Dorn](http://christophdorn.com) who is the original author and self-elected [Benevolent Dictator For Life](https://en.wikipedia.org/wiki/Benevolent_dictator_for_life) to continuously steer this project onto its originally intended goal of providing an **Open Source** and **Free Foundation** to build **Web Software Systems** on. **Every software user in the world** must be able to obtain a copy of Zero System and *deploy a customized instance* of it for **free; forever.**
+
+
 Provenance
 ==========
 
