@@ -45,7 +45,7 @@ function init {
 
 
 		# Pack the source logic into a distribution branch by inlining all submodules
-		node.pack
+		node.pack "inline"
 
 		node.pack.inline.source.stream.dirpath "STREAM_REPOSITORY_PATH"
 

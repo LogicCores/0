@@ -27,6 +27,7 @@ function init {
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
 
 		git_getTag "TAG"
+		TAG=`echo $TAG | sed 's/-/-pre./'`
 		BO_log "$VERBOSE" "TAG: $TAG"
 
 		# Pack the source logic into a distribution branch by inlining all submodules

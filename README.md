@@ -14,15 +14,20 @@ An opinionated [ccjson](https://github.com/LogicCores/ccjson) based minimal prim
 [![Chat](http://zerosystem.io/img/gitter.svg)](https://gitter.im/LogicCores/0)
 
 
-Setup
------
+Typical Setup
+-------------
 
-### Required
+In most cases you will be using Zero System via the [0.workspace](https://github.com/LogicCores/0.workspace) project. It facilitates linking Zero System into a project repository in a non-intrusive way and provides lifecycle features to update to new versions.
 
-  * [NodeJS 4+](https://nodejs.org/)
-  * OSX (only for now)
+We **strongly encourage** you to **NOT put your code into this repository directly** and instead use [0.workspace](https://github.com/LogicCores/0.workspace). Only when you outgrow `0.workspace` will you need to locate bigger chunks of code into this repository.
 
-### Commands
+If you do need to make changes to this repository or any of its submodules we encourage you to work against [github.com/0system/0system.0](https://github.com/0system/0system.0) (which is automatically derived from this codebase) **instead** of this repository as `0system.0` inlines all submodules and is intended to facilitate contributions via a large clone network.
+
+All information below still applies when using Zero System via `0.workspace` as `0.workspace` simply installs Zero System into a project at which point you interact with this Zero System codebase or a derivative thereof directly.
+
+
+Commands
+========
 
 	git clone https://github.com/LogicCores/0.git
 	cd 0
@@ -30,25 +35,34 @@ Setup
 	# One-time install
 	npm install
 
+	# Options
+  npm run <script> --verbose   # Run in verbose mode
+
 	# Development
-	npm run update              # Pull changes, checkout submodules and re-install
-	npm run edit                # Launch an editor
-	npm run dev                 # Run system in development mode using development profile
-	npm run dev --production    # Run system in production mode using production profile
-	npm run encrypt             # Encrypt raw profile data using workspace secret
-	npm test                    # Test system
+	npm run update               # Pull changes, checkout submodules and re-install
+	npm run edit                 # Launch an editor
+	npm run dev                  # Run system in development mode using development profile
+	npm run dev --production     # Run system in production mode using production profile
+                               # Run system in development mode using custom profile overlay
+	npm run dev -- --profile ./Deployments/<name>.proto.profile.ccjson
+	npm run encrypt              # Encrypt raw profile data using workspace secret
+	npm test                     # Run whole system test suite
+
+	# Put the root context of your system into your environment
+	source scripts/activate.sh
 
 	# Production
-	npm start                   # Run system in production mode using production profile
+	npm start                    # Run system in production mode using production profile
 
 	# Deploy
-	npm run bundle              # Freeze everything for consistent distribution
-	npm run deploy              # Deploy latest commit
-	npm run publish             # Publish latest commit
+	npm run bundle               # Freeze everything for consistent distribution
+	npm run deploy               # Deploy latest commit to staging
+	npm run deploy --production  # Deploy latest commit to production
+	npm run publish              # Publish latest commit
 
 
 Clone and use as Template
--------------------------
+=========================
 
 ## Namespaces
 
@@ -83,8 +97,6 @@ Notes:
   3. Use the `0.*` application as a reference and to contribute back.
   4. Exclude the public `0.*` namespace when distributing your application (will happen by default).
   5. Let us know how you fare; good or bad so we can improve the process.
-
-To deploy your clone see [zerosystem.io/Install](http://zerosystem.io/Install).
 
 
 FAQ
