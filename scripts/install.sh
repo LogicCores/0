@@ -384,6 +384,8 @@ function init {
 		fi
 
 
+		export BO_GLOBAL_SYSTEM_CACHE_DIR=""
+
 		# TODO: Run install scripts based on declared stacks instead of hardcoding here
 	    BO_sourcePrototype "$Z0_ROOT/0.FireWidgets/scripts/install.sh"
 		Install $@
@@ -409,9 +411,11 @@ function init {
 		# We did not unpack dependencies so we need to install from source.
 		Install $@
 
-		# Now that we installed from source we try and bundle the dependencies
-		# so that other installations can use the bundled dependencies.
-		"$__BO_DIR__/bundle.sh"
+		if [ "$Z0_TRIGGER_POSTINSTALL_BUNDLE" == "1" ]; then
+			# Now that we installed from source we try and bundle the dependencies
+			# so that other installations can use the bundled dependencies.
+			"$__BO_DIR__/bundle.sh"
+		fi
 	fi
 }
 init $@
