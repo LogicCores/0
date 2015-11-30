@@ -97,7 +97,7 @@ Notes:
 
 ## Instructions
 
-  1. Fork [github.com/LogicCores/0](https://github.com/LogicCores/0.git) and rename it to something `<ReverseHostname>.*` where `<ReverseHostname>` is a hostname **you have control over**. This is your *root external namespace* and will ensure your clone will never conflict with other cloens you have nor with anyone else's (see *Constructing your own namespaces* above).
+  1. Fork [github.com/0system/0system.0](https://github.com/0system/0system.0) and rename it to something `<ReverseHostname>.*` where `<ReverseHostname>` is a hostname **you have control over**. This is your *root external namespace* and will ensure your clone will never conflict with other cloens you have nor with anyone else's (see *Constructing your own namespaces* above).
   2. Develop your application in your chosen internal `<ReverseHostname>.*` namespace *in parallel* to the internal `0.*` namespace.
   3. Use the `0.*` application as a reference and to contribute back.
   4. Exclude the public `0.*` namespace when distributing your application (will happen by default).
