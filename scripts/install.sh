@@ -79,6 +79,7 @@ function init {
 		# TODO: Install declared and used dependencies by scanning source
 
 		BO_log "$VERBOSE" "PWD: $PWD"
+		BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
 
 
 		pushd "$Z0_ROOT/cores/export/for/bower" > /dev/null
