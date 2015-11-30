@@ -362,8 +362,8 @@
         },
         "/lib/ccjson": {
             "branch": "master",
-            "date": 1448245737000,
-            "ref": "07113cd64c6e6fdd12f64c3cfbc2898918363c5a",
+            "date": 1448844264000,
+            "ref": "0f0cbbc0d640828732e4d57833c5432aac8c0e7a",
             "url": "git://github.com/LogicCores/ccjson.git"
         },
         "/lib/ccjson.function.tree": {
