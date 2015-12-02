@@ -58,8 +58,5 @@
         "publish": "scripts/publish.sh",
         "deploy": "scripts/deploy.sh",
         "start": "scripts/start.sh"
-    },
-    "dependencies": {
-        "sm.bump": "^0.1.2"
     }
 }
