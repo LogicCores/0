@@ -246,4 +246,4 @@ url=git://github.com/cadorn/console-trace.git
 url=git://github.com/NodePACK/node.unpack.git
 [submodule "lib/bash.origin.prompt"]
 	path = lib/bash.origin.prompt
-	url = git@github.com:bash-origin/bash.origin.prompt.git
+url=git://github.com/bash-origin/bash.origin.prompt.git
