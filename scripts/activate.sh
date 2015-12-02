@@ -25,9 +25,6 @@ function init {
 	fi
 
 
-	export BO_SYSTEM_CACHE_DIR="$HOME/.Z0/.bash.origin.cache"
-
-
 	if [ -z "$PIO_PROFILE_SEED_PATH" ]; then
 		export PIO_PROFILE_SEED_PATH="$WORKSPACE_DIR/.secret/profile.seed"
 

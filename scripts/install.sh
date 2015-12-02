@@ -411,11 +411,15 @@ function init {
 		# We did not unpack dependencies so we need to install from source.
 		Install $@
 
+		touch ".installed"
+
 		if [ "$Z0_TRIGGER_POSTINSTALL_BUNDLE" == "1" ]; then
 			# Now that we installed from source we try and bundle the dependencies
 			# so that other installations can use the bundled dependencies.
 			"$__BO_DIR__/bundle.sh"
 		fi
+	else
+		touch ".installed"
 	fi
 }
 init $@

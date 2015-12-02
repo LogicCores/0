@@ -27,17 +27,15 @@ function init {
 
 
 		if [ -z "$Z0_REPOSITORY_URL" ]; then
-			# TODO: Let '0.workspace' get the value from the package config
 			if [ -z "$npm_package_config_Z0_REPOSITORY_URL" ]; then
-				echo "Error: 'config.Z0_REPOSITORY_URL' must be set in package.json!"
+				echo "Error: 'Z0_REPOSITORY_URL' environment variable not found nor is 'config.Z0_REPOSITORY_URL' set in package.json!"
 				exit 1
 			fi
 			Z0_REPOSITORY_URL="$npm_package_config_Z0_REPOSITORY_URL"
 		fi
 		if [ -z "$Z0_REPOSITORY_COMMIT_ISH" ]; then
-			# TODO: Let '0.workspace' get the value from the package config
 			if [ -z "$npm_package_config_Z0_REPOSITORY_COMMIT_ISH" ]; then
-				echo "Error: 'config.Z0_REPOSITORY_COMMIT_ISH' must be set in package.json!"
+				echo "Error: 'Z0_REPOSITORY_COMMIT_ISH' environment variable not found nor is 'config.Z0_REPOSITORY_COMMIT_ISH' set in package.json!"
 				exit 1
 			fi
 			Z0_REPOSITORY_COMMIT_ISH="$npm_package_config_Z0_REPOSITORY_COMMIT_ISH"
