@@ -48,7 +48,7 @@ Commands
 	npm run edit                 # Launch an editor
 	npm run dev                  # Run system in development mode using development profile
 	npm run dev --production     # Run system in production mode using production profile
-                               # Run system in development mode using custom profile overlay
+                                 # Run system in development mode using custom profile overlay
 	npm run dev -- --profile ./Deployments/<name>.proto.profile.ccjson
 	npm run encrypt              # Encrypt raw profile data using workspace secret
 	npm test                     # Run whole system test suite

@@ -27,17 +27,15 @@ function init {
 
 
 		if [ -z "$Z0_REPOSITORY_URL" ]; then
-			# TODO: Let '0.workspace' get the value from the package config
 			if [ -z "$npm_package_config_Z0_REPOSITORY_URL" ]; then
-				echo "Error: 'config.Z0_REPOSITORY_URL' must be set in package.json!"
+				echo "Error: 'Z0_REPOSITORY_URL' environment variable not found nor is 'config.Z0_REPOSITORY_URL' set in package.json!"
 				exit 1
 			fi
 			Z0_REPOSITORY_URL="$npm_package_config_Z0_REPOSITORY_URL"
 		fi
 		if [ -z "$Z0_REPOSITORY_COMMIT_ISH" ]; then
-			# TODO: Let '0.workspace' get the value from the package config
 			if [ -z "$npm_package_config_Z0_REPOSITORY_COMMIT_ISH" ]; then
-				echo "Error: 'config.Z0_REPOSITORY_COMMIT_ISH' must be set in package.json!"
+				echo "Error: 'Z0_REPOSITORY_COMMIT_ISH' environment variable not found nor is 'config.Z0_REPOSITORY_COMMIT_ISH' set in package.json!"
 				exit 1
 			fi
 			Z0_REPOSITORY_COMMIT_ISH="$npm_package_config_Z0_REPOSITORY_COMMIT_ISH"
@@ -57,7 +55,7 @@ function init {
 		BO_log "$VERBOSE" "Deploying to branch: $DEPLOY_BRANCH"
 
         SOURCE_REPOSITORY_PATH="$PWD"
-        getRemoteUrl "PLATFORM_DEPLOY_URL" "$PLATFORM_NAME"
+        git_getRemoteUrl "PLATFORM_DEPLOY_URL" "$PLATFORM_NAME"
 		BO_log "$VERBOSE" "Deploying to url: $PLATFORM_DEPLOY_URL"
 
 		GIT_COMMIT_REV=`git rev-parse --short HEAD`
@@ -156,11 +154,6 @@ function init {
 			if [ "$PLATFORM_NAME" == "com.heroku" ]; then
 
 			    # TODO: Use heroku bash.origin prototype to import deploy function
-
-				if [ -z "$HEROKU_APP_NAME" ]; then
-					echo "ERROR: 'HEROKU_APP_NAME' environment variable not set!"
-					exit 1
-				fi
 
 				heroku config:set \
 					VERBOSE="$VERBOSE" \

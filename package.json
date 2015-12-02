@@ -1,6 +1,6 @@
 {
     "name": "0",
-    "version": "0.0.8-6-g4dcefab",
+    "version": "0.1.8",
     "private": true,
     "engines": {
         "node": "^4.0.0"
@@ -58,8 +58,5 @@
         "publish": "scripts/publish.sh",
         "deploy": "scripts/deploy.sh",
         "start": "scripts/start.sh"
-    },
-    "dependencies": {
-        "sm.bump": "^0.1.2"
     }
 }

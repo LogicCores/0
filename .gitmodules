@@ -244,3 +244,9 @@ url=git://github.com/cadorn/console-trace.git
 [submodule "lib/node.unpack"]
 	path = lib/node.unpack
 url=git://github.com/NodePACK/node.unpack.git
+[submodule "lib/bash.origin.prompt"]
+	path = lib/bash.origin.prompt
+url=git://github.com/bash-origin/bash.origin.prompt.git
+[submodule "lib/sm.bump"]
+	path = lib/sm.bump
+url=git://github.com/sourcemint/sm.bump.git
