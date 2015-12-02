@@ -2,8 +2,8 @@
     "submodules": {
         "/0.CloudIDE.Genesis": {
             "branch": "master",
-            "date": 1448772572000,
-            "ref": "e660470a83fc42e1ed992410268341e330fc21ca",
+            "date": 1449097934000,
+            "ref": "13361b24c0d23416447e19f15704458578ae7344",
             "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
         },
         "/0.FireConsole": {
@@ -140,8 +140,8 @@
         },
         "/cores/edit": {
             "branch": "master",
-            "date": 1448256417000,
-            "ref": "51b40b6a276819a496af452376f5a51b373b9a9b",
+            "date": 1449017648000,
+            "ref": "9163bb6c63ee20597b554cccb7babcf8806f8338",
             "url": "git://github.com/LogicCores/0-edit.git"
         },
         "/cores/email": {
@@ -350,15 +350,15 @@
         },
         "/lib/bash.origin": {
             "branch": "master",
-            "date": 1448091335000,
-            "ref": "5c3c2154012c4010baf64040956d7c606cede574",
+            "date": 1449084880000,
+            "ref": "165a8cb331c28ab3164f1942ae9fac11f9b2cb1d",
             "url": "git://github.com/bash-origin/bash.origin.git"
         },
         "/lib/bash.origin.prompt": {
             "branch": "master",
-            "date": 1430344334000,
-            "ref": "138ae6abd6e5ccdc8c5e01c790c9f314a935b812",
-            "url": "git@github.com:bash-origin/bash.origin.prompt.git"
+            "date": 1449024463000,
+            "ref": "79eb648e7b7c7e002e30cc22229665cd00abc4fa",
+            "url": "git://github.com/bash-origin/bash.origin.prompt.git"
         },
         "/lib/ccjson": {
             "branch": "master",
@@ -428,8 +428,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1448865632000,
-            "ref": "076a72c421796b79d7ef9103f9eee5f229598d84",
+            "date": 1449097964000,
+            "ref": "0bc149c7118e704338eb38665f67e9a9f535dc0f",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
@@ -449,6 +449,12 @@
             "date": 1442302763000,
             "ref": "3ddcbb5dbe136f3817d3a624a2c2f909bb7a6aab",
             "url": "git://github.com/pinf-io/pio.profile.git"
+        },
+        "/lib/sm.bump": {
+            "branch": "master",
+            "date": 1449099389000,
+            "ref": "210c263895ffe419fea49b723a533ebea9ccc0cf",
+            "url": "git://github.com/sourcemint/sm.bump.git"
         },
         "/lib/sm.expand": {
             "branch": "master",
