@@ -1,6 +1,6 @@
 {
     "name": "0",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "private": true,
     "engines": {
         "node": "^4.0.0"
@@ -10,8 +10,7 @@
             "inline": {
                 "packer": {
                     "module": "node.pack/packers/git",
-                    "config": {
-                    }
+                    "config": {}
                 }
             },
             "dependencies": {
@@ -47,7 +46,7 @@
                 }
             }
         }
-    },    
+    },
     "scripts": {
         "install": "scripts/install.sh",
         "test": "scripts/test.sh",
