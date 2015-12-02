@@ -55,7 +55,7 @@ function init {
 		BO_log "$VERBOSE" "Deploying to branch: $DEPLOY_BRANCH"
 
         SOURCE_REPOSITORY_PATH="$PWD"
-        getRemoteUrl "PLATFORM_DEPLOY_URL" "$PLATFORM_NAME"
+        git_getRemoteUrl "PLATFORM_DEPLOY_URL" "$PLATFORM_NAME"
 		BO_log "$VERBOSE" "Deploying to url: $PLATFORM_DEPLOY_URL"
 
 		GIT_COMMIT_REV=`git rev-parse --short HEAD`
@@ -154,11 +154,6 @@ function init {
 			if [ "$PLATFORM_NAME" == "com.heroku" ]; then
 
 			    # TODO: Use heroku bash.origin prototype to import deploy function
-
-				if [ -z "$HEROKU_APP_NAME" ]; then
-					echo "ERROR: 'HEROKU_APP_NAME' environment variable not set!"
-					exit 1
-				fi
 
 				heroku config:set \
 					VERBOSE="$VERBOSE" \
