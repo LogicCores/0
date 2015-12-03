@@ -1,6 +1,6 @@
 {
     "name": "0",
-    "version": "0.3.0",
+    "version": "0.3.0-1-g42a451e",
     "private": true,
     "engines": {
         "node": "^4.0.0"

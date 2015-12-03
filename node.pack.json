@@ -2,8 +2,8 @@
     "submodules": {
         "/0.CloudIDE.Genesis": {
             "branch": "master",
-            "date": 1449097934000,
-            "ref": "13361b24c0d23416447e19f15704458578ae7344",
+            "date": 1449111879000,
+            "ref": "c638580d8425c8a11cd805c0e9027886ff8d472d",
             "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
         },
         "/0.FireConsole": {
@@ -428,8 +428,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1449099880000,
-            "ref": "8d76ccb6f90df60f1bbed0351759efced46ce7b2",
+            "date": 1449113131000,
+            "ref": "41b608f3a9b5dae14728e4dcb84ab323572abdb9",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
@@ -452,8 +452,8 @@
         },
         "/lib/sm.bump": {
             "branch": "master",
-            "date": 1449099389000,
-            "ref": "210c263895ffe419fea49b723a533ebea9ccc0cf",
+            "date": 1449112500000,
+            "ref": "2c1459d8d8ac32a292efe3cc16f90b8a53901328",
             "url": "git://github.com/sourcemint/sm.bump.git"
         },
         "/lib/sm.expand": {
