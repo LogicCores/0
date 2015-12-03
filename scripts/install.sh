@@ -424,9 +424,15 @@ function init {
 			# Now that we installed from source we try and bundle the dependencies
 			# so that other installations can use the bundled dependencies.
 			"$__BO_DIR__/bundle.sh"
+
+			# We need to remove created cached assets
+			rm -Rf ".packs" > /dev/null || true
 		fi
 	else
 		touch ".installed"
+
+		# We need to remove downloaded cached assets
+		rm -Rf ".packs" > /dev/null || true
 	fi
 }
 init $@
