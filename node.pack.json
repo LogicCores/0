@@ -1,0 +1,508 @@
+{
+    "submodules": {
+        "/0.CloudIDE.Genesis": {
+            "branch": "master",
+            "date": 1449097934000,
+            "ref": "13361b24c0d23416447e19f15704458578ae7344",
+            "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
+        },
+        "/0.FireConsole": {
+            "branch": "master",
+            "date": 1445903234000,
+            "ref": "cd2f8230e43665c16eb3dc75d7f3df1aa7f8bd3f",
+            "url": "git://github.com/fireconsole/0.FireConsole.git"
+        },
+        "/0.FireWidgets": {
+            "branch": "master",
+            "date": 1448316484000,
+            "ref": "0c63c6d00491d2303034f1cf6d3b6104ba4a612a",
+            "url": "git://github.com/firewidgets/0.FireWidgets.git"
+        },
+        "/0.PINF.Genesis": {
+            "branch": "master",
+            "date": 1447983773000,
+            "ref": "5dbedca0e968d8c0556f8101202d2d9a4731899e",
+            "url": "git://github.com/pinf/0.PINF.Genesis.git"
+        },
+        "/0.PINF.Genesis.to": {
+            "branch": "master",
+            "date": 1445242426000,
+            "ref": "820bf7c3e20a285b7411f54565be773f5a6af5d9",
+            "url": "git://github.com/pinf-to/0.PINF.Genesis.to.git"
+        },
+        "/0.VirtualCloud.Genesis": {
+            "branch": false,
+            "date": 1444976041000,
+            "ref": "85042124193f16a678cf1ab26bdd0c9baad86847",
+            "url": "git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git"
+        },
+        "/0.devcomp.genesis": {
+            "branch": "master",
+            "date": 1445061584000,
+            "ref": "88376faa0c6df1bd08e7d250d5b18311cd9c27ad",
+            "url": "git://github.com/devcomp/0.devcomp.genesis.git"
+        },
+        "/0.stack": {
+            "branch": "master",
+            "date": 1448480327000,
+            "ref": "3ca9805b42a9b8da721c1b82d800c7dbf8b263b9",
+            "url": "git://github.com/LogicCores/0.stack.git"
+        },
+        "/0.stack.admin": {
+            "branch": "master",
+            "date": 1448309256000,
+            "ref": "0d16a0f9aac38c50aa0aceebcf12e0c66840d156",
+            "url": "git://github.com/LogicCores/0.stack.admin.git"
+        },
+        "/0.stack.app": {
+            "branch": false,
+            "date": 1444968668000,
+            "ref": "a640e5ee879974478a17bf9d169adcde05c0e5ae",
+            "url": "git://github.com/LogicCores/0.stack.app.git"
+        },
+        "/0.stack.dev": {
+            "branch": "master",
+            "date": 1447639275000,
+            "ref": "2dda3b9e520b96e04c971eaf9442f2072a343f76",
+            "url": "git://github.com/LogicCores/0.stack.dev.git"
+        },
+        "/0.stack.test": {
+            "branch": "master",
+            "date": 1447741915000,
+            "ref": "5076c75c3426372d4a6fba50cf010826e35e05fe",
+            "url": "git://github.com/LogicCores/0.stack.test.git"
+        },
+        "/0.stack.web": {
+            "branch": "master",
+            "date": 1448314363000,
+            "ref": "3d600c67a0bd622e53be529a35beb0d18c329f52",
+            "url": "git://github.com/LogicCores/0.stack.web.git"
+        },
+        "/cores/application": {
+            "branch": "vdom",
+            "date": 1448314385000,
+            "ref": "cd71430c22ccf6fe68ac7fe12f29d988caf35f89",
+            "url": "git://github.com/LogicCores/0-application.git"
+        },
+        "/cores/auth": {
+            "branch": "master",
+            "date": 1447623478000,
+            "ref": "84942ca3832248dbdd94f69485d1aefb9f8dba92",
+            "url": "git://github.com/LogicCores/0-auth.git"
+        },
+        "/cores/boundary": {
+            "branch": "master",
+            "date": 1447623447000,
+            "ref": "37364f7ef8d1a07ec6844fcaa369f23cb44f4119",
+            "url": "git://github.com/LogicCores/0-boundary.git"
+        },
+        "/cores/cache": {
+            "branch": false,
+            "date": 1442557007000,
+            "ref": "f8b513439cd36d74fcb294b10f996487c6a683d4",
+            "url": "git://github.com/LogicCores/0-cache.git"
+        },
+        "/cores/component": {
+            "branch": "vdom",
+            "date": 1448303389000,
+            "ref": "c0147d9d4f152d1314bb70365a8cab9dcdc1eeda",
+            "url": "git://github.com/LogicCores/0-component.git"
+        },
+        "/cores/config": {
+            "branch": "master",
+            "date": 1447623421000,
+            "ref": "a97ef84ff33d272833b8fb97ed92e366e8018174",
+            "url": "git://github.com/LogicCores/0-config.git"
+        },
+        "/cores/console": {
+            "branch": false,
+            "date": 1441063232000,
+            "ref": "0cb26a8a83300aa69b3741297884ab22f34b80c3",
+            "url": "git://github.com/LogicCores/0-console.git"
+        },
+        "/cores/container": {
+            "branch": "vdom",
+            "date": 1448175723000,
+            "ref": "fc3a88e0bc3e4c408808e4934e0de7024130d32f",
+            "url": "git://github.com/LogicCores/0-container.git"
+        },
+        "/cores/context": {
+            "branch": false,
+            "date": 1444258262000,
+            "ref": "697c07d22509a7bfb41be4cfbb694fa06284f8aa",
+            "url": "git://github.com/LogicCores/0-context.git"
+        },
+        "/cores/data": {
+            "branch": "master",
+            "date": 1448420609000,
+            "ref": "e435ce3aa54e8c98bf2f53b8658caf8b5591d5e7",
+            "url": "git://github.com/LogicCores/0-data.git"
+        },
+        "/cores/edit": {
+            "branch": "master",
+            "date": 1449017648000,
+            "ref": "9163bb6c63ee20597b554cccb7babcf8806f8338",
+            "url": "git://github.com/LogicCores/0-edit.git"
+        },
+        "/cores/email": {
+            "branch": "master",
+            "date": 1447623371000,
+            "ref": "278d1788e3b92444ae5fb1397e7356f78a7fcb42",
+            "url": "git://github.com/LogicCores/0-email.git"
+        },
+        "/cores/env": {
+            "branch": "master",
+            "date": 1447371609000,
+            "ref": "299eb9c4f968435e166829e2594b058fcd129dcb",
+            "url": "git://github.com/LogicCores/0-env.git"
+        },
+        "/cores/export": {
+            "branch": "master",
+            "date": 1448428924000,
+            "ref": "a5b76f0fdf1e38d4ffab8fcb29087899b29f8e16",
+            "url": "git://github.com/LogicCores/0-export.git"
+        },
+        "/cores/fetch": {
+            "branch": false,
+            "date": 1442302020000,
+            "ref": "a2b170173ff6cdb22ea24c873a360f33a3580b36",
+            "url": "git://github.com/LogicCores/0-fetch.git"
+        },
+        "/cores/host": {
+            "branch": false,
+            "date": 1441941446000,
+            "ref": "7a00dae5472e04d82641ccf0d4d187353160f62b",
+            "url": "git://github.com/LogicCores/0-host.git"
+        },
+        "/cores/invite": {
+            "branch": "master",
+            "date": 1446692332000,
+            "ref": "0ac5898c2022a19af7834116c51a4a4cdfed30ec",
+            "url": "git://github.com/LogicCores/0-invite.git"
+        },
+        "/cores/job": {
+            "branch": "master",
+            "date": 1448245686000,
+            "ref": "64991a37f140b25c9fbaab753a2c08a40eef803a",
+            "url": "git://github.com/LogicCores/0-job.git"
+        },
+        "/cores/layout": {
+            "branch": false,
+            "date": 1442302038000,
+            "ref": "8faa17a304c7a9da9778c304f5e1daadf4aa7802",
+            "url": "git://github.com/LogicCores/0-layout.git"
+        },
+        "/cores/library": {
+            "branch": "master",
+            "date": 1447208554000,
+            "ref": "57973fcfd2b983223973b3794fb7b3b8ccef81e0",
+            "url": "git://github.com/LogicCores/0-library.git"
+        },
+        "/cores/load": {
+            "branch": "master",
+            "date": 1447701113000,
+            "ref": "3942650b961d08b20ddf65d67c5305f26e553c9c",
+            "url": "git://github.com/LogicCores/0-load.git"
+        },
+        "/cores/loop": {
+            "branch": false,
+            "date": 1440741284000,
+            "ref": "b47c2af7a7dd4d4bde58a672eabdfeda20b10cbe",
+            "url": "git://github.com/LogicCores/0-loop.git"
+        },
+        "/cores/message": {
+            "branch": "master",
+            "date": 1447615995000,
+            "ref": "b81e1942f74beb21e2fdf0cd08190c6b3dd35df0",
+            "url": "git://github.com/LogicCores/0-message.git"
+        },
+        "/cores/model": {
+            "branch": false,
+            "date": 1445050564000,
+            "ref": "84d01246bd6acbeee7aa64c8400cc7e52a3532a8",
+            "url": "git://github.com/LogicCores/0-model.git"
+        },
+        "/cores/namespace": {
+            "branch": false,
+            "date": 1442556375000,
+            "ref": "dae44a8f5fcbff5a69ca8bd5dae075b77fbd7966",
+            "url": "git://github.com/LogicCores/0-namespace.git"
+        },
+        "/cores/page": {
+            "branch": "vdom",
+            "date": 1448420669000,
+            "ref": "38d31d914fe476260a3d66e4251121635a587a34",
+            "url": "git://github.com/LogicCores/0-page.git"
+        },
+        "/cores/process": {
+            "branch": false,
+            "date": 1440709977000,
+            "ref": "4c3daad1379031d7bfc014c4319a12b2d62d9c79",
+            "url": "git://github.com/LogicCores/0-process.git"
+        },
+        "/cores/profile": {
+            "branch": "master",
+            "date": 1447623295000,
+            "ref": "7cc749dc886cd946dd973da7c1c6b52f5897a57b",
+            "url": "git://github.com/LogicCores/0-profile.git"
+        },
+        "/cores/protocol": {
+            "branch": false,
+            "date": 1440709997000,
+            "ref": "00f816468a052bc2c06eb7854d1635a4874fdd65",
+            "url": "git://github.com/LogicCores/0-protocol.git"
+        },
+        "/cores/proxy": {
+            "branch": "master",
+            "date": 1447623272000,
+            "ref": "76a17259470eba315e1e0a39282c98fc78c0b626",
+            "url": "git://github.com/LogicCores/0-proxy.git"
+        },
+        "/cores/render": {
+            "branch": false,
+            "date": 1441062907000,
+            "ref": "d7909526bd1c60f965e5e7bf6db70410d1be4625",
+            "url": "git://github.com/LogicCores/0-render.git"
+        },
+        "/cores/report": {
+            "branch": "master",
+            "date": 1447623588000,
+            "ref": "f0881241f0c9ff6f88e07f9af49056074746bb41",
+            "url": "git://github.com/LogicCores/0-report.git"
+        },
+        "/cores/request": {
+            "branch": "master",
+            "date": 1445998724000,
+            "ref": "749f2abdb9c504ff490e6cfaf6431dd893b7bbe7",
+            "url": "git://github.com/LogicCores/0-request.git"
+        },
+        "/cores/responder": {
+            "branch": "master",
+            "date": 1448480357000,
+            "ref": "63ea0af8fc874ac2dec6055e466eb083c2d54a57",
+            "url": "git://github.com/LogicCores/0-responder.git"
+        },
+        "/cores/route": {
+            "branch": false,
+            "date": 1444232485000,
+            "ref": "af66e1629044c454212a7b6d334c136f9a9514dc",
+            "url": "git://github.com/LogicCores/0-route.git"
+        },
+        "/cores/service": {
+            "branch": "master",
+            "date": 1447208585000,
+            "ref": "0c5835cb928104f008162ab65f37ca052ba52ba6",
+            "url": "git://github.com/LogicCores/0-service.git"
+        },
+        "/cores/session": {
+            "branch": "master",
+            "date": 1447643765000,
+            "ref": "60f18511ef84d6565cdd977cb60cd1c78434bb9e",
+            "url": "git://github.com/LogicCores/0-session.git"
+        },
+        "/cores/skin": {
+            "branch": "master",
+            "date": 1448480399000,
+            "ref": "94b4f2b1ceca7b060451708d5e59ada1ec14701d",
+            "url": "git://github.com/LogicCores/0-skin.git"
+        },
+        "/cores/sms": {
+            "branch": "master",
+            "date": 1447623128000,
+            "ref": "69fefd1be0c98bc1bd0d625fae670a5679e1ee01",
+            "url": "git://github.com/LogicCores/0-sms.git"
+        },
+        "/cores/static": {
+            "branch": "master",
+            "date": 1448314474000,
+            "ref": "d29a59c1cf62137e97bd072552a1d1348408aa57",
+            "url": "git://github.com/LogicCores/0-static.git"
+        },
+        "/cores/template": {
+            "branch": "vdom",
+            "date": 1448175797000,
+            "ref": "e06283f97b44665113bae8def49c394bd268de2a",
+            "url": "git://github.com/LogicCores/0-template.git"
+        },
+        "/cores/test": {
+            "branch": "master",
+            "date": 1447623077000,
+            "ref": "d2a1fad9ebef2ce3da8ae66bda2136204a8d1404",
+            "url": "git://github.com/LogicCores/0-test.git"
+        },
+        "/cores/time": {
+            "branch": "master",
+            "date": 1447824501000,
+            "ref": "ac1e55147072064335513d5bf7abb95cad3cbda4",
+            "url": "git://github.com/LogicCores/0-time.git"
+        },
+        "/cores/transform": {
+            "branch": "master",
+            "date": 1448175877000,
+            "ref": "ba39ba778a6ec1518f712342f9101911b0531449",
+            "url": "git://github.com/LogicCores/0-transform.git"
+        },
+        "/cores/watch": {
+            "branch": false,
+            "date": 1440982966000,
+            "ref": "3ab3abe4031699acffc157ba9dba6fae31c47d15",
+            "url": "git://github.com/LogicCores/0-watch.git"
+        },
+        "/lib/bash.origin": {
+            "branch": "master",
+            "date": 1449084880000,
+            "ref": "165a8cb331c28ab3164f1942ae9fac11f9b2cb1d",
+            "url": "git://github.com/bash-origin/bash.origin.git"
+        },
+        "/lib/bash.origin.prompt": {
+            "branch": "master",
+            "date": 1449024463000,
+            "ref": "79eb648e7b7c7e002e30cc22229665cd00abc4fa",
+            "url": "git://github.com/bash-origin/bash.origin.prompt.git"
+        },
+        "/lib/ccjson": {
+            "branch": "master",
+            "date": 1448844264000,
+            "ref": "0f0cbbc0d640828732e4d57833c5432aac8c0e7a",
+            "url": "git://github.com/LogicCores/ccjson.git"
+        },
+        "/lib/ccjson.function.tree": {
+            "branch": false,
+            "date": 1443817384000,
+            "ref": "9f50f55ab6f326f7915fac165fa082ea2cf5aa11",
+            "url": "git://github.com/ccjson/ccjson.function.tree.git"
+        },
+        "/lib/ccjson.record.mapper": {
+            "branch": "master",
+            "date": 1448175827000,
+            "ref": "1a2a5f7cb732e4febb3b5551e3aa325fd97827f2",
+            "url": "git://github.com/ccjson/ccjson.record.mapper.git"
+        },
+        "/lib/ccjson.structures": {
+            "branch": false,
+            "date": 1443817409000,
+            "ref": "6fb0392986afec50f4ba31b60d8d674f23d725c8",
+            "url": "git://github.com/ccjson/ccjson.structures.git"
+        },
+        "/lib/console-trace": {
+            "branch": "master",
+            "date": 1448226277000,
+            "ref": "a2088543512a865b5a1c12534374937485b56f13",
+            "url": "git://github.com/cadorn/console-trace.git"
+        },
+        "/lib/cvdom": {
+            "branch": "master",
+            "date": 1448175849000,
+            "ref": "488683b801beb606c46f88f8ec24d7a6a8d40149",
+            "url": "git://github.com/firewidgets/cvdom.git"
+        },
+        "/lib/firewidgets-for-zerosystem": {
+            "branch": false,
+            "date": 1442302215000,
+            "ref": "36d84298f7f4796db9aad8155bbe86a9a643f37c",
+            "url": "git://github.com/firewidgets/firewidgets-for-zerosystem.git"
+        },
+        "/lib/html2chscript": {
+            "branch": "integrate",
+            "date": 1447573308000,
+            "ref": "7fb411ed697e328b9a26b259d3b8a19d6c57e839",
+            "url": "git://github.com/firewidgets/html2chscript.git"
+        },
+        "/lib/html2chscript-for-webpack": {
+            "branch": "master",
+            "date": 1446620598000,
+            "ref": "d65be3187e176ac633570b550e4510b97e25549f",
+            "url": "git://github.com/firewidgets/html2chscript-for-webpack.git"
+        },
+        "/lib/logic.cores": {
+            "branch": "master",
+            "date": 1447371822000,
+            "ref": "fbc6d5979332ff45b9ff3e2e621689bbf45e252d",
+            "url": "git://github.com/LogicCores/logic.cores.git"
+        },
+        "/lib/marked": {
+            "branch": false,
+            "date": 1438335528000,
+            "ref": "88ce4df47c4d994dc1b1df1477a21fb893e11ddc",
+            "url": "git://github.com/cadorn/marked.git"
+        },
+        "/lib/node.pack": {
+            "branch": "master",
+            "date": 1449097964000,
+            "ref": "0bc149c7118e704338eb38665f67e9a9f535dc0f",
+            "url": "git://github.com/NodePACK/node.pack.git"
+        },
+        "/lib/node.unpack": {
+            "branch": "master",
+            "date": 1448590724000,
+            "ref": "6ff318108c4255d53e0031abeaafaf403b1e0d44",
+            "url": "git://github.com/NodePACK/node.unpack.git"
+        },
+        "/lib/pinf-loader-js": {
+            "branch": false,
+            "date": 1440983334000,
+            "ref": "1b646be5a57d7a849c62e1ce964eaa63a5f33de5",
+            "url": "git://github.com/pinf/pinf-loader-js.git"
+        },
+        "/lib/pio.profile": {
+            "branch": false,
+            "date": 1442302763000,
+            "ref": "3ddcbb5dbe136f3817d3a624a2c2f909bb7a6aab",
+            "url": "git://github.com/pinf-io/pio.profile.git"
+        },
+        "/lib/sm.bump": {
+            "branch": "master",
+            "date": 1449099389000,
+            "ref": "210c263895ffe419fea49b723a533ebea9ccc0cf",
+            "url": "git://github.com/sourcemint/sm.bump.git"
+        },
+        "/lib/sm.expand": {
+            "branch": "master",
+            "date": 1438497628000,
+            "ref": "dd1bba8b0dfddc596a57a7ea7dc6a4cfa92f6cdf",
+            "url": "git://github.com/sourcemint/sm.expand.git"
+        },
+        "/lib/sm.hoist.VisualComponents": {
+            "branch": "0.integrate",
+            "date": 1446869350000,
+            "ref": "2c988d445f6cae21a521ce2fcc05ede8873e0004",
+            "url": "git://github.com/sourcemint/sm.hoist.VisualComponents.git"
+        },
+        "/lib/smi-for-git": {
+            "branch": "master",
+            "date": 1438493987000,
+            "ref": "560598017109497a97eaa32645c7b61628dbf63f",
+            "url": "git://github.com/sourcemint/smi-for-git.git"
+        },
+        "/lib/smi-for-npm": {
+            "branch": "master",
+            "date": 1445138053000,
+            "ref": "d92457b49bc9d6391cb3aa8e336618d673f74cf6",
+            "url": "git://github.com/sourcemint/smi-for-npm.git"
+        },
+        "/lib/smi.0": {
+            "branch": "master",
+            "date": 1445062845000,
+            "ref": "ad1348dde352f777b7eed5c6c4976e29d7a7931d",
+            "url": "git://github.com/sourcemint/smi.0.git"
+        },
+        "/lib/smi.cache": {
+            "branch": false,
+            "date": 1440985542000,
+            "ref": "21fd47179108c584f65c48c49566fc62d8929195",
+            "url": "git://github.com/sourcemint/smi.cache.git"
+        },
+        "/lib/virtual-dom": {
+            "branch": "master",
+            "date": 1446620246000,
+            "ref": "84381b00963f7e48a39e374bd9c2f61298e03aa4",
+            "url": "git://github.com/firewidgets/virtual-dom.git"
+        },
+        "/lib/zero.lib": {
+            "branch": "master",
+            "date": 1448581492000,
+            "ref": "e7cc6ae2969b78dbfd4f4b3e547d8ab058fca8aa",
+            "url": "git://github.com/LogicCores/zero.lib.git"
+        }
+    }
+}
