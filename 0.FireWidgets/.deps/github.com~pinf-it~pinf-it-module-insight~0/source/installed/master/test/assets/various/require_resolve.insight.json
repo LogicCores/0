@@ -1,0 +1,26 @@
+{
+    "filename": "require_resolve.js",
+    "filepath": "various/require_resolve.js",
+    "mtime": 0,
+    "code": "\nrequire.resolve(\"os\");\n\nconsole.log(\"Hello World\");\n",
+    "globals": {
+        "console": {
+            "type": "reference"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "os": {
+                "where": "resolve"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

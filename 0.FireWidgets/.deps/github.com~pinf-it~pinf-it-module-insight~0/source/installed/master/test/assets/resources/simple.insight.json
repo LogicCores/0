@@ -1,0 +1,18 @@
+{
+    "filename": "simple.json",
+    "filepath": "resources/simple.json",
+    "mtime": 0,
+    "code": "{\n\t\"hello\": \"world\"\n}",
+    "globals": {},
+    "syntax": "json",
+    "format": "json",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

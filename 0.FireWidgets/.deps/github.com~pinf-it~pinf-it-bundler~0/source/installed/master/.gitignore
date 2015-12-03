@@ -1,0 +1,7 @@
+.rt/
+.dist~*
+/.sm/
+/.sm.*
+/node_modules/
+/examples/*/app/
+/.pio.cache/

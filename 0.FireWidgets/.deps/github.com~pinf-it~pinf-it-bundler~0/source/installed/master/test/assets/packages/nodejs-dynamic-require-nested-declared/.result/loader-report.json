@@ -1,0 +1,33 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-nested-declared/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-dynamic-require-nested-declared/.dist/app.js": "",
+            "test/assets/packages/nodejs-dynamic-require-nested-declared/.dist/app/greeting.js": "",
+            "test/assets/packages/nodejs-dynamic-require-nested-declared/.dist/app/greeting/hello.js": "",
+            "test/assets/packages/nodejs-dynamic-require-nested-declared/.dist/app/greeting/hello/o.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 2
+            },
+            "/package.json": {},
+            "/greeting.js": {
+                "exports": 2
+            },
+            "/hello.js": {
+                "exports": 1
+            },
+            "/o.js": {
+                "exports": 1
+            }
+        }
+    }
+}

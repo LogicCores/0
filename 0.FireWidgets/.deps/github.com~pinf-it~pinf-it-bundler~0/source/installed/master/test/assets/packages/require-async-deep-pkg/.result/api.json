@@ -1,0 +1,43 @@
+{
+    "$pinf": {
+        "uid": null,
+        "ns": "require-async-deep-pkg",
+        "debug": false,
+        "verbose": false,
+        "test": false,
+        "now": 0,
+        "ttl": 0,
+        "env": {
+            "PINF_RUNTIME": "/.rt/program.rt.json",
+            "PINF_PROGRAM": "/program.json",
+            "PINF_PACKAGE": "/test/assets/packages/require-async-deep-pkg/package.json",
+            "PINF_PACKAGES": "",
+            "PINF_PROGRAM_PARENT": "",
+            "PINF_MODE": "production"
+        },
+        "paths": {
+            "program": "",
+            "package": "/test/assets/packages/require-async-deep-pkg",
+            "run": "/.rt/run/require-async-deep-pkg",
+            "data": "/.rt/data/require-async-deep-pkg",
+            "etc": "/.rt/etc/require-async-deep-pkg",
+            "log": "/.rt/log/require-async-deep-pkg",
+            "cache": "/.rt/cache/require-async-deep-pkg",
+            "tmp": "/.rt/tmp/require-async-deep-pkg",
+            "dependency": "/test/assets/packages/require-async-deep-pkg/node_modules"
+        },
+        "binPaths": [],
+        "config": {},
+        "descriptorPaths": [
+            "/test/assets/packages/require-async-deep-pkg/package.json"
+        ],
+        "lookupPaths": [
+            "/program.production.json",
+            "/.rt/program.rt.json",
+            "/.program.json",
+            "/program.json",
+            "/test/assets/packages/require-async-deep-pkg/.package.json",
+            "/test/assets/packages/require-async-deep-pkg/package.json"
+        ]
+    }
+}

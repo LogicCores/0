@@ -1,0 +1,19 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "Profile",
+        "keyProperty": "name",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"name": {
+				"constraints": {
+					"required": true
+				}
+			}
+        }
+    }
+}

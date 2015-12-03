@@ -1,0 +1,558 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-nested": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/nodejs-dynamic-require-nested/app.js",
+                            "mtime": 0,
+                            "code": "\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                            "dirrealpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/nodejs-dynamic-require-nested/package.json",
+                                "test/assets/packages/nodejs-dynamic-require-nested/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/nodejs-dynamic-require-nested/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/nodejs-dynamic-require-nested"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/nodejs-dynamic-require-nested/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting.js": {
+        "modules": {
+            "/greeting.js": {
+                "requireId": "/greeting",
+                "memoizeId": "/greeting.js",
+                "descriptor": {
+                    "filename": "greeting.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/greeting.js",
+                    "mtime": 0,
+                    "code": "\nvar APP = require(\"./app\");\n\nexports.getGreeting = function() {\n\n\tvar moduleId = \"./hello\";\n\n\tvar HELLO = require(moduleId);\n\n\treturn HELLO.getWord() + \" \" + APP.getWorld();\n}\n\nexports.getLetterL = function() {\n\treturn \"l\";\t\n}\n",
+                    "globals": {
+                        "APP": {
+                            "type": "assign"
+                        },
+                        "require": {
+                            "type": "call"
+                        },
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {},
+                    "dependencies": {
+                        "static": {
+                            "./app": {
+                                "where": "inline"
+                            }
+                        },
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nvar APP = require(\"./app\");\n\nexports.getGreeting = function() {\n\n\tvar moduleId = \"./hello\";\n\n\tvar HELLO = require(moduleId);\n\n\treturn HELLO.getWord() + \" \" + APP.getWorld();\n}\n\nexports.getLetterL = function() {\n\treturn \"l\";\t\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {
+                        "./app": {
+                            "where": "inline"
+                        }
+                    },
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            }
+        },
+        "expectExistingModules": {
+            "/app": {
+                "requireId": "/app",
+                "memoizeId": "/app.js",
+                "descriptor": {
+                    "filename": "app.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/app.js",
+                    "mtime": 0,
+                    "code": "\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                    "globals": {
+                        "main": {
+                            "type": "assign"
+                        },
+                        "require": {
+                            "type": "call"
+                        },
+                        "console": {
+                            "type": "reference"
+                        },
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {
+                        "require.main": true
+                    },
+                    "dependencies": {
+                        "static": {},
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {},
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            },
+            "/package.json": {
+                "requireId": "/package.json",
+                "memoizeId": "/package.json",
+                "descriptor": {
+                    "dirpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "dirrealpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "id": "",
+                    "lookupPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json",
+                        "test/assets/packages/nodejs-dynamic-require-nested/.package.json"
+                    ],
+                    "descriptorPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json"
+                    ],
+                    "raw": {
+                        "package.json": {
+                            "main": "app"
+                        }
+                    },
+                    "normalized": {
+                        ".package.json": {},
+                        "package.json": {
+                            "exports": {
+                                "main": "./app.js"
+                            }
+                        }
+                    },
+                    "combined": {
+                        "exports": {
+                            "main": "./app.js"
+                        }
+                    },
+                    "warnings": [],
+                    "errors": [],
+                    "memoized": {
+                        "main": "/app.js",
+                        "dirpath": "test/assets/packages/nodejs-dynamic-require-nested"
+                    },
+                    "mtime": "0"
+                },
+                "wrapper": "json"
+            }
+        },
+        "bundle": {
+            "path": "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting.js"
+        },
+        "warnings": [],
+        "errors": []
+    },
+    "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting/hello.js": {
+        "modules": {
+            "/hello.js": {
+                "requireId": "/hello",
+                "memoizeId": "/hello.js",
+                "descriptor": {
+                    "filename": "hello.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/hello.js",
+                    "mtime": 0,
+                    "code": "\nvar APP = require(\"./app\");\nvar LETTER_E = require(\"./e\");\n\nexports.getWord = function() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\treturn APP.getLetterH() + LETTER_E.getLetter() + GREETING.getLetterL() + \"l\" + require((\"./\" + \"o\")).getLetter();\n}\n",
+                    "globals": {
+                        "APP": {
+                            "type": "assign"
+                        },
+                        "require": {
+                            "type": "call"
+                        },
+                        "LETTER_E": {
+                            "type": "assign"
+                        },
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {},
+                    "dependencies": {
+                        "static": {
+                            "./app": {
+                                "where": "inline"
+                            },
+                            "./e": {
+                                "where": "inline"
+                            }
+                        },
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nvar APP = require(\"./app\");\nvar LETTER_E = require(\"./e\");\n\nexports.getWord = function() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\treturn APP.getLetterH() + LETTER_E.getLetter() + GREETING.getLetterL() + \"l\" + require((\"./\" + \"o\")).getLetter();\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {
+                        "./app": {
+                            "where": "inline"
+                        },
+                        "./e": {
+                            "where": "inline"
+                        }
+                    },
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            },
+            "/e/index.js": {
+                "requireId": "/e/index",
+                "memoizeId": "/e/index.js",
+                "descriptor": {
+                    "filename": "index.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/e/index.js",
+                    "mtime": 0,
+                    "code": "\nexports.getLetter = function() {\n\treturn \"e\";\n}\n",
+                    "globals": {
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {},
+                    "dependencies": {
+                        "static": {},
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested/e';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested/e';\n\nexports.getLetter = function() {\n\treturn \"e\";\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {},
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            }
+        },
+        "expectExistingModules": {
+            "/app": {
+                "requireId": "/app",
+                "memoizeId": "/app.js",
+                "descriptor": {
+                    "filename": "app.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/app.js",
+                    "mtime": 0,
+                    "code": "\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                    "globals": {
+                        "main": {
+                            "type": "assign"
+                        },
+                        "require": {
+                            "type": "call"
+                        },
+                        "console": {
+                            "type": "reference"
+                        },
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {
+                        "require.main": true
+                    },
+                    "dependencies": {
+                        "static": {},
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nfunction main() {\n\n\tvar moduleId = \"./greeting\";\n\n\tvar GREETING = require(moduleId);\n\n\tconsole.log(GREETING.getGreeting());\n}\n\nexports.getWorld = function() {\n\treturn \"World\";\t\n}\n\nexports.getLetterH = function() {\n\treturn \"H\";\t\n}\n\nif (require.main === module) {\n\tmain();\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {},
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            },
+            "/package.json": {
+                "requireId": "/package.json",
+                "memoizeId": "/package.json",
+                "descriptor": {
+                    "dirpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "dirrealpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "id": "",
+                    "lookupPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json",
+                        "test/assets/packages/nodejs-dynamic-require-nested/.package.json"
+                    ],
+                    "descriptorPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json"
+                    ],
+                    "raw": {
+                        "package.json": {
+                            "main": "app"
+                        }
+                    },
+                    "normalized": {
+                        ".package.json": {},
+                        "package.json": {
+                            "exports": {
+                                "main": "./app.js"
+                            }
+                        }
+                    },
+                    "combined": {
+                        "exports": {
+                            "main": "./app.js"
+                        }
+                    },
+                    "warnings": [],
+                    "errors": [],
+                    "memoized": {
+                        "main": "/app.js",
+                        "dirpath": "test/assets/packages/nodejs-dynamic-require-nested"
+                    },
+                    "mtime": "0"
+                },
+                "wrapper": "json"
+            }
+        },
+        "bundle": {
+            "path": "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting/hello.js"
+        },
+        "warnings": [],
+        "errors": []
+    },
+    "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting/hello/o.js": {
+        "modules": {
+            "/o.js": {
+                "requireId": "/o",
+                "memoizeId": "/o.js",
+                "descriptor": {
+                    "filename": "o.js",
+                    "filepath": "test/assets/packages/nodejs-dynamic-require-nested/o.js",
+                    "mtime": 0,
+                    "code": "\nexports.getLetter = function() {\n\treturn \"o\";\n}\n",
+                    "globals": {
+                        "exports": {
+                            "type": "reference"
+                        }
+                    },
+                    "syntax": "javascript",
+                    "format": "commonjs",
+                    "undefine": [],
+                    "uses": {},
+                    "dependencies": {
+                        "static": {},
+                        "dynamic": {},
+                        "computed": false
+                    }
+                },
+                "wrapper": {
+                    "type": "commonjs",
+                    "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';",
+                    "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/nodejs-dynamic-require-nested';\n\nexports.getLetter = function() {\n\treturn \"o\";\n}\n\n}",
+                    "bottom": "}"
+                },
+                "dependencies": {
+                    "static": {},
+                    "dynamic": {},
+                    "computed": false
+                },
+                "warnings": [],
+                "errors": []
+            }
+        },
+        "expectExistingModules": {
+            "/package.json": {
+                "requireId": "/package.json",
+                "memoizeId": "/package.json",
+                "descriptor": {
+                    "dirpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "dirrealpath": "test/assets/packages/nodejs-dynamic-require-nested",
+                    "id": "",
+                    "lookupPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json",
+                        "test/assets/packages/nodejs-dynamic-require-nested/.package.json"
+                    ],
+                    "descriptorPaths": [
+                        "test/assets/packages/nodejs-dynamic-require-nested/package.json"
+                    ],
+                    "raw": {
+                        "package.json": {
+                            "main": "app"
+                        }
+                    },
+                    "normalized": {
+                        ".package.json": {},
+                        "package.json": {
+                            "exports": {
+                                "main": "./app.js"
+                            }
+                        }
+                    },
+                    "combined": {
+                        "exports": {
+                            "main": "./app.js"
+                        }
+                    },
+                    "warnings": [],
+                    "errors": [],
+                    "memoized": {
+                        "main": "/app.js",
+                        "dirpath": "test/assets/packages/nodejs-dynamic-require-nested"
+                    },
+                    "mtime": "0"
+                },
+                "wrapper": "json"
+            }
+        },
+        "bundle": {
+            "path": "test/assets/packages/nodejs-dynamic-require-nested/.dist/app/greeting/hello/o.js"
+        },
+        "warnings": [],
+        "errors": []
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/nodejs-dynamic-require-nested/.dist/app.js"
+        }
+    }
+}

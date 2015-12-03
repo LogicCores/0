@@ -1,0 +1,25 @@
+{
+    "@": {
+        "0.pinf.genesis.Aspects": {
+            "$": "./Inception.0/Aspects.0.ccjson"
+        },
+        "0.pinf.genesis.DeploymentPointer": {
+            "$": "./Inception.0/DeploymentPointer.0.ccjson"
+        },
+        "0.pinf.genesis.Deployment": {
+            "$": "./Inception.0/Deployment.0.ccjson"
+        },
+        "0.pinf.genesis.Environment": {
+            "$": "./Inception.0/Environment.0.ccjson"
+        },
+        "0.pinf.genesis.Profile": {
+            "$": "./Inception.0/Profile.0.ccjson"
+        },
+        "0.pinf.genesis.Stack": {
+            "$": "./Inception.0/Stack.0.ccjson"
+        },
+        "0.pinf.genesis.Developer": {
+            "$": "./Inception.0/Developer.0.ccjson"
+        }
+    }
+}

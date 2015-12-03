@@ -1,0 +1,11 @@
+{
+  "name": "0-skin-for-semantic-ui",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "css-queryless": "^0.1.0",
+    "rework": "^1.0.1",
+    "semantic-ui-css": "^2.1.4",
+    "send": "^0.13.0"
+  }
+}

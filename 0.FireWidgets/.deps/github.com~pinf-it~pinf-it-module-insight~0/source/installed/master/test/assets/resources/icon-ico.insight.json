@@ -1,0 +1,18 @@
+{
+    "filename": "icon-ico.ico",
+    "filepath": "resources/icon-ico.ico",
+    "mtime": 0,
+    "code": null,
+    "globals": {},
+    "syntax": null,
+    "format": "binary",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

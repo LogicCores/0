@@ -1,0 +1,1087 @@
+{
+    "test/assets/packages/require-async-deep-pkg": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/require-async-deep-pkg/app.js",
+                            "mtime": 0,
+                            "code": "\nexports.main = function (callback) {\n\trequire.async(\"./extra\", function(EXTRA) {\n\t\treturn EXTRA.run(callback);\n\t}, callback);\n\treturn null;\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "require": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg';\n\nexports.main = function (callback) {\n\trequire.async(\"./extra\", function(EXTRA) {\n\t\treturn EXTRA.run(callback);\n\t}, callback);\n\treturn null;\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-deep-pkg",
+                            "dirrealpath": "test/assets/packages/require-async-deep-pkg",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json",
+                                "test/assets/packages/require-async-deep-pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                },
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    },
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                },
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "dependencies": {
+                                    "bundled": {
+                                        "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                    }
+                                },
+                                "mappings": {
+                                    "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-async-deep-pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/require-async-deep-pkg/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "test/assets/packages/require-async-deep-pkg/.dist/app/extra.js": {
+        "bundles": {
+            "/extra.js": {
+                "modules": {
+                    "/extra.js": {
+                        "requireId": "/extra",
+                        "memoizeId": "/extra.js",
+                        "descriptor": {
+                            "filename": "extra.js",
+                            "filepath": "test/assets/packages/require-async-deep-pkg/extra.js",
+                            "mtime": 0,
+                            "code": "\nconst PINF_MAIN = require(\"pinf-for-nodejs/lib/main\").main;\n\nexports.run = function(callback) {\n    return PINF_MAIN(function(context, callback) {\n        return callback(null, context);\n    }, module, callback);\n}\n",
+                            "globals": {
+                                "PINF_MAIN": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "module": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {
+                                    "pinf-for-nodejs/lib/main": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg';\n\nconst PINF_MAIN = require(\"pinf-for-nodejs/lib/main\").main;\n\nexports.run = function(callback) {\n    return PINF_MAIN(function(context, callback) {\n        return callback(null, context);\n    }, module, callback);\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "pinf-for-nodejs/lib/main": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/lib/main.js": {
+                        "requireId": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/lib/main",
+                        "memoizeId": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/lib/main.js",
+                        "descriptor": {
+                            "filename": "main.js",
+                            "filepath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/lib/main.js",
+                            "mtime": 0,
+                            "code": "\nrequire(\"require.async\")(require);\n\n\nexports.main = function(main, module, options, callback) {\n\tif (typeof module === \"function\" && typeof options === \"undefined\" && typeof callback === \"undefined\") {\n\t\tcallback = module;\n\t\tmodule = null;\n\t}\n\tif (typeof options === \"function\" && typeof callback === \"undefined\") {\n\t\tcallback = options;\n\t\toptions = null;\n\t}\n\n\toptions = options || {};\n\n\tfunction done(err) {\n\t\tif (callback) {\n\t\t\ttry {\n\t\t\t\treturn callback.apply(null, arguments);\n\t\t\t} catch(err) {\n                console.error(err.stack);\n\t            process.exit(1);\n\t\t\t}\n\t\t}\n        if (err) {\n            if (err !== true) {\n                console.error(err.stack);\n            }\n            if (typeof arguments[1] !== \"object\" || arguments[1].EXIT !== false) process.exit(1);\n        }\n        if (typeof arguments[1] !== \"object\" || arguments[1].EXIT !== false) process.exit(0);\n\t}\n\tif (!module) {\n\t    try {\n\t\t\tvar ret = main(done);\n\t\t\t// If main function returns `true` we exit and don't wait for `done` callback.\n\t\t\tif (ret === true) {\n\t\t\t\treturn done(null);\n\t\t\t}\n\t\t\treturn;\n\t    } catch(err) {\n\t        return done(err);\n\t    }\n\t}\n\n\tmodule.exports.main = main;\n\n\t// Don't call app unless it is the main file loaded or there is a callback registered.\n\tif (require.main !== module && !callback) {\n\t\treturn;\n\t}\n\n\t// TODO: module.pinf should be set and memoized in bundle based on the program context and available at `module.pinf`.\n\tif (typeof module.pinf === \"object\") {\n\t\treturn callback(null, module.pinf);\n\t}\n\n\t// TODO: Only continue below if no context found in cache.\n\t//       Only load cache module and determine cache path by looking at PINF_RUNTIME and own package uid (use pinf-primitives-js to do this).\n\t//\t\t Cache module is in primitives package as well.\n\treturn require.async(\"./context\", function(CONTEXT) {\n\t\treturn CONTEXT.contextForModule(module, options, function(err, context) {\n\t\t\tif (err) return done(err);\n\t\t    try {\n\t\t    \tvar opts = {};\n\t\t    \tfor (var name in options) {\n\t\t    \t\topts[name] = options[name];\n\t\t    \t}\n\t\t    \topts.$pinf = context;\n\t\t\t\tvar ret = main(opts, done);\n\t\t\t\tif (ret === true) {\n\t\t\t\t\treturn done(null);\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t    } catch(err) {\n\t\t        return done(err);\n\t\t    }\t\t\n\t\t});\n\t}, done);\n}\n",
+                            "globals": {
+                                "require": {
+                                    "type": "reference"
+                                },
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "process": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {
+                                    "require.async": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/lib';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/lib';\n\nrequire(\"require.async\")(require);\n\n\nexports.main = function(main, module, options, callback) {\n\tif (typeof module === \"function\" && typeof options === \"undefined\" && typeof callback === \"undefined\") {\n\t\tcallback = module;\n\t\tmodule = null;\n\t}\n\tif (typeof options === \"function\" && typeof callback === \"undefined\") {\n\t\tcallback = options;\n\t\toptions = null;\n\t}\n\n\toptions = options || {};\n\n\tfunction done(err) {\n\t\tif (callback) {\n\t\t\ttry {\n\t\t\t\treturn callback.apply(null, arguments);\n\t\t\t} catch(err) {\n                console.error(err.stack);\n\t            process.exit(1);\n\t\t\t}\n\t\t}\n        if (err) {\n            if (err !== true) {\n                console.error(err.stack);\n            }\n            if (typeof arguments[1] !== \"object\" || arguments[1].EXIT !== false) process.exit(1);\n        }\n        if (typeof arguments[1] !== \"object\" || arguments[1].EXIT !== false) process.exit(0);\n\t}\n\tif (!module) {\n\t    try {\n\t\t\tvar ret = main(done);\n\t\t\t// If main function returns `true` we exit and don't wait for `done` callback.\n\t\t\tif (ret === true) {\n\t\t\t\treturn done(null);\n\t\t\t}\n\t\t\treturn;\n\t    } catch(err) {\n\t        return done(err);\n\t    }\n\t}\n\n\tmodule.exports.main = main;\n\n\t// Don't call app unless it is the main file loaded or there is a callback registered.\n\tif (require.main !== module && !callback) {\n\t\treturn;\n\t}\n\n\t// TODO: module.pinf should be set and memoized in bundle based on the program context and available at `module.pinf`.\n\tif (typeof module.pinf === \"object\") {\n\t\treturn callback(null, module.pinf);\n\t}\n\n\t// TODO: Only continue below if no context found in cache.\n\t//       Only load cache module and determine cache path by looking at PINF_RUNTIME and own package uid (use pinf-primitives-js to do this).\n\t//\t\t Cache module is in primitives package as well.\n\treturn require.async(\"./context\", function(CONTEXT) {\n\t\treturn CONTEXT.contextForModule(module, options, function(err, context) {\n\t\t\tif (err) return done(err);\n\t\t    try {\n\t\t    \tvar opts = {};\n\t\t    \tfor (var name in options) {\n\t\t    \t\topts[name] = options[name];\n\t\t    \t}\n\t\t    \topts.$pinf = context;\n\t\t\t\tvar ret = main(opts, done);\n\t\t\t\tif (ret === true) {\n\t\t\t\t\treturn done(null);\n\t\t\t\t}\n\t\t\t\treturn;\n\t\t    } catch(err) {\n\t\t        return done(err);\n\t\t    }\t\t\n\t\t});\n\t}, done);\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "require.async": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/require.async.js": {
+                        "requireId": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/require.async.js",
+                        "memoizeId": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/require.async.js",
+                        "descriptor": {
+                            "filename": "require.async.js",
+                            "filepath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async/require.async.js",
+                            "mtime": 0,
+                            "code": "/**\n * Author: Christoph Dorn <christoph@christophdorn.com>\n * [UNLICENSE](http://unlicense.org/)\n */\n\nmodule.exports = function(require) {\n\n\t// We only add the method if it is not already there.\n\tif (typeof require.async !== \"undefined\") {\n\t\treturn;\n\t}\n\n\t// We add the portable `require.async` method.\n\trequire.async = function(id, successCallback, errorCallback) {\n\t\tvar exports = null;\n\t\ttry {\n\t\t\texports = require(id);\n\t\t} catch(err) {\n\t\t\tif (typeof errorCallback === \"function\") {\n\t\t\t\terrorCallback(err);\n\t\t\t}\n\t\t\treturn;\n\t\t}\n\t\tsuccessCallback(exports);\n\t\treturn;\n\t}\n\n}\n",
+                            "globals": {
+                                "module": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async';\n/**\n * Author: Christoph Dorn <christoph@christophdorn.com>\n * [UNLICENSE](http://unlicense.org/)\n */\n\nmodule.exports = function(require) {\n\n\t// We only add the method if it is not already there.\n\tif (typeof require.async !== \"undefined\") {\n\t\treturn;\n\t}\n\n\t// We add the portable `require.async` method.\n\trequire.async = function(id, successCallback, errorCallback) {\n\t\tvar exports = null;\n\t\ttry {\n\t\t\texports = require(id);\n\t\t} catch(err) {\n\t\t\tif (typeof errorCallback === \"function\") {\n\t\t\t\terrorCallback(err);\n\t\t\t}\n\t\t\treturn;\n\t\t}\n\t\tsuccessCallback(exports);\n\t\treturn;\n\t}\n\n}\n\nreturn {\n    module: (typeof module !== \"undefined\") ? module : null\n};\n}",
+                            "bottom": "return {\n    module: (typeof module !== \"undefined\") ? module : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-deep-pkg",
+                            "dirrealpath": "test/assets/packages/require-async-deep-pkg",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json",
+                                "test/assets/packages/require-async-deep-pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                },
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    },
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                },
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "dependencies": {
+                                    "bundled": {
+                                        "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                    }
+                                },
+                                "mappings": {
+                                    "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "mappings": {
+                                    "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                },
+                                "dirpath": "test/assets/packages/require-async-deep-pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    },
+                    "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/package.json": {
+                        "requireId": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/package.json",
+                        "memoizeId": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs",
+                            "dirrealpath": "../github.com+pinf+pinf-for-nodejs",
+                            "id": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/package.json",
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "name": "pinf-for-nodejs",
+                                    "version": "0.1.3",
+                                    "pm": "npm",
+                                    "publish": true,
+                                    "main": "lib/pinf.js",
+                                    "bin": {
+                                        "pinf": "./bin/pinf"
+                                    },
+                                    "dependencies": {
+                                        "fs-extra": "~0.6.4",
+                                        "pinf-loader-js": "~0.4.5",
+                                        "request": "~2.21.0",
+                                        "waitfor": "~0.1.3",
+                                        "deepmerge": "~0.2.7",
+                                        "commander": "~2.0.0",
+                                        "colors": "~0.6.1",
+                                        "pinf-primitives-js": "~0.1.0",
+                                        "pinf-it-package-insight": "~0.1.3",
+                                        "pinf-it-program-insight": "~0.1.0",
+                                        "deepcopy": "~0.3.1",
+                                        "require.async": "~0.1.1",
+                                        "send": "~0.1.4",
+                                        "pinf-it-bundler": "github.com/pinf-it/pinf-it-bundler/~0.1.1",
+                                        "pinf-config": "github.com/pinf/pinf-config-js/~0.1.0",
+                                        "pinf-vfs": "github.com/pinf/pinf-vfs-js/~0.1.0"
+                                    },
+                                    "devDependencies": {
+                                        "mocha": "~1.9.0",
+                                        "grunt": "~0.4.1",
+                                        "grunt-mocha": "~0.3.1",
+                                        "q": "~0.9.3",
+                                        "pinf-loader-js": "github.com/pinf/pinf-loader-js/~0.4.5"
+                                    },
+                                    "mappings": {
+                                        "pinf-it-bundler": "github.com/pinf-it/pinf-it-bundler/~0.1.1",
+                                        "pinf-config": "github.com/pinf/pinf-config-js/~0.1.0",
+                                        "pinf-vfs": "github.com/pinf/pinf-vfs-js/~0.1.0"
+                                    },
+                                    "devMappings": {
+                                        "pinf-loader-js": "github.com/pinf/pinf-loader-js/~0.4.5"
+                                    },
+                                    "require.async": {
+                                        "./lib/main.js": "./context"
+                                    },
+                                    "scripts": {
+                                        "test": "node_modules/.bin/mocha --reporter list test/*.js",
+                                        "build": "./bin/pinf bundle"
+                                    },
+                                    "exports": {
+                                        "bundles": {
+                                            "lib/pinf.js": "./lib/pinf.js",
+                                            "lib/main.js": "./lib/main.js",
+                                            "lib/loader.js": "./lib/loader.js"
+                                        }
+                                    },
+                                    "overrides": {
+                                        "./node_modules/request/node_modules/hawk/node_modules/boom": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/hawk/node_modules/sntp": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/hawk/node_modules/cryptiles": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/form-data": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            ".bin": "./node_modules/.bin",
+                                            "colors": "./node_modules/colors",
+                                            "commander": "./node_modules/commander",
+                                            "deepcopy": "./node_modules/deepcopy",
+                                            "deepmerge": "./node_modules/deepmerge",
+                                            "fs-extra": "./node_modules/fs-extra",
+                                            "grunt": "./node_modules/grunt",
+                                            "grunt-mocha": "./node_modules/grunt-mocha",
+                                            "mocha": "./node_modules/mocha",
+                                            "pinf-config": "./node_modules/pinf-config",
+                                            "pinf-it-bundler": "./node_modules/pinf-it-bundler",
+                                            "pinf-it-package-insight": "./node_modules/pinf-it-package-insight",
+                                            "pinf-it-program-insight": "./node_modules/pinf-it-program-insight",
+                                            "pinf-loader-js": "./node_modules/pinf-loader-js",
+                                            "pinf-primitives-js": "./node_modules/pinf-primitives-js",
+                                            "pinf-vfs": "./node_modules/pinf-vfs",
+                                            "q": "./node_modules/q",
+                                            "request": "./node_modules/request",
+                                            "require.async": "./node_modules/require.async",
+                                            "send": "./node_modules/send",
+                                            "waitfor": "./node_modules/waitfor"
+                                        }
+                                    },
+                                    "mappings": {
+                                        ".bin": "6c7505fdb169a2dc7d3a5335d5cf00c864dcbcd7-.bin",
+                                        "colors": "59df2d15c49d2a22ca08408d9c4bbe067c6f14ba-colors",
+                                        "commander": "7afa262b0e5f98151f4269f76f3a0765975bd544-commander",
+                                        "deepcopy": "36ebf7c610a6889fa8fe5be58716124489db5c81-deepcopy",
+                                        "deepmerge": "98c6b74665bd9abac5c33394e3edfcf04ef251a1-deepmerge",
+                                        "fs-extra": "f1a425f1dbc850b26bfb40c809d7236c66018f22-fs-extra",
+                                        "grunt": "55f01c620b3d1cc371c82a0e0c9cc18f417ad695-grunt",
+                                        "grunt-mocha": "9ad2352e0c6c710deead157e42c91c5c7e6df9b5-grunt-mocha",
+                                        "mocha": "c19842501527f9b5e9735e50b7adfdf0a03cd592-mocha",
+                                        "pinf-config": "2a6790ce1c3f6fa7f562efe0d6bdaffb57ca2c60-pinf-config",
+                                        "pinf-it-bundler": "5aa4f8236a7c406bfaf61838e207a3e9254be2e6-pinf-it-bundler",
+                                        "pinf-it-package-insight": "a71ccb4796135a5855ebb040bc30dc6e9a260ec7-pinf-it-package-insight",
+                                        "pinf-it-program-insight": "c6035683eb37f4f966e46471e9a2606bd8fc5934-pinf-it-program-insight",
+                                        "pinf-loader-js": "bebbcc612a5e00daf16d3661623ac92c82be881e-pinf-loader-js",
+                                        "pinf-primitives-js": "76a2f12f0a8696a3a9d97df34f43db89b9601bda-pinf-primitives-js",
+                                        "pinf-vfs": "ab49b00e842187d508f091e478b4238c6fe2d0a3-pinf-vfs",
+                                        "q": "5a0ccec13f2baa749563c93e0d37f93136dc5579-q",
+                                        "request": "e8f0a2e912c12fb986839ec2212f3c6e4aa79037-request",
+                                        "require.async": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async",
+                                        "send": "4456002ddeb1a631af5d6819a0e44f7626ab1103-send",
+                                        "waitfor": "57afe811a234d961a291b977f64e22b42a1b4735-waitfor"
+                                    }
+                                },
+                                "package.json": {
+                                    "name": "pinf-for-nodejs",
+                                    "version": "0.1.3",
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "dependencies": {
+                                        "required": {
+                                            "fs-extra": "~0.6.4",
+                                            "pinf-loader-js": "~0.4.5",
+                                            "request": "~2.21.0",
+                                            "waitfor": "~0.1.3",
+                                            "deepmerge": "~0.2.7",
+                                            "commander": "~2.0.0",
+                                            "colors": "~0.6.1",
+                                            "pinf-primitives-js": "~0.1.0",
+                                            "pinf-it-package-insight": "~0.1.3",
+                                            "pinf-it-program-insight": "~0.1.0",
+                                            "deepcopy": "~0.3.1",
+                                            "require.async": "~0.1.1",
+                                            "send": "~0.1.4",
+                                            "pinf-it-bundler": "github.com/pinf-it/pinf-it-bundler/~0.1.1",
+                                            "pinf-config": "github.com/pinf/pinf-config-js/~0.1.0",
+                                            "pinf-vfs": "github.com/pinf/pinf-vfs-js/~0.1.0"
+                                        },
+                                        "development": {
+                                            "mocha": "~1.9.0",
+                                            "grunt": "~0.4.1",
+                                            "grunt-mocha": "~0.3.1",
+                                            "q": "~0.9.3",
+                                            "pinf-loader-js": "github.com/pinf/pinf-loader-js/~0.4.5"
+                                        },
+                                        "bundled": {
+                                            ".bin": "./node_modules/.bin",
+                                            "colors": "./node_modules/colors",
+                                            "commander": "./node_modules/commander",
+                                            "deepcopy": "./node_modules/deepcopy",
+                                            "deepmerge": "./node_modules/deepmerge",
+                                            "fs-extra": "./node_modules/fs-extra",
+                                            "grunt": "./node_modules/grunt",
+                                            "grunt-mocha": "./node_modules/grunt-mocha",
+                                            "mocha": "./node_modules/mocha",
+                                            "pinf-config": "./node_modules/pinf-config",
+                                            "pinf-it-bundler": "./node_modules/pinf-it-bundler",
+                                            "pinf-it-package-insight": "./node_modules/pinf-it-package-insight",
+                                            "pinf-it-program-insight": "./node_modules/pinf-it-program-insight",
+                                            "pinf-loader-js": "./node_modules/pinf-loader-js",
+                                            "pinf-primitives-js": "./node_modules/pinf-primitives-js",
+                                            "pinf-vfs": "./node_modules/pinf-vfs",
+                                            "q": "./node_modules/q",
+                                            "request": "./node_modules/request",
+                                            "require.async": "./node_modules/require.async",
+                                            "send": "./node_modules/send",
+                                            "waitfor": "./node_modules/waitfor"
+                                        }
+                                    },
+                                    "exports": {
+                                        "bundles": {
+                                            "lib/pinf.js": "./lib/pinf.js",
+                                            "lib/main.js": "./lib/main.js",
+                                            "lib/loader.js": "./lib/loader.js"
+                                        },
+                                        "bin": {
+                                            "pinf": "./bin/pinf"
+                                        },
+                                        "scripts": {
+                                            "test": "node_modules/.bin/mocha --reporter list test/*.js",
+                                            "build": "./bin/pinf bundle"
+                                        },
+                                        "main": "./lib/pinf.js"
+                                    },
+                                    "overrides": {
+                                        "./node_modules/request/node_modules/hawk/node_modules/boom": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/hawk/node_modules/sntp": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/hawk/node_modules/cryptiles": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        },
+                                        "./node_modules/request/node_modules/form-data": {
+                                            "descriptor": {
+                                                "config": {
+                                                    "pinf/0/bundler/options/0": {
+                                                        "mapParentSiblingPackages": 2
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "events": {
+                                        "publish": true
+                                    },
+                                    "require.async": {
+                                        "./lib/main.js": "./context"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "mappings": {
+                                        ".bin": "6c7505fdb169a2dc7d3a5335d5cf00c864dcbcd7-.bin",
+                                        "colors": "59df2d15c49d2a22ca08408d9c4bbe067c6f14ba-colors",
+                                        "commander": "7afa262b0e5f98151f4269f76f3a0765975bd544-commander",
+                                        "deepcopy": "36ebf7c610a6889fa8fe5be58716124489db5c81-deepcopy",
+                                        "deepmerge": "98c6b74665bd9abac5c33394e3edfcf04ef251a1-deepmerge",
+                                        "fs-extra": "f1a425f1dbc850b26bfb40c809d7236c66018f22-fs-extra",
+                                        "grunt": "55f01c620b3d1cc371c82a0e0c9cc18f417ad695-grunt",
+                                        "grunt-mocha": "9ad2352e0c6c710deead157e42c91c5c7e6df9b5-grunt-mocha",
+                                        "mocha": "c19842501527f9b5e9735e50b7adfdf0a03cd592-mocha",
+                                        "pinf-config": "2a6790ce1c3f6fa7f562efe0d6bdaffb57ca2c60-pinf-config",
+                                        "pinf-it-bundler": "5aa4f8236a7c406bfaf61838e207a3e9254be2e6-pinf-it-bundler",
+                                        "pinf-it-package-insight": "a71ccb4796135a5855ebb040bc30dc6e9a260ec7-pinf-it-package-insight",
+                                        "pinf-it-program-insight": "c6035683eb37f4f966e46471e9a2606bd8fc5934-pinf-it-program-insight",
+                                        "pinf-loader-js": "bebbcc612a5e00daf16d3661623ac92c82be881e-pinf-loader-js",
+                                        "pinf-primitives-js": "76a2f12f0a8696a3a9d97df34f43db89b9601bda-pinf-primitives-js",
+                                        "pinf-vfs": "ab49b00e842187d508f091e478b4238c6fe2d0a3-pinf-vfs",
+                                        "q": "5a0ccec13f2baa749563c93e0d37f93136dc5579-q",
+                                        "request": "e8f0a2e912c12fb986839ec2212f3c6e4aa79037-request",
+                                        "require.async": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async",
+                                        "send": "4456002ddeb1a631af5d6819a0e44f7626ab1103-send",
+                                        "waitfor": "57afe811a234d961a291b977f64e22b42a1b4735-waitfor"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "name": "pinf-for-nodejs",
+                                "version": "0.1.3",
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "dependencies": {
+                                    "required": {
+                                        "fs-extra": "~0.6.4",
+                                        "pinf-loader-js": "~0.4.5",
+                                        "request": "~2.21.0",
+                                        "waitfor": "~0.1.3",
+                                        "deepmerge": "~0.2.7",
+                                        "commander": "~2.0.0",
+                                        "colors": "~0.6.1",
+                                        "pinf-primitives-js": "~0.1.0",
+                                        "pinf-it-package-insight": "~0.1.3",
+                                        "pinf-it-program-insight": "~0.1.0",
+                                        "deepcopy": "~0.3.1",
+                                        "require.async": "~0.1.1",
+                                        "send": "~0.1.4",
+                                        "pinf-it-bundler": "github.com/pinf-it/pinf-it-bundler/~0.1.1",
+                                        "pinf-config": "github.com/pinf/pinf-config-js/~0.1.0",
+                                        "pinf-vfs": "github.com/pinf/pinf-vfs-js/~0.1.0"
+                                    },
+                                    "development": {
+                                        "mocha": "~1.9.0",
+                                        "grunt": "~0.4.1",
+                                        "grunt-mocha": "~0.3.1",
+                                        "q": "~0.9.3",
+                                        "pinf-loader-js": "github.com/pinf/pinf-loader-js/~0.4.5"
+                                    },
+                                    "bundled": {
+                                        ".bin": "./node_modules/.bin",
+                                        "colors": "./node_modules/colors",
+                                        "commander": "./node_modules/commander",
+                                        "deepcopy": "./node_modules/deepcopy",
+                                        "deepmerge": "./node_modules/deepmerge",
+                                        "fs-extra": "./node_modules/fs-extra",
+                                        "grunt": "./node_modules/grunt",
+                                        "grunt-mocha": "./node_modules/grunt-mocha",
+                                        "mocha": "./node_modules/mocha",
+                                        "pinf-config": "./node_modules/pinf-config",
+                                        "pinf-it-bundler": "./node_modules/pinf-it-bundler",
+                                        "pinf-it-package-insight": "./node_modules/pinf-it-package-insight",
+                                        "pinf-it-program-insight": "./node_modules/pinf-it-program-insight",
+                                        "pinf-loader-js": "./node_modules/pinf-loader-js",
+                                        "pinf-primitives-js": "./node_modules/pinf-primitives-js",
+                                        "pinf-vfs": "./node_modules/pinf-vfs",
+                                        "q": "./node_modules/q",
+                                        "request": "./node_modules/request",
+                                        "require.async": "./node_modules/require.async",
+                                        "send": "./node_modules/send",
+                                        "waitfor": "./node_modules/waitfor"
+                                    }
+                                },
+                                "exports": {
+                                    "bundles": {
+                                        "lib/pinf.js": "./lib/pinf.js",
+                                        "lib/main.js": "./lib/main.js",
+                                        "lib/loader.js": "./lib/loader.js"
+                                    },
+                                    "bin": {
+                                        "pinf": "./bin/pinf"
+                                    },
+                                    "scripts": {
+                                        "test": "node_modules/.bin/mocha --reporter list test/*.js",
+                                        "build": "./bin/pinf bundle"
+                                    },
+                                    "main": "./lib/pinf.js"
+                                },
+                                "overrides": {
+                                    "./node_modules/request/node_modules/hawk/node_modules/boom": {
+                                        "descriptor": {
+                                            "config": {
+                                                "pinf/0/bundler/options/0": {
+                                                    "mapParentSiblingPackages": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "./node_modules/request/node_modules/hawk/node_modules/sntp": {
+                                        "descriptor": {
+                                            "config": {
+                                                "pinf/0/bundler/options/0": {
+                                                    "mapParentSiblingPackages": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "./node_modules/request/node_modules/hawk/node_modules/cryptiles": {
+                                        "descriptor": {
+                                            "config": {
+                                                "pinf/0/bundler/options/0": {
+                                                    "mapParentSiblingPackages": 2
+                                                }
+                                            }
+                                        }
+                                    },
+                                    "./node_modules/request/node_modules/form-data": {
+                                        "descriptor": {
+                                            "config": {
+                                                "pinf/0/bundler/options/0": {
+                                                    "mapParentSiblingPackages": 2
+                                                }
+                                            }
+                                        }
+                                    }
+                                },
+                                "events": {
+                                    "publish": true
+                                },
+                                "require.async": {
+                                    "./lib/main.js": "./context"
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "mappings": {
+                                    ".bin": "6c7505fdb169a2dc7d3a5335d5cf00c864dcbcd7-.bin",
+                                    "colors": "59df2d15c49d2a22ca08408d9c4bbe067c6f14ba-colors",
+                                    "commander": "7afa262b0e5f98151f4269f76f3a0765975bd544-commander",
+                                    "deepcopy": "36ebf7c610a6889fa8fe5be58716124489db5c81-deepcopy",
+                                    "deepmerge": "98c6b74665bd9abac5c33394e3edfcf04ef251a1-deepmerge",
+                                    "fs-extra": "f1a425f1dbc850b26bfb40c809d7236c66018f22-fs-extra",
+                                    "grunt": "55f01c620b3d1cc371c82a0e0c9cc18f417ad695-grunt",
+                                    "grunt-mocha": "9ad2352e0c6c710deead157e42c91c5c7e6df9b5-grunt-mocha",
+                                    "mocha": "c19842501527f9b5e9735e50b7adfdf0a03cd592-mocha",
+                                    "pinf-config": "2a6790ce1c3f6fa7f562efe0d6bdaffb57ca2c60-pinf-config",
+                                    "pinf-it-bundler": "5aa4f8236a7c406bfaf61838e207a3e9254be2e6-pinf-it-bundler",
+                                    "pinf-it-package-insight": "a71ccb4796135a5855ebb040bc30dc6e9a260ec7-pinf-it-package-insight",
+                                    "pinf-it-program-insight": "c6035683eb37f4f966e46471e9a2606bd8fc5934-pinf-it-program-insight",
+                                    "pinf-loader-js": "bebbcc612a5e00daf16d3661623ac92c82be881e-pinf-loader-js",
+                                    "pinf-primitives-js": "76a2f12f0a8696a3a9d97df34f43db89b9601bda-pinf-primitives-js",
+                                    "pinf-vfs": "ab49b00e842187d508f091e478b4238c6fe2d0a3-pinf-vfs",
+                                    "q": "5a0ccec13f2baa749563c93e0d37f93136dc5579-q",
+                                    "request": "e8f0a2e912c12fb986839ec2212f3c6e4aa79037-request",
+                                    "require.async": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async",
+                                    "send": "4456002ddeb1a631af5d6819a0e44f7626ab1103-send",
+                                    "waitfor": "57afe811a234d961a291b977f64e22b42a1b4735-waitfor"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs/lib/pinf.js",
+                                "mappings": {
+                                    "require.async": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async"
+                                },
+                                "dirpath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    },
+                    "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/package.json": {
+                        "requireId": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/package.json",
+                        "memoizeId": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async",
+                            "dirrealpath": "../github.com+pinf+require.async",
+                            "id": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async/package.json",
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "name": "require.async",
+                                    "version": "0.1.1",
+                                    "publish": true,
+                                    "pm": "npm",
+                                    "main": "require.async.js",
+                                    "engines": {
+                                        "node": ">=0.6"
+                                    },
+                                    "scripts": {
+                                        "test": "node test.js"
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    }
+                                },
+                                "package.json": {
+                                    "name": "require.async",
+                                    "version": "0.1.1",
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "requirements": {
+                                        "engines": {
+                                            "node": ">=0.6"
+                                        }
+                                    },
+                                    "exports": {
+                                        "scripts": {
+                                            "test": "node test.js"
+                                        },
+                                        "main": "./require.async.js"
+                                    },
+                                    "events": {
+                                        "publish": true
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "name": "require.async",
+                                "version": "0.1.1",
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "requirements": {
+                                    "engines": {
+                                        "node": ">=0.6"
+                                    }
+                                },
+                                "exports": {
+                                    "scripts": {
+                                        "test": "node test.js"
+                                    },
+                                    "main": "./require.async.js"
+                                },
+                                "events": {
+                                    "publish": true
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "f49fa9ddb2d9f9b859bcb1c1c85478a78e23ba61-require.async/require.async.js",
+                                "dirpath": "test/assets/packages/require-async-deep-pkg/node_modules/pinf-for-nodejs/node_modules/require.async"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-deep-pkg",
+                            "dirrealpath": "test/assets/packages/require-async-deep-pkg",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json",
+                                "test/assets/packages/require-async-deep-pkg/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-deep-pkg/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                },
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    },
+                                    "pm": {
+                                        "install": "npm"
+                                    },
+                                    "layout": {
+                                        "directories": {
+                                            "dependency": "./node_modules"
+                                        }
+                                    },
+                                    "dependencies": {
+                                        "bundled": {
+                                            "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                        }
+                                    },
+                                    "mappings": {
+                                        "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                },
+                                "pm": {
+                                    "install": "npm"
+                                },
+                                "layout": {
+                                    "directories": {
+                                        "dependency": "./node_modules"
+                                    }
+                                },
+                                "dependencies": {
+                                    "bundled": {
+                                        "pinf-for-nodejs": "./node_modules/pinf-for-nodejs"
+                                    }
+                                },
+                                "mappings": {
+                                    "pinf-for-nodejs": "3d651410283fe41ff53775736a29d43f95b1f37f-pinf-for-nodejs"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-async-deep-pkg"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "bundle": {
+                    "path": "test/assets/packages/require-async-deep-pkg/.dist/app/extra.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/extra.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/extra.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/require-async-deep-pkg/.dist/app.js"
+        }
+    }
+}

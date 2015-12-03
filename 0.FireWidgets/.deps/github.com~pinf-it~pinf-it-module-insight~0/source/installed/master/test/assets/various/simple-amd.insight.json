@@ -1,0 +1,22 @@
+{
+    "filename": "simple-amd.js",
+    "filepath": "various/simple-amd.js",
+    "mtime": 0,
+    "code": "\ndefine(function() {\n\treturn {\n\t\tSTRING: \"string-value\",\n\t\tOBJECT: {\n\t\t\tid: \"object-value\"\n\t\t}\n\t};\n});\n",
+    "globals": {
+        "define": {
+            "type": "call"
+        }
+    },
+    "syntax": "javascript",
+    "format": "amd",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

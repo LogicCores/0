@@ -1,0 +1,72 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-complex/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app.js": "",
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app/greeting.js": "",
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app/greeting/assemble.js": "",
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app/greeting/assemble/698b594771c54e63058ef9073aaf59f1e529c21f-letters/e.js": "",
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app/greeting/assemble/698b594771c54e63058ef9073aaf59f1e529c21f-letters/e/698b594771c54e63058ef9073aaf59f1e529c21f-letters/more.js": "",
+            "test/assets/packages/nodejs-dynamic-require-complex/.dist/app/greeting/assemble/b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o/o.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "letters": "698b594771c54e63058ef9073aaf59f1e529c21f-letters",
+                    "letter-l": "a7cccbec540b3144a9118e36296b68cb3dd574ea-letter-l",
+                    "letter-o": "b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "698b594771c54e63058ef9073aaf59f1e529c21f-letters": {
+                "main": "/main.js",
+                "mappings": {
+                    "letter-l": "a7cccbec540b3144a9118e36296b68cb3dd574ea-letter-l",
+                    "letter-o": "b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "a7cccbec540b3144a9118e36296b68cb3dd574ea-letter-l": {
+                "main": "/main.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o": {
+                "main": "/main.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 2
+            },
+            "/package.json": {},
+            "/greeting.js": {
+                "exports": 1
+            },
+            "/assemble.js": {
+                "exports": 1
+            },
+            "698b594771c54e63058ef9073aaf59f1e529c21f-letters/e.js": {
+                "exports": 3
+            },
+            "698b594771c54e63058ef9073aaf59f1e529c21f-letters/package.json": {},
+            "698b594771c54e63058ef9073aaf59f1e529c21f-letters/more.js": {
+                "exports": 2
+            },
+            "a7cccbec540b3144a9118e36296b68cb3dd574ea-letter-l/l.js": {
+                "exports": 1
+            },
+            "a7cccbec540b3144a9118e36296b68cb3dd574ea-letter-l/package.json": {},
+            "b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o/o.js": {
+                "exports": 1
+            },
+            "b78c7d66a80e380b94bf97cf383ab6907b15365e-letter-o/package.json": {}
+        }
+    }
+}

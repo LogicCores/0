@@ -1,0 +1,29 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "Developer",
+        "keyProperty": "email",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"email": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"name": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"responsibility": {
+				"constraints": {
+					"required": true
+				}
+			}
+        }
+    }
+}

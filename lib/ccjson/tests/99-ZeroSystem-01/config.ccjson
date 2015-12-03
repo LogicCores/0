@@ -1,0 +1,65 @@
+{
+    "@": {
+        "profile.impl": {
+            "$": "./profile.ccjson"
+        },
+        "auth.impl": {
+            "$": "./auth.ccjson"
+        },
+        "route.express": {
+            "$": "./route.ccjson"
+        }
+    },
+    "@profile.impl": {
+        "$profile": {
+            "secret": "SecretValue"
+        }
+    },
+    "@auth.impl": {
+        "$auth": {
+            "$profile.decrypt()->set1": {
+                "someVariable": "(EncryptedUsingSecretValue)Value",
+                "someVariableA": "(EncryptedUsingSecretValue)ValueA"
+        	},
+        	"set1": {
+                "someVariableA": "OurOverrideValueA",
+                "someVariableB": "OurValueB"
+        	},
+        	"set2": {
+                "someVariableC": "OurValueC",
+                "sub": {
+                    "someVariableD": "OurValueD",
+                    "someVariable2": "OurOriginalValue"
+                }
+        	},
+            "$profile.decrypt()->set2/sub": {
+                "someVariable2": "(EncryptedUsingSecretValue)Value2"
+        	},
+            "$profile.decrypt()->.": {
+                "someVariable3": "(EncryptedUsingSecretValue)Value3"
+        	},
+        	"$profile.makeDecrypter()->decrypter": {
+            }
+        }
+    },
+    "@route.express": {
+        "$0.routes.auth.passport": {
+            "namespace": "0",
+            "$profile.makeDecrypter()->decrypter": {
+            },
+            "$profile.key()->key": {
+                "extraKey": "key1"
+            },
+            "more": "data1"
+        },
+        "$0.routes.proxy.smi.cache.org.travis-ci": {
+            "namespace": "0",
+            "$profile.makeDecrypter()->decrypter": {
+            },
+            "$profile.key()->key": {
+                "extraKey": "key2"
+            },
+            "more": "data2"
+        }
+    }
+}

@@ -1,0 +1,6 @@
+{
+	"main": "app",
+	"mappings": {
+	    "pkg": "../require-async-sub"
+	}
+}

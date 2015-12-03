@@ -1,0 +1,8 @@
+{
+    "@0.pinf.genesis.Deployment": {
+        "$0.0.pinf.genesis.Deployment": {
+            "name": "{{ENV.ENVIRONMENT_NAME}}",
+            "platform": "com.heroku"
+        }
+    }
+}

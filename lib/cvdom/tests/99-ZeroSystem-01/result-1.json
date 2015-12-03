@@ -1,0 +1,330 @@
+{
+    "tagName": "DIV",
+    "properties": {},
+    "children": [
+        {
+            "text": "\n    "
+        },
+        {
+            "tagName": "DIV",
+            "properties": {
+                "className": "filter"
+            },
+            "children": [
+                {
+                    "text": "\n        "
+                },
+                {
+                    "tagName": "DIV",
+                    "properties": {
+                        "dataset": {}
+                    },
+                    "children": [
+                        {
+                            "text": "\n            "
+                        },
+                        {
+                            "tagName": "DIV",
+                            "properties": {
+                                "dataset": {
+                                    "componentProp": "options"
+                                }
+                            },
+                            "children": [
+                                {
+                                    "text": "[Options 1, Options 2, Options 3]"
+                                }
+                            ],
+                            "namespace": null,
+                            "count": 1,
+                            "hasWidgets": false,
+                            "hasThunks": false,
+                            "descendantHooks": false
+                        },
+                        {
+                            "text": "\n        "
+                        }
+                    ],
+                    "namespace": null,
+                    "count": 4,
+                    "hasWidgets": false,
+                    "hasThunks": false,
+                    "descendantHooks": false
+                },
+                {
+                    "text": "\n    "
+                }
+            ],
+            "namespace": null,
+            "count": 7,
+            "hasWidgets": false,
+            "hasThunks": false,
+            "descendantHooks": false
+        },
+        {
+            "text": "\n    \n    "
+        },
+        {
+            "tagName": "DIV",
+            "properties": {
+                "className": "table"
+            },
+            "children": [
+                {
+                    "text": "\n        "
+                },
+                {
+                    "tagName": "TABLE",
+                    "properties": {
+                        "dataset": {},
+                        "className": "ui striped table"
+                    },
+                    "children": [
+                        {
+                            "text": "\n          "
+                        },
+                        {
+                            "tagName": "THEAD",
+                            "properties": {},
+                            "children": [
+                                {
+                                    "text": "\n            "
+                                },
+                                {
+                                    "tagName": "TR",
+                                    "properties": {},
+                                    "children": [
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TH",
+                                            "properties": {},
+                                            "children": [
+                                                {
+                                                    "text": "Col 1"
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TH",
+                                            "properties": {},
+                                            "children": [
+                                                {
+                                                    "text": "Col 2"
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n            "
+                                        }
+                                    ],
+                                    "namespace": null,
+                                    "count": 7,
+                                    "hasWidgets": false,
+                                    "hasThunks": false,
+                                    "descendantHooks": false
+                                },
+                                {
+                                    "text": "\n          "
+                                }
+                            ],
+                            "namespace": null,
+                            "count": 10,
+                            "hasWidgets": false,
+                            "hasThunks": false,
+                            "descendantHooks": false
+                        },
+                        {
+                            "text": "\n          "
+                        },
+                        {
+                            "tagName": "TBODY",
+                            "properties": {
+                                "dataset": {}
+                            },
+                            "children": [
+                                {
+                                    "text": "\n            "
+                                },
+                                {
+                                    "tagName": "TR",
+                                    "properties": {
+                                        "dataset": {}
+                                    },
+                                    "children": [
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TD",
+                                            "properties": {
+                                                "dataset": {
+                                                    "componentProp": "title"
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "text": "Item 1"
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TD",
+                                            "properties": {
+                                                "dataset": {
+                                                    "componentProp": "url"
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "text": "http://test.com/item1"
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n            "
+                                        }
+                                    ],
+                                    "namespace": null,
+                                    "count": 7,
+                                    "hasWidgets": false,
+                                    "hasThunks": false,
+                                    "descendantHooks": false
+                                },
+                                {
+                                    "text": "\n          "
+                                },
+                                {
+                                    "text": "\n            "
+                                },
+                                {
+                                    "tagName": "TR",
+                                    "properties": {
+                                        "dataset": {}
+                                    },
+                                    "children": [
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TD",
+                                            "properties": {
+                                                "dataset": {
+                                                    "componentProp": "title"
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "text": "Item 2"
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n              "
+                                        },
+                                        {
+                                            "tagName": "TD",
+                                            "properties": {
+                                                "dataset": {
+                                                    "componentProp": "url"
+                                                }
+                                            },
+                                            "children": [
+                                                {
+                                                    "text": ""
+                                                }
+                                            ],
+                                            "namespace": null,
+                                            "count": 1,
+                                            "hasWidgets": false,
+                                            "hasThunks": false,
+                                            "descendantHooks": false
+                                        },
+                                        {
+                                            "text": "\n            "
+                                        }
+                                    ],
+                                    "namespace": null,
+                                    "count": 7,
+                                    "hasWidgets": false,
+                                    "hasThunks": false,
+                                    "descendantHooks": false
+                                },
+                                {
+                                    "text": "\n          "
+                                }
+                            ],
+                            "namespace": null,
+                            "count": 20,
+                            "hasWidgets": false,
+                            "hasThunks": false,
+                            "descendantHooks": false
+                        },
+                        {
+                            "text": "\n        "
+                        }
+                    ],
+                    "namespace": null,
+                    "count": 35,
+                    "hasWidgets": false,
+                    "hasThunks": false,
+                    "descendantHooks": false
+                },
+                {
+                    "text": "\n    "
+                }
+            ],
+            "namespace": null,
+            "count": 38,
+            "hasWidgets": false,
+            "hasThunks": false,
+            "descendantHooks": false
+        },
+        {
+            "text": "\n\n    "
+        },
+        {
+            "text": "\n    \n    "
+        },
+        {
+            "text": "\n"
+        }
+    ],
+    "namespace": null,
+    "count": 52,
+    "hasWidgets": false,
+    "hasThunks": false,
+    "descendantHooks": false
+}

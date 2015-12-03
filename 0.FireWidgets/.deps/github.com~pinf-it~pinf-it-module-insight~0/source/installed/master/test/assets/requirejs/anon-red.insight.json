@@ -1,0 +1,22 @@
+{
+    "filename": "anon-red.js",
+    "filepath": "requirejs/anon-red.js",
+    "mtime": 0,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/anon/red.js\ndefine(\"red\", function () {\n    return {\n        name: \"red\"\n    };\n});",
+    "globals": {
+        "define": {
+            "type": "call"
+        }
+    },
+    "syntax": "javascript",
+    "format": "amd",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

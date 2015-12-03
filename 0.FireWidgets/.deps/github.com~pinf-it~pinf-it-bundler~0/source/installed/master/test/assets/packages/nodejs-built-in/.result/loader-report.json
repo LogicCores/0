@@ -1,0 +1,439 @@
+{
+    "test/assets/packages/nodejs-built-in/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-built-in/.dist/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "fs-extra": "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra",
+                    "request": "ed4bb06796db1905581e7b400da006dd7b8b1b55-request"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra": {
+                "main": "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/index.js",
+                "mappings": {
+                    "jsonfile": "d5ba5d20168aa9175f55feda3f60aab1a6ace818-jsonfile",
+                    "mkdirp": "693ec9cb1f2f61428c63e9cd17e57775f4df0f74-mkdirp",
+                    "ncp": "c99227b03d285ab9292c0748af53c56ffc9ac859-ncp",
+                    "rimraf": "16117a71d212e842209fc0336b7b2cf0572a5023-rimraf"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "d5ba5d20168aa9175f55feda3f60aab1a6ace818-jsonfile": {
+                "main": "d5ba5d20168aa9175f55feda3f60aab1a6ace818-jsonfile/lib/jsonfile.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "693ec9cb1f2f61428c63e9cd17e57775f4df0f74-mkdirp": {
+                "main": "693ec9cb1f2f61428c63e9cd17e57775f4df0f74-mkdirp/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "c99227b03d285ab9292c0748af53c56ffc9ac859-ncp": {
+                "main": "c99227b03d285ab9292c0748af53c56ffc9ac859-ncp/lib/ncp.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "16117a71d212e842209fc0336b7b2cf0572a5023-rimraf": {
+                "main": "16117a71d212e842209fc0336b7b2cf0572a5023-rimraf/rimraf.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request": {
+                "main": "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/index.js",
+                "mappings": {
+                    "cookie-jar": "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar",
+                    "qs": "bad905498fb7a8a034fa664d6ed1a9c67f1b189c-qs",
+                    "oauth-sign": "4c8c493e0464365389fe0601e4bb6254d3b41a3c-oauth-sign",
+                    "hawk": "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk",
+                    "aws-sign": "effa10bda53b956d3e4fe3fada19d444ee3ea1ac-aws-sign",
+                    "http-signature": "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature",
+                    "node-uuid": "e999f0bd6e194076d315ffd2a431c4c6e32def1e-node-uuid",
+                    "mime": "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime",
+                    "tunnel-agent": "11cb05bc0940ffae1a1e1f73ca7c89e4731519fe-tunnel-agent",
+                    "json-stringify-safe": "cd513417702c216d7e831b5e07732580c4cd46ff-json-stringify-safe",
+                    "forever-agent": "0aece9af14f253ebe7db431e7f82a4db65578bac-forever-agent",
+                    "form-data": "30e023fb56d12219edd0fa0dc5fec5bc671e23d7-form-data"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar": {
+                "main": "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "bad905498fb7a8a034fa664d6ed1a9c67f1b189c-qs": {
+                "main": "bad905498fb7a8a034fa664d6ed1a9c67f1b189c-qs/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "4c8c493e0464365389fe0601e4bb6254d3b41a3c-oauth-sign": {
+                "main": "4c8c493e0464365389fe0601e4bb6254d3b41a3c-oauth-sign/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk": {
+                "main": "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/index.js",
+                "mappings": {
+                    "boom": "799caeb4798b9c4de483910de2aa52868f1f47d9-boom",
+                    "sntp": "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp",
+                    "hoek": "f7d6999ac201573ce8335e058ee0439994171772-hoek",
+                    "cryptiles": "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "799caeb4798b9c4de483910de2aa52868f1f47d9-boom": {
+                "main": "799caeb4798b9c4de483910de2aa52868f1f47d9-boom/index.js",
+                "mappings": {
+                    "hoek": "f7d6999ac201573ce8335e058ee0439994171772-hoek"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "f7d6999ac201573ce8335e058ee0439994171772-hoek": {
+                "main": "f7d6999ac201573ce8335e058ee0439994171772-hoek/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp": {
+                "main": "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp/index.js",
+                "mappings": {
+                    "hoek": "f7d6999ac201573ce8335e058ee0439994171772-hoek"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles": {
+                "main": "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles/index.js",
+                "mappings": {
+                    "boom": "799caeb4798b9c4de483910de2aa52868f1f47d9-boom"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "effa10bda53b956d3e4fe3fada19d444ee3ea1ac-aws-sign": {
+                "main": "effa10bda53b956d3e4fe3fada19d444ee3ea1ac-aws-sign/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature": {
+                "main": "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/index.js",
+                "mappings": {
+                    "assert-plus": "fbda01465fe6db497c8c3e6b1a4a2bfae5a62cfc-assert-plus",
+                    "asn1": "e612e189cff4640079c1b54bfddcf962015c2f30-asn1",
+                    "ctype": "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "fbda01465fe6db497c8c3e6b1a4a2bfae5a62cfc-assert-plus": {
+                "main": "fbda01465fe6db497c8c3e6b1a4a2bfae5a62cfc-assert-plus/assert.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1": {
+                "main": "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype": {
+                "main": "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype/ctype.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "e999f0bd6e194076d315ffd2a431c4c6e32def1e-node-uuid": {
+                "main": "e999f0bd6e194076d315ffd2a431c4c6e32def1e-node-uuid/uuid.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime": {
+                "main": "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime/mime.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "11cb05bc0940ffae1a1e1f73ca7c89e4731519fe-tunnel-agent": {
+                "main": "11cb05bc0940ffae1a1e1f73ca7c89e4731519fe-tunnel-agent/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "cd513417702c216d7e831b5e07732580c4cd46ff-json-stringify-safe": {
+                "main": "cd513417702c216d7e831b5e07732580c4cd46ff-json-stringify-safe/stringify.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "0aece9af14f253ebe7db431e7f82a4db65578bac-forever-agent": {
+                "main": "0aece9af14f253ebe7db431e7f82a4db65578bac-forever-agent/index.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "30e023fb56d12219edd0fa0dc5fec5bc671e23d7-form-data": {
+                "main": "30e023fb56d12219edd0fa0dc5fec5bc671e23d7-form-data/lib/form_data.js",
+                "mappings": {
+                    "combined-stream": "06cbcc54faef9f40e30e431889706609e5cfcee5-combined-stream",
+                    "mime": "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime",
+                    "async": "257a70b6290719603e5079400727f3d2d2d1b03a-async"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "06cbcc54faef9f40e30e431889706609e5cfcee5-combined-stream": {
+                "main": "06cbcc54faef9f40e30e431889706609e5cfcee5-combined-stream/lib/combined_stream.js",
+                "mappings": {
+                    "delayed-stream": "199a58ca20a8d32f3b68d292b20fd112db88b5ec-delayed-stream"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "199a58ca20a8d32f3b68d292b20fd112db88b5ec-delayed-stream": {
+                "main": "199a58ca20a8d32f3b68d292b20fd112db88b5ec-delayed-stream/lib/delayed_stream.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            },
+            "257a70b6290719603e5079400727f3d2d2d1b03a-async": {
+                "main": "257a70b6290719603e5079400727f3d2d2d1b03a-async/lib/async.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 6
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/index.js": {
+                "exports": 112
+            },
+            "d5ba5d20168aa9175f55feda3f60aab1a6ace818-jsonfile/lib/jsonfile.js": {
+                "exports": 5
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/json.js": {
+                "exports": 2
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/mkdir.js": {
+                "exports": 2
+            },
+            "693ec9cb1f2f61428c63e9cd17e57775f4df0f74-mkdirp/index.js": {
+                "exports": 3
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/copy.js": {
+                "exports": 3
+            },
+            "c99227b03d285ab9292c0748af53c56ffc9ac859-ncp/lib/ncp.js": {
+                "exports": 1
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/remove.js": {
+                "exports": 2
+            },
+            "16117a71d212e842209fc0336b7b2cf0572a5023-rimraf/rimraf.js": {
+                "exports": 1
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/create.js": {
+                "exports": 2
+            },
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/lib/output.js": {
+                "exports": 2
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/index.js": {
+                "exports": 13
+            },
+            "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar/index.js": {
+                "exports": 1
+            },
+            "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar/jar.js": {
+                "exports": 0
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/lib/copy.js": {
+                "exports": 0
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/request.js": {
+                "exports": 1
+            },
+            "bad905498fb7a8a034fa664d6ed1a9c67f1b189c-qs/index.js": {
+                "exports": 2
+            },
+            "4c8c493e0464365389fe0601e4bb6254d3b41a3c-oauth-sign/index.js": {
+                "exports": 2
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/index.js": {
+                "exports": 8
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/lib/index.js": {
+                "exports": 8
+            },
+            "799caeb4798b9c4de483910de2aa52868f1f47d9-boom/index.js": {
+                "exports": 9
+            },
+            "799caeb4798b9c4de483910de2aa52868f1f47d9-boom/lib/index.js": {
+                "exports": 9
+            },
+            "f7d6999ac201573ce8335e058ee0439994171772-hoek/index.js": {
+                "exports": 32
+            },
+            "f7d6999ac201573ce8335e058ee0439994171772-hoek/lib/index.js": {
+                "exports": 32
+            },
+            "f7d6999ac201573ce8335e058ee0439994171772-hoek/lib/escape.js": {
+                "exports": 2
+            },
+            "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp/index.js": {
+                "exports": 6
+            },
+            "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp/lib/index.js": {
+                "exports": 6
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/lib/server.js": {
+                "exports": 5
+            },
+            "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles/index.js": {
+                "exports": 3
+            },
+            "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles/lib/index.js": {
+                "exports": 3
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/lib/crypto.js": {
+                "exports": 8
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/lib/utils.js": {
+                "exports": 39
+            },
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/lib/client.js": {
+                "exports": 4
+            },
+            "effa10bda53b956d3e4fe3fada19d444ee3ea1ac-aws-sign/index.js": {
+                "exports": 7
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/index.js": {
+                "exports": 9
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/parser.js": {
+                "exports": 1
+            },
+            "fbda01465fe6db497c8c3e6b1a4a2bfae5a62cfc-assert-plus/assert.js": {
+                "exports": 50
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/signer.js": {
+                "exports": 1
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/verify.js": {
+                "exports": 1
+            },
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/lib/util.js": {
+                "exports": 3
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/index.js": {
+                "exports": 3
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/ber/index.js": {
+                "exports": 34
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/ber/errors.js": {
+                "exports": 1
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/ber/types.js": {
+                "exports": 31
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/ber/reader.js": {
+                "exports": 0
+            },
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/lib/ber/writer.js": {
+                "exports": 0
+            },
+            "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype/ctype.js": {
+                "exports": 24
+            },
+            "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype/ctf.js": {
+                "exports": 1
+            },
+            "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype/ctio.js": {
+                "exports": 20
+            },
+            "e999f0bd6e194076d315ffd2a431c4c6e32def1e-node-uuid/uuid.js": {
+                "exports": 5
+            },
+            "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime/mime.js": {
+                "exports": 10
+            },
+            "11cb05bc0940ffae1a1e1f73ca7c89e4731519fe-tunnel-agent/index.js": {
+                "exports": 5
+            },
+            "cd513417702c216d7e831b5e07732580c4cd46ff-json-stringify-safe/stringify.js": {
+                "exports": 1
+            },
+            "0aece9af14f253ebe7db431e7f82a4db65578bac-forever-agent/index.js": {
+                "exports": 3
+            },
+            "30e023fb56d12219edd0fa0dc5fec5bc671e23d7-form-data/lib/form_data.js": {
+                "exports": 2
+            },
+            "06cbcc54faef9f40e30e431889706609e5cfcee5-combined-stream/lib/combined_stream.js": {
+                "exports": 3
+            },
+            "199a58ca20a8d32f3b68d292b20fd112db88b5ec-delayed-stream/lib/delayed_stream.js": {
+                "exports": 2
+            },
+            "257a70b6290719603e5079400727f3d2d2d1b03a-async/lib/async.js": {
+                "exports": 58
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/lib/debug.js": {
+                "exports": 0
+            },
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/lib/getSafe.js": {
+                "exports": 0
+            },
+            "/package.json": {},
+            "b98063a15c6bafaefa93c7f701af192d69a9efd8-fs-extra/package.json": {},
+            "d5ba5d20168aa9175f55feda3f60aab1a6ace818-jsonfile/package.json": {},
+            "693ec9cb1f2f61428c63e9cd17e57775f4df0f74-mkdirp/package.json": {},
+            "c99227b03d285ab9292c0748af53c56ffc9ac859-ncp/package.json": {},
+            "16117a71d212e842209fc0336b7b2cf0572a5023-rimraf/package.json": {},
+            "ed4bb06796db1905581e7b400da006dd7b8b1b55-request/package.json": {},
+            "96d6c97b8f07f8f227fbeb5b214187b162ad8c7c-cookie-jar/package.json": {},
+            "bad905498fb7a8a034fa664d6ed1a9c67f1b189c-qs/package.json": {},
+            "4c8c493e0464365389fe0601e4bb6254d3b41a3c-oauth-sign/package.json": {},
+            "29eb5a18eb620cc598527d89a0c5c611db63e91b-hawk/package.json": {},
+            "799caeb4798b9c4de483910de2aa52868f1f47d9-boom/package.json": {},
+            "f7d6999ac201573ce8335e058ee0439994171772-hoek/package.json": {},
+            "99cc0c112bc5e48183c985f6e4c69af129c98ba7-sntp/package.json": {},
+            "0d16239d3ef60fdd17d17b1d50d2c59ee8e63166-cryptiles/package.json": {},
+            "effa10bda53b956d3e4fe3fada19d444ee3ea1ac-aws-sign/package.json": {},
+            "6f0d5981580f5664565c0af7ca279d689a790fb5-http-signature/package.json": {},
+            "fbda01465fe6db497c8c3e6b1a4a2bfae5a62cfc-assert-plus/package.json": {},
+            "e612e189cff4640079c1b54bfddcf962015c2f30-asn1/package.json": {},
+            "772d995e44ccaf42f98f64a0097b4a58863c38af-ctype/package.json": {},
+            "e999f0bd6e194076d315ffd2a431c4c6e32def1e-node-uuid/package.json": {},
+            "acbfdcf6c33b2a153969671d593b45e4d0cd5768-mime/package.json": {},
+            "11cb05bc0940ffae1a1e1f73ca7c89e4731519fe-tunnel-agent/package.json": {},
+            "cd513417702c216d7e831b5e07732580c4cd46ff-json-stringify-safe/package.json": {},
+            "0aece9af14f253ebe7db431e7f82a4db65578bac-forever-agent/package.json": {},
+            "30e023fb56d12219edd0fa0dc5fec5bc671e23d7-form-data/package.json": {},
+            "06cbcc54faef9f40e30e431889706609e5cfcee5-combined-stream/package.json": {},
+            "199a58ca20a8d32f3b68d292b20fd112db88b5ec-delayed-stream/package.json": {},
+            "257a70b6290719603e5079400727f3d2d2d1b03a-async/package.json": {}
+        }
+    }
+}

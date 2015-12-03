@@ -1,0 +1,25 @@
+{
+    "test/assets/packages/nodejs-dynamic-require-shared/.dist/app": {
+        "bundles": {
+            "test/assets/packages/nodejs-dynamic-require-shared/.dist/app.js": "",
+            "test/assets/packages/nodejs-dynamic-require-shared/.dist/app/greeting.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "/greeting.js": {
+                "exports": 1
+            }
+        }
+    }
+}

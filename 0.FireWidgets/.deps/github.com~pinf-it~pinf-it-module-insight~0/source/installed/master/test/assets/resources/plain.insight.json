@@ -1,0 +1,18 @@
+{
+    "filename": "plain.txt",
+    "filepath": "resources/plain.txt",
+    "mtime": 0,
+    "code": "Hello World",
+    "globals": {},
+    "syntax": null,
+    "format": "utf8",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

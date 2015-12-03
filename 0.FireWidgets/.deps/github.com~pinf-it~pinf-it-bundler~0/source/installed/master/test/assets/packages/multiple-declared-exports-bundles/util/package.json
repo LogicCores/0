@@ -1,0 +1,10 @@
+{
+	"exports": {
+	    "bundles": {
+			"worker-runner.js": "./worker-runner.js"
+	    },
+	    "resources": {
+	    	"res2/*": "./resources2/*"
+	    }
+	}
+}

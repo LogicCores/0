@@ -1,0 +1,255 @@
+{
+    "test/assets/packages/require-async-sub": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/require-async-sub/app.js",
+                            "mtime": 0,
+                            "code": "\nexports.main = function (callback) {\n\tvar name = \"extra\";\n\trequire.async(\"./sub/\" + name, function(EXTRA) {\n\t\tconsole.log(EXTRA.getGreeting());\n\t\treturn callback(null, {\n\t\t\tloaded: true\n\t\t});\n\t}, callback);\n\treturn null;\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "require": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-sub';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-sub';\n\nexports.main = function (callback) {\n\tvar name = \"extra\";\n\trequire.async(\"./sub/\" + name, function(EXTRA) {\n\t\tconsole.log(EXTRA.getGreeting());\n\t\treturn callback(null, {\n\t\t\tloaded: true\n\t\t});\n\t}, callback);\n\treturn null;\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-sub",
+                            "dirrealpath": "test/assets/packages/require-async-sub",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-sub/package.json",
+                                "test/assets/packages/require-async-sub/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-sub/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-async-sub"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/require-async-sub/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "test/assets/packages/require-async-sub/.dist/app/sub/extra.js": {
+        "bundles": {
+            "/sub/extra.js": {
+                "modules": {
+                    "/sub/extra.js": {
+                        "requireId": "/sub/extra",
+                        "memoizeId": "/sub/extra.js",
+                        "descriptor": {
+                            "filename": "extra.js",
+                            "filepath": "test/assets/packages/require-async-sub/sub/extra.js",
+                            "mtime": 0,
+                            "code": "\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-sub/sub';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/require-async-sub/sub';\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-sub",
+                            "dirrealpath": "test/assets/packages/require-async-sub",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-sub/package.json",
+                                "test/assets/packages/require-async-sub/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-sub/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-async-sub"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/require-async-sub",
+                            "dirrealpath": "test/assets/packages/require-async-sub",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/require-async-sub/package.json",
+                                "test/assets/packages/require-async-sub/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/require-async-sub/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/require-async-sub"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "bundle": {
+                    "path": "test/assets/packages/require-async-sub/.dist/app/sub/extra.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/sub/extra.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/sub/extra.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/require-async-sub/.dist/app.js"
+        }
+    }
+}

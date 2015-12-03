@@ -1,0 +1,35 @@
+{
+    "filename": "exports-assign.js",
+    "filepath": "requirejs/exports-assign.js",
+    "mtime": 0,
+    "code": "// @see https://github.com/jrburke/requirejs/blob/master/tests/exports/assign.js\ndefine(\"assign\",\n            [\"require\", \"exports\", \"module\"],\n            function (require, exports, module) {\n    module.exports = \"assign\";\n});",
+    "globals": {
+        "define": {
+            "type": "call"
+        }
+    },
+    "syntax": "javascript",
+    "format": "amd",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {
+            "require": {
+                "where": "declared",
+                "varname": "require"
+            },
+            "exports": {
+                "where": "declared",
+                "varname": "exports"
+            },
+            "module": {
+                "where": "declared",
+                "varname": "module"
+            }
+        },
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

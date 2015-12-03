@@ -1,0 +1,27 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "DeploymentPointer",
+        "keyProperty": "name",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"name": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"baseUrl": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"deployment_id": {
+			    "linksToOne": "Deployment"
+			}
+        }
+    }
+}

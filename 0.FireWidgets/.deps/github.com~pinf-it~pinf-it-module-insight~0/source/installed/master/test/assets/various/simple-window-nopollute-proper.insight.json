@@ -1,0 +1,22 @@
+{
+    "filename": "simple-window-nopollute-proper.js",
+    "filepath": "various/simple-window-nopollute-proper.js",
+    "mtime": 0,
+    "code": "((function (window) {\n\n\twindow.STRING = \"string-value\";\n\n\twindow.OBJECT = {\n\t\tid: \"object-value\"\n\t};\n\n})(window));",
+    "globals": {
+        "window": {
+            "type": "reference"
+        }
+    },
+    "syntax": "javascript",
+    "format": "leaky",
+    "undefine": [],
+    "uses": {},
+    "dependencies": {
+        "static": {},
+        "dynamic": {},
+        "computed": false
+    },
+    "warnings": [],
+    "errors": []
+}

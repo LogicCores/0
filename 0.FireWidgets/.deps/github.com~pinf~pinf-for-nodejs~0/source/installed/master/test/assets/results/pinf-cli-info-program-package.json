@@ -1,0 +1,63 @@
+{
+    "env": {
+        "CWD": "test",
+        "PINF_PACKAGE": "test/assets/packages/pinf-cli/package.json"
+    },
+    "package": {
+        "path": "test/assets/packages/pinf-cli",
+        "id": "0e357147bc07e53d9d84ae6d48a6cf6d2c3a5410-pinf-cli",
+        "descriptor": {
+            "uid": "github.com/pinf/pinf-for-nodejs/test/assets/packages/pinf-cli",
+            "dependencies": {
+                "required": {
+                    "sub": {
+                        "selector": "0.x"
+                    }
+                },
+                "bundled": {
+                    "sub": {
+                        "location": "./node_modules/sub"
+                    }
+                }
+            },
+            "events": {
+                "listen": {
+                    "pinf-start": "on pinf-start: test/assets/packages/pinf-cli",
+                    "pinf-stop": "on pinf-start: test/assets/packages/pinf-cli"
+                }
+            },
+            "overrides": {
+                "./node_modules/sub": {
+                    "descriptor": {
+                        "config": {
+                            "key3": "value2: test/assets/packages/pinf-cli",
+                            "key4": "value2: $__DIRNAME",
+                            "key5": "value2: \\$__DIRNAME"
+                        }
+                    }
+                }
+            },
+            "config": {
+                "key1": "value1: test/assets/packages/pinf-cli",
+                "key2": "value2: test/assets/packages/pinf-cli",
+                "key3": "value2: $__DIRNAME"
+            },
+            "pm": {
+                "install": "npm"
+            },
+            "layout": {
+                "directories": {
+                    "dependency": "./node_modules"
+                }
+            },
+            "mappings": {
+                "sub": "510abf70423c71d6898ab5cde64c8d42d3f22633-sub"
+            }
+        },
+        "config": {
+            "key1": "value1: test/assets/packages/pinf-cli",
+            "key2": "value2: test",
+            "key3": "value2: $__DIRNAME"
+        }
+    }
+}

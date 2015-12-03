@@ -1,0 +1,129 @@
+{
+    "test/assets/packages/self-require": {
+        "bundles": {
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/self-require/app.js",
+                            "mtime": 0,
+                            "code": "\nconst APP = require(\".\");\n\nfunction main() {\n\tconsole.log(APP.getGreeting());\n}\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "APP": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {
+                                    ".": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/self-require';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/self-require';\n\nconst APP = require(\".\");\n\nfunction main() {\n\tconsole.log(APP.getGreeting());\n}\n\nexports.getGreeting = function() {\n\treturn \"Hello World\";\n}\n\nif (require.main === module) {\n\tmain();\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                ".": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/self-require",
+                            "dirrealpath": "test/assets/packages/self-require",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/self-require/package.json",
+                                "test/assets/packages/self-require/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/self-require/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "dirpath": "test/assets/packages/self-require"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/self-require/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/self-require/.dist/app.js"
+        }
+    }
+}

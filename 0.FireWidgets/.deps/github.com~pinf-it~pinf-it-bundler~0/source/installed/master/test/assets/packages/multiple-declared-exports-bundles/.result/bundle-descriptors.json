@@ -1,0 +1,372 @@
+{
+    "test/assets/packages/multiple-declared-exports-bundles": {
+        "bundles": {
+            "/app/d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker-runner.js": {
+                "modules": {
+                    "/worker-runner.js": {
+                        "requireId": "/worker-runner",
+                        "memoizeId": "/worker-runner.js",
+                        "descriptor": {
+                            "filename": "worker-runner.js",
+                            "filepath": "test/assets/packages/multiple-declared-exports-bundles/util/worker-runner.js",
+                            "mtime": 0,
+                            "code": "\nexports.main = function (callback) {\n\t\n\tconsole.log(\"Hello from worker runner!\");\n\n\treturn callback(null, function () {\n\t\treturn {\n\t\t\tloadedInWorkerRunner: true\n\t\t};\n\t});\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles/util';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles/util';\n\nexports.main = function (callback) {\n\t\n\tconsole.log(\"Hello from worker runner!\");\n\n\treturn callback(null, function () {\n\t\treturn {\n\t\t\tloadedInWorkerRunner: true\n\t\t};\n\t});\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/multiple-declared-exports-bundles/util",
+                            "dirrealpath": "test/assets/packages/multiple-declared-exports-bundles/util",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/util/package.json",
+                                "test/assets/packages/multiple-declared-exports-bundles/util/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/util/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "exports": {
+                                        "bundles": {
+                                            "worker-runner.js": "./worker-runner.js"
+                                        },
+                                        "resources": {
+                                            "res2/*": "./resources2/*"
+                                        }
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "bundles": {
+                                            "worker-runner.js": "./worker-runner.js"
+                                        },
+                                        "resources": {
+                                            "res2/*": "./resources2/*"
+                                        }
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "bundles": {
+                                        "worker-runner.js": "./worker-runner.js"
+                                    },
+                                    "resources": {
+                                        "res2/*": "./resources2/*"
+                                    }
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/worker-runner.js",
+                                "dirpath": "test/assets/packages/multiple-declared-exports-bundles/util"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/multiple-declared-exports-bundles/.dist/app/d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker-runner.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/worker-runner.js"
+            },
+            "/app.js": {
+                "modules": {
+                    "/app.js": {
+                        "requireId": "/app",
+                        "memoizeId": "/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/multiple-declared-exports-bundles/app.js",
+                            "mtime": 0,
+                            "code": "\nconst WORKER = require(\"util/worker\");\n\n\nexports.main = function (callback) {\n\n\tWORKER.run(callback);\n\n\treturn null;\n}\n",
+                            "globals": {
+                                "WORKER": {
+                                    "type": "assign"
+                                },
+                                "require": {
+                                    "type": "call"
+                                },
+                                "exports": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {
+                                    "util/worker": {
+                                        "where": "inline"
+                                    }
+                                },
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles';\n\nconst WORKER = require(\"util/worker\");\n\n\nexports.main = function (callback) {\n\n\tWORKER.run(callback);\n\n\treturn null;\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {
+                                "util/worker": {
+                                    "where": "inline"
+                                }
+                            },
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker.js": {
+                        "requireId": "d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker",
+                        "memoizeId": "d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker.js",
+                        "descriptor": {
+                            "filename": "worker.js",
+                            "filepath": "test/assets/packages/multiple-declared-exports-bundles/util/worker.js",
+                            "mtime": 0,
+                            "code": "\nexports.run = function (callback) {\n\n\tconsole.log(\"Hello from worker\");\n\n\tvar uri = require.sandbox.id + require.id(\"./worker-runner.js\");\n\n\tconsole.log(\"Worker runner uri: \" + uri);\n\n\treturn require.sandbox(uri, function(sandbox) {\n\n\t\treturn sandbox.main(callback);\n\n\t}, function (err) {\n\t\tconsole.log(\"Error while loading bundle '\" + uri + \"':\", err.stack);\n\t\treturn callback(err);\n\t});\n}\n",
+                            "globals": {
+                                "exports": {
+                                    "type": "reference"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                },
+                                "require": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "commonjs",
+                            "undefine": [],
+                            "uses": {},
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles/util';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/multiple-declared-exports-bundles/util';\n\nexports.run = function (callback) {\n\n\tconsole.log(\"Hello from worker\");\n\n\tvar uri = require.sandbox.id + require.id(\"./worker-runner.js\");\n\n\tconsole.log(\"Worker runner uri: \" + uri);\n\n\treturn require.sandbox(uri, function(sandbox) {\n\n\t\treturn sandbox.main(callback);\n\n\t}, function (err) {\n\t\tconsole.log(\"Error while loading bundle '\" + uri + \"':\", err.stack);\n\t\treturn callback(err);\n\t});\n}\n\n}",
+                            "bottom": "}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/multiple-declared-exports-bundles",
+                            "dirrealpath": "test/assets/packages/multiple-declared-exports-bundles",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/package.json",
+                                "test/assets/packages/multiple-declared-exports-bundles/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "app",
+                                    "mappings": {
+                                        "util": "./util"
+                                    },
+                                    "exports": {
+                                        "bundles": {
+                                            "app.js": "./app.js"
+                                        },
+                                        "resources": {
+                                            "res1/*": "./resources1/*"
+                                        }
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "dependencies": {
+                                        "required": {
+                                            "util": {
+                                                "location": "./util"
+                                            }
+                                        }
+                                    },
+                                    "exports": {
+                                        "bundles": {
+                                            "app.js": "./app.js"
+                                        },
+                                        "resources": {
+                                            "res1/*": "./resources1/*"
+                                        },
+                                        "main": "./app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "dependencies": {
+                                    "required": {
+                                        "util": {
+                                            "location": "./util"
+                                        }
+                                    }
+                                },
+                                "exports": {
+                                    "bundles": {
+                                        "app.js": "./app.js"
+                                    },
+                                    "resources": {
+                                        "res1/*": "./resources1/*"
+                                    },
+                                    "main": "./app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/app.js",
+                                "mappings": {
+                                    "util": "d6e96c32a89427dca4b33126da5b03942ca3c311-util"
+                                },
+                                "dirpath": "test/assets/packages/multiple-declared-exports-bundles"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    },
+                    "d6e96c32a89427dca4b33126da5b03942ca3c311-util/package.json": {
+                        "requireId": "d6e96c32a89427dca4b33126da5b03942ca3c311-util/package.json",
+                        "memoizeId": "d6e96c32a89427dca4b33126da5b03942ca3c311-util/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/multiple-declared-exports-bundles/util",
+                            "dirrealpath": "test/assets/packages/multiple-declared-exports-bundles/util",
+                            "id": "d6e96c32a89427dca4b33126da5b03942ca3c311-util",
+                            "lookupPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/util/package.json",
+                                "test/assets/packages/multiple-declared-exports-bundles/util/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/multiple-declared-exports-bundles/util/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "exports": {
+                                        "bundles": {
+                                            "worker-runner.js": "./worker-runner.js"
+                                        },
+                                        "resources": {
+                                            "res2/*": "./resources2/*"
+                                        }
+                                    }
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "bundles": {
+                                            "worker-runner.js": "./worker-runner.js"
+                                        },
+                                        "resources": {
+                                            "res2/*": "./resources2/*"
+                                        }
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "bundles": {
+                                        "worker-runner.js": "./worker-runner.js"
+                                    },
+                                    "resources": {
+                                        "res2/*": "./resources2/*"
+                                    }
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "dirpath": "test/assets/packages/multiple-declared-exports-bundles/util"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/multiple-declared-exports-bundles/.dist/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/multiple-declared-exports-bundles/.dist/app.js"
+        }
+    }
+}

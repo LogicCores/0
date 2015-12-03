@@ -1,0 +1,4 @@
+/node_modules/
+.rt/
+/.pio.cache/
+/.sm.*

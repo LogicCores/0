@@ -1,0 +1,52 @@
+{
+    "test/assets/packages/multiple-declared-exports-bundles/.dist/app": {
+        "bundles": {
+            "test/assets/packages/multiple-declared-exports-bundles/.dist/app.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {
+                    "util": "d6e96c32a89427dca4b33126da5b03942ca3c311-util"
+                },
+                "directories": {},
+                "libPath": ""
+            },
+            "d6e96c32a89427dca4b33126da5b03942ca3c311-util": {
+                "main": "/main.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "d6e96c32a89427dca4b33126da5b03942ca3c311-util/package.json": {}
+        }
+    },
+    "test/assets/packages/multiple-declared-exports-bundles/.dist/app/d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker-runner": {
+        "bundles": {
+            "test/assets/packages/multiple-declared-exports-bundles/.dist/app/d6e96c32a89427dca4b33126da5b03942ca3c311-util/worker-runner.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/worker-runner.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/worker-runner.js": {
+                "exports": 1
+            },
+            "/package.json": {}
+        }
+    }
+}

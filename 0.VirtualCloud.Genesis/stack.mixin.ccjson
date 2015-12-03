@@ -1,0 +1,7 @@
+{
+    "@": {
+        "profile.virtualcloud": {
+            "$": "./Aspects/profile/server.plugin.ccjson"
+        }
+    }
+}

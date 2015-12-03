@@ -1,0 +1,25 @@
+{
+    "test/assets/packages/require-async/.dist/app": {
+        "bundles": {
+            "test/assets/packages/require-async/.dist/app.js": "",
+            "test/assets/packages/require-async/.dist/app/extra.js": ""
+        },
+        "packages": {
+            "": {
+                "main": "/app.js",
+                "mappings": {},
+                "directories": {},
+                "libPath": ""
+            }
+        },
+        "modules": {
+            "/app.js": {
+                "exports": 1
+            },
+            "/package.json": {},
+            "/extra.js": {
+                "exports": 1
+            }
+        }
+    }
+}

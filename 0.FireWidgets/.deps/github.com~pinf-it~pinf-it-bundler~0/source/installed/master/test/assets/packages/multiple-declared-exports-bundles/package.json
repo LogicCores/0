@@ -1,0 +1,14 @@
+{
+	"main": "app",
+	"mappings": {
+		"util": "./util"
+	},
+	"exports": {
+	    "bundles": {
+			"app.js": "./app.js"
+	    },
+	    "resources": {
+	    	"res1/*": "./resources1/*"
+	    }
+	}
+}

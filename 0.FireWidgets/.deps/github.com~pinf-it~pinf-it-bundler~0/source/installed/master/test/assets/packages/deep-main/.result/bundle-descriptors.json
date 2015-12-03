@@ -1,0 +1,112 @@
+{
+    "test/assets/packages/deep-main": {
+        "bundles": {
+            "/lib/app.js": {
+                "modules": {
+                    "/lib/app.js": {
+                        "requireId": "/lib/app",
+                        "memoizeId": "/lib/app.js",
+                        "descriptor": {
+                            "filename": "app.js",
+                            "filepath": "test/assets/packages/deep-main/lib/app.js",
+                            "mtime": 0,
+                            "code": "\nfunction main() {\n\tconsole.log(\"Hello World\");\n}\n\nif (require.main === module) {\n\tmain();\n}\n",
+                            "globals": {
+                                "main": {
+                                    "type": "assign"
+                                },
+                                "console": {
+                                    "type": "reference"
+                                }
+                            },
+                            "syntax": "javascript",
+                            "format": "leaky",
+                            "undefine": [],
+                            "uses": {
+                                "require.main": true
+                            },
+                            "dependencies": {
+                                "static": {},
+                                "dynamic": {},
+                                "computed": false
+                            }
+                        },
+                        "wrapper": {
+                            "type": "commonjs/leaky",
+                            "top": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/deep-main/lib';",
+                            "code": "function(require, exports, module) {var __dirname = TEST_ROOT_PATH + '/' + 'test/assets/packages/deep-main/lib';\n\nfunction main() {\n\tconsole.log(\"Hello World\");\n}\n\nif (require.main === module) {\n\tmain();\n}\n\nreturn {\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}",
+                            "bottom": "return {\n    console: (typeof console !== \"undefined\") ? console : null\n};\n}"
+                        },
+                        "dependencies": {
+                            "static": {},
+                            "dynamic": {},
+                            "computed": false
+                        },
+                        "warnings": [],
+                        "errors": []
+                    },
+                    "/package.json": {
+                        "requireId": "/package.json",
+                        "memoizeId": "/package.json",
+                        "descriptor": {
+                            "dirpath": "test/assets/packages/deep-main",
+                            "dirrealpath": "test/assets/packages/deep-main",
+                            "id": "",
+                            "lookupPaths": [
+                                "test/assets/packages/deep-main/package.json",
+                                "test/assets/packages/deep-main/.package.json"
+                            ],
+                            "descriptorPaths": [
+                                "test/assets/packages/deep-main/package.json"
+                            ],
+                            "raw": {
+                                "package.json": {
+                                    "main": "./lib/app.js"
+                                }
+                            },
+                            "normalized": {
+                                ".package.json": {},
+                                "package.json": {
+                                    "exports": {
+                                        "main": "./lib/app.js"
+                                    }
+                                }
+                            },
+                            "combined": {
+                                "exports": {
+                                    "main": "./lib/app.js"
+                                }
+                            },
+                            "warnings": [],
+                            "errors": [],
+                            "memoized": {
+                                "main": "/lib/app.js",
+                                "dirpath": "test/assets/packages/deep-main"
+                            },
+                            "mtime": "0"
+                        },
+                        "wrapper": "json"
+                    }
+                },
+                "expectExistingModules": {},
+                "bundle": {
+                    "path": "test/assets/packages/deep-main/.dist/lib/app.js"
+                },
+                "warnings": [],
+                "errors": [],
+                "id": "/lib/app.js"
+            }
+        },
+        "warnings": [],
+        "errors": [],
+        "exports": {
+            "main": "/lib/app.js"
+        }
+    },
+    "#pinf": {
+        "status": 200,
+        "data": {
+            "rootBundlePath": "test/assets/packages/deep-main/.dist/lib/app.js"
+        }
+    }
+}
