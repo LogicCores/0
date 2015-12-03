@@ -1,6 +1,6 @@
 {
     "name": "0",
-    "version": "0.3.0-1-g42a451e",
+    "version": "0.4.0",
     "private": true,
     "engines": {
         "node": "^4.0.0"
@@ -24,7 +24,10 @@
                             "/cores/*/for/*/node_modules",
                             "/Library/node_modules",
                             "/Polyfills/node_modules",
-                            "/lib/*/node_modules"
+                            "/lib/*/node_modules",
+                            "/0.FireWidgets/.deps",
+                            "/0.FireWidgets/node_modules",
+                            "/0.stack.test/Components/bower_components"
                         ]
                     }
                 },

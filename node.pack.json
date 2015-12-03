@@ -2,8 +2,8 @@
     "submodules": {
         "/0.CloudIDE.Genesis": {
             "branch": "master",
-            "date": 1449111879000,
-            "ref": "c638580d8425c8a11cd805c0e9027886ff8d472d",
+            "date": 1449168622000,
+            "ref": "15fdc7b3bee6853d73c542732e1e20aa3aa5e146",
             "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
         },
         "/0.FireConsole": {
@@ -428,8 +428,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1449113131000,
-            "ref": "41b608f3a9b5dae14728e4dcb84ab323572abdb9",
+            "date": 1449168651000,
+            "ref": "3bcbec21cb42914af1354cdec91f668053902d00",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
