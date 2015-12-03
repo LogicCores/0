@@ -80,9 +80,12 @@ function bumpPackage (packageDescriptorPath, args) {
 	var versiony = VERSIONY.from(packageDescriptorPath);
 	if (args["minor"]) {
 		versiony.minor();
+		versiony.patch(0);
 	} else
 	if (args["major"]) {
 		versiony.major();
+		versiony.minor(0);
+		versiony.patch(0);
 	} else {
 		versiony.patch();
 	}

@@ -78,7 +78,7 @@ function init {
 		# Copy files
 		BO_log "$VERBOSE" "Copying files from '$TEMPLATE_BASE_PATH' to '$Z0_WORKSPACE_DIRPATH' ..."
 		pushd "$TEMPLATE_BASE_PATH" > /dev/null
-			tar cf - * | ( cd "$Z0_WORKSPACE_DIRPATH"; tar xfp -)
+			tar cf - .[a-zA-Z0-9]* * | ( cd "$Z0_WORKSPACE_DIRPATH"; tar xfp -)
 		popd > /dev/null
 
 		# Replace variables

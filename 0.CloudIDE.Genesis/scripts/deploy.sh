@@ -73,9 +73,15 @@ function init {
 				fi
 			fi
 
-			if echo "$npm_config_argv" | grep -q -Ee '"--bundle"'; then
-				Z0_TRIGGER_POSTINSTALL_BUNDLE="1"
+			if [ -z "$Z0_TRIGGER_POSTINSTALL_BUNDLE" ]; then
+				if echo "$npm_config_argv" | grep -q -Ee '"--bundle"'; then
+					Z0_TRIGGER_POSTINSTALL_BUNDLE="1"
+				elif echo "$@" | grep -q -Ee '\s--bundle(\s|$)'; then
+					Z0_TRIGGER_POSTINSTALL_BUNDLE="1"
+				fi
 			fi
+			export Z0_TRIGGER_POSTINSTALL_BUNDLE
+			BO_log "$VERBOSE" "Z0_TRIGGER_POSTINSTALL_BUNDLE: $Z0_TRIGGER_POSTINSTALL_BUNDLE"
 
 
 			# We set 'Z0_DEPLOY_ENVIRONMENT_NAME' based on 'Z0_DEPLOY_MODE'
