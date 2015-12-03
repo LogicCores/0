@@ -1,0 +1,35 @@
+{
+    "name": "%%Z0_WORKSPACE_NAMESPACE%%",
+    "version": "0.0.0",
+    "private": true,
+    "config": {
+        "Z0_REPOSITORY_URL": "%%Z0_REPOSITORY_URL%%",
+        "Z0_REPOSITORY_COMMIT_ISH": "%%Z0_REPOSITORY_COMMIT_ISH%%"
+    },
+    "node.pack": {
+        "packs": {
+            "inline": {
+                "packer": {
+                    "module": "node.pack/packers/git",
+                    "config": {}
+                }
+            }
+        }
+    },
+    "dependencies": {
+        "0.workspace": "0.0.x"
+    },
+    "scripts": {
+        "install": "scripts/install.sh",
+        "test": ".0/0.CloudIDE.Genesis/scripts/test.sh",
+        "edit": ".0/0.CloudIDE.Genesis/scripts/edit.sh",
+        "dev": ".0/0.CloudIDE.Genesis/scripts/dev.sh",
+        "update": ".0/0.CloudIDE.Genesis/scripts/update.sh",
+        "encrypt": ".0/0.CloudIDE.Genesis/scripts/encrypt.sh",
+        "bundle": ".0/0.CloudIDE.Genesis/scripts/bundle.sh",
+        "publish": ".0/0.CloudIDE.Genesis/scripts/publish.sh",
+        "deploy": ".0/0.CloudIDE.Genesis/scripts/deploy.sh",
+        "start": ".0/0.CloudIDE.Genesis/scripts/start.sh",
+        "clean": ".0/0.CloudIDE.Genesis/scripts/clean.sh"
+    }
+}

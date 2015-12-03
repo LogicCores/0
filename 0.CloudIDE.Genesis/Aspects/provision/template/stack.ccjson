@@ -1,0 +1,16 @@
+{
+    "@": {
+        "$": [
+            [
+                "./stack.proto.ccjson",
+                {
+                    "namespace": "%%Z0_WORKSPACE_NAMESPACE%%",
+                    "name": "%%Z0_WORKSPACE_HOSTNAME%%",
+                    "label": "%%Z0_WORKSPACE_HOSTNAME%%",
+                    "stackBasePath": "{{__DIRNAME__}}",
+                    "subUri": ""
+                }
+            ]
+        ]
+    }
+}

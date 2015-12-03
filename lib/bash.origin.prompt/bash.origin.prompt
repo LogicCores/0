@@ -41,5 +41,18 @@ function init {
 		fi
 	}
 
+	function askForInput {
+		if [ ! -z "$3" ]; then
+			echo -n "$2 [$3]:"
+		else
+			echo -n "$2: "
+		fi
+		read answer
+		if [ "$answer" == "" ]; then
+			answer="$3"
+		fi
+		BO_setResult "$1" "$answer"
+	}
+
 }
 init $@

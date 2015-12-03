@@ -1,0 +1,13 @@
+{
+  "name": "sm.bump",
+  "version": "0.1.2",
+  "repository": "https://github.com/sourcemint/sm.bump.git",
+  "bin": {
+    "sm.bump": "sm.bump"
+  },
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "q": "^1.4.1",
+    "versiony": "^1.3.0"
+  }
+}

@@ -72,7 +72,8 @@ function init {
 				ensureIgnoreRule "bower_components"
 				ensureIgnoreRule "/.0"
 				ensureIgnoreRule "/_exports/deploy"
-
+				ensureIgnoreRule "/.packs/"
+				ensureIgnoreRule "/.installed"
 
 				function copyFile {
 	    		    BO_log "$VERBOSE" "Copying file '$1' to '$2'"
@@ -82,7 +83,7 @@ function init {
 					copyFile "$1" "$2"
 	    		    ensureIgnoreRule "/$2"
 				}
-	
+
 			    BO_log "$VERBOSE" "Copying files ..."
 	
 				# TODO: Copy all files and do it based on declaration accross all nodes.

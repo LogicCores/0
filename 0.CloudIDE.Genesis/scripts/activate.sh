@@ -14,7 +14,7 @@ function init {
 		export WORKSPACE_DIR="$PWD"
 	fi
 
-	export PATH_OVERRIDES="$__BO_DIR__"
+	export PATH_OVERRIDES="$WORKSPACE_DIR/node_modules/.bin:$__BO_DIR__"
 
 
 	if [ -z "$Z0_ROOT" ]; then
@@ -31,6 +31,11 @@ function init {
         echo "ERROR: The 'Z0_ROOT' environment variable must be set to point to the root of a zero system clone!"
         exit 1;
     fi
+
+	BO_log "$VERBOSE" "WORKSPACE_DIR: $WORKSPACE_DIR"
+	BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
+
+    BO_sourcePrototype "$Z0_ROOT/scripts/activate.sh"
 
 }
 init $@

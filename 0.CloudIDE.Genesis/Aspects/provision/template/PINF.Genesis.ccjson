@@ -1,0 +1,8 @@
+{
+    "@": {
+        "$": [
+            "./stack.ccjson",
+            "!./PINF.Genesis.{{ENV.ENVIRONMENT_TYPE}}.ccjson"
+        ]
+    }
+}

@@ -1,0 +1,121 @@
+#!/usr/bin/env node
+
+
+const PATH = require("path");
+const FS = require("fs");
+const Q = require("q");
+const VERSIONY = require("versiony");
+const SPAWN = require("child_process").spawn;
+const MINIMIST = require("minimist");
+
+
+function runCommands (basePath, commands, showProgress) {
+	return Q.denodeify(function (callback) {
+		if (process.env.VERBOSE) {
+			console.log("Run commands:", commands, {
+				cwd: basePath
+			});
+		}
+	    var proc = SPAWN("bash", [
+	        "-s"
+	    ], {
+	    	cwd: basePath,
+	    	env: process.env
+	    });
+	    proc.on("error", function(err) {
+	    	return callback(err);
+	    });
+	    var stdout = [];
+	    var stderr = [];
+	    proc.stdout.on('data', function (data) {
+	    	stdout.push(data.toString());
+	    	if (showProgress) process.stdout.write(data);
+	    });
+	    proc.stderr.on('data', function (data) {
+	    	stderr.push(data.toString());
+	    	if (showProgress) process.stdout.write(data);
+	    });
+	    proc.stdin.write(commands.join("\n"));
+	    proc.stdin.end();
+	    proc.on('close', function (code) {
+	    	if (code) {
+	    		var err = new Error("Commands exited with code: " + code);
+	    		err.code = code;
+	    		err.stdout = stdout;
+	    		err.stderr = stderr;
+	    		return callback(err);
+	    	}
+	        return callback(null, stdout.join(""));
+	    });
+	})();
+}
+
+
+function ensurePreconditionsAreMet (packageBasePath) {
+	return runCommands(packageBasePath, [
+    	// @source http://stackoverflow.com/a/2658301
+    	'function evil_git_dirty {',
+		'  [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] && echo "yes"',
+		'}',
+		'function parse_git_branch {',
+		'  git branch --no-color 2> /dev/null | sed -e \'/^[^*]/d\' -e \'s/* \\(.*\\)/\\1/\'',
+		'}',
+		'echo "branch: $(parse_git_branch)"',
+		'echo "dirty: $(evil_git_dirty)"'
+	]).then(function (stdout) {
+		if (!/branch: master/.test(stdout)) {
+			throw new Error("You must be on branch 'master' to bump the package!");
+		}
+		if (/dirty: yes/.test(stdout)) {
+			throw new Error("You must commit all changes before you can bump the package!");
+		}
+	});
+}
+
+function bumpPackage (packageDescriptorPath, args) {
+
+	// TODO: Don't bump if no changes and last commit tagged. i.e. just republish.
+	// TODO: Don't publish if latest tagged version is comitted.
+
+	var versiony = VERSIONY.from(packageDescriptorPath);
+	if (args["minor"]) {
+		versiony.minor();
+	} else
+	if (args["major"]) {
+		versiony.major();
+	} else {
+		versiony.patch();
+	}
+	versiony.to(packageDescriptorPath).end();
+
+	var version = VERSIONY.from(packageDescriptorPath).get();
+
+	return runCommands(PATH.dirname(packageDescriptorPath), [
+		'git add package.json',
+		'git commit -m "bump package version to: ' + version + '"',
+		'git tag v' + version,
+		'git push origin master --tags',
+		'npm publish'
+	], true);
+}
+
+
+
+if (require.main === module) {
+	Q.fcall(function () {
+		
+	    var argv = MINIMIST(process.argv.slice(2));
+
+		var packageDescriptorPath = PATH.resolve("package.json");
+
+		return ensurePreconditionsAreMet(PATH.dirname(packageDescriptorPath)).then(function () {
+
+			return bumpPackage(packageDescriptorPath, argv);
+
+		});
+
+	}).fail(function (err) {
+		console.error("ERROR:", err.stack || err);
+		process.exit(1);
+	});
+}
