@@ -196,9 +196,6 @@ url=git://github.com/virtualcloud-io/0.VirtualCloud.Genesis.git
 [submodule "0.devcomp.genesis"]
 	path = 0.devcomp.genesis
 	url = git://github.com/devcomp/0.devcomp.genesis.git
-[submodule "0.CloudIDE.Genesis"]
-	path = 0.CloudIDE.Genesis
-	url = git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git
 [submodule "lib/sm.expand"]
 	path = lib/sm.expand
 	url = git://github.com/sourcemint/sm.expand.git
