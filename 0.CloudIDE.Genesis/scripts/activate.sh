@@ -1,4 +1,8 @@
 #!/bin/bash -e
+if [ -z "$HOME" ]; then
+	echo "ERROR: 'HOME' environment variable is not set!"
+	exit 1
+fi
 if [ -z "$Z0_ROOT" ]; then
 	export Z0_ROOT="$PWD/.0"
 fi
@@ -34,6 +38,14 @@ function init {
 
 	BO_log "$VERBOSE" "WORKSPACE_DIR: $WORKSPACE_DIR"
 	BO_log "$VERBOSE" "Z0_ROOT: $Z0_ROOT"
+
+
+	# Install bash.origin if not found globally for user.
+	if [ ! -e "$HOME/.bash.origin" ] ; then
+		pushd "$Z0_ROOT"
+			lib/bash.origin/bash.origin BO install
+		popd
+	fi
 
     BO_sourcePrototype "$Z0_ROOT/scripts/activate.sh"
 

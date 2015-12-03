@@ -62,11 +62,9 @@ function init {
 
 
 			if [ -z "$Z0_DEPLOY_MODE" ]; then
-				if [ -z "$npm_config_argv" ]; then
-					echo "ERROR: This script must be run via 'npm run <script>' or the 'Z0_DEPLOY_MODE' environment variable must be set!"
-					exit 1
-				fi
 				if echo "$npm_config_argv" | grep -q -Ee '"--production"'; then
+					Z0_DEPLOY_MODE="production"
+				elif echo "$@" | grep -q -Ee '\s--production(\s|$)'; then
 					Z0_DEPLOY_MODE="production"
 				else
 					Z0_DEPLOY_MODE="staging"
@@ -117,6 +115,25 @@ function init {
 
 			BO_log "$VERBOSE" "Z0_DEPLOY_ENVIRONMENT_NAME: $Z0_DEPLOY_ENVIRONMENT_NAME"
 			BO_log "$VERBOSE" "Z0_DEPLOY_PLATFORM_NAME: $Z0_DEPLOY_PLATFORM_NAME"
+
+
+			# Ensure we have a Deployment config file.
+			# TODO: Move into `pinf.to.heroku`
+			if [ ! -e "Deployments/$Z0_DEPLOY_ENVIRONMENT_NAME.herokuapp.com.proto.profile.ccjson" ]; then
+				BO_log "$VERBOSE" "Writing profile config file for environment to '$WORKSPACE_DIR/Deployments/$Z0_DEPLOY_ENVIRONMENT_NAME.herokuapp.com.proto.profile.ccjson'"
+				echo '{
+    "@": {
+        "$": [
+            "{{ENV.Z0_ROOT}}/Deployments/production.proto.profile.ccjson"
+        ]
+    }
+}' > "Deployments/$Z0_DEPLOY_ENVIRONMENT_NAME.herokuapp.com.proto.profile.ccjson"
+				if [ "$Z0_PROJECT_AUTO_COMMIT_CHANGES" == "1" ]; then
+					pushd "$Z0_PROJECT_DIRPATH" > /dev/null
+			            git_commitChanges "Wrote Zero System deployment profile configuration file";
+					popd > /dev/null
+				fi
+			fi
 
 
 			# Tag repository if there are no tags and we are set to auto-commit changes.

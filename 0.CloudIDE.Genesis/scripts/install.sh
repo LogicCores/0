@@ -131,6 +131,5 @@ function init {
 	}
 
 	Install $@
-
 }
 init $@
