@@ -416,7 +416,7 @@ function init {
 
 	if [ "$UNPACKED" == "0" ]; then
 		# We did not unpack dependencies so we need to install from source.
-#		Install $@
+		Install $@
 
 		touch ".installed"
 
