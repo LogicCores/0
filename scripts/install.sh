@@ -30,6 +30,7 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
+
 	function Unpack {
 		BO_format "$VERBOSE" "HEADER" "Unpacking 0 ..."
 
@@ -415,7 +416,7 @@ function init {
 
 	if [ "$UNPACKED" == "0" ]; then
 		# We did not unpack dependencies so we need to install from source.
-		Install $@
+#		Install $@
 
 		touch ".installed"
 

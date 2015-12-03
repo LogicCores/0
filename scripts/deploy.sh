@@ -26,20 +26,39 @@ function init {
 		git_assertRemote "$PLATFORM_NAME"
 
 
-		if [ -z "$Z0_REPOSITORY_URL" ]; then
-			if [ -z "$npm_package_config_Z0_REPOSITORY_URL" ]; then
-				echo "Error: 'Z0_REPOSITORY_URL' environment variable not found nor is 'config.Z0_REPOSITORY_URL' set in package.json!"
-				exit 1
+		# NOTE: Instead of using 'Z0_REPOSITORY_URL' and 'Z0_REPOSITORY_COMMIT_ISH' here
+		#       we ALWAYS get the URL and COMMIT from `.0` directly to ensure we are deploying
+		#       the linked release. The environment variables are only applicable for the
+		#       installation/update process. Once installed the deployment commit can be different.
+		# TODO: Add option to force `.0` values to be the same as config/env variables to ensure
+		#       latest changes are comitted and accessible to others before deployment.
+
+		pushd "$Z0_ROOT" > /dev/null
+			git_getRemoteUrl "Z0_REPOSITORY_URL" "origin"
+		    # TODO: Use generic git url normalization lib here
+		    Z0_REPOSITORY_URL=`echo "$Z0_REPOSITORY_URL" | perl -pe 's/^git@([^:]+):(.+?)\.git$/git:\/\/$1\/$2.git/g'`
+			git_getTag "Z0_REPOSITORY_COMMIT_ISH"
+		popd > /dev/null
+
+		function disabled {
+			if [ -z "$Z0_REPOSITORY_URL" ]; then
+				if [ -z "$npm_package_config_Z0_REPOSITORY_URL" ]; then
+					echo "Error: 'Z0_REPOSITORY_URL' environment variable not found nor is 'config.Z0_REPOSITORY_URL' set in package.json!"
+					exit 1
+				fi
+				Z0_REPOSITORY_URL="$npm_package_config_Z0_REPOSITORY_URL"
 			fi
-			Z0_REPOSITORY_URL="$npm_package_config_Z0_REPOSITORY_URL"
-		fi
-		if [ -z "$Z0_REPOSITORY_COMMIT_ISH" ]; then
-			if [ -z "$npm_package_config_Z0_REPOSITORY_COMMIT_ISH" ]; then
-				echo "Error: 'Z0_REPOSITORY_COMMIT_ISH' environment variable not found nor is 'config.Z0_REPOSITORY_COMMIT_ISH' set in package.json!"
-				exit 1
+			if [ -z "$Z0_REPOSITORY_COMMIT_ISH" ]; then
+				if [ -z "$npm_package_config_Z0_REPOSITORY_COMMIT_ISH" ]; then
+					echo "Error: 'Z0_REPOSITORY_COMMIT_ISH' environment variable not found nor is 'config.Z0_REPOSITORY_COMMIT_ISH' set in package.json!"
+					exit 1
+				fi
+				Z0_REPOSITORY_COMMIT_ISH="$npm_package_config_Z0_REPOSITORY_COMMIT_ISH"
 			fi
-			Z0_REPOSITORY_COMMIT_ISH="$npm_package_config_Z0_REPOSITORY_COMMIT_ISH"
-		fi
+		}
+
+		BO_log "$VERBOSE" "Z0_REPOSITORY_URL: $Z0_REPOSITORY_URL"
+		BO_log "$VERBOSE" "Z0_REPOSITORY_COMMIT_ISH: $Z0_REPOSITORY_COMMIT_ISH"
 
 
 		# Pack the source logic into a distribution branch by inlining all submodules
@@ -163,6 +182,19 @@ function init {
 					PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
 					PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET" \
 					NODE_MODULES_CACHE=false > /dev/null
+
+				# TODO: Write these credentials into an encrypted one-time trigger file
+				#       instead of setting them globally here. We can determine which credentials
+				#       to write into the trigger file by looking at the schemas for the triggers
+				#       that should be executed.
+				BO_log "$VERBOSE" "Z0_TRIGGER_POSTINSTALL_BUNDLE: $Z0_TRIGGER_POSTINSTALL_BUNDLE"
+				if [ "$Z0_TRIGGER_POSTINSTALL_BUNDLE" == "1" ]; then
+					heroku config:set \
+						Z0_TRIGGER_POSTINSTALL_BUNDLE="$Z0_TRIGGER_POSTINSTALL_BUNDLE" \
+						Z0_NODEPACK_AWS_ACCESS_KEY_ID="$Z0_NODEPACK_AWS_ACCESS_KEY_ID" \
+						Z0_NODEPACK_AWS_SECRET_ACCESS_KEY="$Z0_NODEPACK_AWS_SECRET_ACCESS_KEY"
+				fi
+
 			else
 				echo "ERROR: Only the 'com.heroku' platform is supported at this time!"
 				exit 1;
@@ -172,6 +204,16 @@ function init {
 
 			# @see http://stackoverflow.com/a/2980050/330439
 		    git push -f "$PLATFORM_NAME" HEAD:master
+
+
+			# We now erase the variables we temporarily used.
+			# TODO: Remove this once we use the trigger file above.
+			if [ "$Z0_TRIGGER_POSTINSTALL_BUNDLE" == "1" ]; then
+				heroku config:set \
+					Z0_TRIGGER_POSTINSTALL_BUNDLE="" \
+					Z0_NODEPACK_AWS_ACCESS_KEY_ID="" \
+					Z0_NODEPACK_AWS_SECRET_ACCESS_KEY=""
+			fi
 
 	    popd > /dev/null
 
