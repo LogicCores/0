@@ -77,7 +77,7 @@ function init {
 
 		BO_log "$VERBOSE" "Removing bundled clone from '$PWD/.packs/$DIRNAME'"
 
-#		rm -Rf ".packs/$DIRNAME"
+		rm -Rf ".packs/$DIRNAME"
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
