@@ -426,12 +426,14 @@ function init {
 			"$__BO_DIR__/bundle.sh"
 
 			# We need to remove created cached assets
+			# TODO: Optionally do not remove.
 			rm -Rf ".packs" > /dev/null || true
 		fi
 	else
 		touch ".installed"
 
 		# We need to remove downloaded cached assets
+		# TODO: Optionally do not remove.
 		rm -Rf ".packs" > /dev/null || true
 	fi
 }
