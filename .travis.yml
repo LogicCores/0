@@ -1,8 +1,11 @@
+sudo: false
 language: node_js
 node_js:
   - "4"
 before_install:
 before_install:
-  - sudo apt-get update -qq
+  - tar --version
+  - sudo apt-get update
   - sudo apt-get install -y tar
+  - tar --version
   - git submodule update --init --recursive --rebase
