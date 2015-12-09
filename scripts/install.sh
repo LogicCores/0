@@ -30,6 +30,8 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
+	# TODO: Ensure correct version of 'tar' is available (as needed by 'node.pack')
+
 
 	function Unpack {
 		BO_format "$VERBOSE" "HEADER" "Unpacking 0 ..."

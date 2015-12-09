@@ -2,4 +2,7 @@ language: node_js
 node_js:
   - "4"
 before_install:
-    git submodule update --init --recursive --rebase
+before_install:
+  - sudo apt-get update -qq
+  - sudo apt-get install -y tar
+  - git submodule update --init --recursive --rebase
