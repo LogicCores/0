@@ -2,10 +2,10 @@ sudo: false
 language: node_js
 node_js:
   - "4"
+addons:
+  apt:
+    packages:
+    - tar
 before_install:
-before_install:
-  - tar --version
-  - apt-get update
-  - apt-get install -y tar
   - tar --version
   - git submodule update --init --recursive --rebase
