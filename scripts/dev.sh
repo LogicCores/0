@@ -41,8 +41,20 @@ function init {
 
 
 		export GIT_COMMIT_REV=`git rev-parse --short HEAD`
-
 		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
+
+
+		export GIT_COMMIT_TAG=`git describe --tags`
+		BO_log "$VERBOSE" "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
+
+
+		# TODO: Call helper here instead of repeating code.
+	    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] || [[ $(git status -s 2> /dev/null | tail -n1) != "" ]]; then
+			export GIT_IS_DIRTY="0"
+	    else
+			export GIT_IS_DIRTY="1"
+        fi
+		BO_log "$VERBOSE" "GIT_IS_DIRTY: $GIT_IS_DIRTY"
 
 
 		node "$Z0_ROOT/server.js"

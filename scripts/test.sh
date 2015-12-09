@@ -16,7 +16,9 @@ function init {
 	function Test {
 		BO_format "$VERBOSE" "HEADER" "Testing ..."
 
-echo "Running ..."
+
+		"$__BO_DIR__/run-job.sh" "0.job.test" $@
+
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
