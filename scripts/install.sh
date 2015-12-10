@@ -289,6 +289,12 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "lib/runbash" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "lib/sm.bump" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
