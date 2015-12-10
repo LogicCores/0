@@ -157,12 +157,6 @@ function init {
 	       	fi
 		popd > /dev/null
 
-		pushd "cores/container/for/travis-ci" > /dev/null
-	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
-	        	npm install
-	       	fi
-		popd > /dev/null
-
 		pushd "cores/edit/for/c9" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
