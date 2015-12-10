@@ -401,7 +401,7 @@ function init {
 
 
 
-		if [ -e ".git" ]; then
+		if [ -e ".git/hooks" ]; then
 			"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
 				"$__BO_DIR__/pre-commit.sh"
 		fi

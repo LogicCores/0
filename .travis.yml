@@ -5,8 +5,6 @@ node_js:
 before_install:
   # bash.origin.phantomjs
   - sudo apt-get install libicu52 libjpeg8 libfontconfig1 libwebp5 libssl1.0.0
-  # git
-  - git submodule update --init --recursive --rebase
 env:
   global:
     - __PIO_PROFILE_SECRET: 'secure:5574c98e562d:o/s/gmo79Q4f'
