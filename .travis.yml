@@ -1,8 +1,11 @@
-sudo: false
+sudo: required
 language: node_js
 node_js:
   - '4'
 before_install:
+  # bash.origin.phantomjs
+  - sudo apt-get install libicu52 libjpeg8 libfontconfig1 libwebp5 libssl1.0.0
+  # git
   - git submodule update --init --recursive --rebase
 env:
   global:
