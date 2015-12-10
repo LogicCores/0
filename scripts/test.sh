@@ -29,7 +29,7 @@ function init {
 
 
 	# This variable must not be used from now on
-	export PIO_PROFILE_SECRET=""
+#	export PIO_PROFILE_SECRET=""
 
 	Test $@
 }
