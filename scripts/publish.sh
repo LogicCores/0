@@ -25,13 +25,26 @@ function init {
 
 
 		BO_sourcePrototype "$Z0_ROOT/cores/container/for/travis-ci/container.proto.sh"
-		setEnvironmentVariables \
+		setSecureEnvironmentVariables \
 			VERBOSE="$VERBOSE" \
 			PLATFORM_NAME="$PLATFORM_NAME" \
 			ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
 			ENVIRONMENT_TYPE="$ENVIRONMENT_TYPE" \
 			PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
 			PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET"
+
+
+		# TODO: Write these credentials into an encrypted one-time trigger file
+		#       instead of setting them globally here. We can determine which credentials
+		#       to write into the trigger file by looking at the schemas for the triggers
+		#       that should be executed.
+#		BO_log "$VERBOSE" "Z0_TRIGGER_POSTINSTALL_BUNDLE: $Z0_TRIGGER_POSTINSTALL_BUNDLE"
+#		if [ "$Z0_TRIGGER_POSTINSTALL_BUNDLE" == "1" ]; then
+			setSecureEnvironmentVariables \
+				Z0_TRIGGER_POSTINSTALL_BUNDLE="1" \
+				Z0_NODEPACK_AWS_ACCESS_KEY_ID="$Z0_NODEPACK_AWS_ACCESS_KEY_ID" \
+				Z0_NODEPACK_AWS_SECRET_ACCESS_KEY="$Z0_NODEPACK_AWS_SECRET_ACCESS_KEY"
+#		fi
 
 
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
