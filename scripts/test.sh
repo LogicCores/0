@@ -17,7 +17,16 @@ function init {
 		BO_format "$VERBOSE" "HEADER" "Testing ..."
 
 
+		rm -Rf "0.stack.test/.cache/test.intern.result" > /dev/null || true
+
+
 		"$__BO_DIR__/run-job.sh" "0.job.test" $@
+
+
+		# TODO: Relocate into 'cores/container/circle-ci'
+		if [ ! -z "$CIRCLE_TEST_REPORTS" ] && [ -e "0.stack.test/.cache/test.intern.result" ] ; then
+			cp -Rf 0.stack.test/.cache/test.intern.result/*.report.xml "${CIRCLE_TEST_REPORTS}/"
+		fi
 
 
 		BO_format "$VERBOSE" "FOOTER"

@@ -9,7 +9,8 @@ An opinionated [ccjson](https://github.com/LogicCores/ccjson) based minimal prim
 
 [http://ZeroSystem.io/](http://zerosystem.io/)
 
-[![Build Status](https://travis-ci.org/LogicCores/0.svg)](https://travis-ci.org/LogicCores/0) 
+[![Build Status](https://circleci.com/gh/LogicCores/0.svg?style=svg)](https://circleci.com/gh/LogicCores/0)
+
 
 User support/patches chat: [![Chat](https://badges.gitter.im/gitterHQ/services.png)](https://gitter.im/0system/0system.0)
 
