@@ -23,6 +23,17 @@ function init {
 		BO_log "$VERBOSE" "PWD: $PWD"
 		BO_log "$VERBOSE" "GIT_PUBLISH_URL: $GIT_PUBLISH_URL"
 
+
+		BO_sourcePrototype "$Z0_ROOT/cores/container/for/travis-ci/container.proto.sh"
+		setEnvironmentVariables \
+			VERBOSE="$VERBOSE" \
+			PLATFORM_NAME="$PLATFORM_NAME" \
+			ENVIRONMENT_NAME="$ENVIRONMENT_NAME" \
+			ENVIRONMENT_TYPE="$ENVIRONMENT_TYPE" \
+			PIO_PROFILE_KEY="$PIO_PROFILE_KEY" \
+			PIO_PROFILE_SECRET="$PIO_PROFILE_SECRET"
+
+
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/node.pack.proto.sh"
 	    BO_sourcePrototype "$Z0_ROOT/lib/node.pack/packers/git/packer.proto.sh"
 

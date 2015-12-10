@@ -28,6 +28,9 @@
                             "/0.FireWidgets/.deps",
                             "/0.FireWidgets/node_modules",
                             "/0.stack.test/Components/bower_components"
+                        ],
+                        "ignoreRules": [
+                            ".git"
                         ]
                     }
                 },

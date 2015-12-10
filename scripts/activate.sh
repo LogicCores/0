@@ -75,13 +75,12 @@ function init {
 	fi
 
 
-	NODEJS_VERSION="4"
-	BO_log "$VERBOSE" "Activating NodeJS version '$NODEJS_VERSION' ..."
+	BO_VERSION_NVM_NODE="4"
+	BO_log "$VERBOSE" "Activating NodeJS version '$BO_VERSION_NVM_NODE' ..."
 	BO_ensure_nvm
-	if ! nvm use $NODEJS_VERSION; then
-    	nvm install $NODEJS_VERSION
+	if ! nvm use $BO_VERSION_NVM_NODE; then
+    	nvm install $BO_VERSION_NVM_NODE
 	fi
-
 
 
 	function customizePrompt {
