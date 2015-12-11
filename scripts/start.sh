@@ -70,7 +70,7 @@ function init {
 		BO_log "$VERBOSE" "GIT_IS_DIRTY: $GIT_IS_DIRTY"
 
 
-		node "$Z0_ROOT/server.js"
+		BO_run_node "$Z0_ROOT/server.js"
 
 
 		BO_format "$VERBOSE" "FOOTER"
