@@ -1,6 +1,6 @@
 {
     "name": "0",
-    "version": "0.6.0",
+    "version": "0.4.0",
     "private": true,
     "engines": {
         "node": "^4.0.0"
@@ -61,6 +61,7 @@
         "update": "scripts/update.sh",
         "encrypt": "scripts/encrypt.sh",
         "bundle": "scripts/bundle.sh",
+        "push": "scripts/push.sh",
         "publish": "scripts/publish.sh",
         "deploy": "scripts/deploy.sh",
         "start": "scripts/start.sh"

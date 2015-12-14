@@ -53,6 +53,7 @@ Commands
 	npm run dev -- --profile ./Deployments/<name>.proto.profile.ccjson
 	npm run encrypt              # Encrypt raw profile data using workspace secret
 	npm test                     # Run whole system test suite
+	npm push                     # Pust latest changes to origin
 
 	# Put the root context of your system into your environment
 	source scripts/activate.sh
