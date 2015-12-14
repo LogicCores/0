@@ -205,6 +205,3 @@ url=git://github.com/bash-origin/bash.origin.prompt.git
 [submodule "lib/sm.bump"]
 	path = lib/sm.bump
 url=git://github.com/sourcemint/sm.bump.git
-[submodule "lib/bash.origin.phantomjs"]
-	path = lib/bash.origin.phantomjs
-url=git://github.com/bash-origin/bash.origin.phantomjs.git
