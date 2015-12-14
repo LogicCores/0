@@ -14,7 +14,8 @@ exports.forLib = function (LIB) {
                 "Environment": "./Environment.0.ccjson",
                 "DeploymentPointer": "./DeploymentPointer.0.ccjson",
                 "Profile": "./Profile.0.ccjson",
-                "Stack": "./Stack.0.ccjson"
+                "Stack": "./Stack.0.ccjson",
+                "TestSuite": "./TestSuite.0.ccjson"
             },
             makeCollection: function (name, config) {
 

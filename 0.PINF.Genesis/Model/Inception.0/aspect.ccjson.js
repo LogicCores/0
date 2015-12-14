@@ -59,6 +59,9 @@ exports.forLib = function (LIB) {
 //console.log("####MODEL ASPECT INSTANCE", config);
 
                     return LIB.Promise.resolve({
+                        get: function () {
+                            return config;
+                        },
                         app: function () {
                             return LIB.Promise.resolve(
                                 ccjson.makeDetachedFunction(

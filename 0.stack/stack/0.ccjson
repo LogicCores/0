@@ -179,6 +179,7 @@
             },
             "routes": {
                 "travis-ci.org": "https://travis-ci.org",
+                "circleci.com": "https://circleci.com",
                 "badges.gitter.im": "https://badges.gitter.im"
             }
         }
@@ -293,6 +294,11 @@
             "match": "^/[^/]{7}/cores/proxy/for/smi.cache(/.+)$",
             "${{ARG.namespace}}.proxy.smi.cache.app()->impl": {
             }
+        },
+        "${{ARG.namespace}}.routes.test": {
+            "#": "register",
+            "namespace": "{{ARG.namespace}}",
+            "match": "^/[^/]{7}/cores/test(/.+)$"
         },
         "${{ARG.namespace}}.routes.export": {
             "#": "register",

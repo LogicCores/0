@@ -91,10 +91,14 @@ function init {
 	#		    copyAndIgnoreFile "$OUR_BASE_DIR/../Meta/Inception.0/Deployment/os.osx/tpl/run.sh" "run.sh"
 			fi
 
-			# Ensure workspace and zero system is installed
-			# We do NOT trigger the install script in the workspace as we should have been triggered by that script already.
-			export NO_WORKSPACE_DIR_INSTALL="1"
-			"$OUR_BASE_DIR/install.sh"
+			if [ -e "$Z0_ROOT/.installed" ]; then
+			    BO_log "$VERBOSE" "Skipping install of ZeroSystem at '$Z0_ROOT' as it is already determined installed based on '$Z0_ROOT/.installed'"
+			else
+				# Ensure workspace and zero system is installed
+				# We do NOT trigger the install script in the workspace as we should have been triggered by that script already.
+				export NO_WORKSPACE_DIR_INSTALL="1"
+				"$OUR_BASE_DIR/install.sh"
+			fi
 
 		popd > /dev/null
 

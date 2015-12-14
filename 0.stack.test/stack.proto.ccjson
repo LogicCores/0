@@ -22,5 +22,91 @@
                 }
             }
         }
+    },
+    "@0.pinf.genesis.TestSuite": {
+        "${{ARG.namespace}}.0.pinf.genesis.TestSuite.unit.browser": {
+            "group": "{{ARG.namespace}}",
+            "type": "unit",
+            "label": "browser",
+            "implementation": {
+                "internModulePath": "{{__DIRNAME__}}/tests/unit/browser.js"
+            },
+            "containers": {
+                "browser": true
+            }
+        },
+        "${{ARG.namespace}}.0.pinf.genesis.TestSuite.unit.server": {
+            "group": "{{ARG.namespace}}",
+            "type": "unit",
+            "label": "server",
+            "implementation": {
+                "internModulePath": "{{__DIRNAME__}}/tests/unit/server.js"
+            },
+            "containers": {
+                "server": true
+            }
+        },
+        "${{ARG.namespace}}.0.pinf.genesis.TestSuite.unit.portable": {
+            "group": "{{ARG.namespace}}",
+            "type": "unit",
+            "label": "portable",
+            "implementation": {
+                "internModulePath": "{{__DIRNAME__}}/tests/unit/portable.js"
+            },
+            "containers": {
+                "browser": true,
+                "server": true
+            }
+        },
+        "${{ARG.namespace}}.0.pinf.genesis.TestSuite.functional.Todo": {
+            "group": "{{ARG.namespace}}",
+            "type": "functional",
+            "label": "Todo",
+            "implementation": {
+                "internModulePath": "{{__DIRNAME__}}/tests/functional/Todo.js"
+            }
+        }
+    },
+    "@test.phantomjs": {
+        "${{ARG.namespace}}.test.phantomjs": {
+        }
+    },
+    "@test.zerosystem": {
+        "${{ARG.namespace}}.test.zerosystem": {
+        }
+    },
+    "@test.intern": {
+        "${{ARG.namespace}}.test.intern": {
+            "${{ARG.namespace}}.static.fs.cache.path()->cachePath": {
+                "namespace": "test.intern"
+            },
+            "${{ARG.namespace}}.static.fs.cache.path()->testResultPath": {
+                "namespace": "test.intern.result"
+            },
+            "${{ARG.namespace}}.context.server.api()->context": {
+                "adapter": "test.intern"
+            },
+            "${{ARG.namespace}}.test.phantomjs.webdriver()->webdriver": {},
+            "${{ARG.namespace}}.test.zerosystem.serverdriver()->serverdriver": {},
+            "defaultConfig": {
+                "proxyPort": 9000
+            }
+        }
+    },
+    "@route.express": {
+        "${{ARG.namespace}}.routes.test": {
+            "${{ARG.namespace}}.test.intern.app()->impls/intern": {
+                "match": "^/internapi/(.*)$"
+            }
+        }
+    },
+    "@job.cli": {
+        "${{ARG.namespace}}.job.test": {
+            "${{ARG.namespace}}.test.intern.getJobModulePath()->modulePath": {},
+            "${{ARG.namespace}}.context.server.api()->context": {},
+            "config": {
+                "adapter": "test.intern"
+            }
+        }
     }
 }

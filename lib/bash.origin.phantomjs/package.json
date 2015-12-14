@@ -1,0 +1,14 @@
+{
+  "name": "bash.origin.phantomjs",
+  "version": "0.0.0",
+  "repository": "https://github.com/bash-origin/bash.origin.phantomjs.git",
+  "bin": {
+    "bash.origin.phantomjs": "./bash.origin.phantomjs"
+  },
+  "scripts": {
+    "test": "./test.sh"
+  },
+  "dependencies": {
+    "bash.origin": "0.1.x"
+  }
+}

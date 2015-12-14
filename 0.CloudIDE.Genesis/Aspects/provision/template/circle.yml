@@ -1,0 +1,7 @@
+machine:
+  node:
+    version: 4.2.2
+dependencies:
+  pre:
+    # bash.origin.phantomjs
+    - sudo apt-get install libicu52 libjpeg8 libfontconfig1 libwebp5 libssl1.0.0

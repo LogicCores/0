@@ -46,6 +46,9 @@
         "invite.cookie": {
             "forceInvited": false
         },
+        "test.intern": {
+            "clientCacheTTL": "30 days"
+        },
         "page.express": {
             "client": {
                 "context": {

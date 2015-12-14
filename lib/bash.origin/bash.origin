@@ -143,10 +143,19 @@ function init {
 	fi
 	export BO_SYSTEM_CACHE_DIR
 
-	BO_VERSION_NVM="0.25.4"
-	BO_VERSION_NVM_NODE="0.10"
-	BO_VERSION_NVM_IOJS="iojs-v3.0.0"
-	BO_VERSION_SMI_CLI="0.35.14"
+	if [ -z "$BO_VERSION_NVM" ]; then
+		BO_VERSION_NVM="0.29.0"
+	fi
+	if [ -z "$BO_VERSION_NVM_NODE" ]; then
+		BO_VERSION_NVM_NODE="4"
+	fi
+	if [ -z "$BO_VERSION_NVM_IOJS" ]; then
+		# DEPRECATED
+		BO_VERSION_NVM_IOJS="iojs-v3.0.0"
+	fi
+	if [ -z "$BO_VERSION_SMI_CLI" ]; then
+		BO_VERSION_SMI_CLI="0.35.14"
+	fi
 
 
 	###############################
@@ -271,6 +280,17 @@ function init {
 		export PATH="$1:$PATH"
 	}
 
+	# @see http://stackoverflow.com/a/29239609/330439
+	function BO_if_os { [[ $OSTYPE == *$1* ]]; }
+	function BO_if_nix { 
+	    case "$OSTYPE" in
+	        *linux*|*hurd*|*msys*|*cygwin*|*sua*|*interix*) sys="gnu";;
+	        *bsd*|*darwin*) sys="bsd";;
+	        *sunos*|*solaris*|*indiana*|*illumos*|*smartos*) sys="sun";;
+	    esac
+	    [[ "${sys}" == "$1" ]];
+	}
+
 	function BO_ensure_executable {
 		if [[ ! -x "$1" ]]; then
 			BO_log "$VERBOSE" "Making path '$1' executable."
@@ -295,14 +315,19 @@ function init {
 #			return
 #		fi
 		BO_ensure_nvm
-		BO_log "$VERBOSE" "Activating NodeJS version $BO_VERSION_NVM_NODE using nvm."
-		nvm use "$BO_VERSION_NVM_NODE" > /dev/null 2>&1
-		if [ $? -ne 0 ]; then
+		function installAndUse {
+			BO_log "$VERBOSE" "Installing and activating NodeJS version $BO_VERSION_NVM_NODE using nvm."
 			nvm install "$BO_VERSION_NVM_NODE"
-			nvm use "$BO_VERSION_NVM_NODE"
+			nvm use "$BO_VERSION_NVM_NODE" > /dev/null 2>&1
+		}
+		# If major version matches we do not activate.
+		if ! BO_has node || [ "$(echo "$(node --version)" | perl -pe 's/^v(\d+)\..+$/$1/')" != "$BO_VERSION_NVM_NODE" ] ; then
+			BO_log "$VERBOSE" "Activating NodeJS version $BO_VERSION_NVM_NODE using nvm."
+			nvm use "$BO_VERSION_NVM_NODE" > /dev/null 2>&1 || installAndUse
 		fi
 	}
 
+	# DEPRECATED
 	function BO_ensure_iojs {
 # TODO: Check if 'node' command corresponds to our version		
 #		if BO_has "node"; then
@@ -352,6 +377,7 @@ function init {
 		node $@
 	}
 
+	# DEPRECATED
 	function BO_run_iojs {
 		BO_ensure_iojs
 		node $@
@@ -495,15 +521,15 @@ function init {
 			return 1
 	  	fi
 	  	if [ -e "$ARCHIVE_DOWNLOAD_PATH__" ]; then
-			echo "$BO_LOG_PREFIX""Download path '$ARCHIVE_DOWNLOAD_PATH__' exists. Removing."
+			BO_log "$VERBOSE" "${BO_LOG_PREFIX}Download path '$ARCHIVE_DOWNLOAD_PATH__' exists. Removing."
 			rm -Rf "$ARCHIVE_DOWNLOAD_PATH__"
 	  	fi
-		echo "$BO_LOG_PREFIX""Downloading '$DOWNLOAD_URL_' to '$ARCHIVE_DOWNLOAD_PATH__'"
+		BO_log "$VERBOSE" "${BO_LOG_PREFIX}Downloading '$DOWNLOAD_URL_' to '$ARCHIVE_DOWNLOAD_PATH__'"
 		download -s "$DOWNLOAD_URL_" -o "$ARCHIVE_DOWNLOAD_PATH__" || {
 			echo >&2 "$BO_LOG_PREFIX""Failed to download '$ARCHIVE_DOWNLOAD_PATH__'"
 			return 1
 		}
-		echo "$BO_LOG_PREFIX""Extracting '$ARCHIVE_DOWNLOAD_PATH__' to '$DOWNLOAD_PATH__'"
+		BO_log "$VERBOSE" "${BO_LOG_PREFIX}Extracting '$ARCHIVE_DOWNLOAD_PATH__' to '$DOWNLOAD_PATH__'"
 		BO_ensureExtracted "EXTRACTED_PATH__" "$ARCHIVE_DOWNLOAD_PATH__" || {
 			echo >&2 "$BO_LOG_PREFIX""Failed to extract '$ARCHIVE_DOWNLOAD_PATH__'"
 			return 1
@@ -530,9 +556,12 @@ function init {
 			local EXTRACTED_PATH_=`echo "$DOWNLOADED_PATH_" | sed 's/\.tar\.gz$//g'`
 			if [ ! -d "$EXTRACTED_PATH_" ]; then
 				pushd "$(dirname $DOWNLOADED_PATH_)" > /dev/null
-					tar -xzf "$(basename $DOWNLOADED_PATH_)"
-					local RESOLVED_PATH=("$(pwd)"/*/*)
+					rm -Rf "__$(basename $EXTRACTED_PATH_)" > /dev/null || true
+					mkdir "__$(basename $EXTRACTED_PATH_)"
+					tar -xzf "$(basename $DOWNLOADED_PATH_)" -C "__$(basename $EXTRACTED_PATH_)"
+					local RESOLVED_PATH=("$(pwd)"/__"$(basename $EXTRACTED_PATH_)"/*/*)
 					mv -f "$(dirname "$RESOLVED_PATH")" "$(basename $EXTRACTED_PATH_)"
+					rm -Rf "__$(basename $EXTRACTED_PATH_)" > /dev/null || true
 				popd > /dev/null
 			fi
 			BO_setResult $1 "$EXTRACTED_PATH_"
@@ -541,11 +570,17 @@ function init {
 			local EXTRACTED_PATH_=`echo "$DOWNLOADED_PATH_" | sed 's/\.zip$//g'`
 			if [ ! -d "$EXTRACTED_PATH_" ]; then			
 				pushd "$(dirname $DOWNLOADED_PATH_)" > /dev/null
-					unzip -d "$(basename $EXTRACTED_PATH_)" "$(basename $DOWNLOADED_PATH_)"
-					local RESOLVED_PATH=("${EXTRACTED_PATH_}"/*)
-					mv -f "${RESOLVED_PATH}"/* "$(basename $EXTRACTED_PATH_)"
-					mv -f "${RESOLVED_PATH}"/.* "$(basename $EXTRACTED_PATH_)"
-					rm -Rf "$RESOLVED_PATH"
+					rm -Rf "__$(basename $EXTRACTED_PATH_)" > /dev/null || true
+					mkdir "__$(basename $EXTRACTED_PATH_)"
+					unzip -q -d "__$(basename $EXTRACTED_PATH_)" "$(basename $DOWNLOADED_PATH_)"
+					local RESOLVED_PATH=("__$(basename $EXTRACTED_PATH_)"/*)
+					if [ -d "$RESOLVED_PATH" ]; then
+						mv -f "$RESOLVED_PATH" "$(basename $EXTRACTED_PATH_)"
+					else
+						mv -f "$RESOLVED_PATH"/* "$(basename $EXTRACTED_PATH_)"
+						mv -f "$RESOLVED_PATH"/.* "$(basename $EXTRACTED_PATH_)"
+					fi
+					rm -Rf "__$(basename $EXTRACTED_PATH_)" > /dev/null || true
 				popd > /dev/null
 			fi
 			BO_setResult $1 "$EXTRACTED_PATH_"

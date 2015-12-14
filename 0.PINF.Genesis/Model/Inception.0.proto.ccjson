@@ -18,6 +18,9 @@
         "0.pinf.genesis.Stack": {
             "$": "./Inception.0/Stack.0.ccjson"
         },
+        "0.pinf.genesis.TestSuite": {
+            "$": "./Inception.0/TestSuite.0.ccjson"
+        },
         "0.pinf.genesis.Developer": {
             "$": "./Inception.0/Developer.0.ccjson"
         }

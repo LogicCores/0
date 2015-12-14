@@ -1,0 +1,39 @@
+{
+    "$": "./aspect.ccjson.js",
+    "_meta": {
+        "aspect": "TestSuite",
+        "keyProperty": "id",
+        "record": {
+            "id": {
+				"constraints": {
+					"unique": true
+				}
+			},
+			"label": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"group": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"type": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"implementation": {
+				"constraints": {
+					"required": true
+				}
+			},
+			"containers": {
+				"constraints": {
+					"required": true
+				}
+			}
+        }
+    }
+}

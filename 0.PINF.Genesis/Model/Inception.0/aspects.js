@@ -17,6 +17,11 @@ exports.forLib = function (LIB) {
                     "_instances": {}
                 };
             }
+
+            if (typeof aspect[meta.keyProperty] === "undefined") {
+                aspect[meta.keyProperty] = aspect["$alias"];
+            }
+
             var instance = aspects[meta.aspect]["_instances"][aspect[meta.keyProperty]];
             if (!instance) {
                 instance = aspects[meta.aspect]["_instances"][aspect[meta.keyProperty]] = {
@@ -27,6 +32,7 @@ exports.forLib = function (LIB) {
             Object.keys(aspect).forEach(function (name) {
                 if (name === "$alias") return;
                 if (!meta.record || !meta.record[name]) {
+                    console.error("aspect", aspect);
                     console.error("Warning: Field '" + name + "' for model '" + meta.aspect + "' not declared! Ignoring.");
                     return;
                 }
