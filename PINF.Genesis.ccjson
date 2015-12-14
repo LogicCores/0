@@ -37,5 +37,25 @@
             "name": "Christoph Alexander Dorn",
             "responsibility": "Zero System Lead"
         }
+    },
+    "@page.express": {
+        "$0.stack.dev.page.server": {
+            "client": {
+                "context": {
+                    "test": {
+                        "devGitCommitTag": "{{ENV.GIT_COMMIT_TAG}}",
+                        "devGitDirty": "{{ENV.GIT_IS_DIRTY}}",
+                        "runBrowserTestsUrl": "/0/test-10CB0D92-C011-4288-90D6-1A0978DCBF0A/{{ENV.GIT_COMMIT_REV}}/cores/test/internapi/intern/client.html?config=internapi/intern.config/{group}/{label}"
+                    }
+                }
+            }
+        }
+    },
+    "@job.cli": {
+        "$0.job.test": {
+            "jobs": {
+                "0.stack.test.job.test": true
+            }
+        }
     }
 }

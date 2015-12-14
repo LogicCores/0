@@ -1,2 +1,14 @@
 {
+    "@test.intern": {
+        "$0.stack.test.test.intern": {
+            "$0.stack.test.0.pinf.genesis.TestSuite.unit.browser.get()->suites/unit/0.stack.test/browser": {},
+            "$0.stack.test.0.pinf.genesis.TestSuite.unit.server.get()->suites/unit/0.stack.test/server": {},
+            "$0.stack.test.0.pinf.genesis.TestSuite.unit.portable.get()->suites/unit/0.stack.test/portable": {},
+            "$0.stack.test.0.pinf.genesis.TestSuite.functional.Todo.get()->suites/functional/0.stack.test/Todo": {},
+
+            "$0.stack.dev.0.pinf.genesis.TestSuite.unit.browser.get()->suites/unit/0.stack.dev/browser": {},
+            "$0.stack.dev.0.pinf.genesis.TestSuite.unit.portable.get()->suites/unit/0.stack.dev/portable": {},
+            "$0.stack.dev.0.pinf.genesis.TestSuite.functional.Developers.get()->suites/functional/0.stack.dev/Developers": {}
+        }
+    }
 }

@@ -1,18 +1,12 @@
 [submodule "cores/protocol"]
 	path = cores/protocol
 url=git://github.com/LogicCores/0-protocol.git
-[submodule "cores/responder"]
-	path = cores/responder
-url=git://github.com/LogicCores/0-responder.git
 [submodule "cores/time"]
 	path = cores/time
 url=git://github.com/LogicCores/0-time.git
 [submodule "cores/export"]
 	path = cores/export
 url=git://github.com/LogicCores/0-export.git
-[submodule "cores/container"]
-	path = cores/container
-url=git://github.com/LogicCores/0-container.git
 [submodule "cores/route"]
 	path = cores/route
 url=git://github.com/LogicCores/0-route.git
@@ -28,12 +22,6 @@ url=git://github.com/LogicCores/0-loop.git
 [submodule "cores/skin"]
 	path = cores/skin
 url=git://github.com/LogicCores/0-skin.git
-[submodule "lib/bash.origin"]
-	path = lib/bash.origin
-url=git://github.com/bash-origin/bash.origin.git
-[submodule "cores/page"]
-	path = cores/page
-	url = git://github.com/LogicCores/0-page.git
 [submodule "lib/sm.hoist.VisualComponents"]
 	path = lib/sm.hoist.VisualComponents
 	url = git://github.com/sourcemint/sm.hoist.VisualComponents.git
@@ -55,9 +43,6 @@ url=git://github.com/LogicCores/0-watch.git
 [submodule "cores/edit"]
 	path = cores/edit
 	url = git://github.com/LogicCores/0-edit.git
-[submodule "cores/test"]
-	path = cores/test
-	url = git://github.com/LogicCores/0-test.git
 [submodule "cores/component"]
 	path = cores/component
 	url = git://github.com/LogicCores/0-component.git
@@ -91,9 +76,6 @@ url=git://github.com/LogicCores/0-console.git
 [submodule "cores/auth"]
 	path = cores/auth
 url=git://github.com/LogicCores/0-auth.git
-[submodule "lib/ccjson"]
-	path = lib/ccjson
-	url = git://github.com/LogicCores/ccjson.git
 [submodule "cores/profile"]
 	path = cores/profile
 	url = git://github.com/LogicCores/0-profile.git
@@ -166,27 +148,12 @@ url=git://github.com/LogicCores/0-model.git
 [submodule "0.FireWidgets"]
 	path = 0.FireWidgets
 	url = git://github.com/firewidgets/0.FireWidgets.git
-[submodule "0.PINF.Genesis"]
-	path = 0.PINF.Genesis
-url=git://github.com/pinf/0.PINF.Genesis.git
-[submodule "0.stack"]
-	path = 0.stack
-	url = git://github.com/LogicCores/0.stack.git
-[submodule "0.stack.dev"]
-	path = 0.stack.dev
-	url = git://github.com/LogicCores/0.stack.dev.git
-[submodule "0.stack.test"]
-	path = 0.stack.test
-	url = git://github.com/LogicCores/0.stack.test.git
 [submodule "0.stack.admin"]
 	path = 0.stack.admin
 	url = git://github.com/LogicCores/0.stack.admin.git
 [submodule "0.stack.app"]
 	path = 0.stack.app
 	url = git://github.com/LogicCores/0.stack.app.git
-[submodule "0.stack.web"]
-	path = 0.stack.web
-	url = git://github.com/LogicCores/0.stack.web.git
 [submodule "0.PINF.Genesis.to"]
 	path = 0.PINF.Genesis.to
 url=git://github.com/pinf-to/0.PINF.Genesis.to.git
@@ -220,18 +187,12 @@ url=git://github.com/firewidgets/virtual-dom.git
 [submodule "cores/library"]
 	path = cores/library
 	url = git://github.com/LogicCores/0-library.git
-[submodule "cores/job"]
-	path = cores/job
-	url = git://github.com/LogicCores/0-job.git
 [submodule "cores/report"]
 	path = cores/report
 url=git://github.com/LogicCores/0-report.git
 [submodule "cores/message"]
 	path = cores/message
 	url = git://github.com/LogicCores/0-message.git
-[submodule "cores/application"]
-	path = cores/application
-url=git://github.com/LogicCores/0-application.git
 [submodule "lib/console-trace"]
 	path = lib/console-trace
 url=git://github.com/cadorn/console-trace.git
@@ -241,3 +202,12 @@ url=git://github.com/NodePACK/node.unpack.git
 [submodule "lib/bash.origin.prompt"]
 	path = lib/bash.origin.prompt
 url=git://github.com/bash-origin/bash.origin.prompt.git
+[submodule "lib/sm.bump"]
+	path = lib/sm.bump
+url=git://github.com/sourcemint/sm.bump.git
+[submodule "lib/runbash"]
+	path = lib/runbash
+url=git://github.com/cadorn/runbash.git
+[submodule "lib/bash.origin.phantomjs"]
+	path = lib/bash.origin.phantomjs
+url=git://github.com/bash-origin/bash.origin.phantomjs.git

@@ -135,6 +135,11 @@ exports.forPoly = function (POLYFILLS) {
             if (exportCache["ms"]) return exportCache["ms"];
             return (exportCache["ms"] = require("ms"));
         },
+        // TODO: This module should come from an installed module like the rest or be dynamically loaded later.
+        get runbash () {
+            if (exportCache["runbash"]) return exportCache["runbash"];
+            return (exportCache["runbash"] = require("../lib/runbash"));
+        },
         get traverse () {
             if (exportCache["traverse"]) return exportCache["traverse"];
             return (exportCache["traverse"] = require("traverse"));

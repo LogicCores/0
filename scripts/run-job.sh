@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ -z "$HOME" ]; then
 	echo "ERROR: 'HOME' environment variable is not set!"
 	exit 1
@@ -39,7 +39,35 @@ function init {
 			exit 1
 		fi
 
-		node "$Z0_ROOT/job.js" $@
+
+		if [ -e ".git" ]; then
+			export GIT_COMMIT_REV=`git rev-parse --short HEAD`
+			export GIT_COMMIT_TAG=`git describe --tags`
+			# TODO: Call helper here instead of repeating code.
+		    if [[ $(git diff --shortstat 2> /dev/null | tail -n1) != "" ]] || [[ $(git status -s 2> /dev/null | tail -n1) != "" ]]; then
+				export GIT_IS_DIRTY="0"
+		    else
+				export GIT_IS_DIRTY="1"
+	        fi
+		else
+			if [ -e ".git.commit.rev" ]; then
+				export GIT_COMMIT_REV=`cat .git.commit.rev`
+			else
+				export GIT_COMMIT_REV=""
+			fi
+			if [ -e ".git.commit.tag" ]; then
+				export GIT_COMMIT_TAG=`cat .git.commit.tag`
+			else
+				export GIT_COMMIT_TAG=""
+			fi
+			export GIT_IS_DIRTY=""
+		fi
+		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
+		BO_log "$VERBOSE" "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
+		BO_log "$VERBOSE" "GIT_IS_DIRTY: $GIT_IS_DIRTY"
+
+
+		BO_run_node "$Z0_ROOT/job.js" $@
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
