@@ -26,7 +26,7 @@ We **strongly encourage** you to **NOT put your code into this repository direct
 
 If you do need to make changes to this repository or any of its submodules we encourage you to work against [github.com/0system/0system.0](https://github.com/0system/0system.0) (which is automatically derived from this codebase) **instead** of this repository as `0system.0` inlines all submodules and is intended to facilitate contributions via a large single-layer clone network.
 
-All information below still applies when using Zero System via `0.workspace` as `0.workspace` simply installs Zero System into a project at which point you interact with this Zero System codebase or a derivative thereof directly.
+**All information below still applies when using Zero System via `0.workspace`** as `0.workspace` simply installs Zero System into a project at which point you interact with this Zero System codebase or a derivative thereof directly.
 
 
 Commands
@@ -98,7 +98,7 @@ Notes:
 
 ## Instructions
 
-  1. Fork [github.com/0system/0system.0](https://github.com/0system/0system.0) and rename it to something `<ReverseHostname>.*` where `<ReverseHostname>` is a hostname **you have control over**. This is your *root external namespace* and will ensure your clone will never conflict with other cloens you have nor with anyone else's (see *Constructing your own namespaces* above).
+  1. Fork [github.com/0system/0system.0](https://github.com/0system/0system.0) and rename it to something `<ReverseHostname>.*` where `<ReverseHostname>` is a hostname **you have control over**. This is your *root external namespace* and will ensure your clone will never conflict with other cloens you have nor with anyone else's (see *Constructing your own namespaces* above). [0.workspace](https://github.com/LogicCores/0.workspace) does this for you.
   2. Develop your application in your chosen internal `<ReverseHostname>.*` namespace *in parallel* to the internal `0.*` namespace.
   3. Use the `0.*` application as a reference and to contribute back.
   4. Exclude the public `0.*` namespace when distributing your application (will happen by default).
