@@ -58,7 +58,19 @@ function init {
 		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
 
 
-		node "$Z0_ROOT/server.js"
+		if [ ! -e ".git.commit.tag" ]; then
+			echo "ERROR: '.git.commit.tag' file not found!"
+			exit 1
+		fi
+		export GIT_COMMIT_TAG=`cat .git.commit.tag`
+		BO_log "$VERBOSE" "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
+
+
+		export GIT_IS_DIRTY="0"
+		BO_log "$VERBOSE" "GIT_IS_DIRTY: $GIT_IS_DIRTY"
+
+
+		BO_run_node "$Z0_ROOT/server.js"
 
 
 		BO_format "$VERBOSE" "FOOTER"

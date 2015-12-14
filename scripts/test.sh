@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 if [ -z "$HOME" ]; then
 	echo "ERROR: 'HOME' environment variable is not set!"
 	exit 1
@@ -16,7 +16,18 @@ function init {
 	function Test {
 		BO_format "$VERBOSE" "HEADER" "Testing ..."
 
-echo "Running ..."
+
+		rm -Rf "$Z0_ROOT/0.stack.test/.cache/test.intern.result" > /dev/null || true
+
+
+		"$__BO_DIR__/run-job.sh" "0.job.test" $@
+
+
+		# TODO: Relocate into 'cores/container/circle-ci'
+		if [ ! -z "$CIRCLE_TEST_REPORTS" ] && [ -e "$Z0_ROOT/0.stack.test/.cache/test.intern.result" ] ; then
+			cp -Rf $Z0_ROOT/0.stack.test/.cache/test.intern.result/*.report.xml "${CIRCLE_TEST_REPORTS}/"
+		fi
+
 
 		BO_format "$VERBOSE" "FOOTER"
 	}
@@ -27,7 +38,7 @@ echo "Running ..."
 
 
 	# This variable must not be used from now on
-	export PIO_PROFILE_SECRET=""
+#	export PIO_PROFILE_SECRET=""
 
 	Test $@
 }

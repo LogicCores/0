@@ -2,8 +2,8 @@
     "submodules": {
         "/0.CloudIDE.Genesis": {
             "branch": "master",
-            "date": 1449168622000,
-            "ref": "15fdc7b3bee6853d73c542732e1e20aa3aa5e146",
+            "date": 1450113083000,
+            "ref": "7cedf4a6522db7822efd696ba8560a99f89e80b5",
             "url": "git://github.com/CloudIDE-Plugins/0.CloudIDE.Genesis.git"
         },
         "/0.FireConsole": {
@@ -20,8 +20,8 @@
         },
         "/0.PINF.Genesis": {
             "branch": "master",
-            "date": 1447983773000,
-            "ref": "5dbedca0e968d8c0556f8101202d2d9a4731899e",
+            "date": 1449627416000,
+            "ref": "fb95e65c139ce16cd0b92bb7c69382a79084e374",
             "url": "git://github.com/pinf/0.PINF.Genesis.git"
         },
         "/0.PINF.Genesis.to": {
@@ -44,8 +44,8 @@
         },
         "/0.stack": {
             "branch": "master",
-            "date": 1448480327000,
-            "ref": "3ca9805b42a9b8da721c1b82d800c7dbf8b263b9",
+            "date": 1449789369000,
+            "ref": "3b90d7410f75862abed95d1b1f1769a38e3366a4",
             "url": "git://github.com/LogicCores/0.stack.git"
         },
         "/0.stack.admin": {
@@ -62,26 +62,26 @@
         },
         "/0.stack.dev": {
             "branch": "master",
-            "date": 1447639275000,
-            "ref": "2dda3b9e520b96e04c971eaf9442f2072a343f76",
+            "date": 1449626866000,
+            "ref": "d46687718c961b72f71009f36d6bab37d0c1e392",
             "url": "git://github.com/LogicCores/0.stack.dev.git"
         },
         "/0.stack.test": {
             "branch": "master",
-            "date": 1447741915000,
-            "ref": "5076c75c3426372d4a6fba50cf010826e35e05fe",
+            "date": 1449789391000,
+            "ref": "423e920d09df4694d985efa3421990076d164a18",
             "url": "git://github.com/LogicCores/0.stack.test.git"
         },
         "/0.stack.web": {
             "branch": "master",
-            "date": 1448314363000,
-            "ref": "3d600c67a0bd622e53be529a35beb0d18c329f52",
+            "date": 1449789412000,
+            "ref": "36b81f3417411bf46be61a0e496756fa371dc6ff",
             "url": "git://github.com/LogicCores/0.stack.web.git"
         },
         "/cores/application": {
             "branch": "vdom",
-            "date": 1448314385000,
-            "ref": "cd71430c22ccf6fe68ac7fe12f29d988caf35f89",
+            "date": 1449626893000,
+            "ref": "94781c13dd539126caa2d1d5bed70c1bc9e3e212",
             "url": "git://github.com/LogicCores/0-application.git"
         },
         "/cores/auth": {
@@ -122,8 +122,8 @@
         },
         "/cores/container": {
             "branch": "vdom",
-            "date": 1448175723000,
-            "ref": "fc3a88e0bc3e4c408808e4934e0de7024130d32f",
+            "date": 1449786038000,
+            "ref": "c08b495a4323b136760a6cac7a9069db36d524fe",
             "url": "git://github.com/LogicCores/0-container.git"
         },
         "/cores/context": {
@@ -182,8 +182,8 @@
         },
         "/cores/job": {
             "branch": "master",
-            "date": 1448245686000,
-            "ref": "64991a37f140b25c9fbaab753a2c08a40eef803a",
+            "date": 1449626934000,
+            "ref": "c13f0e4c9bb4d9c43d0c62cf10431170c45f6cf7",
             "url": "git://github.com/LogicCores/0-job.git"
         },
         "/cores/layout": {
@@ -230,8 +230,8 @@
         },
         "/cores/page": {
             "branch": "vdom",
-            "date": 1448420669000,
-            "ref": "38d31d914fe476260a3d66e4251121635a587a34",
+            "date": 1450113373000,
+            "ref": "4ed3b59f9e83767de8dd59e67664c86b79c7a7ff",
             "url": "git://github.com/LogicCores/0-page.git"
         },
         "/cores/process": {
@@ -278,8 +278,8 @@
         },
         "/cores/responder": {
             "branch": "master",
-            "date": 1448480357000,
-            "ref": "63ea0af8fc874ac2dec6055e466eb083c2d54a57",
+            "date": 1449626980000,
+            "ref": "b20771f250a31455510ac57362dd6cc60832eb16",
             "url": "git://github.com/LogicCores/0-responder.git"
         },
         "/cores/route": {
@@ -326,8 +326,8 @@
         },
         "/cores/test": {
             "branch": "master",
-            "date": 1447623077000,
-            "ref": "d2a1fad9ebef2ce3da8ae66bda2136204a8d1404",
+            "date": 1449808746000,
+            "ref": "751569e9c2ff060b0e9aa02f55301d263d5a951d",
             "url": "git://github.com/LogicCores/0-test.git"
         },
         "/cores/time": {
@@ -350,9 +350,15 @@
         },
         "/lib/bash.origin": {
             "branch": "master",
-            "date": 1449084880000,
-            "ref": "165a8cb331c28ab3164f1942ae9fac11f9b2cb1d",
+            "date": 1450113286000,
+            "ref": "97efc4856e027546cf387b0f808d799d030057f2",
             "url": "git://github.com/bash-origin/bash.origin.git"
+        },
+        "/lib/bash.origin.phantomjs": {
+            "branch": "master",
+            "date": 1449787449000,
+            "ref": "5d9a2c31cfe3f3c6d805504d6c581878942417e5",
+            "url": "git://github.com/bash-origin/bash.origin.phantomjs.git"
         },
         "/lib/bash.origin.prompt": {
             "branch": "master",
@@ -362,8 +368,8 @@
         },
         "/lib/ccjson": {
             "branch": "master",
-            "date": 1448844264000,
-            "ref": "0f0cbbc0d640828732e4d57833c5432aac8c0e7a",
+            "date": 1449627009000,
+            "ref": "9d7899f5df9622f2626becedfa1815c93376960e",
             "url": "git://github.com/LogicCores/ccjson.git"
         },
         "/lib/ccjson.function.tree": {
@@ -428,8 +434,8 @@
         },
         "/lib/node.pack": {
             "branch": "master",
-            "date": 1449168651000,
-            "ref": "3bcbec21cb42914af1354cdec91f668053902d00",
+            "date": 1449712151000,
+            "ref": "92716e4abde6898d179356c7176fa2fa50fab3a8",
             "url": "git://github.com/NodePACK/node.pack.git"
         },
         "/lib/node.unpack": {
@@ -449,6 +455,12 @@
             "date": 1442302763000,
             "ref": "3ddcbb5dbe136f3817d3a624a2c2f909bb7a6aab",
             "url": "git://github.com/pinf-io/pio.profile.git"
+        },
+        "/lib/runbash": {
+            "branch": "master",
+            "date": 1449723989000,
+            "ref": "95e6ba117d49ae78ddd9ad48906bf2aef0fe6da2",
+            "url": "git://github.com/cadorn/runbash.git"
         },
         "/lib/sm.bump": {
             "branch": "master",

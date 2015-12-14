@@ -24,6 +24,15 @@
         "invite.cookie": {
             "$": "./cores/invite/for/cookie/0-server.impl.ccjson"
         },
+        "test.intern": {
+            "$": "./cores/test/for/intern/0-server.impl.ccjson"
+        },
+        "test.zerosystem": {
+            "$": "./cores/test/for/zerosystem/0-server.impl.ccjson"
+        },
+        "test.phantomjs": {
+            "$": "./cores/test/for/phantomjs/0-server.impl.ccjson"
+        },
         "time.moment": {
             "$": "./cores/time/for/moment/0-server.impl.ccjson"
         },

@@ -30,6 +30,8 @@ function init {
     BO_sourcePrototype "$__BO_DIR__/activate.sh"
 
 
+	# TODO: Ensure correct version of 'tar' is available (as needed by 'node.pack')
+
 
 	function Unpack {
 		BO_format "$VERBOSE" "HEADER" "Unpacking 0 ..."
@@ -287,6 +289,20 @@ function init {
 	       	fi
 		popd > /dev/null
 
+		pushd "lib/bash.origin.phantomjs" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	mkdir node_modules
+	        	ln -s ../../bash.origin node_modules/bash.origin
+	        	npm install
+	       	fi
+		popd > /dev/null
+
+		pushd "lib/runbash" > /dev/null
+	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
+	        	npm install
+	       	fi
+		popd > /dev/null
+
 		pushd "lib/sm.bump" > /dev/null
 	        if [ ! -e "node_modules" ] || [ "$1" == "reinstall" ]; then
 	        	npm install
@@ -385,7 +401,7 @@ function init {
 
 
 
-		if [ -e ".git" ]; then
+		if [ -e ".git/hooks" ]; then
 			"$Z0_ROOT/lib/pio.profile/bin/install-pre-commit-hook" \
 				"$__BO_DIR__/pre-commit.sh"
 		fi

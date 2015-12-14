@@ -80,6 +80,9 @@ function init {
 		GIT_COMMIT_REV=`git rev-parse --short HEAD`
 		BO_log "$VERBOSE" "GIT_COMMIT_REV: $GIT_COMMIT_REV"
 
+		GIT_COMMIT_TAG=`git describe --tags`
+		BO_log "$VERBOSE" "GIT_COMMIT_TAG: $GIT_COMMIT_TAG"
+
 		pushd "$STREAM_REPOSITORY_PATH" > /dev/null
 
 
@@ -121,10 +124,16 @@ function init {
     		BO_log "$VERBOSE" "Commit changes for latest platform tooling for: $PLATFORM_NAME"
 	        git commit -m "Latest platform tooling for: $PLATFORM_NAME" || true
 
+
 			printf "%s" "$GIT_COMMIT_REV" > .git.commit.rev
 	        git add .git.commit.rev || true
-    		BO_log "$VERBOSE" "Freeze commit rev for source: $GIT_COMMIT_REV"
-	        git commit -m "Freeze commit rev for source: $GIT_COMMIT_REV" || true
+
+			printf "%s" "$GIT_COMMIT_TAG" > .git.commit.tag
+	        git add .git.commit.tag || true
+
+    		BO_log "$VERBOSE" "Freeze commit rev & tag for source"
+	        git commit -m "Freeze commit rev & tag for source" || true
+
 
 			if [ ! -e "0" ]; then
 
