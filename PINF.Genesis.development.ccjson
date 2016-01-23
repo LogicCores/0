@@ -1,5 +1,6 @@
 {
-    "@test.intern": {
+    "__DISABLED__@test.intern": {
+        "TODO": "Remove this once all test cases are moved to components BlogCategory example",
         "$0.stack.test.test.intern": {
             "$0.stack.test.0.pinf.genesis.TestSuite.unit.browser.get()->suites/unit/0.stack.test/browser": {},
             "$0.stack.test.0.pinf.genesis.TestSuite.unit.server.get()->suites/unit/0.stack.test/server": {},
