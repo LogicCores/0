@@ -258,4 +258,4 @@ url=git://github.com/cadorn/runbash.git
 url=git://github.com/bash-origin/bash.origin.phantomjs.git
 [submodule "lib/pinf-for-dojo"]
 	path = lib/pinf-for-dojo
-	url = git@github.com:pinf/pinf-for-dojo.git
+url=git://github.com/pinf/pinf-for-dojo.git
