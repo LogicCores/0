@@ -139,5 +139,5 @@ This project is governed by [Christoph Dorn](http://christophdorn.com) who is th
 Provenance
 ==========
 
-Original source logic under [Free Public License](https://lists.opensource.org/pipermail/license-review/2015-October/001254.html) by [Christoph Dorn](http://christophdorn.com)
+Original source logic under [Free Public License](https://lists.opensource.org/pipermail/license-review/2015-October/001254.html) by [Christoph Dorn](http://christophdorn.com).
 
